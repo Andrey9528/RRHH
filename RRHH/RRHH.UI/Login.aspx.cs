@@ -59,7 +59,7 @@ namespace RRHH.UI
                             {
                                 Response.Redirect("AdminView.aspx");
                             }
-                            //frmLogin login = new frmLogin();
+                           
 
                         }
                         if (Sigleton.OpEmpleados.BuscarEmpleadoCorreo(txtcorreo.Text).Password !=
@@ -92,23 +92,7 @@ namespace RRHH.UI
 
 
 
-                //List<Empleado> listaEmpleados = Sigleton.OpEmpleados.ListarEmpleados();
-                //var usr = listaEmpleados.Where(x => x.Correo == txtcorreo.Text && x.Password == txtcontra.Text).FirstOrDefault();
-                //if (usr != null && usr.id_rol==1)
-                //{
-                //    Session["Cedula"] = usr.Cedula.ToString();
-                //    Session["Correo"] = usr.Correo.ToString();
-
-                //    Response.Redirect("Index.aspx");
-                //}
-                //else if(usr!=null  && usr.id_rol==2)
-                //{
-
-                //}
-                //else if(usr!=null && usr.id_rol==3)
-                //{
-
-                //} 
+                
 
 
 
