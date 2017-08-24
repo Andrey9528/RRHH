@@ -7,6 +7,9 @@ using System.Web.UI.WebControls;
 using RRHH.DATA;
 using RRHH.DS.Interfaces;
 using RRHH.DS.Metodos;
+using System.Data.SqlClient;
+using System.Data;
+
 namespace RRHH.UI
 {
     public partial class Login : System.Web.UI.Page
@@ -24,79 +27,104 @@ namespace RRHH.UI
             {
                 if (string.IsNullOrEmpty(txtcorreo.Text) || string.IsNullOrEmpty(txtcontra.Text))
                 {
-                    //MessageBox.Show("Debes ingresar tu usuario y contraseña", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    mensaje.Visible = false;
-                    mensajeError.Visible = true;
-                    mensajeinfo.Visible = false;
-                    textoMensajeError.InnerHtml = "Debes ingresar tu usuario y contraseña";
-                    txtcontra.Text = string.Empty;
-                    txtcorreo.Text = string.Empty;
+
+                     mensaje.Visible = false;
+                     mensajeError.Visible = true;
+                     mensajeinfo.Visible = false;
+                     textoMensajeError.InnerHtml = "Debes ingresar tu usuario y contraseña";
+                     txtcontra.Text = string.Empty;
+                     txtcorreo.Text = string.Empty;
                 }
-                if (txtcorreo.Text != null && txtcontra.Text != null)
+                if (!string.IsNullOrEmpty(txtcorreo.Text) && !string.IsNullOrEmpty(txtcontra.Text))
                 {
                     if (Sigleton.OpEmpleados.ExisteEmpleado(txtcorreo.Text))
                     {
-                        if (Sigleton.OpEmpleados.BuscarEmpleadoCorreo(txtcontra.Text).Password ==
-                            txtcontra.Text)//Encriptacion.Encriptar(txtcontra.Text, Encriptacion.Llave))
+                        if ( Sigleton.OpEmpleados.BuscarEmpleadoCorreo(txtcorreo.Text).Password ==
+                             txtcontra.Text   )//Sigleton.Encriptar(txtPassword.Text, Utilitarios.Llave))
                         {
                             EmpleadoGlobal = Sigleton.OpEmpleados.BuscarEmpleadoCorreo(txtcorreo.Text);
-                            //Aqui se pone auditorialogin Sigleton.OpEmpleados.InsertarEnLogin(PersonaGlobal.Cedula, PersonaGlobal.Nombre, PersonaGlobal.PrimerApellido);
-                            //Limpiar(this.Controls);
+                            //Sigleton.OpAuditoria.InsertarEnLogin(PersonaGlobal.Cedula, PersonaGlobal.Nombre, PersonaGlobal.PrimerApellido);
+                            if (EmpleadoGlobal.IdRol == 1)
+                            {
 
-                            Response.Redirect("Index.aspx");
+                                Response.Redirect("EmpleadoView.aspx");
+                            }
+                            else if (EmpleadoGlobal.IdRol == 2)
+                            {
+
+                                Response.Redirect("JefeView.aspx");
+
+                            }
+                            else if (EmpleadoGlobal.IdRol == 3)
+                            {
+                                Response.Redirect("AdminView.aspx");
+                            }
+                            //frmLogin login = new frmLogin();
+
                         }
                         if (Sigleton.OpEmpleados.BuscarEmpleadoCorreo(txtcorreo.Text).Password !=
-                            txtcontra.Text)//Encriptacion.Encriptar(txtcontra.Text, Encriptacion.Llave))
+                            txtcontra.Text)//Sigleton.Encriptar(txtPassword.Text, Utilitarios.Llave))
                         {
                             EmpleadoGlobal = Sigleton.OpEmpleados.BuscarEmpleadoCorreo(txtcorreo.Text);
 
-                            mensaje.Visible = false;
-                            mensajeinfo.Visible = false;
-                            mensajeError.Visible = true;
-                            textoMensajeError.InnerHtml = "Contraseña Incorrecta";
-                            //txtcontra.Text = string.Empty;
-                            //txtcorreo.Text = string.Empty;
-                            // Utilitarios.OpAuditoria.InsertarEnLoginFallido(PersonaGlobal.Cedula, PersonaGlobal.Nombre, PersonaGlobal.PrimerApellido);
+                              mensaje.Visible = false;
+                              mensajeinfo.Visible = false;
+                              mensajeError.Visible = true;
+                              textoMensajeError.InnerHtml = "Contraseña Incorrecta";
+                              txtcontra.Text = string.Empty;
+                              txtcorreo.Text = string.Empty;                           
 
-                        }
-                        else
-                        {
-                            mensaje.Visible = false;
-                            mensajeError.Visible = false;
-                            mensajeinfo.Visible = true;
-                            textomensajeinfo.InnerHtml = "Usuario no existe";
-                            txtcontra.Text = string.Empty;
-                            txtcorreo.Text = string.Empty;
-
+                            //Utilitarios.OpAuditoria.InsertarEnLoginFallido(PersonaGlobal.Cedula, PersonaGlobal.Nombre, PersonaGlobal.PrimerApellido);
                         }
                     }
-
+                    else
+                    {
+                       mensaje.Visible = false;
+                       mensajeError.Visible = false;
+                       mensajeinfo.Visible = true;
+                       textomensajeinfo.InnerHtml = "Usuario no existe";
+                       txtcontra.Text = string.Empty;
+                       txtcorreo.Text = string.Empty;
+                    }
 
                 }
 
 
 
-                //List<Empleado> listarEmple = Sigleton.OpEmpleados.ListarEmpleados();
-                //var usr = listarEmple.Where(x => x.Correo == txtcorreo.Text && x.Password == txtcontra.Text).FirstOrDefault();
-                //if (usr != null)
+
+                //List<Empleado> listaEmpleados = Sigleton.OpEmpleados.ListarEmpleados();
+                //var usr = listaEmpleados.Where(x => x.Correo == txtcorreo.Text && x.Password == txtcontra.Text).FirstOrDefault();
+                //if (usr != null && usr.id_rol==1)
                 //{
                 //    Session["Cedula"] = usr.Cedula.ToString();
                 //    Session["Correo"] = usr.Correo.ToString();
+
                 //    Response.Redirect("Index.aspx");
                 //}
-                //else
+                //else if(usr!=null  && usr.id_rol==2)
                 //{
 
                 //}
+                //else if(usr!=null && usr.id_rol==3)
+                //{
+
+                //} 
+
+
+
+
+
+
             }
 
 
             catch (Exception ex)
             {
+              
                 mensaje.Visible = false;
                 mensajeError.Visible = true;
                 mensajeinfo.Visible = false;
-                textoMensajeError.InnerHtml = ex.StackTrace;
+                textoMensajeError.InnerHtml ="error";
                 //ImprimirMensajeError(ex.Message);
                 //Utilitarios.OpErrores.InsertarEnErrores(PersonaGlobal.Nombre, PersonaGlobal.Cedula, ex.ToString());
                 //Limpiar(this.Controls);

@@ -11,7 +11,7 @@ namespace RRHH.UI
 {
 
 
-    public partial class Index
+    public partial class AdminView
     {
     }
 }
