@@ -60,8 +60,20 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>BD.settings</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IControlAuditorias.cs" />
+    <Compile Include="Interfaces\IControlErrores.cs" />
+    <Compile Include="Interfaces\Idepartamento.cs" />
     <Compile Include="Interfaces\IEmpleado.cs" />
+    <Compile Include="Interfaces\IIncapacidad.cs" />
+    <Compile Include="Interfaces\IRoles.cs" />
+    <Compile Include="Interfaces\ISolicitudVacaciones.cs" />
+    <Compile Include="Metodos\MControlAuditorias.cs" />
+    <Compile Include="Metodos\MControlErrores.cs" />
+    <Compile Include="Metodos\MDepartamento.cs" />
     <Compile Include="Metodos\MEmpleado.cs" />
+    <Compile Include="Metodos\MIncapacidad.cs" />
+    <Compile Include="Metodos\MRoles.cs" />
+    <Compile Include="Metodos\MSolicitudVacaciones.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
