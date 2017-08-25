@@ -26,9 +26,9 @@ namespace RRHH.DS.Metodos
             _db.Update(empleado);
         }
 
-        public Empleado BuscarEmpleadoCorreo(string Correo)
+        public Empleado BuscarEmpleadoCorreo(string correo)
         {
-            return _db.Select<Empleado>(x => x.Correo == Correo).FirstOrDefault();
+            return _db.Select<Empleado>(x => x.Correo == correo).FirstOrDefault();
         }
 
         public Empleado BuscarEmpleados(string Cedula)
@@ -54,7 +54,6 @@ namespace RRHH.DS.Metodos
                 else
                 {
                     return false;
-
                 }
             }
             catch (Exception ex)

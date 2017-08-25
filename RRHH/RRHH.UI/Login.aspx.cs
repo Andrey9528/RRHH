@@ -25,6 +25,7 @@ namespace RRHH.UI
 
             try
             {
+
                 if (string.IsNullOrEmpty(txtcorreo.Text) || string.IsNullOrEmpty(txtcontra.Text))
                 {
 
@@ -35,12 +36,12 @@ namespace RRHH.UI
                      txtcontra.Text = string.Empty;
                      txtcorreo.Text = string.Empty;
                 }
-                if (!string.IsNullOrEmpty(txtcorreo.Text) && !string.IsNullOrEmpty(txtcontra.Text))
+                if (txtcorreo.Text != null && txtcontra.Text != null)
                 {
                     if (Sigleton.OpEmpleados.ExisteEmpleado(txtcorreo.Text))
                     {
-                        if ( Sigleton.OpEmpleados.BuscarEmpleadoCorreo(txtcorreo.Text).Password ==
-                             txtcontra.Text   )//Sigleton.Encriptar(txtPassword.Text, Utilitarios.Llave))
+                        if (Sigleton.OpEmpleados.BuscarEmpleadoCorreo(txtcorreo.Text).Password ==
+                             txtcontra.Text)//Sigleton.Encriptar(txtPassword.Text, Utilitarios.Llave))
                         {
                             EmpleadoGlobal = Sigleton.OpEmpleados.BuscarEmpleadoCorreo(txtcorreo.Text);
                             //Sigleton.OpAuditoria.InsertarEnLogin(PersonaGlobal.Cedula, PersonaGlobal.Nombre, PersonaGlobal.PrimerApellido);

@@ -25,8 +25,6 @@ namespace RRHH.DATA
 
         public DateTime FechaNacimiento { get; set; }
 
-        
-
         public int IdDepartamento { get; set; }
 
         public int IdRol { get; set; }
