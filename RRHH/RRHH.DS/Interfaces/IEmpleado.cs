@@ -15,6 +15,6 @@ namespace RRHH.DS.Interfaces
         void ActualizarEmpleados(Empleado empleado);
         void EliminarEmpleados(string Cedula);
         bool ExisteEmpleado(string Correo);
-        Empleado BuscarEmpleadoCorreo(string Correo);
+        Empleado BuscarEmpleadoCorreo(string correo);
     }
 }
