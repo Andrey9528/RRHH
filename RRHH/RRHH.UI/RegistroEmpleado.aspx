@@ -25,7 +25,7 @@
     <asp:TextBox ID="txtFechaNacimiento" CssClass="form-control" TextMode="Date" runat="server"></asp:TextBox>
     <asp:Label ID="Label8" runat="server" Text="Departamento"></asp:Label>
      <br> 
-    <asp:DropDownList ID="ddlDepartamento" class = "form-control" runat="server"></asp:DropDownList>
+    <asp:DropDownList ID="ddlDepartamento" class = "form-control" runat="server"> </asp:DropDownList>
     <asp:Label ID="Label9" runat="server" Text="Rol"></asp:Label>
      <br> 
     <asp:DropDownList ID="ddlRol" class = "form-control" runat="server"></asp:DropDownList>
