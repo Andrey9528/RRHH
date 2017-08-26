@@ -12,6 +12,7 @@ namespace RRHH.DS.Interfaces
         List<Roles> ListarRoles();
         Roles BuscarRoles(int id_rol);
         void InsertarRoles(Roles roles);
+        Roles BuscarRolesPorNombre(string Rol);
         void ActualizarRoles(Roles roles);
         void EliminarRoles(int id_rol);
     }

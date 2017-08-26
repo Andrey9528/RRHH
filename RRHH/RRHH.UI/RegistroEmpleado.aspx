@@ -3,7 +3,13 @@
       
     
 <div class="form-group" style=" margin-top:-30px;" > 
-       
+     
+    
+    <div class = "form-group"> 
+    <div class="alert alert-success" visible="false"  id="mensaje" runat="server">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times</a>
+             <strong id="textoMensaje" runat="server"></strong>
+        </div>        
     <asp:Label ID="Label1" runat="server"   Text="Cédula"></asp:Label>
     <asp:TextBox ID="txtCedula" CssClass="form-control" runat="server"></asp:TextBox>
   
@@ -38,7 +44,7 @@
 
     <asp:Label ID="Label10"   runat="server" Text="Imagen"></asp:Label>    
    <%-- <asp:TextBox ID="txtImagen" CssClass="form-control" runat="server"></asp:TextBox>--%>
-    <asp:FileUpload ID="fupImagen" runat="server"  />
+    <asp:FileUpload ID="fupImagen" accept="image/*" runat="server"  />
 
    
     <br/>

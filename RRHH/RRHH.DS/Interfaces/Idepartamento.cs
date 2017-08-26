@@ -14,5 +14,6 @@ namespace RRHH.DS.Interfaces
         void InsertarDepartamentos(departamento departamento);
         void ActualizarDepartamentos(departamento departamento);
         void EliminarDepartamentos(int IdDepartamento);
+        departamento BuscarDepartamentosPorNombre(string Departemento);
     }
 }
