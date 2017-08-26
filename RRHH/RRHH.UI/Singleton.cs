@@ -7,7 +7,7 @@ using System.Web;
 
 namespace RRHH.UI
 {
-    public class Sigleton
+    public class Singleton
     {
         public static DS.Interfaces.IEmpleado OpEmpleados = new DS.Metodos.MEmpleado();
         public static DS.Interfaces.IControlAuditorias opaudi = new DS.Metodos.MControlAuditorias();
