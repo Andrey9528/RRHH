@@ -28,6 +28,12 @@ namespace RRHH.DS.Metodos
         {
             return _db.Select<Roles>(x => x.IdRol==id_rol).FirstOrDefault();
         }
+        public Roles BuscarRolesPorNombre(string Rol)
+        {
+            //return _db.Select<Roles>(x => x.Nombre == Rol).FirstOrDefault();
+            return _db.Select<Roles>(x => x.Nombre == Rol).FirstOrDefault();
+
+        }
 
         public void EliminarRoles(int id_rol)
         {

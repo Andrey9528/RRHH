@@ -38,12 +38,12 @@ namespace RRHH.UI
                 }
                 if (txtcorreo.Text != null && txtcontra.Text != null)
                 {
-                    if (Sigleton.OpEmpleados.ExisteEmpleado(txtcorreo.Text))
+                    if (Singleton.OpEmpleados.ExisteEmpleado(txtcorreo.Text))
                     {
-                        if (Sigleton.OpEmpleados.BuscarEmpleadoCorreo(txtcorreo.Text).Password ==
+                        if (Singleton.OpEmpleados.BuscarEmpleadoCorreo(txtcorreo.Text).Password ==
                              txtcontra.Text)//Sigleton.Encriptar(txtPassword.Text, Utilitarios.Llave))
                         {
-                            EmpleadoGlobal = Sigleton.OpEmpleados.BuscarEmpleadoCorreo(txtcorreo.Text);
+                            EmpleadoGlobal = Singleton.OpEmpleados.BuscarEmpleadoCorreo(txtcorreo.Text);
                             //Sigleton.OpAuditoria.InsertarEnLogin(PersonaGlobal.Cedula, PersonaGlobal.Nombre, PersonaGlobal.PrimerApellido);
                             if (EmpleadoGlobal.IdRol == 1)
                             {
@@ -63,10 +63,10 @@ namespace RRHH.UI
                            
 
                         }
-                        if (Sigleton.OpEmpleados.BuscarEmpleadoCorreo(txtcorreo.Text).Password !=
+                        if (Singleton.OpEmpleados.BuscarEmpleadoCorreo(txtcorreo.Text).Password !=
                             txtcontra.Text)//Sigleton.Encriptar(txtPassword.Text, Utilitarios.Llave))
                         {
-                            EmpleadoGlobal = Sigleton.OpEmpleados.BuscarEmpleadoCorreo(txtcorreo.Text);
+                            EmpleadoGlobal = Singleton.OpEmpleados.BuscarEmpleadoCorreo(txtcorreo.Text);
 
                               mensaje.Visible = false;
                               mensajeinfo.Visible = false;

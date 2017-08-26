@@ -11,6 +11,8 @@ namespace RRHH.DS.Interfaces
     {
         List<departamento> ListarDepartamentos();
         departamento BuscarDepartamentos(int IdDepartemento);
+        departamento BuscarDepartamentosPorNombre(string Departemento);
+
         void InsertarDepartamentos(departamento departamento);
         void ActualizarDepartamentos(departamento departamento);
         void EliminarDepartamentos(int IdDepartamento);

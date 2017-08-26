@@ -30,6 +30,12 @@ namespace RRHH.DS.Metodos
             return _db.Select<departamento>(x => x.IdDepartamento==IdDepartemento).FirstOrDefault();
         }
 
+        public departamento BuscarDepartamentosPorNombre(string Departemento)
+        {
+            return _db.Select<departamento>(x => x.Nombre == Departemento).FirstOrDefault();
+
+        }
+
         public void EliminarDepartamentos(int IdDepartamento)
         {
              _db.Delete<departamento>(x => x.IdDepartamento == IdDepartamento);
