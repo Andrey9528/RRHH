@@ -16,6 +16,5 @@ namespace RRHH.UI
         public static DS.Interfaces.IIncapacidad opIncapacidad = new DS.Metodos.MIncapacidad();
         public static DS.Interfaces.IRoles oproles = new DS.Metodos.MRoles();
         public static DS.Interfaces.ISolicitudVacaciones opsolicitud = new DS.Metodos.MSolicitudVacaciones();
-
     }
 }
