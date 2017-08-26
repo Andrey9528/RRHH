@@ -467,7 +467,7 @@
     <Compile Include="RegistroEmpleado.aspx.designer.cs">
       <DependentUpon>RegistroEmpleado.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Sigleton.cs" />
+    <Compile Include="Singleton.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
