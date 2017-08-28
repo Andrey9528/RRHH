@@ -243,6 +243,7 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="JefeView.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="mantenimientoEmpleados.aspx" />
     <Content Include="RegistroEmpleado.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -453,6 +454,13 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mantenimientoEmpleados.aspx.cs">
+      <DependentUpon>mantenimientoEmpleados.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mantenimientoEmpleados.aspx.designer.cs">
+      <DependentUpon>mantenimientoEmpleados.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

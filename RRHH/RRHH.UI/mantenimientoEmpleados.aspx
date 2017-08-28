@@ -1,18 +1,24 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RegistroEmpleado.aspx.cs" Inherits="RRHH.UI.RegistroEmpleado" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="mantenimientoEmpleados.aspx.cs" Inherits="RRHH.UI.mantenimientoEmpleados" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-      
-    
 
-     
-    
-    <div class = "form-group"> 
-    <div class="alert alert-success" visible="false"  id="mensaje" runat="server">
+ <div class="form-inline">
+        <div class="alert alert-success" visible="false"  id="mensaje" runat="server">
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times</a>
              <strong id="textoMensaje" runat="server"></strong>
-        </div>        
-    <asp:Label ID="Label1" runat="server"   Text="Cédula"></asp:Label>
-    <asp:TextBox ID="txtCedula" CssClass="form-control" runat="server"></asp:TextBox>
-  
+        </div>
+        <div class="aler alert-danger" visible="false" id="mensajeError" runat="server">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times</a>
+            <strong id="textoMensajeError" runat="server"></strong>
+
+        </div>
+        <asp:Label ID="lbIdProducto" runat="server" Text="Cédula: "></asp:Label>
+        <asp:TextBox ID="txtcedula" runat="server" CssClass="form-control"></asp:TextBox>
+        <asp:Button ID="btnsBuscar" runat="server" Text="Buscar" CssClass="btn btn-primary" OnClick="btnsBuscar_Click" />
+    </div>
+
+    <div class="form-horizontal " id="Empleadosmantenimiento" runat="server" visible="false">
+           
+    
     <asp:Label ID="Label2" runat="server"  Text="Nombre"></asp:Label>
     <asp:TextBox ID="txtNombre" CssClass="form-control" runat="server"></asp:TextBox>
     <asp:Label ID="Label3" runat="server"   Text="Direccion"></asp:Label>
@@ -33,10 +39,10 @@
     </asp:DropDownList>
         <asp:Label ID="Label7"  runat="server" Text="Fecha Nacimiento"></asp:Label>
      <br> 
-    <asp:TextBox ID="txtFechaNacimiento" Width="280" CssClass="form-control" TextMode="Date" runat="server"></asp:TextBox>
+    <asp:TextBox ID="txtFechaNacimiento" Width="280" CssClass="form-control"  runat="server"></asp:TextBox>
     <asp:Label ID="Label8"    runat="server" Text="Departamento"></asp:Label>
      <br> 
-    <asp:DropDownList ID="ddlDepartamento" Width="280" class = "form-control" runat="server"> </asp:DropDownList>
+    <asp:DropDownList ID="ddlDepartamento" width="280" class = "form-control" runat="server"> </asp:DropDownList>
     <asp:Label ID="Label9"   runat="server" Text="Rol"></asp:Label>
      <br> 
     <asp:DropDownList ID="ddlRol" Width="280" class = "form-control" runat="server"></asp:DropDownList>
@@ -46,16 +52,17 @@
    <%-- <asp:TextBox ID="txtImagen" CssClass="form-control" runat="server"></asp:TextBox>--%>
     <asp:FileUpload ID="fupImagen" accept="image/*" runat="server"  />
 
-   
-    <br/>
-    
-    
-    <asp:Button ID="btnCrear" OnClick="btnCrear_Click" CssClass="btn btn-success" runat="server" Text="Crear" />
-    <asp:Button ID="btnLimpiar" onclick="btnLimpiar_Click" CssClass="btn btn-danger" runat="server" Text="Limpiar" />
-   <%-- <asp:RequiredFieldValidator id="RequiredFieldValidator1" runat="server"
-  ControlToValidate="txtCedula"
-  ErrorMessage="Cedula es requerida."
-  ForeColor="Red">
-</asp:RequiredFieldValidator>--%>
-</div>
+        <asp:Label ID="Label11" runat="server" Text="Estado"></asp:Label>
+        <asp:CheckBox ID="Chk_estado" runat="server" />
+
+
+   <br />
+        <div class="form-horizontal">
+            <br />
+            <asp:Button ID="btnModificar" runat="server" Text="Modificar" CssClass="btn btn-warning"  OnClick="btnModificar_Click" />
+            <asp:Button ID="btnEliminar" runat="server" Text="Deshabilitar" CssClass="btn btn-danger" OnClick="btnEliminar_Click" />
+        </div>
+
+    </div>
+
 </asp:Content>
