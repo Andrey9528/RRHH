@@ -1,6 +1,20 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="mantenimientoEmpleados.aspx.cs" Inherits="RRHH.UI.mantenimientoEmpleados" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+<script type="text/javascript">
+    function Confirm() {
+        var confirm_value = document.createElement("INPUT");
+        confirm_value.type = "hidden";
+        confirm_value.name = "confirm_value";
+        if (confirm("Esta seguro que quiere dar de baja este usuario?")) {
+            confirm_value.value = "Yes";
+        } else {
+            confirm_value.value = "No";
+        }
+        document.forms[0].appendChild(confirm_value);
+    }
 
+
+</script>
  <div class="form-inline">
         <div class="alert alert-success" visible="false"  id="mensaje" runat="server">
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times</a>
@@ -11,10 +25,20 @@
             <strong id="textoMensajeError" runat="server"></strong>
 
         </div>
+      <div class="aler alert-warning" visible="false" id="mensajawarning" runat="server">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times</a>
+            <strong id="textomensajewarning" runat="server"></strong>
+
+        </div>
+      <div class="alert alert-info" visible="false"  id="mensajeinfo" runat="server">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times</a>
+             <strong id="textomensajeinfo" runat="server"></strong>
+        </div>
         <asp:Label ID="lbIdProducto" runat="server" Text="Cédula: "></asp:Label>
         <asp:TextBox ID="txtcedula" runat="server" CssClass="form-control"></asp:TextBox>
         <asp:Button ID="btnsBuscar" runat="server" Text="Buscar" CssClass="btn btn-primary" OnClick="btnsBuscar_Click" />
     </div>
+    
 
     <div class="form-horizontal " id="Empleadosmantenimiento" runat="server" visible="false">
            
@@ -56,14 +80,14 @@
     <asp:FileUpload ID="fupImagen" accept="image/*" runat="server"  />
 
         <asp:Label ID="Label11" runat="server" Text="Estado"></asp:Label>
-        <asp:CheckBox ID="Chk_estado" runat="server" />
+        <asp:CheckBox ID="Chk_estado"    runat="server" />
 
 
    <br />
         <div class="form-horizontal">
             <br />
             <asp:Button ID="btnModificar" runat="server" Text="Modificar" CssClass="btn btn-warning"  OnClick="btnModificar_Click" />
-            <asp:Button ID="btnEliminar" runat="server" Text="Deshabilitar" CssClass="btn btn-danger" OnClick="btnEliminar_Click" />
+            <asp:Button ID="btnEliminar"  runat="server" Text="Deshabilitar" CssClass="btn btn-danger" OnClick="btnEliminar_Click"  OnClientClick="Confirm()" />
         </div>
 
     </div>

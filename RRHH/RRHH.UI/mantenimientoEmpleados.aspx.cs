@@ -17,6 +17,7 @@ namespace RRHH.UI
         protected void Page_Load(object sender, EventArgs e)
         {
             
+            
            
         }
 
@@ -69,6 +70,8 @@ namespace RRHH.UI
                     txtcedula.ReadOnly = true;
                     mensaje.Visible = false;
                     mensajeError.Visible = false;
+                    mensajeinfo.Visible = false;
+                    mensajawarning.Visible = false;
 
 
                 }
@@ -101,7 +104,8 @@ namespace RRHH.UI
                 RolGlobal = Singleton.oproles.BuscarRolesPorNombre(txtRol.Text);
                 var IdRol = RolGlobal.IdRol.ToString();
                 Empleado emple = new Empleado()            
-                {              
+                { 
+                    Cedula=txtcedula.Text,             
                     Nombre = txtNombre.Text,
                     Direccion = txtDireccion.Text,
                     Telefono = txtTelefono.Text,
@@ -109,13 +113,21 @@ namespace RRHH.UI
                     EstadoCivil = DddlEstadoCivil.SelectedItem.ToString(),
                     FechaNacimiento = Convert.ToDateTime(txtFechaNacimiento.Text),
                     IdDepartamento = Convert.ToInt32(IdDepartamento),
-                    IdRol = Convert.ToInt32(IdRol),
+                    IdRol =Convert.ToInt32(IdRol),
                     Estado = Chk_estado.Checked,
                     Password = "admin",
                 };
                 Singleton.OpEmpleados.ActualizarEmpleados(emple);
-                mensaje.Visible = true;
-                textoMensaje.InnerHtml = "Usuario actualizado";
+                Empleadosmantenimiento.Visible = false;
+                mensajeinfo.Visible = false;
+                mensaje.Visible = false;
+                mensajeError.Visible = false;
+                mensajawarning.Visible = true;
+                textomensajewarning.InnerHtml = "Actualizado";
+                txtcedula.ReadOnly = false;
+                txtcedula.Focus();
+                txtcedula.Text = string.Empty;
+
             }
             catch
             {
@@ -126,7 +138,80 @@ namespace RRHH.UI
 
         protected void btnEliminar_Click(object sender, EventArgs e)
         {
+            
+            try
+            {
+                string confirmValue = Request.Form["confirm_value"];
 
+
+                if (Chk_estado.Checked == false && confirmValue == "Yes")
+                {
+                    DepartamentoGlobal = Singleton.opdepartamento.BuscarDepartamentosPorNombre(txtDepartamento.Text);
+                    var IdDepartamento = DepartamentoGlobal.IdDepartamento.ToString();
+                    //RolGlobal = Singleton.oproles.BuscarRolesPorNombre(ddlRol.Text);
+                    RolGlobal = Singleton.oproles.BuscarRolesPorNombre(txtRol.Text);
+                    var IdRol = RolGlobal.IdRol.ToString();
+                    Empleado emple = new Empleado()
+                    {
+                        Cedula = txtcedula.Text,
+                        Nombre = txtNombre.Text,
+                        Direccion = txtDireccion.Text,
+                        Telefono = txtTelefono.Text,
+                        Correo = txtCorreo.Text,
+                        EstadoCivil = DddlEstadoCivil.SelectedItem.ToString(),
+                        FechaNacimiento = Convert.ToDateTime(txtFechaNacimiento.Text),
+                        IdDepartamento = Convert.ToInt32(IdDepartamento),
+                        IdRol = Convert.ToInt32(IdRol),
+                        Estado = Chk_estado.Checked,
+                        Password = "admin",
+                    };
+                    Singleton.OpEmpleados.ActualizarEmpleados(emple);
+                    Empleadosmantenimiento.Visible = false;
+                    Empleadosmantenimiento.Visible = false;
+                    mensaje.Visible = false;
+                    mensajawarning.Visible = false;
+                    mensajeError.Visible = false;
+                    mensajeinfo.Visible = true;
+                    textomensajeinfo.InnerHtml = "Usuario eliminado";
+                    txtcedula.ReadOnly = false;
+                    txtcedula.Text = string.Empty;
+
+                   
+                    
+
+                }
+                else if (Chk_estado.Checked = true && confirmValue == "Yes")
+                {
+                    this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Debes desahabilitar el estado!')", true);
+
+                }
+                else
+                {
+                    this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Operacion Cancelada!')", true);
+
+
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }     
+
+        }
+
+        protected void Chk_estado_CheckedChanged(object sender, EventArgs e)
+        {
+            if (Chk_estado.Checked)
+            {
+                btnEliminar.Enabled = false;
+
+            }
+            else
+            {
+                btnEliminar.Enabled = true;
+            }
         }
     }
 }
