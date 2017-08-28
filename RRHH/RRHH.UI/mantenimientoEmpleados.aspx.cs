@@ -25,15 +25,27 @@ namespace RRHH.UI
             try
             {
                 //ddlRol.DataSource = Singleton.oproles.ListarRoles().Select(x => x.Nombre).ToList();
+                txtRol.Text = Singleton.oproles.ListarRoles().Select(x => x.Nombre).ToString();
                 //ddlRol.DataBind();
 
                 List<Empleado> listaEmpleados = Singleton.OpEmpleados.ListarEmpleados();
                 var emple = listaEmpleados.FirstOrDefault(x => x.Cedula == txtcedula.Text);
-                 var rol = Singleton.oproles.BuscarRoles(Convert.ToInt32(emple.IdRol)).Nombre.ToString();
+                var rol = Singleton.oproles.BuscarRoles(Convert.ToInt32(emple.IdRol)).Nombre.ToString();
                 var depar = Singleton.opdepartamento.BuscarDepartamentos(Convert.ToInt32(emple.IdDepartamento)).Nombre.ToString();
-                //var identificacionRol = RolGlobal.IdRol.ToString();
-                //var identificacionDepa = DepartamentoGlobal.IdDepartamento.ToString();
+                var identificacionRol = RolGlobal.IdRol.ToString();
+                var identificacionDepa = DepartamentoGlobal.IdDepartamento.ToString();
+                //var size = (depar.Length);
+                //char[] charArrayDepar = depar.ToCharArray();
+                //List<string> lista  = new List<string>();
 
+                //for (int i = 0; i < charArrayDepar.Length; i++)
+                //{
+                //    //lista = (charArray[i].ToString());
+                //    //lista.Add(charArrayDepar[i].ToString());
+                //    lista.Add(charArrayDepar[i].ToString());
+
+
+                //}
                 var fecha = emple.FechaNacimiento.ToString();
                 if (emple != null)
                 {
@@ -43,12 +55,14 @@ namespace RRHH.UI
                     txtCorreo.Text = emple.Correo;
                     DddlEstadoCivil.SelectedValue = emple.EstadoCivil;
                     
-                    txtFechaNacimiento.Text = Convert.ToDateTime(fecha).ToString("dd/MM/yyyy"); 
-                    ddlDepartamento.DataSource= rol.ToList();
-                    DataBind();
+                    txtFechaNacimiento.Text = Convert.ToDateTime(fecha).ToString("dd/MM/yyyy");
+                    //ddlDepartamento.DataSource = rol.ToList();
+                    //DataBind();
+                    txtDepartamento.Text = depar;
 
-                    ddlRol.DataSource = depar.ToList() ;
-                    DataBind();
+                    //ddlRol.DataSource = depar.ToList() ;
+                    //DataBind();
+                    txtRol.Text = rol;
                    
                     Chk_estado.Checked = (bool)emple.Estado;
                     Empleadosmantenimiento.Visible = true;
@@ -80,14 +94,14 @@ namespace RRHH.UI
             try
 
             {
-                DepartamentoGlobal = Singleton.opdepartamento.BuscarDepartamentosPorNombre(ddlDepartamento.Text);
+                // DepartamentoGlobal = Singleton.opdepartamento.BuscarDepartamentosPorNombre(ddlDepartamento.Text);
+                DepartamentoGlobal = Singleton.opdepartamento.BuscarDepartamentosPorNombre(txtDepartamento.Text);
                 var IdDepartamento = DepartamentoGlobal.IdDepartamento.ToString();
-                RolGlobal = Singleton.oproles.BuscarRolesPorNombre(ddlRol.Text);
+                //RolGlobal = Singleton.oproles.BuscarRolesPorNombre(ddlRol.Text);
+                RolGlobal = Singleton.oproles.BuscarRolesPorNombre(txtRol.Text);
                 var IdRol = RolGlobal.IdRol.ToString();
-                Empleado emple = new Empleado()
-
-                {
-                    
+                Empleado emple = new Empleado()            
+                {              
                     Nombre = txtNombre.Text,
                     Direccion = txtDireccion.Text,
                     Telefono = txtTelefono.Text,
@@ -102,12 +116,10 @@ namespace RRHH.UI
                 Singleton.OpEmpleados.ActualizarEmpleados(emple);
                 mensaje.Visible = true;
                 textoMensaje.InnerHtml = "Usuario actualizado";
-
             }
             catch
             {
                 throw;
-
             }
 
         }
