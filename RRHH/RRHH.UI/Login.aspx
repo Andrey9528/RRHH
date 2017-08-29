@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="RRHH.UI.Login" %>
 
-<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
     <style>
@@ -83,7 +83,7 @@
                               <div  class="modal-body">
                              <div class="form-group">
                                  <asp:Label ID="Label1" runat="server" Text="Digita tu correo:"></asp:Label>
-                                  <asp:TextBox ID="txtemail" TextMode="Email" runat="server" CssClass="form-control" placeholder="Correo"></asp:TextBox>      
+                                  <asp:TextBox ID="txtemail" TextMode="Email" runat="server" CssClass="form-control"  placeholder="Correo"></asp:TextBox>      
                                  
                               </div>
                              <div class="form-group">
@@ -92,7 +92,7 @@
                               </div>
                               </div>
                               <div class="modal-footer">
-                                  <asp:Button ID="btnValidar" CssClass="btn btn-success" runat="server" Text="Enviar"  OnClick="btnValidar_Click" />
+                                  <asp:Button ID="btnValidar" CssClass="btn btn-success" runat="server" Text="Enviar"    OnClick="btnValidar_Click" />
                                   <asp:Button ID="btnsalir" runat="server" Text="Salir" data-dismiss="modal" CssClass="btn btn-danger"  />
                               </div>
 
@@ -102,6 +102,11 @@
               </div>
           </div>
       </div>
+
+
+
+
+    
 
    
     

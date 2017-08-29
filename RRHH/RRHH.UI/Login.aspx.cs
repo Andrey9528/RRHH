@@ -45,7 +45,7 @@ namespace RRHH.UI
                     if (Singleton.OpEmpleados.ExisteEmpleado(txtcorreo.Text))
                     {
                         if (Singleton.OpEmpleados.BuscarEmpleadoCorreo(txtcorreo.Text).Password ==
-                             txtcontra.Text)//Sigleton.Encriptar(txtPassword.Text, Utilitarios.Llave))
+                             Encriptacion.Encriptar(txtcontra.Text,Encriptacion.Llave))//Sigleton.Encriptar(txtPassword.Text, Utilitarios.Llave))
                         {
                             EmpleadoGlobal = Singleton.OpEmpleados.BuscarEmpleadoCorreo(txtcorreo.Text);
                             //Sigleton.OpAuditoria.InsertarEnLogin(PersonaGlobal.Cedula, PersonaGlobal.Nombre, PersonaGlobal.PrimerApellido);
@@ -68,7 +68,7 @@ namespace RRHH.UI
 
                         }
                         if (Singleton.OpEmpleados.BuscarEmpleadoCorreo(txtcorreo.Text).Password !=
-                            txtcontra.Text)//Sigleton.Encriptar(txtPassword.Text, Utilitarios.Llave))
+                            Encriptacion.Encriptar(txtcontra.Text,Encriptacion.Llave))//Sigleton.Encriptar(txtPassword.Text, Utilitarios.Llave))
                         {
                             EmpleadoGlobal = Singleton.OpEmpleados.BuscarEmpleadoCorreo(txtcorreo.Text);
 
@@ -146,7 +146,7 @@ namespace RRHH.UI
                         FechaNacimiento = EmpleadoGlobal.FechaNacimiento,
                         IdDepartamento=EmpleadoGlobal.IdDepartamento,
                         IdRol=EmpleadoGlobal.IdRol,
-                        Estado=false
+                        Estado=true
 
                         
                     };
@@ -155,24 +155,24 @@ namespace RRHH.UI
                     {
                         cliente.EnableSsl = true;
                         cliente.Credentials = new NetworkCredential("dollars.chat.room@hotmail.com", "fidelitasw2");
-                        MailMessage msj = new MailMessage("dollars.chat.room@hotmail.com", txtemail.Text, "Reseteó de contraseña", "Has recibido un codigo pin " + contrasena);
+                        MailMessage msj = new MailMessage("dollars.chat.room@hotmail.com", txtemail.Text, "Restauración de contraseña", "Has recibido una nueva contraseña:  " + contrasena+":"+"Para tu usuario: "+txtemail.Text);
                         cliente.Send(msj);
-                        mensaje.Visible = false;
-                        mensajeError.Visible = false;
-                        mensajeinfo.Visible = true;
-                        textomensajeinfo.InnerHtml = "Correo enviado";
-                        txtemail.Text = string.Empty;
 
-                       
-                        
-                        
+                        mensajeinfo.Visible = true;
+                        mensajeError.Visible = false;
+                        mensaje.Visible = false;
+                        textomensajeinfo.InnerHtml = "Correo enviado";
+
+
                     }
                 }
                 else
                 {
                     this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Dirección de Correo invalida!')", true);
 
-
+                    mensajeinfo.Visible = false;
+                    mensajeError.Visible = false;
+                    mensaje.Visible = false;
                 }
             }
 
