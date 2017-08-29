@@ -9,14 +9,18 @@ using RRHH.DS.Interfaces;
 using RRHH.DS.Metodos;
 using System.Data.SqlClient;
 using System.Data;
+using System.Net.Mail;
+using System.Net;
 
 namespace RRHH.UI
 {
     public partial class Login : System.Web.UI.Page
     {
+        public static string contrasena;
         public static Empleado EmpleadoGlobal = new Empleado();
         protected void Page_Load(object sender, EventArgs e)
         {
+            //btnRegistrar.Attributes.Add("onclick", "window.open('popup.aspx','','height=300,width=300');return false");
 
         }
 
@@ -119,7 +123,71 @@ namespace RRHH.UI
 
         protected void btnRegistrar_Click(object sender, EventArgs e)
         {
+            
+        }
 
+        protected void btnValidar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Singleton.OpEmpleados.ExisteEmpleado(txtemail.Text))
+                {
+                    EmpleadoGlobal = Singleton.OpEmpleados.BuscarEmpleadoCorreo(txtemail.Text);
+                    CodigoPin();
+                    Empleado empleado = new Empleado()
+                    {
+                        Cedula = EmpleadoGlobal.Cedula,
+                        Nombre = EmpleadoGlobal.Nombre,
+                        Direccion = EmpleadoGlobal.Direccion,
+                        Telefono = EmpleadoGlobal.Telefono,
+                        Correo = EmpleadoGlobal.Correo,
+                        EstadoCivil = EmpleadoGlobal.EstadoCivil,
+                        Password = Encriptacion.Encriptar(contrasena, Encriptacion.Llave),
+                        FechaNacimiento = EmpleadoGlobal.FechaNacimiento,
+                        IdDepartamento=EmpleadoGlobal.IdDepartamento,
+                        IdRol=EmpleadoGlobal.IdRol,
+                        Estado=false
+
+                        
+                    };
+                    Singleton.OpEmpleados.ActualizarEmpleados(empleado);
+                    using (SmtpClient cliente = new SmtpClient("smtp.live.com", 25))
+                    {
+                        cliente.EnableSsl = true;
+                        cliente.Credentials = new NetworkCredential("dollars.chat.room@hotmail.com", "fidelitasw2");
+                        MailMessage msj = new MailMessage("dollars.chat.room@hotmail.com", txtemail.Text, "Reseteó de contraseña", "Has recibido un codigo pin " + contrasena);
+                        cliente.Send(msj);
+                        mensaje.Visible = false;
+                        mensajeError.Visible = false;
+                        mensajeinfo.Visible = true;
+                        textomensajeinfo.InnerHtml = "Correo enviado";
+                        txtemail.Text = string.Empty;
+
+                       
+                        
+                        
+                    }
+                }
+                else
+                {
+                    this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Dirección de Correo invalida!')", true);
+
+
+                }
+            }
+
+            catch (Exception ex)
+            {
+                //ImprimirMensajeError(ex.Message);
+                //Utilitarios.OpErrores.InsertarEnErrores(PersonaGlobal.Nombre, PersonaGlobal.Cedula, ex.ToString());
+
+            }
+        }
+
+        private void CodigoPin()
+        {
+            Random rd = new Random(DateTime.Now.Millisecond);
+            contrasena = rd.Next(100000, 999999).ToString();
         }
     }
 }
