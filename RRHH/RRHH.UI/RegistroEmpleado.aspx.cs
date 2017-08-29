@@ -69,6 +69,12 @@ namespace RRHH.UI
                     MailMessage mensajeC = new MailMessage("dollars.chat.room@hotmail.com", txtCorreo.Text, "Creación de cuenta", "Se ha creado una nueva cuenta para tu usuario" + txtCorreo.Text + "con la contraseña: " + contrasena + "por motivos de seguridad, te recomendamos cambiar la contraseña una vez que ingreses");
 
                     cliente.Send(mensajeC);
+                    txtCedula.Text = string.Empty;
+                    txtNombre.Text = string.Empty;
+                    txtDireccion.Text = string.Empty;
+                    txtTelefono.Text = string.Empty;
+                    txtCorreo.Text = string.Empty;
+
 
                 }
                 catch (Exception)

@@ -188,7 +188,7 @@ namespace RRHH.UI
                 else
                 {
                     this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Operacion Cancelada!')", true);
-
+                    
 
                 }
 
