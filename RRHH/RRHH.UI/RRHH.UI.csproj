@@ -81,19 +81,19 @@
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="ServiceStack.Common">
-      <HintPath>..\..\..\..\..\Documents\Programacion5\progra 5\Semana3\ServiceStack.Common.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\Progra 5\Semana 3\Codigo de la clase\ServiceStack.Common.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.Interfaces">
-      <HintPath>..\..\..\..\..\Documents\Programacion5\progra 5\Semana3\ServiceStack.Interfaces.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\Progra 5\Semana 3\Codigo de la clase\ServiceStack.Interfaces.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.OrmLite">
-      <HintPath>..\..\..\..\..\Documents\Programacion5\progra 5\Semana3\ServiceStack.OrmLite.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\Progra 5\Semana 3\Codigo de la clase\ServiceStack.OrmLite.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.OrmLite.SqlServer">
-      <HintPath>..\..\..\..\..\Documents\Programacion5\progra 5\Semana3\ServiceStack.OrmLite.SqlServer.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\Progra 5\Semana 3\Codigo de la clase\ServiceStack.OrmLite.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.Text">
-      <HintPath>..\..\..\..\..\Documents\Programacion5\progra 5\Semana3\ServiceStack.Text.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\Progra 5\Semana 3\Codigo de la clase\ServiceStack.Text.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
@@ -232,6 +232,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="InsertarDepartamentos.aspx" />
+    <Content Include="insertarIncapacidad.aspx" />
+    <Content Include="InsertarSolicitudVacaciones.aspx" />
     <Content Include="JefeView.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="mantenimientoEmpleados.aspx" />
@@ -433,6 +436,27 @@
     <Compile Include="Encriptacion.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="InsertarDepartamentos.aspx.cs">
+      <DependentUpon>InsertarDepartamentos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InsertarDepartamentos.aspx.designer.cs">
+      <DependentUpon>InsertarDepartamentos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="insertarIncapacidad.aspx.cs">
+      <DependentUpon>insertarIncapacidad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="insertarIncapacidad.aspx.designer.cs">
+      <DependentUpon>insertarIncapacidad.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InsertarSolicitudVacaciones.aspx.cs">
+      <DependentUpon>InsertarSolicitudVacaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InsertarSolicitudVacaciones.aspx.designer.cs">
+      <DependentUpon>InsertarSolicitudVacaciones.aspx</DependentUpon>
     </Compile>
     <Compile Include="JefeView.aspx.cs">
       <DependentUpon>JefeView.aspx</DependentUpon>
