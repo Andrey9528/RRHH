@@ -81,27 +81,19 @@
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="ServiceStack.Common">
-      <HintPath>..\..\..\..\..\Documents\Programacion5\progra 5\Semana3\ServiceStack.Common.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\Progra 5\Semana 3\Codigo de la clase\ServiceStack.Common.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.Interfaces">
-      <HintPath>..\..\..\..\..\Documents\Programacion5\progra 5\Semana3\ServiceStack.Interfaces.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\Progra 5\Semana 3\Codigo de la clase\ServiceStack.Interfaces.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.OrmLite">
-      <HintPath>..\..\..\..\..\Documents\Programacion5\progra 5\Semana3\ServiceStack.OrmLite.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\Progra 5\Semana 3\Codigo de la clase\ServiceStack.OrmLite.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.OrmLite.SqlServer">
-      <HintPath>..\..\..\..\..\Documents\Programacion5\progra 5\Semana3\ServiceStack.OrmLite.SqlServer.dll</HintPath>
-    </Reference>
-    <Reference Include="ServiceStack.Redis, Version=3.9.71.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ServiceStack.Redis.3.9.71\lib\net35\ServiceStack.Redis.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="ServiceStack.ServiceInterface, Version=3.9.71.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ServiceStack.3.9.71\lib\net35\ServiceStack.ServiceInterface.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\Progra 5\Semana 3\Codigo de la clase\ServiceStack.OrmLite.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.Text">
-      <HintPath>..\..\..\..\..\Documents\Programacion5\progra 5\Semana3\ServiceStack.Text.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\Progra 5\Semana 3\Codigo de la clase\ServiceStack.Text.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
