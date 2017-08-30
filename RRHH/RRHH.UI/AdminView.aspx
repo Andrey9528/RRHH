@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AdminView.aspx.cs" Inherits="RRHH.UI.AdminView" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
- <style >
+ <style>
         body 
         {
             background-image: url("https://unedliberia.files.wordpress.com/2012/11/warp.jpg");
@@ -8,7 +8,8 @@
             background-size:100vw 100vh ;
 
 
-        }  
+        } 
+         
         #menu, #menu ul {
         margin: 0;
         padding: 0;
