@@ -11,7 +11,7 @@
 
     </style>
 
-<%--<ul class="nav nav-pills nav-justified">
+<%--<ul class="nav nav-pills nav-justified ">
   <li class="active"><a data-toggle="pill" href="#">Inicio</a></li>
   <li><a data-toggle="pill" href="#">Perfil</a></li>
   <li><a data-toggle="pill" href="#">Mensajes</a></li>
