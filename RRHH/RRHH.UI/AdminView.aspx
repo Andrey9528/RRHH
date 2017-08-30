@@ -222,7 +222,8 @@
     <li class="dropdown pull-right">
         <a href="#" data-toggle="dropdown" class="dropdown-toggle">Administración <b class="caret"></b></a>
         <ul class="dropdown-menu">
-            <li><a href="#">Cambio de contraseña</a></li>
+            <li><a data-target="#cambio" data-toggle="modal" href="#">Cambio de contraseña</a></li>
+
             <li><a href="#">Cerrar Sesión</a></li>
             <li class="divider"></li>
         </ul>
@@ -275,5 +276,47 @@
 
     
 </ol>
-   
+    <div class="container">
+          <div class="row">
+              <div class="col-xs-12">
+                  <%--<button class="btn btn-primary btn-sm pull-right" data-target="#olvide" data-toggle="modal">Popup</button>--%>
+                  <div class="modal fade"  data-keyboard="false" data-backdrop="static" id="cambio"  tabindex="-1">
+                      <div class="modal-dialog modal-sm">
+                          <div class="modal-content" style="margin-top:100px;">
+                              <div class="modal-header">
+                                  <button class="close"  data-dismiss="modal">&times;</button>
+                                  <h4 class="model-tittle">Olvidé mi contraseña</h4>
+
+
+                              </div>
+                              <div  class="modal-body">
+                             <div class="form-group">
+                                 <asp:Label ID="Label1" runat="server" Text="Digita tu contraseña actual:"></asp:Label>
+                                  <asp:TextBox ID="txtContraseñaActual" TextMode="Password" runat="server" CssClass="form-control"  placeholder="Contraseña"></asp:TextBox>      
+                                 <p style="margin-left:300px; margin-top:-35px;"> <asp:Button ID= "btnConfirmar"  runat="server" CssClass="btn btn-warning" OnClick="btnConfirmar_Click" Text="Confirmar" /> </p>
+                                  <br> <br>
+                                 <asp:Label ID="Label2" runat="server" Text="Nueva contraseña"></asp:Label>
+                                 <asp:TextBox ID="txtNuevaContraseña" Enabled="false" TextMode="Password" CssClass="form-control"  runat="server" placeholder="Nueva contraseña"></asp:TextBox>
+<%--                                 <asp:CheckBox ID="ChkVerContraseña" OnCheckedChanged="ChkVerContraseña_CheckedChanged" runat="server" />--%>
+                                 <asp:Label ID="Label3" runat="server"  Text="Confirmar contraseña"></asp:Label>
+                                 <asp:TextBox ID="txtNuevaContraseñaConfirmar" Enabled="false" TextMode="Password" CssClass="form-control" runat="server" placeholder="Confirmar contraseña" ></asp:TextBox>
+<%--                                 <asp:CheckBox ID="ChkVerContraseña2" runat="server" />--%>
+                             </div>
+                             <div class="form-group">
+                                 
+                                 
+                              </div>
+                              </div>
+                              <div class="modal-footer">
+
+                                  <asp:Button ID="btnCambiar" CssClass="btn btn-success" Enabled="false" runat="server" OnClick="btnCambiar_Click" Text="Cambiar" />
+                                  <asp:Button ID="btnSalir" CssClass="btn btn-danger" runat="server" OnClick="btnSalir_Click" Text="Salir" />   
+                              </div>
+
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
 </asp:Content>
