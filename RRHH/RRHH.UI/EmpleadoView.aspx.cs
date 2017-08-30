@@ -19,11 +19,15 @@ namespace RRHH.UI
         {
             try
             {
-                if ( AdminView.ValidarPassword(txtContraseñaActualEmpleado.Text.ToString()))
+                if (AdminView.ValidarPassword(txtContraseñaActualEmpleado.Text.ToString()))
                 {
                     txtNuevaContraseña.Enabled = true;
                     txtNuevaContraseñaConfirmar.Enabled = true;
                     btnCambiarEmpleado.Enabled = true;
+                }
+                else
+                {
+
                 }
 
             }
