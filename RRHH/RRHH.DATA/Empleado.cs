@@ -31,6 +31,7 @@ namespace RRHH.DATA
 
         public bool Estado { get; set; }
 
+        public string Genero { get; set; }
         
 
     }

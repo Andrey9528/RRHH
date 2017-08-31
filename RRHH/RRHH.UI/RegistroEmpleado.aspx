@@ -45,7 +45,12 @@
     <asp:Label ID="Label10"   runat="server" Text="Imagen"></asp:Label>    
    <%-- <asp:TextBox ID="txtImagen" CssClass="form-control" runat="server"></asp:TextBox>--%>
     <asp:FileUpload ID="fupImagen" accept="image/*" runat="server"  />
-
+        <asp:Label ID="Label11" runat="server" Text="Genero"></asp:Label>
+        <asp:DropDownList ID="DDLgenero"  Width="280" CssClass="form-control" runat="server">
+            <asp:ListItem>Masculino</asp:ListItem>
+            <asp:ListItem>Femenino</asp:ListItem>
+            <asp:ListItem Selected="True">Sin establecer</asp:ListItem>
+        </asp:DropDownList> 
    
     <br/>
     

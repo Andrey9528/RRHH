@@ -23,7 +23,7 @@ namespace RRHH.UI
             {
                 var depart = new departamento()
                 {
-                    IdDepartamento = Convert.ToInt32(txtdepar.Text),
+                   
                     Nombre = txtnombre.Text,
                 };
                 Singleton.opdepartamento.InsertarDepartamentos(depart);

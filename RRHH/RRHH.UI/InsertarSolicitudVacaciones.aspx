@@ -23,9 +23,7 @@
              <strong id="textomensajeinfo" runat="server"></strong>
         </div>
 
-    <asp:Label ID="Label1" runat="server" Text="id solicitud:"></asp:Label>
-    <asp:TextBox ID="txtidsolicitud" CssClass="form-control" runat="server"></asp:TextBox>
-
+   
 
     <asp:Label ID="Label3" runat="server" Text="Fecha de Inicio:"></asp:Label>
     <asp:TextBox ID="txtfechadeincio" Width="280" TextMode="Date" CssClass="form-control" runat="server"></asp:TextBox>

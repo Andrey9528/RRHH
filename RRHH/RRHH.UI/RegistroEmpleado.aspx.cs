@@ -60,6 +60,7 @@ namespace RRHH.UI
                         IdRol = Convert.ToInt32(IdRol),
                         Estado = true,
                         Password = Encriptacion.Encriptar(contrasena, Encriptacion.Llave),
+                        Genero=DDLgenero.SelectedItem.ToString()
                     };
                     Singleton.OpEmpleados.InsertarEmpleados(emple);
                     mensaje.Visible = true;

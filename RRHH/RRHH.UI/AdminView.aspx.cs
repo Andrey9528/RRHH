@@ -102,6 +102,29 @@ namespace RRHH.UI
 
         }
 
+        protected void btndepa_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var depart = new departamento()
+                {
+
+                    Nombre = txtnombre.Text,
+                };
+                Singleton.opdepartamento.InsertarDepartamentos(depart);
+                mensaje.Visible = true;
+                mensajawarning.Visible = false;
+                mensajeError.Visible = false;
+                mensajeinfo.Visible = false;
+                textoMensaje.InnerHtml = "Departamento agregado";
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         //protected void ChkVerContraseña_CheckedChanged(object sender, EventArgs e)
         //{
         //    try
