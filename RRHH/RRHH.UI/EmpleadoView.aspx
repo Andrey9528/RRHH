@@ -200,7 +200,7 @@
     <li>
         <a href="#">Vacaciones</a>
         <ul>
-            <li><a href="#">Solicitud</a></li>
+            <li><a href="InsertarSolicitudVacaciones.aspx">Solicitud</a></li>
             <li><a href="#">Consulta </a></li>
              <li><a href="#">Historial</a></li>
             
