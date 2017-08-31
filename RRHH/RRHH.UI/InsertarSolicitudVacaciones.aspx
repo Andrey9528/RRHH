@@ -26,24 +26,21 @@
     <asp:Label ID="Label1" runat="server" Text="id solicitud:"></asp:Label>
     <asp:TextBox ID="txtidsolicitud" CssClass="form-control" runat="server"></asp:TextBox>
 
-    <asp:Label ID="Label2" runat="server" Text="Cedula:"></asp:Label>
-    <asp:TextBox ID="txtcedula" CssClass="form-control" runat="server"></asp:TextBox>
-
 
     <asp:Label ID="Label3" runat="server" Text="Fecha de Inicio:"></asp:Label>
     <asp:TextBox ID="txtfechadeincio" Width="280" TextMode="Date" CssClass="form-control" runat="server"></asp:TextBox>
 
 
     <asp:Label ID="Label4" runat="server" Text="Fecha Final:"></asp:Label>
-    <asp:TextBox ID="txtfechafinal" Width="280" TextMode="Date" CssClass="form-control" runat="server"></asp:TextBox>
+    <asp:TextBox ID="txtfechafinal" Width="280" TextMode="Date" CssClass="form-control" runat="server" ></asp:TextBox>
 
 
-    <asp:Label ID="Label5" runat="server" Text="Total de dias:"></asp:Label>
-    <asp:TextBox ID="txttotaldias" TextMode="Number" CssClass="form-control"  Width="280" runat="server"></asp:TextBox>
+   <%-- <asp:Label ID="Label5" runat="server" Text="Total de dias:"></asp:Label>
+    <asp:TextBox ID="txttotaldias" TextMode="Number" CssClass="form-control"  OnTextChanged="txttotaldias_TextChanged" Width="280" runat="server" Enabled="False"></asp:TextBox>--%>
 
 
-      <asp:Label ID="Label6" runat="server" Text="Condicion:"></asp:Label>
-    <asp:CheckBox ID="Chk_condicion" runat="server" />
+    <%--  <asp:Label ID="Label6" runat="server" Text="Condicion:"></asp:Label>
+    <asp:CheckBox ID="Chk_condicion" runat="server" />--%>
 
     <br />
     <br />

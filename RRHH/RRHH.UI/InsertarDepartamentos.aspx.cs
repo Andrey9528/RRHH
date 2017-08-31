@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using RRHH.DATA;
+using RRHH.DS.Interfaces;
+using RRHH.DS.Metodos;
 
 namespace RRHH.UI
 {
@@ -16,7 +19,22 @@ namespace RRHH.UI
 
         protected void btnagregar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                var depart = new departamento()
+                {
+                    IdDepartamento = Convert.ToInt32(txtdepar.Text),
+                    Nombre = txtnombre.Text,
+                };
+                Singleton.opdepartamento.InsertarDepartamentos(depart);
+                mensaje.Visible = true;
+                textoMensaje.InnerHtml = "Departamento agregado";
 
+            }
+            catch (Exception )
+            {
+                throw;
+            }
         }
     }
 }

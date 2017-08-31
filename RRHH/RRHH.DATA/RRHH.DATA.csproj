@@ -31,19 +31,19 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ServiceStack.Common">
-      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\Progra 5\Semana 3\Codigo de la clase\ServiceStack.Common.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Programacion5\progra 5\Semana3\ServiceStack.Common.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.Interfaces">
-      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\Progra 5\Semana 3\Codigo de la clase\ServiceStack.Interfaces.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Programacion5\progra 5\Semana3\ServiceStack.Interfaces.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.OrmLite">
-      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\Progra 5\Semana 3\Codigo de la clase\ServiceStack.OrmLite.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Programacion5\progra 5\Semana3\ServiceStack.OrmLite.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.OrmLite.SqlServer">
-      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\Progra 5\Semana 3\Codigo de la clase\ServiceStack.OrmLite.SqlServer.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Programacion5\progra 5\Semana3\ServiceStack.OrmLite.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.Text">
-      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\Progra 5\Semana 3\Codigo de la clase\ServiceStack.Text.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Programacion5\progra 5\Semana3\ServiceStack.Text.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
