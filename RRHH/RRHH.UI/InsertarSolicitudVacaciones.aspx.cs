@@ -29,7 +29,7 @@ namespace RRHH.UI
                 {
                     var vacaciones = new SolicitudVacaciones()
                     {
-                        IdSolicitud = Convert.ToInt32(txtidsolicitud.Text),
+                        
                         FechaFinal = Convert.ToDateTime(txtfechafinal.Text),
                         FechaInicio = Convert.ToDateTime(txtfechadeincio.Text),
                         Cedula = Login.EmpleadoGlobal.Cedula,
@@ -61,7 +61,7 @@ namespace RRHH.UI
             }
         }
 
-        public bool ValidacionDias(string fechaFinal, string fechadeInicio)
+        public  bool ValidacionDias(string fechaFinal, string fechadeInicio)
         {
             try
             {
@@ -82,6 +82,8 @@ namespace RRHH.UI
                 throw;
             }
         }
+
+
         protected void txttotaldias_TextChanged(object sender, EventArgs e)
         {
         

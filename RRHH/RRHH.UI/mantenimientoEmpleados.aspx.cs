@@ -60,6 +60,7 @@ namespace RRHH.UI
                     //ddlDepartamento.DataSource = rol.ToList();
                     //DataBind();
                     txtDepartamento.Text = depar;
+                    DDLgenero.SelectedValue = emple.Genero;
 
                     //ddlRol.DataSource = depar.ToList() ;
                     //DataBind();
@@ -77,10 +78,12 @@ namespace RRHH.UI
                 }
                 else
                 {
-                    txtcedula.Text = string.Empty;
-                    txtcedula.Focus();
+                    
+                    
                     mensajeError.Visible = true;
                     mensaje.Visible = false;
+                    mensajawarning.Visible = false;
+                    mensajeinfo.Visible = false;
                     textoMensajeError.InnerHtml = "Empleado no existe";
 
                 }
@@ -115,6 +118,7 @@ namespace RRHH.UI
                     IdDepartamento = Convert.ToInt32(IdDepartamento),
                     IdRol =Convert.ToInt32(IdRol),
                     Estado = Chk_estado.Checked,
+                    Genero=DDLgenero.SelectedItem.ToString(),
                     Password = "admin",
                 };
                 Singleton.OpEmpleados.ActualizarEmpleados(emple);
@@ -163,6 +167,7 @@ namespace RRHH.UI
                         IdDepartamento = Convert.ToInt32(IdDepartamento),
                         IdRol = Convert.ToInt32(IdRol),
                         Estado = Chk_estado.Checked,
+                        Genero=DDLgenero.SelectedItem.ToString(),
                         Password = "admin",
                     };
                     Singleton.OpEmpleados.ActualizarEmpleados(emple);

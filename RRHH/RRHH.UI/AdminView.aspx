@@ -166,6 +166,29 @@
     }
 
     </style>
+     <div class="form-group">
+
+
+         
+      <div class="alert alert-success" visible="false"  id="mensaje" runat="server">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times</a>
+             <strong id="textoMensaje" runat="server"></strong>
+        </div>
+        <div class="alert alert-danger" visible="false" id="mensajeError" runat="server">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times</a>
+            <strong id="textoMensajeError" runat="server"></strong>
+
+        </div>
+      <div class="alert alert-warning" visible="false" id="mensajawarning" runat="server">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times</a>
+            <strong id="textomensajewarning" runat="server"></strong>
+
+        </div>
+      <div class="alert alert-info" visible="false"  id="mensajeinfo" runat="server">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times</a>
+             <strong id="textomensajeinfo" runat="server"></strong>
+        </div>
+         </div>
 
 <%--<ul class="nav nav-pills nav-justified ">
   <li class="active"><a data-toggle="pill" href="#">Inicio</a></li>
@@ -236,8 +259,8 @@
     <li>
         <a href="#">Empleados</a>
         <ul>
-            <li><a href="#">Agregar</a></li>
-            <li><a href="#">Mantenimiento</a></li>
+            <li><a href="RegistroEmpleado.aspx">Agregar</a></li>
+            <li><a href="mantenimientoEmpleados.aspx">Mantenimiento</a></li>
         </ul>
     </li>
     <li>
@@ -268,7 +291,7 @@
         <a href="#">Departamentos</a>
         <ul>
            
-            <li><a href="#">Registrar </a></li>
+            <li><a  data-toggle="modal" data-target="#depa"  href ="#">Registrar </a></li>
             <li><a href="#">Mantenimiento </a></li>
         </ul>
     </li>
@@ -285,7 +308,7 @@
                           <div class="modal-content" style="margin-top:100px;">
                               <div class="modal-header">
                                   <button class="close"  data-dismiss="modal">&times;</button>
-                                  <h4 class="model-tittle">Olvidé mi contraseña</h4>
+                                  <h4 class="model-tittle">Reseteo de contraseña</h4>
 
 
                               </div>
@@ -319,4 +342,40 @@
               </div>
           </div>
       </div>
+
+
+
+
+
+     <div class="container">
+  
+ 
+  <div class="modal fade" id="depa" role="dialog">
+       
+    <div class="modal-dialog modal-sm">
+       
+      <div class="modal-content">
+          
+        <div class="modal-header">
+          
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Insertar Departamentos</h4>
+        </div>
+        <div class="modal-body">
+          
+           <asp:Label ID="Label4" runat="server" Text="Nombre del departamento:"></asp:Label>
+         <asp:TextBox ID="txtnombre" CssClass="form-control" runat="server"></asp:TextBox>
+     
+        </div>
+        <div class="modal-footer">
+          <asp:Button ID="btndepa" runat="server" Text="Insertar" CssClass="btn btn-success"  OnClick="btndepa_Click" />
+
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+        </div>
+    
 </asp:Content>

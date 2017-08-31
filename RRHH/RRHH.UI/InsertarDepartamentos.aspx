@@ -26,11 +26,9 @@
              <strong id="textomensajeinfo" runat="server"></strong>
         </div>
 
-         <asp:Label ID="Label1" runat="server" Text="Numero de departamento:"></asp:Label>
-         <asp:TextBox ID="txtdepar" CssClass="form-control" runat="server"></asp:TextBox>
+         
      
-     
-     <asp:Label ID="Label2" runat="server" Text="Nombre:"></asp:Label>
+         <asp:Label ID="Label2" runat="server" Text="Nombre:"></asp:Label>
          <asp:TextBox ID="txtnombre" CssClass="form-control" runat="server"></asp:TextBox>
      
      <br />

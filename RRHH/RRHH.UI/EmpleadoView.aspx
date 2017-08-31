@@ -165,12 +165,37 @@
     
 
     </style>
+    
 
 <%--<ul class="nav nav-pills nav-justified ">
   <li class="active"><a data-toggle="pill" href="#">Inicio</a></li>
   <li><a data-toggle="pill" href="#">Perfil</a></li>
   <li><a data-toggle="pill" href="#">Mensajes</a></li>
 </ul>--%>
+    <div class="form-group">
+         <div class="alert alert-danger" visible="false"  id="mensajeError" runat="server">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times</a>
+             <strong id="textomensajeError" runat="server"></strong>
+        </div>
+        <div class="alert alert-success" visible="false"  id="mensaje" runat="server">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times</a>
+             <strong id="textoMensaje" runat="server"></strong>
+        </div>
+       <%-- <div class="aler alert-danger" visible="false" id="mensajeError" runat="server">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times</a>
+            <strong id="textoMensajeError" runat="server"></strong>
+
+        </div>--%>
+      <div class="aler alert-warning" visible="false" id="mensajawarning" runat="server">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times</a>
+            <strong id="textomensajewarning" runat="server"></strong>
+
+        </div>
+      <div class="alert alert-info" visible="false"  id="mensajeinfo" runat="server">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times</a>
+             <strong id="textomensajeinfo" runat="server"></strong>
+        </div>
+    </div>
 <ul class="nav nav-pills">
     
    
@@ -192,7 +217,7 @@
     <li>
         <a href="#">Incapacidades</a>
         <ul>
-            <li><a href="#">Solicitud</a></li>
+            <li><a href="insertarIncapacidad.aspx">Solicitud</a></li>
             <li><a href="#">Consulta</a></li>
            
         </ul>
@@ -200,7 +225,7 @@
     <li>
         <a href="#">Vacaciones</a>
         <ul>
-            <li><a href="InsertarSolicitudVacaciones.aspx">Solicitud</a></li>
+            <li><a data-toggle="modal" data-target="#vaca"   href="#">Solicitud</a></li>
             <li><a href="#">Consulta </a></li>
              <li><a href="#">Historial</a></li>
             
@@ -246,7 +271,7 @@
                               </div>
                               <div class="modal-footer">
                                   <asp:Button ID="btnCambiarEmpleado" CssClass ="btn btn-success" Enabled="false" OnClick="btnCambiarEmpleado_Click" runat="server"  Text="Cambiar" />
-                                  <asp:Button ID="btnSalirEmpleado" CssClass="btn btn-danger" OnClick="btnSalirEmpleado_Click"  runat="server"  Text="Salir" />
+                                  <asp:Button ID="btnSalirEmpleado" data-dismiss="modal" CssClass="btn btn-danger" OnClick="btnSalirEmpleado_Click"  runat="server"  Text="Salir" />
                               </div>
 
                           </div>
@@ -254,5 +279,51 @@
                   </div>
               </div>
           </div>
-      </div>    
+      </div> 
+
+
+
+
+
+
+
+
+
+
+    <div class="container">
+  
+ 
+  <div class="modal fade" id="vaca" role="dialog">
+       
+    <div class="modal-dialog modal-sm">
+       
+      <div class="modal-content">
+          
+        <div class="modal-header">
+          
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Solicitud de vacaciones</h4>
+        </div>
+        <div class="modal-body">
+          
+    <asp:Label ID="Label4" runat="server" Text="Fecha de Inicio:"></asp:Label>
+    <asp:TextBox ID="txtfechadeincio" Width="280" TextMode="Date" CssClass="form-control" runat="server"></asp:TextBox>
+
+
+    <asp:Label ID="Label5" runat="server" Text="Fecha Final:"></asp:Label>
+    <asp:TextBox ID="txtfechafinal" Width="280" TextMode="Date" CssClass="form-control" runat="server" ></asp:TextBox>
+
+        </div>
+        <div class="modal-footer">
+          <asp:Button ID="btnvaca" runat="server" Text="Insertar" CssClass="btn btn-success" OnClick="btnvaca_Click"  />
+
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+        </div>
+    
+       
 </asp:Content>
