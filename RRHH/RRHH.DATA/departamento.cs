@@ -13,5 +13,7 @@ namespace RRHH.DATA
         public int IdDepartamento { get; set; }
 
         public string Nombre { get; set; }
+        public string EmailJefeDpto { get; set; }
+        public string NombreJefe { get; set; }
     }
 }
