@@ -20,7 +20,7 @@ namespace RRHH.DATA
 
         public int TotalDias { get; set; }
 
-        public bool Condicion { get; set; }
+        public bool? Condicion { get; set; }
 
     }
 }

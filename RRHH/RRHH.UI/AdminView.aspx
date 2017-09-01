@@ -266,15 +266,15 @@
     <li>
         <a href="#">Expedientes</a>
         <ul>
-            <li><a href="#">Crear </a></li>
-            <li><a href="#">Mantenimiento </a></li>
+            
+            <li><a href="#">Listado</a></li>
             
         </ul>
     </li>
     <li>
         <a href="#">Incapacidades</a>
         <ul>
-            <li><a href="#">Registar </a></li>
+           
             <li><a href="#">Mantenimiento </a></li>
 
         </ul>
@@ -282,7 +282,7 @@
     <li>
         <a href="#">Vacaciones</a>
         <ul>
-            <li><a href="#">Registrar </a></li>
+           
             <li><a href="#">Mantenimiento </a></li>
             
         </ul>
@@ -293,6 +293,8 @@
            
             <li><a  data-toggle="modal" data-target="#depa"  href ="#">Registrar </a></li>
             <li><a href="#">Mantenimiento </a></li>
+               <li><a href="#">Listar</a></li>
+
         </ul>
     </li>
 

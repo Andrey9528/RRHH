@@ -34,7 +34,7 @@ namespace RRHH.UI
                         FechaInicio = Convert.ToDateTime(txtfechadeincio.Text),
                         Cedula = Login.EmpleadoGlobal.Cedula,
                         TotalDias = dias,
-                        Condicion = false,      
+                        Condicion=null,      
                    };
                 Singleton.opsolicitud.InsertarSolicitud(vacaciones);
                 mensaje.Visible = true;

@@ -22,12 +22,12 @@
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times</a>
              <strong id="textoMensaje" runat="server"></strong>
         </div>
-        <div class="aler alert-danger" visible="false" id="mensajeError" runat="server">
+        <div class="alert alert-danger" visible="false" id="mensajeError" runat="server">
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times</a>
             <strong id="textoMensajeError" runat="server"></strong>
 
         </div>
-      <div class="aler alert-warning" visible="false" id="mensajawarning" runat="server">
+      <div class="alert alert-warning" visible="false" id="mensajawarning" runat="server">
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times</a>
             <strong id="textomensajewarning" runat="server"></strong>
 
@@ -39,18 +39,27 @@
 
 
 
-      <asp:Label ID="lbIdProducto" runat="server" Text="Cédula: "></asp:Label>
+        <asp:Label ID="lbIcedula" runat="server" Text="Cédula: "></asp:Label>
         <asp:TextBox ID="txtcedula" runat="server" CssClass="form-control"></asp:TextBox>
         <asp:Button ID="btnBuscar" runat="server" Text="Buscar" CssClass="btn btn-primary" OnClick="btnBuscar_Click" />
-     
+     <br />
+    <br />
     
-    
-   
+    <asp:GridView ID="gvdatos" CssClass="table table-striped table-bordered table-hover" runat="server"></asp:GridView>
+   <br />
+    <br />
+    <p style="margin-top:50px; margin-left:20px; width: 144px;"><asp:Label ID="Label1" runat="server" Text="Numero de Solicitud"></asp:Label></p>
+   <p style="margin-left:160px; margin-top:-30px;"> <asp:DropDownList ID="DDLidsolicitud" Width="178px" CssClass="form-control" runat="server"></asp:DropDownList></p>
+    <p style="margin-left:400px; margin-top:-38px;"><asp:Label ID="Label2" runat="server" Text="Estado"></asp:Label></p>
+    <p style="margin-left:460px; margin-top:-40px;" ><asp:DropDownList ID="DDLestado" Width="151px" CssClass="form-control" runat="server">
+        <asp:ListItem>Aprobado</asp:ListItem>
+        <asp:ListItem Selected="True">Denegado</asp:ListItem>
+        <asp:ListItem></asp:ListItem>
+     </asp:DropDownList></p>
 
+
+   <p style="margin-left:670px; margin-top:-40px;"> <asp:Button ID="btnactualizar" CssClass="btn btn-warning" OnClick="btnactualizar_Click" runat="server" Text="Actualizar" /></p>
 </div>
-     <div class="form-horizontal" id="mantenimientoVaca" runat="server" visible="false">
-
-
-    </div>
+    
 
 </asp:Content>
