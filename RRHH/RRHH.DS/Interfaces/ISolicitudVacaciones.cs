@@ -14,5 +14,6 @@ namespace RRHH.DS.Interfaces
         void InsertarSolicitud(SolicitudVacaciones solicitud);
         void ActualizarSolicitud(SolicitudVacaciones solicitud);
         void EliminarSolicitud(int idsolicitud);
+        SolicitudVacaciones BuscarsolicitudPorId(string cedula);
     }
 }

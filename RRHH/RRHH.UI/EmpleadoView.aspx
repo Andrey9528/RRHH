@@ -15,7 +15,7 @@
     }
 
     #menu {
-        width: 500px;
+        width: 660px;
         margin: 60px auto;
         /*border: 1px solid #222;*/
       
@@ -214,11 +214,15 @@
     <ol id="menu" >
     <li><a href="#">Home</a></li>
     <li><a href="#">Perfil</a></li>
+    <li><a href="#">Actualizar datos</a></li>
+
+       
     <li>
         <a href="#">Incapacidades</a>
         <ul>
             <li><a href="insertarIncapacidad.aspx">Solicitud</a></li>
-            <li><a href="#">Consulta</a></li>
+            <li><a href="#">Historial</a></li>
+
            
         </ul>
     </li>
