@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using RRHH.DATA;
+using System.Net.Mail;
+using System.Net;
 
 namespace RRHH.UI
 {
@@ -108,6 +110,24 @@ namespace RRHH.UI
                     //var dias = diferencia.TotalDays;
                     //txttotaldias.Text = dias.ToString();
                     textoMensaje.InnerHtml = "Solicitud generada";
+                    //string mail = Singleton.opNotificacion.CorreoJefe(Login.EmpleadoGlobal.Cedula).Select(x => x.EmailJefeDpto).ToString();
+                    string mail = Singleton.opdepartamento.BuscarDepartamentos(Login.EmpleadoGlobal.IdDepartamento).EmailJefeDpto.ToString();
+                    using (SmtpClient cliente = new SmtpClient("smtp.live.com", 25))
+                    {
+                        cliente.EnableSsl = true;
+                        cliente.Credentials = new NetworkCredential("dollars.chat.room@hotmail.com", "fidelitasw2");
+                        MailMessage msj = new MailMessage("dollars.chat.room@hotmail.com", mail, "Nueva solicitud de vacaciones", "Se ha recibido una nueva solicitud de vacaciones de parte del empleado\nNombre:  " + Login.EmpleadoGlobal.Nombre+"\nUsuario:"+Login.EmpleadoGlobal.Correo);
+                        cliente.Send(msj);
+
+                        mensajeinfo.Visible = true;
+                        mensajeError.Visible = false;
+                        mensaje.Visible = false;
+                        textomensajeinfo.InnerHtml = "Correo enviado";
+
+
+                    }
+
+                    
                 }
                 else
                 {
