@@ -1,10 +1,12 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using RRHH.DATA;
+using System.Net.Mail;
+using System.Net;
 
 namespace RRHH.UI
 {
@@ -53,18 +55,27 @@ namespace RRHH.UI
 
         protected void btnactualizar_Click(object sender, EventArgs e)
         {
-            try
-            {
+            
+
+                try
+                {
+
+
                 string Condicion = DDLestado.Text;
                 if (Condicion == "Aprobado")
                 {
+                    var cedula = Singleton.opsolicitud.BuscarSolicitud(Convert.ToInt32(DDLidsolicitud.Text)).Cedula;
+                    var correo = Singleton.OpEmpleados.BuscarEmpleados(cedula).Correo;
+                    var nombre = Singleton.OpEmpleados.BuscarEmpleados(cedula).Nombre;
+
+
                     SolicitudVacaciones soli2 = new SolicitudVacaciones();
                     int id = Convert.ToInt32(DDLidsolicitud.Text);
 
                     soli2 = Singleton.opsolicitud.BuscarSolicitud(id);
                     SolicitudVacaciones soli = new SolicitudVacaciones()
                     {
-                        IdSolicitud=soli2.IdSolicitud,
+                        IdSolicitud = soli2.IdSolicitud,
                         Cedula = txtcedula.Text,
                         FechaInicio = soli2.FechaInicio,
                         FechaFinal = soli2.FechaFinal,
@@ -72,11 +83,32 @@ namespace RRHH.UI
                         Condicion = true
                     };
                     Singleton.opsolicitud.ActualizarSolicitud(soli);
+                    
+
+
+
+
+                    
+                    //using (SmtpClient cliente = new SmtpClient("smtp.live.com", 25))
+                    //{
+                    //    cliente.EnableSsl = true;
+                    //    cliente.Credentials = new NetworkCredential("dollars.chat.room@hotmail.com", "fidelitasw2");
+                    //    MailMessage msj = new MailMessage("dollars.chat.room@hotmail.com", correo, "Estado de solicitud de vacaciones", "Se ha aprobado su  solicitud de vacaciones de para el  empleado\nNombre:  " + nombre + "\nUsuario:" + correo);
+                    //    cliente.Send(msj);
+
+
+
+                    //}
                     mensaje.Visible = true;
                     mensajawarning.Visible = false;
                     mensajeError.Visible = false;
                     mensajeinfo.Visible = false;
                     textoMensaje.InnerHtml = "Solicitud aprobada";
+                    Email.Notificacion("dollars.chat.room@hotmail.com", "fidelitasw2", correo, "Estado de solicitud de vacaciones", "se ha aprobado su solicitud de vacaciones para el empleado \nNombre:" + nombre + "\nUsuario:" + correo);
+
+
+
+
 
 
                 }
@@ -88,12 +120,12 @@ namespace RRHH.UI
                     soli2 = Singleton.opsolicitud.BuscarSolicitud(id);
                     SolicitudVacaciones soli = new SolicitudVacaciones()
                     {
-                        IdSolicitud=soli2.IdSolicitud,
+                        IdSolicitud = soli2.IdSolicitud,
                         Cedula = txtcedula.Text,
                         FechaInicio = soli2.FechaInicio,
                         FechaFinal = soli2.FechaFinal,
                         TotalDias = soli2.TotalDias,
-                        Condicion =false
+                        Condicion = false
                     };
                     Singleton.opsolicitud.ActualizarSolicitud(soli);
                     mensaje.Visible = false;
@@ -105,11 +137,13 @@ namespace RRHH.UI
 
                 }
             }
-            catch (Exception)
-            {
+                catch (Exception)
+                {
 
-                throw;
-            }
+                    throw;
+                }
+            
         }
     }
+   
 }
