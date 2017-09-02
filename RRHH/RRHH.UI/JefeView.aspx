@@ -220,7 +220,7 @@
         <a href="#">Vacaciones</a>
         <ul>
             <li><a href="#">Lista de vacaciones</a></li>
-             <li><a href="#">Ver solicitudes</a></li>
+             <li><a href="mantenimientoVaca.aspx">Ver solicitudes</a></li>
             
             
         </ul>
