@@ -40,9 +40,10 @@
 
     <asp:Label ID="lbIdProducto" runat="server" Text="Cédula: "></asp:Label>
         <asp:TextBox ID="txtcedula" runat="server" CssClass="form-control"></asp:TextBox>
-        <asp:Button ID="btnsBuscar" runat="server" Text="Buscar" CssClass="btn btn-primary" OnClick="btnsBuscar_Click" />
-    
-
+        
+    <asp:Button ID="btnsBuscar" runat="server" Text="Buscar" CssClass="btn btn-primary" OnClick="btnsBuscar_Click" />
+    <br><br>
+    <asp:GridView ID="grVacaciones" runat="server"></asp:GridView>
     </div>
 
 
@@ -80,6 +81,8 @@
 
     <asp:Label ID="Label8" runat="server" Text="Nombre del doctor:"></asp:Label>
     <asp:TextBox ID="txtnombredoc" CssClass="form-control" runat="server"></asp:TextBox>
+        <asp:Label ID="Label3" runat="server" Text="Estado"></asp:Label>
+         <asp:CheckBox ID="chkEstado" runat="server" />
         <br />
 
         <br />

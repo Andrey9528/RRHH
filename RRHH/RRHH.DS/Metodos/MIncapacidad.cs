@@ -29,6 +29,11 @@ namespace RRHH.DS.Metodos
             return _db.Select<Incapacidad>(x => x.IdIncapacidad == IdIncapacidad).FirstOrDefault();
         }
 
+        public Incapacidad BuscarIncapacidadPorCedula(string cedula)
+        {
+            return _db.Select<Incapacidad>(x => x.Cedula == cedula).FirstOrDefault();
+        }
+
         public void EliminarIncapacidad(int idIncapacidad)
         {
             _db.Delete<Incapacidad>(x => x.IdIncapacidad == idIncapacidad);
