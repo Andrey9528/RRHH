@@ -9,12 +9,15 @@ namespace RRHH.DATA
 {
     public class departamento
     {
+       
         [AutoIncrement]
-
+       
         public int IdDepartamento { get; set; }
-        
+        //[Alias("Departamento")]
         public string Nombre { get; set; }
+        //[Alias("Correo")]
         public string EmailJefeDpto { get; set; }
+        //[Alias("Jefe")]
         public string NombreJefe { get; set; }
         public bool? Estado { get; set; }
     }

@@ -34,6 +34,7 @@ namespace RRHH.UI
                     mantenimientoDepa.Visible = true;
                     txtcorreojefe.Text = depa.EmailJefeDpto.ToString();
                     txtnombre.Text = depa.NombreJefe.ToString();
+                    Chk_estado.Checked = (bool)depa.Estado;
                     mensaje.Visible = false;
                     mensajeinfo.Visible = false;
                     mensajeError.Visible = false;
@@ -56,29 +57,62 @@ namespace RRHH.UI
         {
             try
             {
-               
-               departamentoGlobal=Singleton.opdepartamento.BuscarDepartamentosPorNombre(DDLdepa.Text);
-                var id_depa = departamentoGlobal.IdDepartamento.ToString();
-                departamento depa = new departamento()
+                if (Chk_estado.Checked)
                 {
-                    IdDepartamento = Convert.ToInt32(id_depa),
-                    Nombre=DDLdepa.SelectedItem.ToString(),
-                    NombreJefe=txtnombre.Text,
-                    EmailJefeDpto=txtcorreojefe.Text
+
+                    departamentoGlobal = Singleton.opdepartamento.BuscarDepartamentosPorNombre(DDLdepa.Text);
+                    var id_depa = departamentoGlobal.IdDepartamento.ToString();
+                    departamento depa = new departamento()
+                    {
+                        IdDepartamento = Convert.ToInt32(id_depa),
+                        Nombre = DDLdepa.SelectedItem.ToString(),
+                        NombreJefe = txtnombre.Text,
+                        EmailJefeDpto = txtcorreojefe.Text,
+                        Estado=true
                     
-                    
-                };
-                Singleton.opdepartamento.ActualizarDepartamentos(depa);
-                Gv_datos.DataSource = Singleton.opdepartamento.ListarDepartamentos();
-                Gv_datos.DataBind();
-                mensaje.Visible = false;
-                mensajeinfo.Visible = false;
-                mensajeError.Visible = false;
-                mensajawarning.Visible = true;
-                textomensajewarning.InnerHtml = "Actualizado";
-                mantenimientoDepa.Visible = false;
-                DDLdepa.Enabled = true;
-                
+
+
+                    };
+                    Singleton.opdepartamento.ActualizarDepartamentos(depa);
+                    Gv_datos.DataSource = Singleton.opdepartamento.ListarDepartamentos();
+                    Gv_datos.DataBind();
+                    mensaje.Visible = false;
+                    mensajeinfo.Visible = false;
+                    mensajeError.Visible = false;
+                    mensajawarning.Visible = true;
+                    textomensajewarning.InnerHtml = "Actualizado";
+                    mantenimientoDepa.Visible = false;
+                    DDLdepa.Enabled = true;
+                }
+                else 
+                {
+
+                    string confirmValue = Request.Form["confirm_value"];
+                    int id_depa = Singleton.opdepartamento.BuscarDepartamentosPorNombre(DDLdepa.Text).IdDepartamento;
+                    departamento depa2 = new departamento();
+                    depa2 = Singleton.opdepartamento.BuscarDepartamentos(id_depa);
+                    if (Chk_estado.Checked == false && confirmValue == "Yes")
+                    {
+                        departamento depa = new departamento()
+                        {
+                            IdDepartamento = depa2.IdDepartamento,
+                            Nombre = depa2.Nombre,
+                            EmailJefeDpto = depa2.EmailJefeDpto,
+                            NombreJefe=depa2.NombreJefe,
+                            Estado =false
+
+                        };
+                        Singleton.opdepartamento.ActualizarDepartamentos(depa);
+                        mensaje.Visible = false;
+                        mensajawarning.Visible = false;
+                        mensajeinfo.Visible = true;
+                        mensajeError.Visible = false;
+                        textomensajeinfo.InnerHtml = "Departamento borrado";
+
+                    }
+
+                }
+
 
             }
             catch (Exception)
@@ -93,6 +127,27 @@ namespace RRHH.UI
             try
             {
                 string confirmValue = Request.Form["confirm_value"];
+                int id_depa = Singleton.opdepartamento.BuscarDepartamentosPorNombre(DDLdepa.Text).IdDepartamento;
+                departamento depa2 = new departamento();
+                depa2 = Singleton.opdepartamento.BuscarDepartamentos(id_depa);
+                if (Chk_estado.Checked == false && confirmValue == "Yes")
+                {
+                    departamento depa=new  departamento()
+                    {
+                        IdDepartamento=depa2.IdDepartamento,
+                        Nombre=depa2.Nombre,
+                        EmailJefeDpto=depa2.EmailJefeDpto,
+                        Estado=Chk_estado.Checked
+                        
+                    };
+                    Singleton.opdepartamento.ActualizarDepartamentos(depa);
+                    mensaje.Visible = false;
+                    mensajawarning.Visible = false;
+                    mensajeinfo.Visible = true;
+                    mensajeError.Visible = false;
+                    textomensajeinfo.InnerHtml = "Departamento borrado";
+                       
+                }
                   
 
             }

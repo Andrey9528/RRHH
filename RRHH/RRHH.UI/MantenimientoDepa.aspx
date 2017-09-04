@@ -7,7 +7,7 @@
         var confirm_value = document.createElement("INPUT");
         confirm_value.type = "hidden";
         confirm_value.name = "confirm_value";
-        if (confirm("Esta seguro que quiere dar de baja este usuario?")) {
+        if (confirm("Esta seguro que quiere actualizar este departamento?")) {
             confirm_value.value = "Yes";
         } else {
             confirm_value.value = "No";
@@ -47,11 +47,19 @@
         <br />
       <br />
        
-       <div><asp:Label ID="Label1" runat="server" Text="Departamento:"></asp:Label></div>
+       <div><asp:Label ID="Label1" runat="server" Text="Departamento:"></asp:Label>
+       
        <div style="margin-left:100px; margin-top:-24px;">
            <asp:DropDownList ID="DDLdepa" Width="280" CssClass="form-control" runat="server">
                
            </asp:DropDownList>
+         
+       <div style="margin-left:300px; margin-top:-24px; width: 75px;">
+           <asp:Label ID="Label4" runat="server" Text="Activo:"></asp:Label>
+
+       </div>
+            <div style="width:137px; margin-left:350px; margin-top:-17px;"><asp:CheckBox ID="Chk_estado" runat="server" /></div>
+        </div>
          
        <br />
         <div >  <asp:Button CssClass="btn btn-primary" OnClick="btnbuscardepa_Click" ID="btnbuscardepa" runat="server" Text="Buscar" /></div>
@@ -67,8 +75,6 @@
 
 
     <div class="form-inline" id="mantenimientoDepa"  runat="server"  visible="false">
-       <div style="margin-left:400px; margin-top:-30px;"><asp:Label ID="Label4" runat="server" Text="Activo"></asp:Label></div>
-        <div><asp:CheckBox ID="Chk_estado" runat="server" /></div>
        <div style="margin-left:570px; margin-top:-99px; height: 34px; width: 219px;"> <asp:Label ID="Label2" runat="server" Text="Correo:"></asp:Label></div>
        <div style="margin-left:620px; margin-top:-40px;"> <asp:TextBox Width="190px" ID="txtcorreojefe" TextMode="Email"  CssClass="form-control" runat="server" Height="30px" ></asp:TextBox></div>
        <div style="margin-left:830px; margin-top:-27px; width: 56px;"><asp:Label ID="Label3" runat="server" Text="Nombre:"></asp:Label></div>
@@ -78,13 +84,13 @@
          <div style="margin-left:900px; margin-top:-23px;" ><asp:TextBox ID="txtnombre" CssClass="form-control" runat="server" Width="190px" Height="30px" ></asp:TextBox></div>
     
         <div style="margin-left:580px; margin-top:20px; width: 136px;">
-            <asp:Button ID="btnactualizar" CssClass="btn btn-warning" runat="server" OnClick="btnactualizar_Click" Text="Actualizar" />
+            <asp:Button ID="btnactualizar" OnClientClick="Confirm()" CssClass="btn btn-warning" runat="server" OnClick="btnactualizar_Click" Text="Actualizar" />
 
         </div>
     
     <div style="margin-left:980px; margin-top:-30px;">
-        <asp:Button ID="btndesahabilitar" OnClientClick="Confirm()" OnClick="btndesahabilitar_Click" CssClass="btn btn-danger"  runat="server" Text="Deshabilitar" />
-    </div>
+        
+            </div>
         </div>
    
 
