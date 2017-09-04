@@ -121,6 +121,24 @@ namespace RRHH.UI {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl mantenimientoDepa;
         
         /// <summary>
+        /// Label4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label4;
+        
+        /// <summary>
+        /// Chk_estado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox Chk_estado;
+        
+        /// <summary>
         /// Label2 control.
         /// </summary>
         /// <remarks>
