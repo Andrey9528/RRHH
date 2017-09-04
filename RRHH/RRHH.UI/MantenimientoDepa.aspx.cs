@@ -90,6 +90,17 @@ namespace RRHH.UI
 
         protected void btndesahabilitar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string confirmValue = Request.Form["confirm_value"];
+                  
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
 
         }
     }

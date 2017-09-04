@@ -16,5 +16,6 @@ namespace RRHH.DATA
         public string Nombre { get; set; }
         public string EmailJefeDpto { get; set; }
         public string NombreJefe { get; set; }
+        public bool? Estado { get; set; }
     }
 }

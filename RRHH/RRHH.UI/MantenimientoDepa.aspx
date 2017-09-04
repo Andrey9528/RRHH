@@ -1,5 +1,25 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MantenimientoDepa.aspx.cs" Inherits="RRHH.UI.MantenimientoDepa" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    
+    
+    <script type="text/javascript">
+    function Confirm() {
+        var confirm_value = document.createElement("INPUT");
+        confirm_value.type = "hidden";
+        confirm_value.name = "confirm_value";
+        if (confirm("Esta seguro que quiere dar de baja este usuario?")) {
+            confirm_value.value = "Yes";
+        } else {
+            confirm_value.value = "No";
+        }
+        document.forms[0].appendChild(confirm_value);
+    }
+
+
+</script>
+    
+    
+    
     <div class="inline">
         <div class="alert alert-success" visible="false"  id="mensaje" runat="server">
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times</a>
@@ -47,9 +67,11 @@
 
 
     <div class="form-inline" id="mantenimientoDepa"  runat="server"  visible="false">
-       <div style="margin-left:410px; margin-top:-99px; height: 34px; width: 219px;"> <asp:Label ID="Label2" runat="server" Text="Correo de jefe de departamento:"></asp:Label></div>
+       <div style="margin-left:400px; margin-top:-30px;"><asp:Label ID="Label4" runat="server" Text="Activo"></asp:Label></div>
+        <div><asp:CheckBox ID="Chk_estado" runat="server" /></div>
+       <div style="margin-left:570px; margin-top:-99px; height: 34px; width: 219px;"> <asp:Label ID="Label2" runat="server" Text="Correo:"></asp:Label></div>
        <div style="margin-left:620px; margin-top:-40px;"> <asp:TextBox Width="190px" ID="txtcorreojefe" TextMode="Email"  CssClass="form-control" runat="server" Height="30px" ></asp:TextBox></div>
-   <div style="margin-left:830px; margin-top:-27px; width: 56px;"><asp:Label ID="Label3" runat="server" Text="Nombre:"></asp:Label></div>
+       <div style="margin-left:830px; margin-top:-27px; width: 56px;"><asp:Label ID="Label3" runat="server" Text="Nombre:"></asp:Label></div>
        
         
         
@@ -61,10 +83,10 @@
         </div>
     
     <div style="margin-left:980px; margin-top:-30px;">
-        <asp:Button ID="btndesahabilitar" OnClick="btndesahabilitar_Click" CssClass="btn btn-danger"  runat="server" Text="Borrar" />
+        <asp:Button ID="btndesahabilitar" OnClientClick="Confirm()" OnClick="btndesahabilitar_Click" CssClass="btn btn-danger"  runat="server" Text="Deshabilitar" />
     </div>
         </div>
-
+   
 
     <br />
     <br />

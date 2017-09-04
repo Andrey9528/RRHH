@@ -48,7 +48,7 @@
 
         
        <div style="margin-left:380px; margin-top:-465px; width: 115px;" > 
-           <asp:Button ID="btnactualizar" CssClass="btn btn-warning" runat="server" Text="Actualizar" /></div>
+           <asp:Button ID="btnactualizar" CssClass="btn btn-warning" OnClick="btnactualizar_Click" runat="server"   Text="Actualizar" /></div>
     
         
         <div style="margin-top:-80px; margin-left:-35px; width: 100px;"><asp:Label ID="Label2" runat="server" Text="Fecha de inicio:"></asp:Label></div>
