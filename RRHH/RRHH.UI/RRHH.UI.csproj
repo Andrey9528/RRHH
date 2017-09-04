@@ -217,6 +217,7 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="adminVacaciones.aspx" />
     <Content Include="AdminView.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
@@ -231,6 +232,8 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="ListarDepartamentos.aspx" />
+    <Content Include="WebForm1.aspx" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="InsertarDepartamentos.aspx" />
     <Content Include="insertarIncapacidad.aspx" />
@@ -396,6 +399,13 @@
     <Compile Include="Account\VerifyPhoneNumber.aspx.designer.cs">
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
     </Compile>
+    <Compile Include="adminVacaciones.aspx.cs">
+      <DependentUpon>adminVacaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adminVacaciones.aspx.designer.cs">
+      <DependentUpon>adminVacaciones.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AdminView.aspx.cs">
       <DependentUpon>AdminView.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -467,6 +477,13 @@
     </Compile>
     <Compile Include="JefeView.aspx.designer.cs">
       <DependentUpon>JefeView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListarDepartamentos.aspx.cs">
+      <DependentUpon>ListarDepartamentos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListarDepartamentos.aspx.designer.cs">
+      <DependentUpon>ListarDepartamentos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -541,6 +558,13 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

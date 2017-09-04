@@ -110,6 +110,8 @@ namespace RRHH.UI
                 {
 
                     Nombre = txtnombre.Text,
+                    EmailJefeDpto=txtemailjefedepa.Text,
+                    NombreJefe=txtnombrejefe.Text
                 };
                 Singleton.opdepartamento.InsertarDepartamentos(depart);
                 mensaje.Visible = true;
