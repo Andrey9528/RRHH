@@ -36,16 +36,7 @@ namespace RRHH.UI
         {
             MailMessage msj = new MailMessage();
             SmtpClient smtp = new SmtpClient();
-            //using (SmtpClient cliente = new SmtpClient("smtp.live.com", 25))
-            //{
-            //    cliente.EnableSsl = true;
-            //    cliente.Credentials = new NetworkCredential("dollars.chat.room@hotmail.com", "fidelitasw2");
-            //    MailMessage msj = new MailMessage("dollars.chat.room@hotmail.com", correo, "Estado de solicitud de vacaciones", "Se ha aprobado su  solicitud de vacaciones de para el  empleado\nNombre:  " + nombre + "\nUsuario:" + correo);
-            //    cliente.Send(msj);
-
-
-
-            //}
+           
             try
             {
 

@@ -247,14 +247,14 @@
         <ul class="dropdown-menu">
             <li><a data-target="#cambio" data-toggle="modal" href="#">Cambio de contraseña</a></li>
 
-            <li><a href="#">Cerrar Sesión</a></li>
+            <li><a href="Login.aspx">Cerrar Sesión</a></li>
             <li class="divider"></li>
         </ul>
     </li>
 </ul>
 
     <ol id="menu" >
-    <li><a href="#">Home</a></li>
+    <li><a href="AdminView.aspx">Home</a></li>
     <li><a href="#">Perfil</a></li>
     <li>
         <a href="#">Empleados</a>
@@ -283,7 +283,7 @@
         <a href="#">Vacaciones</a>
         <ul>
            
-            <li><a href="#">Mantenimiento </a></li>
+            <li><a href="adminVacacaciones.aspx">Mantenimiento </a></li>
             
         </ul>
     </li>
@@ -292,9 +292,9 @@
         <ul>
            
             <li><a  data-toggle="modal" data-target="#depa"  href ="#">Registrar </a></li>
-            <li><a href="#">Mantenimiento </a></li>
-               <li><a href="#">Listar</a></li>
-
+            <li><a href="MantenimientoDepa.aspx">Mantenimiento </a></li>
+            
+              
         </ul>
     </li>
 
@@ -365,9 +365,12 @@
         </div>
         <div class="modal-body">
           
-           <asp:Label ID="Label4" runat="server" Text="Nombre del departamento:"></asp:Label>
+         <asp:Label ID="Label4" runat="server" Text="Nombre del departamento:"></asp:Label>
          <asp:TextBox ID="txtnombre" CssClass="form-control" runat="server"></asp:TextBox>
-     
+         <asp:Label ID="Label5" runat="server" Text="Correo del jefe del departamento"></asp:Label>
+         <asp:TextBox ID="txtemailjefedepa" TextMode="Email" runat="server"></asp:TextBox>
+         <asp:Label ID="Label6" runat="server" Text="Nombre Jefe:"></asp:Label>
+          <asp:TextBox ID="txtnombrejefe" runat="server"></asp:TextBox>
         </div>
         <div class="modal-footer">
           <asp:Button ID="btndepa" runat="server" Text="Insertar" CssClass="btn btn-success"  OnClick="btndepa_Click" />

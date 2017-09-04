@@ -65,6 +65,7 @@ namespace RRHH.UI
                 if (Condicion == "Aprobado")
                 {
                     var cedula = Singleton.opsolicitud.BuscarSolicitud(Convert.ToInt32(DDLidsolicitud.Text)).Cedula;
+
                     var correo = Singleton.OpEmpleados.BuscarEmpleados(cedula).Correo;
                     var nombre = Singleton.OpEmpleados.BuscarEmpleados(cedula).Nombre;
 

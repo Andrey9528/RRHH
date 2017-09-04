@@ -10,7 +10,7 @@
 namespace RRHH.UI {
     
     
-    public partial class MantenimientoDepa {
+    public partial class adminVacaciones {
         
         /// <summary>
         /// mensaje control.
@@ -94,67 +94,40 @@ namespace RRHH.UI {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// DDLdepa control.
+        /// DDLidsoli control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DDLdepa;
+        protected global::System.Web.UI.WebControls.DropDownList DDLidsoli;
         
         /// <summary>
-        /// btnbuscardepa control.
+        /// btnbuscar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnbuscardepa;
+        protected global::System.Web.UI.WebControls.Button btnbuscar;
         
         /// <summary>
-        /// mantenimientoDepa control.
+        /// Gv_datos control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl mantenimientoDepa;
+        protected global::System.Web.UI.WebControls.GridView Gv_datos;
         
         /// <summary>
-        /// Label2 control.
+        /// mantenimientovacaciones control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
-        
-        /// <summary>
-        /// txtcorreojefe control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtcorreojefe;
-        
-        /// <summary>
-        /// Label3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
-        
-        /// <summary>
-        /// txtnombre control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtnombre;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl mantenimientovacaciones;
         
         /// <summary>
         /// btnactualizar control.
@@ -166,21 +139,39 @@ namespace RRHH.UI {
         protected global::System.Web.UI.WebControls.Button btnactualizar;
         
         /// <summary>
-        /// btndesahabilitar control.
+        /// Label2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btndesahabilitar;
+        protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
-        /// Gv_datos control.
+        /// txtfechaincio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView Gv_datos;
+        protected global::System.Web.UI.WebControls.TextBox txtfechaincio;
+        
+        /// <summary>
+        /// Label3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label3;
+        
+        /// <summary>
+        /// txtfechafinal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtfechafinal;
     }
 }
