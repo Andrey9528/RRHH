@@ -45,6 +45,7 @@
         
     <asp:Button ID="btnsBuscar" runat="server" Text="Buscar" CssClass="btn btn-primary" OnClick="btnsBuscar_Click" />
     <br><br>
+
     <asp:GridView ID="grVacaciones"   CssClass="table  table-condensed table-bordered  "  runat="server" CellPadding="4" ForeColor="#333333" GridLines="None">
         <AlternatingRowStyle BackColor="White" />
         <EditRowStyle BackColor="#2461BF" />
@@ -77,6 +78,7 @@
 <div class="form-group">
    <p><asp:Label ID="Label2" runat="server" Text="Numero de incapacidad:"></asp:Label></p>
    <p style="margin-left:153px; margin-top:-35px;"> <asp:DropDownList ID="DDLid_incapacidad" CssClass="form-control" Width="280" runat="server"></asp:DropDownList></p>
+    <asp:Button ID="btnBuscarIncapacidad" OnClick="btnBuscarIncapacidad_Click" CssClass="btn btn-success" runat="server" Text="Mostrar datos" />
 
     </div>
 
@@ -111,7 +113,11 @@
         <p>
             <asp:Label ID="Label6" runat="server" Text="Tipo"></asp:Label></p>
         <p style="margin-left:90px; margin-top:-40px; width: 134px;">
-            <asp:DropDownList ID="DDLtipoenfermedad" CssClass="form-control" Width="147" runat="server"></asp:DropDownList>  </p>
+            <asp:DropDownList ID="DDLtipoenfermedad" CssClass="form-control" Width="147" runat="server">
+                <asp:ListItem>Enfermedad</asp:ListItem>
+                <asp:ListItem>Maternidad</asp:ListItem>
+                <asp:ListItem Selected="True">Sin establecer</asp:ListItem>
+            </asp:DropDownList>  </p>
 
 
 
@@ -163,7 +169,7 @@
 
          <div class="form-inline">
             <br />
-            <asp:Button ID="btnModificar" runat="server" Text="Modificar" CssClass="btn btn-warning"  OnClick="btnModificar_Click" />
+            <asp:Button ID="btnModificar" runat="server" Text="Modificar" CssClass="btn btn-warning"  OnClick="btnModificar_Click" OnClientClick="Confirm()" />
             <asp:Button ID="btndesahabilitar"  runat="server" Text="Deshabilitar" CssClass="btn btn-danger" OnClick="btndesahabilitar_Click"  OnClientClick="Confirm()" />
         </div>
     </div>
