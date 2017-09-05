@@ -40,10 +40,10 @@ namespace RRHH.UI
                     //txtcentroemisor.Text = inca.CentroEmisor.ToString();
                     //chkEstado.Checked = inca.Estado;
                     //txtnombredoc.Text = inca.NombreDoctor.ToString();
-                    //mensaje.Visible = false;
-                    //mensajeinfo.Visible = false;
-                    //mensajeError.Visible = false;
-                    //mensajawarning.Visible = false;
+                    mensaje.Visible = false;
+                    mensajeinfo.Visible = false;
+                    mensajeError.Visible = false;
+                    mensajawarning.Visible = false;
                 }
                 else
                 {
