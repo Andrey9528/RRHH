@@ -60,7 +60,7 @@ namespace RRHH.UI
                 try
                 {
 
-
+               
                 string Condicion = DDLestado.Text;
                 if (Condicion == "Aprobado")
                 {
@@ -68,6 +68,7 @@ namespace RRHH.UI
 
                     var correo = Singleton.OpEmpleados.BuscarEmpleados(cedula).Correo;
                     var nombre = Singleton.OpEmpleados.BuscarEmpleados(cedula).Nombre;
+
 
 
                     SolicitudVacaciones soli2 = new SolicitudVacaciones();
@@ -105,7 +106,7 @@ namespace RRHH.UI
                     mensajeError.Visible = false;
                     mensajeinfo.Visible = false;
                     textoMensaje.InnerHtml = "Solicitud aprobada";
-                    Email.Notificacion("dollars.chat.room@hotmail.com", "fidelitasw2", correo, "Estado de solicitud de vacaciones", "se ha aprobado su solicitud de vacaciones para el empleado \nNombre:" + nombre + "\nUsuario:" + correo);
+                    Email.Notificacion("soporte.biblioteca@hotmail.com", "soporte123.", correo, "Estado de solicitud de vacaciones", "se ha aprobado su solicitud de vacaciones para el empleado \nNombre:" + nombre + "\nUsuario:" + correo);
 
 
 
@@ -115,6 +116,12 @@ namespace RRHH.UI
                 }
                 else
                 {
+                    string cedula = Singleton.opsolicitud.BuscarSolicitud(Convert.ToInt32(DDLidsolicitud.Text)).Cedula.ToString();
+
+                    string correo = Singleton.OpEmpleados.BuscarEmpleados(cedula).Correo;
+                   string nombre = Singleton.OpEmpleados.BuscarEmpleados(cedula).Nombre;
+
+
                     SolicitudVacaciones soli2 = new SolicitudVacaciones();
                     int id = Convert.ToInt32(DDLidsolicitud.Text);
 
@@ -134,6 +141,9 @@ namespace RRHH.UI
                     mensajeError.Visible = true;
                     mensajeinfo.Visible = false;
                     textoMensajeError.InnerHtml = "Solicitud denegada";
+                    Email.Notificacion("soporte.biblioteca@hotmail.com", "soporte123.", correo, "Estado de solicitud de vacaciones", "se ha denegado su solicitud  de vacaciones para el empleado \nNombre: " + nombre + "\nUsuario: " + correo);
+
+                   
 
 
                 }

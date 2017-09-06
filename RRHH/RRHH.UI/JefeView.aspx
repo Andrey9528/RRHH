@@ -126,6 +126,7 @@
             background-image: linear-gradient(#04acec, #0186ba);
         }
 
+
     #menu ul li:first-child > a {
         border-radius: 3px 3px 0 0;
     }
@@ -184,7 +185,7 @@
                <li><a data-target="#cambiojefe" data-toggle="modal" href="#">Cambio de contraseña</a></li>
 
 
-            <li><a href="#">Cerrar Sesión</a></li>
+            <li><a href="Login.aspx">Cerrar Sesión</a></li>
             <li class="divider"></li>
         </ul>
     </li>
@@ -192,7 +193,7 @@
    
 
       <ol id="menu" >
-    <li><a href="#">Home</a></li>
+    <li><a href="JefeView.aspx">Home</a></li>
     <li><a href="#">Perfil</a></li>
     <li>
         <a href="#">Empleados</a>
