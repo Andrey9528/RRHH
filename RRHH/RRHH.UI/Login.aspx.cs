@@ -78,7 +78,7 @@ namespace RRHH.UI
                                         Nombre = EmpleadoGlobal.Nombre,
                                         Direccion = EmpleadoGlobal.Direccion,
                                         Telefono = EmpleadoGlobal.Telefono,
-                                        Correo = EmpleadoGlobal.Correo,
+                                        Correo = EmpleadoGlobal.Correo ,
                                         EstadoCivil = EmpleadoGlobal.EstadoCivil,
                                         FechaNacimiento = EmpleadoGlobal.FechaNacimiento,
                                         IdDepartamento = EmpleadoGlobal.IdDepartamento,
