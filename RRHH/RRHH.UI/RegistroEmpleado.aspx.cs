@@ -59,6 +59,7 @@ namespace RRHH.UI
                         IdDepartamento = Convert.ToInt32(IdDepartamento),
                         IdRol = Convert.ToInt32(IdRol),
                         Estado = true,
+                        Bloqueado = false,
                         Password = Encriptacion.Encriptar(contrasena, Encriptacion.Llave),
                         Genero=DDLgenero.SelectedItem.ToString()
                     };

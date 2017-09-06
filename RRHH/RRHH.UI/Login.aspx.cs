@@ -18,10 +18,26 @@ namespace RRHH.UI
     {
         public static string contrasena;
         public static Empleado EmpleadoGlobal = new Empleado();
+        public static Empleado EmpleadoBloqueo = new Empleado();
+        public static string Correo;
         protected void Page_Load(object sender, EventArgs e)
         {
             //btnRegistrar.Attributes.Add("onclick", "window.open('popup.aspx','','height=300,width=300');return false");
 
+        }
+
+        private void ValidarVacios()
+        {
+            if (string.IsNullOrEmpty(txtcorreo.Text) || string.IsNullOrEmpty(txtcontra.Text))
+            {
+
+                mensaje.Visible = false;
+                mensajeError.Visible = true;
+                mensajeinfo.Visible = false;
+                textoMensajeError.InnerHtml = "Debes ingresar tu usuario y contraseña";
+                txtcontra.Text = string.Empty;
+                txtcorreo.Text = string.Empty;
+            }
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
@@ -29,95 +45,189 @@ namespace RRHH.UI
 
             try
             {
+                ValidarVacios();
 
-                if (string.IsNullOrEmpty(txtcorreo.Text) || string.IsNullOrEmpty(txtcontra.Text))
-                {
-
-                     mensaje.Visible = false;
-                     mensajeError.Visible = true;
-                     mensajeinfo.Visible = false;
-                     textoMensajeError.InnerHtml = "Debes ingresar tu usuario y contraseña";
-                     txtcontra.Text = string.Empty;
-                     txtcorreo.Text = string.Empty;
-                }
                 if (txtcorreo.Text != null && txtcontra.Text != null)
                 {
                     if (Singleton.OpEmpleados.ExisteEmpleado(txtcorreo.Text))
                     {
-                        if (Singleton.OpEmpleados.BuscarEmpleadoCorreo(txtcorreo.Text).Password ==
-                             Encriptacion.Encriptar(txtcontra.Text,Encriptacion.Llave))//Sigleton.Encriptar(txtPassword.Text, Utilitarios.Llave))
+                        EmpleadoGlobal = Singleton.OpEmpleados.BuscarEmpleadoCorreo(txtcorreo.Text);
+                        Correo = EmpleadoGlobal.Correo;
+
+                        if (EmpleadoGlobal.Bloqueado)
                         {
-                            EmpleadoGlobal = Singleton.OpEmpleados.BuscarEmpleadoCorreo(txtcorreo.Text);
-                            //Sigleton.OpAuditoria.InsertarEnLogin(PersonaGlobal.Cedula, PersonaGlobal.Nombre, PersonaGlobal.PrimerApellido);
-                            if (EmpleadoGlobal.IdRol == 1)
-                            {
-
-                                Response.Redirect("EmpleadoView.aspx");
-                            }
-                            else if (EmpleadoGlobal.IdRol == 2)
-                            {
-
-                                Response.Redirect("JefeView.aspx");
-
-                            }
-                            else if (EmpleadoGlobal.IdRol == 3)
-                            {
-                                Response.Redirect("AdminView.aspx");
-                            }
-                           
-
+                            mensaje.Visible = false;
+                            mensajeinfo.Visible = false;
+                            mensajeError.Visible = true;
+                            textoMensajeError.InnerHtml = "La cuenta se encuentra bloqueda, favor contactar un administrador";
+                            txtcontra.Text = string.Empty;
+                            txtcorreo.Text = string.Empty;
                         }
-                        if (Singleton.OpEmpleados.BuscarEmpleadoCorreo(txtcorreo.Text).Password !=
-                            Encriptacion.Encriptar(txtcontra.Text,Encriptacion.Llave))//Sigleton.Encriptar(txtPassword.Text, Utilitarios.Llave))
+
+                        else if (EmpleadoGlobal.IntentosFallidos <= 3)
                         {
-                            EmpleadoGlobal = Singleton.OpEmpleados.BuscarEmpleadoCorreo(txtcorreo.Text);
+                            if (EmpleadoGlobal.Password ==
+                                 Encriptacion.Encriptar(txtcontra.Text, Encriptacion.Llave) && EmpleadoGlobal.Bloqueado == false)
+                            {
+                                //Sigleton.OpAuditoria.InsertarEnLogin(PersonaGlobal.Cedula, PersonaGlobal.Nombre, PersonaGlobal.PrimerApellido);
+                                if (EmpleadoGlobal.IdRol == 1)
+                                {
+                                    Empleado emple = new Empleado()
+                                    {
+                                        Cedula = EmpleadoGlobal.Cedula,
+                                        Nombre = EmpleadoGlobal.Nombre,
+                                        Direccion = EmpleadoGlobal.Direccion,
+                                        Telefono = EmpleadoGlobal.Telefono,
+                                        Correo = EmpleadoGlobal.Correo ,
+                                        EstadoCivil = EmpleadoGlobal.EstadoCivil,
+                                        FechaNacimiento = EmpleadoGlobal.FechaNacimiento,
+                                        IdDepartamento = EmpleadoGlobal.IdDepartamento,
+                                        IdRol = EmpleadoGlobal.IdRol,
+                                        Estado = EmpleadoGlobal.Estado,
+                                        Genero = EmpleadoGlobal.Genero,
+                                        Password = Encriptacion.Encriptar(txtcontra.Text, Encriptacion.Llave),
+                                        Bloqueado = false,
+                                        IntentosFallidos = 0,
+                                    };
+                                    Singleton.OpEmpleados.ActualizarEmpleados(emple);
+                                    Response.Redirect("EmpleadoView.aspx");
+                                }
+                                else if (EmpleadoGlobal.IdRol == 2 && EmpleadoGlobal.Bloqueado == false)
+                                {
+                                    Empleado emple = new Empleado()
+                                    {
+                                        Cedula = EmpleadoGlobal.Cedula,
+                                        Nombre = EmpleadoGlobal.Nombre,
+                                        Direccion = EmpleadoGlobal.Direccion,
+                                        Telefono = EmpleadoGlobal.Telefono,
+                                        Correo = EmpleadoGlobal.Correo,
+                                        EstadoCivil = EmpleadoGlobal.EstadoCivil,
+                                        FechaNacimiento = EmpleadoGlobal.FechaNacimiento,
+                                        IdDepartamento = EmpleadoGlobal.IdDepartamento,
+                                        IdRol = EmpleadoGlobal.IdRol,
+                                        Estado = EmpleadoGlobal.Estado,
+                                        Genero = EmpleadoGlobal.Genero,
+                                        Password = Encriptacion.Encriptar(txtcontra.Text, Encriptacion.Llave),
+                                        Bloqueado = false,
+                                        IntentosFallidos = 0,
+                                    };
+                                    Singleton.OpEmpleados.ActualizarEmpleados(emple);
+                                    Response.Redirect("JefeView.aspx");
 
-                              mensaje.Visible = false;
-                              mensajeinfo.Visible = false;
-                              mensajeError.Visible = true;
-                              textoMensajeError.InnerHtml = "Contraseña Incorrecta";
-                              txtcontra.Text = string.Empty;
-                              txtcorreo.Text = string.Empty;                           
+                                }
+                                else if (EmpleadoGlobal.IdRol == 3 && EmpleadoGlobal.Bloqueado == false)
+                                {
+                                    Empleado emple = new Empleado()
+                                    {
+                                        Cedula = EmpleadoGlobal.Cedula,
+                                        Nombre = EmpleadoGlobal.Nombre,
+                                        Direccion = EmpleadoGlobal.Direccion,
+                                        Telefono = EmpleadoGlobal.Telefono,
+                                        Correo = EmpleadoGlobal.Correo,
+                                        EstadoCivil = EmpleadoGlobal.EstadoCivil,
+                                        FechaNacimiento = EmpleadoGlobal.FechaNacimiento,
+                                        IdDepartamento = EmpleadoGlobal.IdDepartamento,
+                                        IdRol = EmpleadoGlobal.IdRol,
+                                        Estado = EmpleadoGlobal.Estado,
+                                        Genero = EmpleadoGlobal.Genero,
+                                        Password = Encriptacion.Encriptar(txtcontra.Text, Encriptacion.Llave),
+                                        Bloqueado = false,
+                                        IntentosFallidos = 0,
+                                    };
+                                    Singleton.OpEmpleados.ActualizarEmpleados(emple);
+                                    Response.Redirect("AdminView.aspx");
+                                }
+                            }
 
-                            //Utilitarios.OpAuditoria.InsertarEnLoginFallido(PersonaGlobal.Cedula, PersonaGlobal.Nombre, PersonaGlobal.PrimerApellido);
+
+                            if (EmpleadoGlobal.Password !=
+                                Encriptacion.Encriptar(txtcontra.Text, Encriptacion.Llave) && EmpleadoGlobal.Bloqueado == false)//Sigleton.Encriptar(txtPassword.Text, Utilitarios.Llave))
+                            {
+                                if (EmpleadoGlobal.IntentosFallidos <= 2)
+                                {
+                                    EmpleadoGlobal = Singleton.OpEmpleados.BuscarEmpleadoCorreo(txtcorreo.Text);
+                                    mensaje.Visible = false;
+                                    mensajeinfo.Visible = false;
+                                    mensajeError.Visible = true;
+                                    textoMensajeError.InnerHtml = "Contraseña Incorrecta";
+                                    txtcontra.Text = string.Empty;
+                                    txtcorreo.Text = string.Empty;
+                                    // Correo = txtcorreo.Text; // aqui se toma el correo para luego usarlo en el bloqueo de contraseña
+                                    //Utilitarios.OpAuditoria.InsertarEnLoginFallido(PersonaGlobal.Cedula, PersonaGlobal.Nombre, PersonaGlobal.PrimerApellido);
+                                    Empleado emple = new Empleado()
+                                    {
+                                        Cedula = EmpleadoGlobal.Cedula,
+                                        Nombre = EmpleadoGlobal.Nombre,
+                                        Direccion = EmpleadoGlobal.Direccion,
+                                        Telefono = EmpleadoGlobal.Telefono,
+                                        Correo = EmpleadoGlobal.Correo,
+                                        EstadoCivil = EmpleadoGlobal.EstadoCivil,
+                                        FechaNacimiento = EmpleadoGlobal.FechaNacimiento,
+                                        IdDepartamento = EmpleadoGlobal.IdDepartamento,
+                                        IdRol = EmpleadoGlobal.IdRol,
+                                        Estado = EmpleadoGlobal.Estado,
+                                        Genero = EmpleadoGlobal.Genero,
+                                        Password = EmpleadoGlobal.Password,
+                                        Bloqueado = false,
+                                        IntentosFallidos = EmpleadoGlobal.IntentosFallidos + 1,
+                                    };
+                                    Singleton.OpEmpleados.ActualizarEmpleados(emple);
+                                }
+                                else if (EmpleadoGlobal.IntentosFallidos == 3)
+                                {
+                                    mensaje.Visible = false;
+                                    mensajeError.Visible = true;
+                                    mensajeinfo.Visible = false;
+                                    textomensajeinfo.InnerHtml = "La cuenta se encuentra bloqueada por exceso de intentos fallidos";
+                                    txtcontra.Text = string.Empty;
+                                    txtcorreo.Text = string.Empty;
+                                    EmpleadoBloqueo = Singleton.OpEmpleados.BuscarEmpleadoCorreo(Correo);
+                                    Empleado emple = new Empleado()
+                                    {
+                                        Cedula = EmpleadoBloqueo.Cedula,
+                                        Nombre = EmpleadoBloqueo.Nombre,
+                                        Direccion = EmpleadoBloqueo.Direccion,
+                                        Telefono = EmpleadoBloqueo.Telefono,
+                                        Correo = EmpleadoBloqueo.Correo,
+                                        EstadoCivil = EmpleadoBloqueo.EstadoCivil,
+                                        FechaNacimiento = EmpleadoBloqueo.FechaNacimiento,
+                                        IdDepartamento = EmpleadoBloqueo.IdDepartamento,
+                                        IdRol = EmpleadoBloqueo.IdRol,
+                                        Estado = EmpleadoBloqueo.Estado,
+                                        Genero = EmpleadoBloqueo.Genero,
+                                        Password = EmpleadoGlobal.Password,
+                                        Bloqueado = true,
+                                        IntentosFallidos = EmpleadoGlobal.IntentosFallidos+1,
+                                    };
+                                    Singleton.OpEmpleados.ActualizarEmpleados(emple);
+                                }
+                            }
+                            else
+                            {
+                                mensaje.Visible = false;
+                                mensajeError.Visible = false;
+                                mensajeinfo.Visible = true;
+                                textomensajeinfo.InnerHtml = "Usuario no existe";
+                                txtcontra.Text = string.Empty;
+                                txtcorreo.Text = string.Empty;
+                            }
                         }
                     }
-                    else
-                    {
-                       mensaje.Visible = false;
-                       mensajeError.Visible = false;
-                       mensajeinfo.Visible = true;
-                       textomensajeinfo.InnerHtml = "Usuario no existe";
-                       txtcontra.Text = string.Empty;
-                       txtcorreo.Text = string.Empty;
                     }
-
-                }
-
-
-
-
                 
-
-
-
-
-
-
             }
-
-
             catch (Exception ex)
             {
-              
+
                 mensaje.Visible = false;
                 mensajeError.Visible = true;
                 mensajeinfo.Visible = false;
-                textoMensajeError.InnerHtml ="error";
+                textoMensajeError.InnerHtml = "error";
                 //ImprimirMensajeError(ex.Message);
                 //Utilitarios.OpErrores.InsertarEnErrores(PersonaGlobal.Nombre, PersonaGlobal.Cedula, ex.ToString());
-                //Limpiar(this.Controls);
             }
+        
+        
         }
        
 
@@ -154,8 +264,8 @@ namespace RRHH.UI
                     using (SmtpClient cliente = new SmtpClient("smtp.live.com", 25))
                     {
                         cliente.EnableSsl = true;
-                        cliente.Credentials = new NetworkCredential("dollars.chat.room@hotmail.com", "fidelitasw2");
-                        MailMessage msj = new MailMessage("dollars.chat.room@hotmail.com", txtemail.Text, "Restauración de contraseña", "Has recibido una nueva contraseña:  " + contrasena+":"+"Para tu usuario: "+txtemail.Text);
+                        cliente.Credentials = new NetworkCredential("soporte.biblioteca@hotmail.com", "soporte123.");
+                        MailMessage msj = new MailMessage("soporte.biblioteca@hotmail.com", txtemail.Text, "Restauración de contraseña", "Has recibido una nueva contraseña:  " + contrasena+":"+"Para tu usuario: "+txtemail.Text);
                         cliente.Send(msj);
 
                         mensajeinfo.Visible = true;
