@@ -1,16 +1,22 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="RRHH.UI.Login" %>
+﻿<%@ Page Title="Inicio de sesión" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="RRHH.UI.Login" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
+    
     <style>
         body {
-            background-color:#75c7d5;
+            background-color:white;
         }
     </style>
 
 <br />
-    <div class="alert alert-success" visible="false" id="mensaje" runat="server">
+   
+    <img style="margin-top:-70px;" src="Images/WhatsApp Image 2017-09-04 at 8.05.30 AM.jpeg"  width="200" />
+    <hr style="font-size:22px; margin-left:-34px; width:1237px; height:-1px; background-color:blue; "  />
+
+    
+    
+     <div class="alert alert-success" visible="false" id="mensaje" runat="server">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
         <strong id="textoMensaje" runat="server"></strong>
     </div>
@@ -24,12 +30,13 @@
     </div>
 
 
-
-    <div class="container" style="width:800px; " >
+    <img src="Images/pastillas.png"  style=" margin-left :300px;  margin-top:90px; width:180px;" />
+    
+    <div class="container" style="width:800px; margin-left:300px; margin-top:-300px; " >
         <div id="loginbox" style="margin-top: 50px; "  class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
             <div class="panel panel-info" >
                 <div class="panel-heading">
-                    <div class="panel-title"  style="font-family:cursive; text-align:center;" >Sistema de recursos humanos</div>
+                    <div class="panel-title"  style="font-family:cursive;  text-align:center;" >Sistema de recursos humanos</div>
                 </div>
                 <div style="padding-top: 30px; background:white;"    class="panel-body">
                     <div class="form-horizontal">
@@ -49,7 +56,7 @@
                                       <div class="col-sm-12">
                                           <div class="btn-group" ><asp:Button ID="btnLogin" runat="server" Text="Login" CssClass="btn btn-primary" OnClick="btnLogin_Click" />  </div>
                                           
-                                           <div class="btn-group"><asp:Button ID="btnRegistrar" data-target="#olvide" data-toggle="modal"   runat="server" Text="Olvidé contraseña"   CssClass="btn btn-success" OnClick="btnRegistrar_Click" />  </div>    
+                                           <div class="btn-group"><asp:Button ID="btnRegistrar" data-target="#olvide" data-toggle="modal"   runat="server" Text="Olvidé contraseña"   CssClass="btn btn-primary" OnClick="btnRegistrar_Click" />  </div>    
                                          
                                             
                                       </div>
@@ -103,7 +110,10 @@
           </div>
       </div>
 
-
+       <hr />
+            <footer>
+                <p>&copy; <%: DateTime.Now.Year %>  Farmacias San Gabriel</p>
+            </footer>
 
 
     
