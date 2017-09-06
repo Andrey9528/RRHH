@@ -103,12 +103,13 @@ namespace RRHH.UI
                 // DepartamentoGlobal = Singleton.opdepartamento.BuscarDepartamentosPorNombre(ddlDepartamento.Text);
                 DepartamentoGlobal = Singleton.opdepartamento.BuscarDepartamentosPorNombre(txtDepartamento.Text);
                 var IdDepartamento = DepartamentoGlobal.IdDepartamento.ToString();
+                EmpleadoGlobal = Singleton.OpEmpleados.BuscarEmpleados(txtcedula.Text); // DESMADRE DE MARCOS
                 //RolGlobal = Singleton.oproles.BuscarRolesPorNombre(ddlRol.Text);
                 RolGlobal = Singleton.oproles.BuscarRolesPorNombre(txtRol.Text);
                 var IdRol = RolGlobal.IdRol.ToString();
-                Empleado emple = new Empleado()            
-                { 
-                    Cedula=txtcedula.Text,             
+                Empleado emple = new Empleado()
+                {
+                    Cedula = txtcedula.Text,
                     Nombre = txtNombre.Text,
                     Direccion = txtDireccion.Text,
                     Telefono = txtTelefono.Text,
@@ -116,10 +117,11 @@ namespace RRHH.UI
                     EstadoCivil = DddlEstadoCivil.SelectedItem.ToString(),
                     FechaNacimiento = Convert.ToDateTime(txtFechaNacimiento.Text),
                     IdDepartamento = Convert.ToInt32(IdDepartamento),
-                    IdRol =Convert.ToInt32(IdRol),
+                    IdRol = Convert.ToInt32(IdRol),
                     Estado = Chk_estado.Checked,
-                    Genero=DDLgenero.SelectedItem.ToString(),
+                    Genero = DDLgenero.SelectedItem.ToString(),
                     Password = "admin",
+                    IntentosFallidos = Convert.ToInt32(EmpleadoGlobal.IntentosFallidos),
                 };
                 Singleton.OpEmpleados.ActualizarEmpleados(emple);
                 Empleadosmantenimiento.Visible = false;

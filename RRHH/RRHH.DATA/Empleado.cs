@@ -32,7 +32,9 @@ namespace RRHH.DATA
         public bool Estado { get; set; }
 
         public string Genero { get; set; }
-        
+        public bool Bloqueado { get; set; }
+        public int IntentosFallidos { get; set; }
+
 
     }
 }
