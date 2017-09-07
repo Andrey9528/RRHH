@@ -54,7 +54,8 @@
    
     <br/>
     
-    
+       
+     <a class="btn btn-primary"  href="AdminView.aspx"><span class="glyphicon glyphicon-backward"></span> Regresar</a>
     <asp:Button ID="btnCrear" OnClick="btnCrear_Click" CssClass="btn btn-success" runat="server" Text="Crear" />
     <asp:Button ID="btnLimpiar" onclick="btnLimpiar_Click" CssClass="btn btn-danger" runat="server" Text="Limpiar" />
    <%-- <asp:RequiredFieldValidator id="RequiredFieldValidator1" runat="server"
@@ -63,4 +64,6 @@
   ForeColor="Red">
 </asp:RequiredFieldValidator>--%>
 </div>
+   
+   
 </asp:Content>

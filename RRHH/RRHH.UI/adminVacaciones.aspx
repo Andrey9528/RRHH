@@ -24,11 +24,14 @@
 
     
 
-    <p style="margin-left:300px; margin-top:40px; width: 54px;"><asp:Label ID="Label1" runat="server" Text="Cedula:"></asp:Label></p>
-    <p style="margin-top:-38px; margin-left:360px;" ><asp:DropDownList ID="DDLidsoli" CssClass="form-control" Width="280" runat="server"></asp:DropDownList></p>
+    <p style="margin-left:400px; margin-top:40px; width: 54px;"><asp:Label ID="Label1" runat="server" Text="Solicitud:"></asp:Label></p>
+    <p style="margin-top:-38px; margin-left:460px;" ><asp:DropDownList ID="DDLidsoli" CssClass="form-control" Width="280" runat="server"></asp:DropDownList></p>
 
     <br />
-    <p style="margin-left:300px; margin-top:1px; width: 89px;"><asp:Button ID="btnbuscar" CssClass="btn btn-primary" runat="server" Text="Buscar" OnClick="btnbuscar_Click" /></p>
+     
+    <p style="margin-left:300px; margin-top:1px; width: 89px;">
+          
+        <asp:Button ID="btnbuscar" CssClass="btn btn-primary" runat="server" Text="Buscar" OnClick="btnbuscar_Click" /></p>
     
 
 
@@ -44,24 +47,25 @@
             <SortedDescendingCellStyle BackColor="#CAC9C9" />
             <SortedDescendingHeaderStyle BackColor="#00547E" />
         </asp:GridView>
-    <div class="form-vertical" visible="false" id="mantenimientovacaciones" runat="server">
+    <div class="form-vertical" visible="true" id="mantenimientovacaciones" runat="server">
 
         
        <div style="margin-left:380px; margin-top:-465px; width: 115px;" > 
            <asp:Button ID="btnactualizar" CssClass="btn btn-warning" OnClick="btnactualizar_Click" runat="server"   Text="Actualizar" /></div>
-    
+            
         
-        <div style="margin-top:-80px; margin-left:-35px; width: 100px;"><asp:Label ID="Label2" runat="server" Text="Fecha de inicio:"></asp:Label></div>
-        <p style="margin-top:-30px; margin-left:70px; width: 224px;"><asp:TextBox ID="txtfechaincio" CssClass="form-control" runat="server"></asp:TextBox></p>
-        <p style="margin-left:650px; margin-top:-34px; width: 154px;"><asp:Label ID="Label3" runat="server" Text="Fecha de finalización:"></asp:Label></p>
-        <p style="margin-top:-40px; margin-left:800px; width: 224px;"><asp:TextBox ID="txtfechafinal" CssClass="form-control" runat="server"></asp:TextBox></p>
+        <div style="margin-top:-80px; margin-left:60px; width: 100px;"><asp:Label ID="Label2" runat="server" Text="Fecha de inicio:"></asp:Label></div>
+        <p style="margin-top:-30px; margin-left:170px; width: 224px;"><asp:TextBox ID="txtfechaincio" CssClass="form-control" runat="server"></asp:TextBox></p>
+        <p style="margin-left:760px; margin-top:-34px; width: 154px;"><asp:Label ID="Label3" runat="server" Text="Fecha de finalización:"></asp:Label></p>
+        <p style="margin-top:-40px; margin-left:900px; width: 224px;"><asp:TextBox ID="txtfechafinal" CssClass="form-control" runat="server"></asp:TextBox></p>
        
     </div>
 
 
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
 
-
+     <a class="btn btn-primary"  href="AdminView.aspx"><span class="glyphicon glyphicon-backward"></span> Regresar</a>
 
 
 </asp:Content>

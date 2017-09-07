@@ -238,13 +238,13 @@ namespace RRHH.UI {
         protected global::System.Web.UI.WebControls.Label Label8;
         
         /// <summary>
-        /// txtDepartamento control.
+        /// ddlDepartamento control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDepartamento;
+        protected global::System.Web.UI.WebControls.DropDownList ddlDepartamento;
         
         /// <summary>
         /// Label9 control.
@@ -256,13 +256,13 @@ namespace RRHH.UI {
         protected global::System.Web.UI.WebControls.Label Label9;
         
         /// <summary>
-        /// txtRol control.
+        /// ddlRol control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRol;
+        protected global::System.Web.UI.WebControls.DropDownList ddlRol;
         
         /// <summary>
         /// Label10 control.
@@ -299,6 +299,24 @@ namespace RRHH.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DDLgenero;
+        
+        /// <summary>
+        /// Label12 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label12;
+        
+        /// <summary>
+        /// Chk_bloqueado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox Chk_bloqueado;
         
         /// <summary>
         /// Label11 control.

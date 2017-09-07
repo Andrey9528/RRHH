@@ -62,7 +62,12 @@
         </div>
          
        <br />
-        <div >  <asp:Button CssClass="btn btn-primary" OnClick="btnbuscardepa_Click" ID="btnbuscardepa" runat="server" Text="Buscar" /></div>
+        <div > 
+              <a class="btn btn-primary"  href="AdminView.aspx"><span class="glyphicon glyphicon-backward"></span> Regresar</a>
+
+             <asp:Button CssClass="btn btn-primary" OnClick="btnbuscardepa_Click" ID="btnbuscardepa" runat="server" Text="Buscar" />
+
+        </div>
            <br />
                   </div>
         </div>
