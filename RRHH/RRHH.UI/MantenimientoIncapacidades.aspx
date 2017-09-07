@@ -6,7 +6,7 @@
         var confirm_value = document.createElement("INPUT");
         confirm_value.type = "hidden";
         confirm_value.name = "confirm_value";
-        if (confirm("Esta seguro que quiere dar de baja este usuario?")) {
+        if (confirm("Esta seguro de actualizar esta incapacidad?")) {
             confirm_value.value = "Yes";
         } else {
             confirm_value.value = "No";
@@ -73,7 +73,7 @@
      <br />
    
 
-    <div class="form-inline" id="mantenimientoInca" runat="server" visible="false">
+    <div class="form-inline" id="mantenimientoInca" runat="server" visible="true">
 
 <div class="form-group">
    <p><asp:Label ID="Label2" runat="server" Text="Numero de incapacidad:"></asp:Label></p>
@@ -169,6 +169,8 @@
 
          <div class="form-inline">
             <br />
+               <a class="btn btn-primary"  href="AdminView.aspx"><span class="glyphicon glyphicon-backward"></span> Regresar</a>
+
             <asp:Button ID="btnModificar" runat="server" Text="Modificar" CssClass="btn btn-warning"  OnClick="btnModificar_Click" OnClientClick="Confirm()" />
             <asp:Button ID="btndesahabilitar"  runat="server" Text="Deshabilitar" CssClass="btn btn-danger" OnClick="btndesahabilitar_Click"  OnClientClick="Confirm()" />
         </div>

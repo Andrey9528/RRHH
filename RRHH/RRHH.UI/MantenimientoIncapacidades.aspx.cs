@@ -182,6 +182,9 @@ namespace RRHH.UI
                         mensajeError.Visible = false;
                         mensajawarning.Visible = true;
                         textomensajewarning.InnerHtml = "Actualizado";
+                        limpiar();
+                        grVacaciones.DataSource = Singleton.opIncapacidad.ListarIncapacidades().Where(x => x.Cedula == txtcedula.Text);
+                        grVacaciones.DataBind();
                     }
                 }
                 else
@@ -209,6 +212,9 @@ namespace RRHH.UI
                         mensajeError.Visible = false;
                         mensajawarning.Visible = false;
                         textomensajeinfo.InnerHtml = "Incapacidad deshabilitada";
+                        limpiar();
+                        grVacaciones.DataSource = Singleton.opIncapacidad.ListarIncapacidades().Where(x => x.Cedula == txtcedula.Text);
+                        grVacaciones.DataBind();
                     }
                   
                     }      
@@ -243,6 +249,11 @@ namespace RRHH.UI
                     txtcentroemisor.Text = lista.CentroEmisor.ToString();
                     Chk_estado.Checked = lista.Estado;
                     txtdoctor.Text = lista.NombreDoctor.ToString();
+                    mensaje.Visible = false;
+                    mensajeinfo.Visible =false;
+                    mensajeError.Visible = false;
+                    mensajawarning.Visible = false;
+
 
 
                 }
@@ -256,5 +267,21 @@ namespace RRHH.UI
                 throw;
             }
         }
+        public void limpiar()
+        {
+            txtfechainicio.Text = string.Empty;
+            txtfechafinalizacion.Text = string.Empty;
+            txtfechaemision.Text = string.Empty;
+            txtdoctor.Text = string.Empty;
+            txtcentroemisor.Text = string.Empty;
+            txtdescripcion.Text= string.Empty;
+            Chk_estado.Checked = false;
+            txtcedula.Text = string.Empty;
+          
+
+
+
+        }
+
     }
 }

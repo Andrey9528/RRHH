@@ -41,7 +41,7 @@
  </div>
     
 
-    <div class="form-horizontal " id="Empleadosmantenimiento" runat="server" visible="false">
+    <div class="form-horizontal "  id="Empleadosmantenimiento" runat="server" visible="true">
            
     
     <asp:Label ID="Label2" runat="server"  Text="Nombre"></asp:Label>
@@ -67,13 +67,23 @@
     <asp:TextBox ID="txtFechaNacimiento" Width="280" CssClass="form-control"  runat="server"></asp:TextBox>
     <asp:Label ID="Label8"    runat="server" Text="Departamento"></asp:Label>
      <br> 
-<%--    <asp:DropDownList ID="ddlDepartamento" width="280" class = "form-control" runat="server"> </asp:DropDownList>--%>
-            <asp:TextBox ID="txtDepartamento" Width="280" CssClass="form-control"  runat="server"></asp:TextBox>
+   <asp:DropDownList ID="ddlDepartamento" width="280" class = "form-control" runat="server">
+       <asp:ListItem>Programacion</asp:ListItem>
+       <asp:ListItem>Vacunas</asp:ListItem>
+       <asp:ListItem>Medicamentos</asp:ListItem>
+       <asp:ListItem></asp:ListItem>
+        </asp:DropDownList>
+            
 
     <asp:Label ID="Label9"   runat="server" Text="Rol"></asp:Label>
      <br> 
-<%--    <asp:DropDownList ID="ddlRol" Width="280" class = "form-control" runat="server"></asp:DropDownList>--%>
-    <asp:TextBox ID="txtRol" Width="280" CssClass="form-control"  runat="server"></asp:TextBox>
+  <asp:DropDownList ID="ddlRol" Width="280" class = "form-control" runat="server">
+      <asp:ListItem>Empleado</asp:ListItem>
+      <asp:ListItem>Jefe</asp:ListItem>
+      <asp:ListItem>Admin</asp:ListItem>
+      <asp:ListItem></asp:ListItem>
+        </asp:DropDownList>
+    
 
 
     <asp:Label ID="Label10"   runat="server" Text="Imagen"></asp:Label>    
@@ -87,6 +97,8 @@
              <asp:ListItem Selected="True">Sin establecer</asp:ListItem>
         </asp:DropDownList>
 
+        <asp:Label ID="Label12" runat="server" Text="Cuenta Bloqueada:"></asp:Label>
+        <asp:CheckBox ID="Chk_bloqueado"  runat="server" />
 
         <asp:Label ID="Label11" runat="server" Text="Estado"></asp:Label>
         <asp:CheckBox ID="Chk_estado"    runat="server" />
@@ -95,10 +107,15 @@
    <br />
         <div class="form-horizontal">
             <br />
+             <a class="btn btn-primary"  href="AdminView.aspx"><span class="glyphicon glyphicon-backward"></span> Regresar</a>
+
             <asp:Button ID="btnModificar" runat="server" Text="Modificar" CssClass="btn btn-warning"  OnClick="btnModificar_Click" />
             <asp:Button ID="btnEliminar"  runat="server" Text="Deshabilitar" CssClass="btn btn-danger" OnClick="btnEliminar_Click"  OnClientClick="Confirm()" />
+         
         </div>
 
     </div>
+
+   
 
 </asp:Content>

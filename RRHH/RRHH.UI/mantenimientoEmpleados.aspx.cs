@@ -26,7 +26,7 @@ namespace RRHH.UI
             try
             {
                 //ddlRol.DataSource = Singleton.oproles.ListarRoles().Select(x => x.Nombre).ToList();
-                txtRol.Text = Singleton.oproles.ListarRoles().Select(x => x.Nombre).ToString();
+                //ddlRol.Text = Singleton.oproles.ListarRoles().Select(x => x.Nombre).ToString();
                 //ddlRol.DataBind();
 
                 List<Empleado> listaEmpleados = Singleton.OpEmpleados.ListarEmpleados();
@@ -59,12 +59,13 @@ namespace RRHH.UI
                     txtFechaNacimiento.Text = Convert.ToDateTime(fecha).ToString("dd/MM/yyyy");
                     //ddlDepartamento.DataSource = rol.ToList();
                     //DataBind();
-                    txtDepartamento.Text = depar;
+                   
+                    ddlRol.SelectedValue = rol;
+                    ddlDepartamento.SelectedValue = depar;
                     DDLgenero.SelectedValue = emple.Genero;
-
+                    Chk_bloqueado.Checked = (bool)emple.Bloqueado;
                     //ddlRol.DataSource = depar.ToList() ;
                     //DataBind();
-                    txtRol.Text = rol;
                    
                     Chk_estado.Checked = (bool)emple.Estado;
                     Empleadosmantenimiento.Visible = true;
@@ -101,38 +102,152 @@ namespace RRHH.UI
 
             {
                 // DepartamentoGlobal = Singleton.opdepartamento.BuscarDepartamentosPorNombre(ddlDepartamento.Text);
-                DepartamentoGlobal = Singleton.opdepartamento.BuscarDepartamentosPorNombre(txtDepartamento.Text);
+                DepartamentoGlobal = Singleton.opdepartamento.BuscarDepartamentosPorNombre(ddlDepartamento.Text);
                 var IdDepartamento = DepartamentoGlobal.IdDepartamento.ToString();
                 EmpleadoGlobal = Singleton.OpEmpleados.BuscarEmpleados(txtcedula.Text); // DESMADRE DE MARCOS
+                bool bloqueoOrigen = EmpleadoGlobal.Bloqueado;
                 //RolGlobal = Singleton.oproles.BuscarRolesPorNombre(ddlRol.Text);
-                RolGlobal = Singleton.oproles.BuscarRolesPorNombre(txtRol.Text);
+                RolGlobal = Singleton.oproles.BuscarRolesPorNombre(ddlRol.Text);
                 var IdRol = RolGlobal.IdRol.ToString();
-                Empleado emple = new Empleado()
+                if (Chk_bloqueado.Checked==bloqueoOrigen)
                 {
-                    Cedula = txtcedula.Text,
-                    Nombre = txtNombre.Text,
-                    Direccion = txtDireccion.Text,
-                    Telefono = txtTelefono.Text,
-                    Correo = txtCorreo.Text,
-                    EstadoCivil = DddlEstadoCivil.SelectedItem.ToString(),
-                    FechaNacimiento = Convert.ToDateTime(txtFechaNacimiento.Text),
-                    IdDepartamento = Convert.ToInt32(IdDepartamento),
-                    IdRol = Convert.ToInt32(IdRol),
-                    Estado = Chk_estado.Checked,
-                    Genero = DDLgenero.SelectedItem.ToString(),
-                    Password = "admin",
-                    IntentosFallidos = Convert.ToInt32(EmpleadoGlobal.IntentosFallidos),
-                };
-                Singleton.OpEmpleados.ActualizarEmpleados(emple);
-                Empleadosmantenimiento.Visible = false;
-                mensajeinfo.Visible = false;
-                mensaje.Visible = false;
-                mensajeError.Visible = false;
-                mensajawarning.Visible = true;
-                textomensajewarning.InnerHtml = "Actualizado";
-                txtcedula.ReadOnly = false;
-                txtcedula.Focus();
-                txtcedula.Text = string.Empty;
+                    Empleado emple = new Empleado()
+                    {
+                        Cedula = txtcedula.Text,
+                        Nombre = txtNombre.Text,
+                        Direccion = txtDireccion.Text,
+                        Telefono = txtTelefono.Text,
+                        Correo = txtCorreo.Text,
+                        EstadoCivil = DddlEstadoCivil.SelectedItem.ToString(),
+                        FechaNacimiento = Convert.ToDateTime(txtFechaNacimiento.Text),
+                        IdDepartamento = Convert.ToInt32(IdDepartamento),
+                        IdRol = Convert.ToInt32(IdRol),
+                        Estado = Chk_estado.Checked,
+                        Bloqueado = true,
+                        Genero = DDLgenero.SelectedItem.ToString(),
+                        Password = EmpleadoGlobal.Password,
+                        IntentosFallidos = EmpleadoGlobal.IntentosFallidos,
+                    };
+
+
+                    Singleton.OpEmpleados.ActualizarEmpleados(emple);
+                    Empleadosmantenimiento.Visible = false;
+                    mensajeinfo.Visible = false;
+                    mensaje.Visible = false;
+                    mensajeError.Visible = false;
+                    mensajawarning.Visible = true;
+                    textomensajewarning.InnerHtml = "La cuenta ha sido actualizada";
+                    txtcedula.ReadOnly = false;
+                    txtcedula.Focus();
+                    txtcedula.Text = string.Empty;
+
+                }
+
+
+
+                else if (/*bloqueoOrigen != Chk_bloqueado.Checked &&*/ bloqueoOrigen==true && Chk_bloqueado.Checked==false)
+                {
+
+                    Empleado emple = new Empleado()
+                    {
+                        Cedula = txtcedula.Text,
+                        Nombre = txtNombre.Text,
+                        Direccion = txtDireccion.Text,
+                        Telefono = txtTelefono.Text,
+                        Correo = txtCorreo.Text,
+                        EstadoCivil = DddlEstadoCivil.SelectedItem.ToString(),
+                        FechaNacimiento = Convert.ToDateTime(txtFechaNacimiento.Text),
+                        IdDepartamento = Convert.ToInt32(IdDepartamento),
+                        IdRol = Convert.ToInt32(IdRol),
+                        Estado = Chk_estado.Checked,
+                        Bloqueado = false,
+                        Genero = DDLgenero.SelectedItem.ToString(),
+                        Password = EmpleadoGlobal.Password,
+                        IntentosFallidos = 0,
+                    };
+
+
+                    Singleton.OpEmpleados.ActualizarEmpleados(emple);
+                    Empleadosmantenimiento.Visible = false;
+                    mensajeinfo.Visible = false;
+                    mensaje.Visible = false;
+                    mensajeError.Visible = false;
+                    mensajawarning.Visible = true;
+                    textomensajewarning.InnerHtml = "La cuenta ha sido desbloqueada";
+                    txtcedula.ReadOnly = false;
+                    txtcedula.Focus();
+                    txtcedula.Text = string.Empty;
+
+                }
+                else if (bloqueoOrigen == false && Chk_bloqueado.Checked==true)
+                {
+                    Empleado emple = new Empleado()
+                    {
+                        Cedula = txtcedula.Text,
+                        Nombre = txtNombre.Text,
+                        Direccion = txtDireccion.Text,
+                        Telefono = txtTelefono.Text,
+                        Correo = txtCorreo.Text,
+                        EstadoCivil = DddlEstadoCivil.SelectedItem.ToString(),
+                        FechaNacimiento = Convert.ToDateTime(txtFechaNacimiento.Text),
+                        IdDepartamento = Convert.ToInt32(IdDepartamento),
+                        IdRol = Convert.ToInt32(IdRol),
+                        Estado = Chk_estado.Checked,
+                        Bloqueado = true,
+                        Genero = DDLgenero.SelectedItem.ToString(),
+                        Password = EmpleadoGlobal.Password,
+                        IntentosFallidos = 4,
+                    };
+
+
+                    Singleton.OpEmpleados.ActualizarEmpleados(emple);
+                    Empleadosmantenimiento.Visible = false;
+                    mensajeinfo.Visible = false;
+                    mensaje.Visible = false;
+                    mensajeError.Visible = false;
+                    mensajawarning.Visible = true;
+                    textomensajewarning.InnerHtml = "La cuenta ha sido bloqueada";
+                    txtcedula.ReadOnly = false;
+                    txtcedula.Focus();
+                    txtcedula.Text = string.Empty;
+                }
+
+                else
+                {
+
+                    Empleado emple = new Empleado()
+                    {
+                        Cedula = txtcedula.Text,
+                        Nombre = txtNombre.Text,
+                        Direccion = txtDireccion.Text,
+                        Telefono = txtTelefono.Text,
+                        Correo = txtCorreo.Text,
+                        EstadoCivil = DddlEstadoCivil.SelectedItem.ToString(),
+                        FechaNacimiento = Convert.ToDateTime(txtFechaNacimiento.Text),
+                        IdDepartamento = Convert.ToInt32(IdDepartamento),
+                        IdRol = Convert.ToInt32(IdRol),
+                        Estado = Chk_estado.Checked,
+                        Bloqueado = EmpleadoGlobal.Bloqueado,
+                        Genero = DDLgenero.SelectedItem.ToString(),
+                        Password = EmpleadoGlobal.Password,
+                        IntentosFallidos = EmpleadoGlobal.IntentosFallidos,
+                    };
+
+
+                    Singleton.OpEmpleados.ActualizarEmpleados(emple);
+                    Empleadosmantenimiento.Visible = false;
+                    mensajeinfo.Visible = false;
+                    mensaje.Visible = false;
+                    mensajeError.Visible = false;
+                    mensajawarning.Visible = true;
+                    textomensajewarning.InnerHtml = "La cuenta ha sido actualizada";
+                    txtcedula.ReadOnly = false;
+                    txtcedula.Focus();
+                    txtcedula.Text = string.Empty;
+
+
+                }
+
 
             }
             catch
@@ -152,10 +267,10 @@ namespace RRHH.UI
 
                 if (Chk_estado.Checked == false && confirmValue == "Yes")
                 {
-                    DepartamentoGlobal = Singleton.opdepartamento.BuscarDepartamentosPorNombre(txtDepartamento.Text);
+                    DepartamentoGlobal = Singleton.opdepartamento.BuscarDepartamentosPorNombre(ddlDepartamento.Text);
                     var IdDepartamento = DepartamentoGlobal.IdDepartamento.ToString();
                     //RolGlobal = Singleton.oproles.BuscarRolesPorNombre(ddlRol.Text);
-                    RolGlobal = Singleton.oproles.BuscarRolesPorNombre(txtRol.Text);
+                    RolGlobal = Singleton.oproles.BuscarRolesPorNombre(ddlRol.Text);
                     var IdRol = RolGlobal.IdRol.ToString();
                     Empleado emple = new Empleado()
                     {
@@ -169,8 +284,10 @@ namespace RRHH.UI
                         IdDepartamento = Convert.ToInt32(IdDepartamento),
                         IdRol = Convert.ToInt32(IdRol),
                         Estado = Chk_estado.Checked,
+                        Bloqueado=Chk_bloqueado.Checked,
                         Genero=DDLgenero.SelectedItem.ToString(),
-                        Password = "admin",
+                        Password = EmpleadoGlobal.Password,
+                        IntentosFallidos=Convert.ToInt32(EmpleadoGlobal.IntentosFallidos)
                     };
                     Singleton.OpEmpleados.ActualizarEmpleados(emple);
                     Empleadosmantenimiento.Visible = false;

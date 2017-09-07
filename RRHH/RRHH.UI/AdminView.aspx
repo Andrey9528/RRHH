@@ -3,12 +3,15 @@
  <style>
         body 
         {
-            background-image: url("https://unedliberia.files.wordpress.com/2012/11/warp.jpg");
-            background-attachment:fixed;
+            background-image: url("http://1070noticias.com.mx/wp-content/uploads/2016/07/fondos-de-pantalla-blancos-para-descargar.jpg");
+            background-attachment:local;
             background-size:100vw 100vh ;
+            background-color:transparent;
+            
 
 
-        } 
+        }
+     
          
         #menu, #menu ul {
         margin: 0;
@@ -195,7 +198,7 @@
   <li><a data-toggle="pill" href="#">Perfil</a></li>
   <li><a data-toggle="pill" href="#">Mensajes</a></li>
 </ul>--%>
-<ul class="nav nav-pills">
+<%--<ul class="nav nav-pills">--%>
    <%-- <li  class="active"><a  href="#" style=" background:#2dadf7; color:white;" >Home</a></li>
     <li><a   style="background:#2dadf7; color:white;" href="#">Perfil</a></li>
    <li class="dropdown">
@@ -241,9 +244,9 @@
     
 
    
-    
+<%--    
     <li class="dropdown pull-right">
-        <a href="#" data-toggle="dropdown" class="dropdown-toggle">Administración <b class="caret"></b></a>
+        <a href="#" style=" background-color:#04acec;  font-family:cursive; color:white; " data-toggle="dropdown" class="dropdown-toggle">Administración <b class="caret"></b></a>
         <ul class="dropdown-menu">
             <li><a data-target="#cambio" data-toggle="modal" href="#">Cambio de contraseña</a></li>
 
@@ -252,9 +255,13 @@
         </ul>
     </li>
 </ul>
-
+ 
+    
+       
     <ol id="menu" >
-    <li><a href="AdminView.aspx">Home</a></li>
+       
+   <li ><a   href="AdminView.aspx">Home</a></li>
+      
     <li><a href="#">Perfil</a></li>
     <li>
         <a href="#">Empleados</a>
@@ -283,7 +290,7 @@
         <a href="#">Vacaciones</a>
         <ul>
            
-            <li><a href="adminVacacaciones.aspx">Mantenimiento </a></li>
+            <li><a href="adminVacaciones.aspx">Mantenimiento </a></li>
             
         </ul>
     </li>
@@ -297,10 +304,103 @@
               
         </ul>
     </li>
+</ol>--%>
 
+       <nav  style="margin-top:20px;  border-radius:10px; background-color:#04acec; color:white;"   class=" navbar-inverse">
+  <div class="container-fluid"  >
+        <div class="navbar-header">	
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>                        
+          </button>
+      
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class=""><a style="background-color:#04acec; color:white; font-family:cursive;" href="AdminView.aspx">Home</a></li>
+          <li><a style="background-color:#04acec; color:white; font-family:cursive;" href="#">Perfil</a></li>   
+        <li class="dropdown">
+          
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="background-color:#04acec; color:white; font-family:cursive;">Empleados <span class="caret"></span></a>
+          <ul class="dropdown-menu">
 
+            <li><a  href="RegistroEmpleado.aspx">Agregar</a></li>
+            <li><a  href="mantenimientoEmpleados.aspx">Mantenimiento</a></li>
+           
+          </ul>
+        </li>
+          <li class="dropdown">
+          
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="background-color:#04acec; color:white; font-family:cursive;">Expedientes <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+
+            <li><a  href="#">Listado</a></li>
+            
+          </ul>
+        </li>
+           <li class="dropdown">
+          
+          <a class="dropdown-toggle" data-toggle="dropdown" style="background-color:#04acec; color:white; font-family:cursive;" href="#">Incapacidades <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+
+            <li><a  href="MantenimientoIncapacidades.aspx">Mantenimiento</a></li>
+            
+          </ul>
+        </li>
+           <li class="dropdown">
+          
+          <a class="dropdown-toggle" data-toggle="dropdown" style="background-color:#04acec; color:white; font-family:cursive;" href="#">Vacaciones <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+
+            <li><a  href="adminVacaciones.aspx">Mantenimiento</a></li>
+            
+          </ul>
+        </li>
+           <li class="dropdown">
+          
+          <a class="dropdown-toggle"  style="background-color:#04acec; color:white; font-family:cursive;" data-toggle="dropdown" href="#">Departamentos<span class="caret"></span></a>
+          <ul  class="dropdown-menu">
+            <li><a data-toggle="modal" data-target="#depa"  href="#">Registrar</a></li>
+            <li><a  href="MantenimientoDepa.aspx">Mantenimiento</a></li>
+            
+          </ul>
+        </li>
+        <li><a style="color:white;" href="#">Ayuda</a></li>
+        <li class="dropdown">
+          
+          <a class="dropdown-toggle"  style="background-color:#04acec; color:white; font-family:cursive;" data-toggle="dropdown" href="#">Administración<span class="caret"></span></a>
+          <ul  class="dropdown-menu">
+            <li><a data-target="#cambio" data-toggle="modal"  href="#">Cambio de contraseña</a></li>
+            <li><a  href="Login.aspx">Cerrar sesión</a></li>
+            
+          </ul>
+        </li>
+       
+      </ul>
+      <ul class="nav navbar-nav navbar-right" >
+        
+            <%--<li class="dropdown">
+          
+          <a  class="dropdown-toggle"   data-toggle="dropdown"  href="#"  style="background-color:#04acec; color:white; font-family:cursive;">Administración<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Cambio de contraseña</a></li>
+            <li><a href="#">Cerrar sesión</a></li>
+            
+          </ul>
+        </li>--%>
+       <li><a href="#" style="color:white;"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+       
+           <li><a href="#" style="color:white;"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      
+      </ul>
+    </div>
+  </div>
+</nav>
     
-</ol>
+
+   
+        
     <div class="container">
           <div class="row">
               <div class="col-xs-12">
@@ -335,7 +435,7 @@
                               <div class="modal-footer">
 
                                   <asp:Button ID="btnCambiar" CssClass="btn btn-success" Enabled="false" runat="server" OnClick="btnCambiar_Click" Text="Cambiar" />
-                                  <asp:Button ID="btnSalir" CssClass="btn btn-danger" runat="server" OnClick="btnSalir_Click" Text="Salir" />   
+                                  <asp:Button ID="btnSalir" CssClass="btn btn-danger"  data-dismiss="modal" runat="server" OnClick="btnSalir_Click" Text="Salir" />   
                               </div>
 
                           </div>
@@ -368,9 +468,9 @@
          <asp:Label ID="Label4" runat="server" Text="Nombre del departamento:"></asp:Label>
          <asp:TextBox ID="txtnombre" CssClass="form-control" runat="server"></asp:TextBox>
          <asp:Label ID="Label5" runat="server" Text="Correo del jefe del departamento"></asp:Label>
-         <asp:TextBox ID="txtemailjefedepa" TextMode="Email" runat="server"></asp:TextBox>
+         <asp:TextBox ID="txtemailjefedepa" CssClass="form-control" TextMode="Email" runat="server"></asp:TextBox>
          <asp:Label ID="Label6" runat="server" Text="Nombre Jefe:"></asp:Label>
-          <asp:TextBox ID="txtnombrejefe" runat="server"></asp:TextBox>
+          <asp:TextBox ID="txtnombrejefe" CssClass="form-control" runat="server"></asp:TextBox>
         </div>
         <div class="modal-footer">
           <asp:Button ID="btndepa" runat="server" Text="Insertar" CssClass="btn btn-success"  OnClick="btndepa_Click" />
@@ -382,5 +482,10 @@
     </div>
   </div>
         </div>
-    
+
+
+
+
+
+ 
 </asp:Content>
