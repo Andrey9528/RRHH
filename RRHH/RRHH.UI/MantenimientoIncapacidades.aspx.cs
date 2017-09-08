@@ -33,7 +33,8 @@ namespace RRHH.UI
                     grVacaciones.DataSource = Singleton.opIncapacidad.ListarIncapacidades().Where(x=> x.Cedula == txtcedula.Text);
                     grVacaciones.DataBind();
                     mantenimientoInca.Visible = true;
-                    DDLid_incapacidad.DataSource = Singleton.opIncapacidad.ListarIncapacidades().Select(x => x.IdIncapacidad);
+                    //DDLid_incapacidad.DataSource = Singleton.opIncapacidad.ListarIncapacidades().Select(x => x.IdIncapacidad);
+                    DDLid_incapacidad.DataSource = Singleton.opIncapacidad.BuscarIncapacidadPorCedula2(Inca.Cedula).Select(x => x.IdIncapacidad);
                     DDLid_incapacidad.DataBind();
                     //txtfechainicio.Text = inca.Fecha_Inicio.ToString();
                     //txtfechafinal.Text = inca.Fecha_finalizacion.ToString();
