@@ -12,6 +12,7 @@ namespace RRHH.DS.Interfaces
         List<Incapacidad> ListarIncapacidades();
         Incapacidad BuscarIncapacidad(int IdIncapacidad);
         Incapacidad BuscarIncapacidadPorCedula(string cedula);
+        List<Incapacidad> BuscarIncapacidadPorCedula2(string cedula);
 
         void InsertarIncapacidad(Incapacidad incapacidad);
         void ActualizarIncapacidad(Incapacidad incapacidad);

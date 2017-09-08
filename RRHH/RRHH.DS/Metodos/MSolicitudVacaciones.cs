@@ -29,9 +29,9 @@ namespace RRHH.DS.Metodos
             return _db.Select<SolicitudVacaciones>(x => x.IdSolicitud == idsolicitud).FirstOrDefault();
         }
 
-        public SolicitudVacaciones BuscarsolicitudPorId(string cedula)
+        public List<SolicitudVacaciones> BuscarsolicitudPorId(string cedula)
         {
-            return _db.Select<SolicitudVacaciones>(x => x.Cedula == cedula).FirstOrDefault();
+            return (_db.Select<SolicitudVacaciones>().Where(x => x.Cedula == cedula)).ToList();
         }
 
         public void EliminarSolicitud(int idsolicitud)

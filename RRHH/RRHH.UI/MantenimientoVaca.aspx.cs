@@ -31,6 +31,8 @@ namespace RRHH.UI
                 if (empleado != null)
                 {
                     gvdatos.DataSource = Singleton.opsolicitud.Listarsolicitudes().Where(x=>x.Cedula==empleado.Cedula);
+                    //var lista = Singleton.opsolicitud.BuscarsolicitudPorId2(empleado.Cedula).Select(x => x.IdSolicitud).ToList();
+                    gvdatos.DataSource = Singleton.opsolicitud.Listarsolicitudes().Where(x => x.Cedula == empleado.Cedula);
                     gvdatos.DataBind();
                 }
                 else
@@ -45,7 +47,7 @@ namespace RRHH.UI
 
                 }
 
-                DDLidsolicitud.DataSource = Singleton.opsolicitud.Listarsolicitudes().Select(x=>x.IdSolicitud).ToList();
+                DDLidsolicitud.DataSource = Singleton.opsolicitud.BuscarsolicitudPorId(empleado.Cedula).Select(x=> x.IdSolicitud); //Singleton.opsolicitud.Listarsolicitudes().Select(x=>x.IdSolicitud).ToList();
                 DDLidsolicitud.DataBind();
             }
             catch
