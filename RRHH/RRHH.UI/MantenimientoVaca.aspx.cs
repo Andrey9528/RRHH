@@ -47,7 +47,7 @@ namespace RRHH.UI
 
                 }
 
-                DDLidsolicitud.DataSource = Singleton.opsolicitud.BuscarsolicitudPorId(empleado.Cedula).Select(x=> x.IdSolicitud); //Singleton.opsolicitud.Listarsolicitudes().Select(x=>x.IdSolicitud).ToList();
+                DDLidsolicitud.DataSource =  Singleton.opsolicitud.BuscarsolicitudPorId(empleado.Cedula).Select(x=> x.IdSolicitud); //Singleton.opsolicitud.Listarsolicitudes().Select(x=>x.IdSolicitud).ToList();
                 DDLidsolicitud.DataBind();
             }
             catch
