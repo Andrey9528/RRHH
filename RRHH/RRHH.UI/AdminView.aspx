@@ -126,6 +126,7 @@
         text-transform: none;
     }
 
+
         #menu ul a:hover {
             background-color: #0186ba;
             background-image: linear-gradient(#04acec, #0186ba);

@@ -1,6 +1,17 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MantenimientoDepa.aspx.cs" Inherits="RRHH.UI.MantenimientoDepa" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    
+    <style>
+       body 
+        {
+            background-image: url("http://1070noticias.com.mx/wp-content/uploads/2016/07/fondos-de-pantalla-blancos-para-descargar.jpg");
+            background-attachment:fixed;
+            background-size:100vw 100vh ;
+            
+
+
+        }
+     
+ </style>
     
     <script type="text/javascript">
     function Confirm() {
@@ -58,7 +69,8 @@
            <asp:Label ID="Label4" runat="server" Text="Activo:"></asp:Label>
 
        </div>
-            <div style="width:137px; margin-left:350px; margin-top:-17px;"><asp:CheckBox ID="Chk_estado" runat="server" /></div>
+            <div style="width:137px; margin-left:350px; margin-top:-17px;">
+                <asp:CheckBox  Enabled="false"  ID="Chk_estado" runat="server" /></div>
         </div>
          
        <br />

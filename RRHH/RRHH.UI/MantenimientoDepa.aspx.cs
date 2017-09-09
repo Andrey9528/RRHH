@@ -30,6 +30,7 @@ namespace RRHH.UI
                 var depa = lista.FirstOrDefault(x => x.Nombre == DDLdepa.Text);
                 if (depa != null)
                 {
+                    Chk_estado.Enabled = true;
                     DDLdepa.Enabled = false;
                     mantenimientoDepa.Visible = true;
                     txtcorreojefe.Text = depa.EmailJefeDpto.ToString();
@@ -81,8 +82,10 @@ namespace RRHH.UI
                     mensajeError.Visible = false;
                     mensajawarning.Visible = true;
                     textomensajewarning.InnerHtml = "Actualizado";
+                    Chk_estado.Checked = false;
                     mantenimientoDepa.Visible = false;
                     DDLdepa.Enabled = true;
+                    Chk_estado.Enabled = false;
                 }
                 else 
                 {
@@ -108,6 +111,10 @@ namespace RRHH.UI
                         mensajeinfo.Visible = true;
                         mensajeError.Visible = false;
                         textomensajeinfo.InnerHtml = "Departamento borrado";
+                        mantenimientoDepa.Visible = false;
+                        Chk_estado.Checked = false;
+                        DDLdepa.Enabled = true;
+                        Chk_estado.Enabled = false;
 
                     }
 

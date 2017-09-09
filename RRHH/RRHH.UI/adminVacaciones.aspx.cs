@@ -73,6 +73,10 @@ namespace RRHH.UI
                     //var dias = diferencia.TotalDays;
                     //txttotaldias.Text = dias.ToString();
                     textomensajewarning.InnerHtml = "Solicitud actualizada";
+                    DDLidsoli.DataSource = Singleton.opsolicitud.Listarsolicitudes().Select(x => x.IdSolicitud).ToList();
+                    DDLidsoli.DataBind();
+                    txtfechafinal.Text = string.Empty;
+                    txtfechaincio.Text = string.Empty;
 
                 }
                 else
