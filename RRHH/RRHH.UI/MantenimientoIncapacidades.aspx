@@ -1,6 +1,18 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MantenimientoIncapacidades.aspx.cs" Inherits="RRHH.UI.MantenimientoIncapacidades" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
+    <style>
+       body 
+        {
+            background-image: url("http://1070noticias.com.mx/wp-content/uploads/2016/07/fondos-de-pantalla-blancos-para-descargar.jpg");
+            background-attachment:fixed;
+            background-size:100vw 100vh ;
+            
+
+
+        }
+     
+ </style>
 <script type="text/javascript">
     function Confirm() {
         var confirm_value = document.createElement("INPUT");

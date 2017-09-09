@@ -67,8 +67,8 @@ namespace RRHH.UI
                     mensaje.Visible = true;
                     textoMensaje.InnerHtml = "Usuario agregado y correo enviado";
                     cliente.EnableSsl = true;
-                    cliente.Credentials = new NetworkCredential("dollars.chat.room@hotmail.com", "fidelitasw2");
-                    MailMessage mensajeC = new MailMessage("dollars.chat.room@hotmail.com", txtCorreo.Text, "Creación de cuenta", "Se ha creado una nueva cuenta para tu usuario" + txtCorreo.Text + "con la contraseña: " + contrasena + "por motivos de seguridad, te recomendamos cambiar la contraseña una vez que ingreses");
+                    cliente.Credentials = new NetworkCredential("soporte.biblioteca@hotmail.com", "soporte123.");
+                    MailMessage mensajeC = new MailMessage("soporte.biblioteca@hotmail.com", txtCorreo.Text, "Creación de cuenta", "Se ha creado una nueva cuenta para tu usuario" + txtCorreo.Text + "con la contraseña: " + contrasena + "por motivos de seguridad, te recomendamos cambiar la contraseña una vez que ingreses");
 
                     cliente.Send(mensajeC);
                     txtCedula.Text = string.Empty;

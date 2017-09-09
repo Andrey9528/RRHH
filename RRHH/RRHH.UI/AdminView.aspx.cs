@@ -110,8 +110,9 @@ namespace RRHH.UI
                 {
 
                     Nombre = txtnombre.Text,
-                    EmailJefeDpto=txtemailjefedepa.Text,
-                    NombreJefe=txtnombrejefe.Text
+                    EmailJefeDpto = txtemailjefedepa.Text,
+                    NombreJefe = txtnombrejefe.Text,
+                    Estado = true
                 };
                 Singleton.opdepartamento.InsertarDepartamentos(depart);
                 mensaje.Visible = true;
@@ -119,6 +120,10 @@ namespace RRHH.UI
                 mensajeError.Visible = false;
                 mensajeinfo.Visible = false;
                 textoMensaje.InnerHtml = "Departamento agregado";
+                txtnombre.Text = string.Empty;
+                txtemailjefedepa.Text = string.Empty;
+                txtnombrejefe.Text = string.Empty;
+
 
             }
             catch (Exception)

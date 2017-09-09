@@ -1,11 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EmpleadoView.aspx.cs" Inherits="RRHH.UI.EmpleadoView" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <style >
-        body 
+       body 
         {
-            background-image: url("https://unedliberia.files.wordpress.com/2012/11/warp.jpg");
+            background-image: url("http://1070noticias.com.mx/wp-content/uploads/2016/07/fondos-de-pantalla-blancos-para-descargar.jpg");
             background-attachment:fixed;
             background-size:100vw 100vh ;
+            
+
 
         }
          #menu, #menu ul {
@@ -231,7 +233,7 @@
         <a href="#">Vacaciones</a>
         <ul>
             <li><a data-toggle="modal" data-target="#vaca"   href="#">Solicitud</a></li>
-            <li><a href="#">Consulta </a></li>
+            <li><a href="consultaVacaciones.aspx">Consulta </a></li>
              <li><a href="#">Historial</a></li>
             
         </ul>

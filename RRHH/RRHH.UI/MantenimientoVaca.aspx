@@ -38,10 +38,11 @@
         </div>
 
 
-
+        
         <asp:Label ID="lbIcedula" runat="server" Text="Cédula: "></asp:Label>
         <asp:TextBox ID="txtcedula" runat="server" CssClass="form-control"></asp:TextBox>
-        <asp:Button ID="btnBuscar" runat="server" Text="Buscar" CssClass="btn btn-primary" OnClick="btnBuscar_Click" />
+        
+    <asp:Button ID="btnBuscar" runat="server" Text="Buscar" CssClass="btn btn-primary" OnClick="btnBuscar_Click" />
      <br />
     <br />
     
@@ -49,9 +50,9 @@
    <br />
     <br />
     <p style="margin-top:50px; margin-left:20px; width: 144px;"><asp:Label ID="Label1" runat="server" Text="Numero de Solicitud"></asp:Label></p>
-   <p style="margin-left:160px; margin-top:-30px;"> <asp:DropDownList ID="DDLidsolicitud" Width="178px" CssClass="form-control" runat="server"></asp:DropDownList></p>
+   <p style="margin-left:160px; margin-top:-35px; width: 185px;"> <asp:DropDownList ID="DDLidsolicitud" Width="178px" CssClass="form-control" runat="server"></asp:DropDownList></p>
     <p style="margin-left:400px; margin-top:-38px;"><asp:Label ID="Label2" runat="server" Text="Estado"></asp:Label></p>
-    <p style="margin-left:460px; margin-top:-40px;" ><asp:DropDownList ID="DDLestado" Width="151px" CssClass="form-control" runat="server">
+    <p style="margin-left:460px; margin-top:-30px; width: 157px;" ><asp:DropDownList ID="DDLestado" Width="151px" CssClass="form-control" runat="server">
         <asp:ListItem>Aprobado</asp:ListItem>
         <asp:ListItem Selected="True">Denegado</asp:ListItem>
         <asp:ListItem></asp:ListItem>
@@ -59,7 +60,10 @@
 
 
    <p style="margin-left:670px; margin-top:-40px;"> <asp:Button ID="btnactualizar" CssClass="btn btn-warning" OnClick="btnactualizar_Click" runat="server" Text="Actualizar" /></p>
+ <p style="margin-top:-43px; width: 142px; height: 30px;"><a style="margin-left:800px; " class="btn btn-primary "  href="JefeView.aspx"><span class="glyphicon glyphicon-backward"></span> Regresar</a>
+    </p>
+
 </div>
     
-
+   
 </asp:Content>

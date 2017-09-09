@@ -3,11 +3,13 @@
  <style >
         body 
         {
-            background-image: url("https://unedliberia.files.wordpress.com/2012/11/warp.jpg");
+            background-image: url("http://1070noticias.com.mx/wp-content/uploads/2016/07/fondos-de-pantalla-blancos-para-descargar.jpg");
             background-attachment:fixed;
             background-size:100vw 100vh ;
+            
 
-        }  
+
+        }
           #menu, #menu ul {
         margin: 0;
         padding: 0;
@@ -184,8 +186,9 @@
 <%--            <li><a href="#">Cambio de contraseña</a></li>--%>
                <li><a data-target="#cambiojefe" data-toggle="modal" href="#">Cambio de contraseña</a></li>
 
-
+             <li><a href="#">Ayuda</a></li>
             <li><a href="Login.aspx">Cerrar Sesión</a></li>
+            
             <li class="divider"></li>
         </ul>
     </li>
@@ -198,14 +201,14 @@
     <li>
         <a href="#">Empleados</a>
         <ul>
-            <li><a href="#">Lista de empleados</a></li>
+            <li><a href="#">Lista empleados</a></li>
             
         </ul>
     </li>
     <li>
         <a href="#">Expedientes</a>
         <ul>
-            <li><a href="#">Lista de expedientes </a></li>
+            <li><a href="#">Lista expedientes</a></li>
             
             
         </ul>
@@ -213,19 +216,20 @@
     <li>
         <a href="#">Incapacidades</a>
         <ul>
-            <li><a href="#">Lista de Incapacidades </a></li>
+            <li><a href="#"> Lista incapacidades</a></li>
            
         </ul>
     </li>
     <li>
         <a href="#">Vacaciones</a>
         <ul>
-            <li><a href="#">Lista de vacaciones</a></li>
+            
              <li><a href="mantenimientoVaca.aspx">Ver solicitudes</a></li>
             
             
         </ul>
     </li>
+           
     
 
     

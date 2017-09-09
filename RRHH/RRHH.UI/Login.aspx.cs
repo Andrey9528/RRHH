@@ -256,7 +256,8 @@ namespace RRHH.UI
                         FechaNacimiento = EmpleadoGlobal.FechaNacimiento,
                         IdDepartamento=EmpleadoGlobal.IdDepartamento,
                         IdRol=EmpleadoGlobal.IdRol,
-                        Estado=true
+                        Estado=true,
+                        Genero=EmpleadoGlobal.Genero
 
                         
                     };
