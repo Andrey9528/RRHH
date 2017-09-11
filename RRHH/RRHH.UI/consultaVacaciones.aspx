@@ -18,21 +18,26 @@
     
    
       <div style="margin-left:80px;">
-       <asp:RadioButton ID="RB_personalizada" runat="server" GroupName="Seleccion" />
+       <asp:RadioButton ID="RB_personalizada" Autopostback="true" runat="server" GroupName="Seleccion" OnCheckedChanged="RB_personalizada_CheckedChanged" OnInit="DDLAño_SelectedIndexChanged" />
        <asp:Label ID="Label2" runat="server" Text="Busqueda Personalizada"></asp:Label>
         <br />
-       <asp:RadioButton ID="RB_busquedageneral" Checked="true" runat="server" GroupName="Seleccion" />
+       <asp:RadioButton ID="RB_busquedageneral" Autopostback="true" Checked="true" runat="server" GroupName="Seleccion" OnCheckedChanged="RB_busquedageneral_CheckedChanged" />
        <asp:Label ID="Label1" runat="server" Text="Busqueda general"></asp:Label>
        </div>
        <div style="width: 34px; margin-left:350px; margin-top:-30px; "> 
            <asp:Label ID="Label3" runat="server" Text="Año:"></asp:Label></div>
        <div style="margin-left:400px; margin-top:-30px;  width: 115px;">
       
-       <asp:DropDownList CssClass="form-control" Width="180" ID="DDLAño" runat="server"></asp:DropDownList>
-     </div>
+       <asp:DropDownList CssClass="form-control"  Width="180" ID="DDLAño" runat="server" OnSelectedIndexChanged="DDLAño_SelectedIndexChanged" AutoPostBack="True">
+           </asp:DropDownList>
+            </div>
        
        <div style="width: 69px; margin-left:600px; margin-top:-20px;"><asp:Label ID="Label4" runat="server" Text="Condicion:"></asp:Label></div>
-      <div style="width: 178px; margin-left:680px; margin-top:-30px;"> <asp:DropDownList ID="DDLcondicion" CssClass="form-control" Width="180" runat="server"></asp:DropDownList>
+      <div style="width: 178px; margin-left:680px; margin-top:-30px;"> <asp:DropDownList ID="DDLcondicion" CssClass="form-control" Width="180" runat="server" AutoPostBack="True">
+          <asp:ListItem>Aceptado</asp:ListItem>
+          <asp:ListItem>Denegado</asp:ListItem>
+          <asp:ListItem></asp:ListItem>
+          </asp:DropDownList>
            </div>
 
     <div style="width: 87px; margin-left:900px; margin-top:-30px;">

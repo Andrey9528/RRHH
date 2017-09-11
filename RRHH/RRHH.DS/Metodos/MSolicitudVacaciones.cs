@@ -48,5 +48,10 @@ namespace RRHH.DS.Metodos
         {
            return  _db.Select<SolicitudVacaciones>();
         }
+
+        public List<ListarVacaciones> ListarVacaciones(DateTime FechaFinal, string cedula)
+        {
+           return _db.SqlList<ListarVacaciones>("exec ListarVacaciones " + FechaFinal+","+ cedula);
+        }
     }
 }
