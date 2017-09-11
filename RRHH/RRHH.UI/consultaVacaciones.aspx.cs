@@ -6,26 +6,39 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using RRHH.DATA;
 using System.IO;
-using iTextSharp.text;
-using iTextSharp.text.pdf;
-using iTextSharp.text.html;
-using iTextSharp.text.html.simpleparser;
+using System.Globalization;
+//using iTextSharp.text;
+//using iTextSharp.text.pdf;
+//using iTextSharp.text.html;
+//using iTextSharp.text.html.simpleparser;
 
 namespace RRHH.UI
 {
     public partial class consultaVacaciones : System.Web.UI.Page
     {
-       
+      public static int valor = 0;
+        public static DateTime LaMalditaFecha;
         protected void Page_Load(object sender, EventArgs e)
         {
             gvdatos.DataSource = Singleton.opsolicitud.Listarsolicitudes();
             gvdatos.DataBind();
-
+            DDLAño.Enabled = false;
+            DDLcondicion.Enabled = false;
         }
 
         protected void btnbuscar_Click(object sender, EventArgs e)
         {
+            string y = "116130806";
+            try
+            {
+                gvdatos.DataSource = Singleton.opsolicitud.ListarVacaciones(LaMalditaFecha, y);//Singleton.opsolicitud.BuscarsolicitudPorId(y).Where(x => x.FechaFinal == Convert.ToDateTime(DDLAño.Text) && x.Cedula == y && x.Condicion == false);
+                gvdatos.DataBind();
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
         }
         public override void VerifyRenderingInServerForm(Control control)
         {
@@ -143,10 +156,66 @@ namespace RRHH.UI
             
             }
 
+        }
+        private void CargarAños()
+        {
+            try
+            {
+                string y = "116130806";
+                List<SolicitudVacaciones> AñosPrueba = Singleton.opsolicitud.BuscarsolicitudPorId(y);
+                foreach (var x in AñosPrueba)
+                {
+                    var fecha = (AñosPrueba[valor].FechaFinal.Year).ToString();
+                    DDLAño.Items.Add(fecha);
+                    DDLAño.DataBind();
+                    valor = valor + 1;
+                }
 
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
        
+        protected void DDLAño_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            VerControlesConsulta();
+        }
 
+        protected void RB_personalizada_CheckedChanged(object sender, EventArgs e)
+        {
+            VerControlesConsulta();
+            CargarAños();
+            
+        }
 
+        private void VerControlesConsulta()
+        {
+            try
+            {
+                if (RB_busquedageneral.Checked )
+                {
+                    DDLAño.Enabled = false;
+                    DDLcondicion.Enabled = false;
+                }
+                else if (RB_personalizada.Checked)
+                {
+                    DDLAño.Enabled = true;
+                    DDLcondicion.Enabled = true;
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        protected void RB_busquedageneral_CheckedChanged(object sender, EventArgs e)
+        {
+           
+        }
     }
 }
