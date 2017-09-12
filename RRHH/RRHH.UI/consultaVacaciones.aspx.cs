@@ -7,10 +7,10 @@ using System.Web.UI.WebControls;
 using RRHH.DATA;
 using System.IO;
 using System.Globalization;
-using iTextSharp.text;
-using iTextSharp.text.pdf;
-using iTextSharp.text.html;
-using iTextSharp.text.html.simpleparser;
+//using iTextSharp.text;
+//using iTextSharp.text.pdf;
+//using iTextSharp.text.html;
+//using iTextSharp.text.html.simpleparser;
 
 namespace RRHH.UI
 {
@@ -18,21 +18,91 @@ namespace RRHH.UI
     {
       public static int valor = 0;
         public static DateTime LaMalditaFecha;
+        public static int dias;
         protected void Page_Load(object sender, EventArgs e)
         {
             gvdatos.DataSource = Singleton.opsolicitud.Listarsolicitudes();
             gvdatos.DataBind();
             txtfechainicio.Enabled = false;
             DDLcondicion.Enabled = false;
+            txtfechafinal.Enabled = false;
+           // btnbuscar.Enabled = false;
+            mensajeinfo.Visible = false;
+            mensajeError.Visible = false;
+        }
+
+        public bool ValidacionDias(DateTime fechaFinal, DateTime fechadeInicio)
+        {
+            try
+            {
+                 TimeSpan diferencia = fechaFinal - fechadeInicio;
+                dias = Convert.ToInt32(diferencia.TotalDays);
+                if (dias > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }    
         }
 
         protected void btnbuscar_Click(object sender, EventArgs e)
         {
-            string y = "116130806";
             try
             {
-                gvdatos.DataSource = Singleton.opsolicitud.ListarVacaciones(LaMalditaFecha, y);//Singleton.opsolicitud.BuscarsolicitudPorId(y).Where(x => x.FechaFinal == Convert.ToDateTime(DDLAño.Text) && x.Cedula == y && x.Condicion == false);
-                gvdatos.DataBind();
+                if ((!string.IsNullOrEmpty(txtfechafinal.Text))&&(!string.IsNullOrEmpty(txtfechainicio.Text)))
+                {
+                    if (ValidacionDias(Convert.ToDateTime(txtfechafinal.Text),Convert.ToDateTime(txtfechainicio.Text)))
+                    {
+                        if (DDLcondicion.Text == "Aceptado")
+                        {
+                        DateTime inicio = Convert.ToDateTime(txtfechainicio.Text);
+                        DateTime final = Convert.ToDateTime(txtfechafinal.Text);
+                        gvdatos.DataSource = Singleton.opsolicitud.ListarVacaciones(inicio, final, Login.EmpleadoGlobal.Cedula, true);//Singleton.opsolicitud.BuscarsolicitudPorId(y).Where(x => x.FechaFinal == Convert.ToDateTime(DDLAño.Text) && x.Cedula == y && x.Condicion == false);
+                        gvdatos.DataBind();
+                        txtfechafinal.Enabled = true;
+                        DDLcondicion.Enabled = true;
+                        txtfechainicio.Enabled = true;
+                        mensajeinfo.Visible = false;
+                        mensajeError.Visible = false;
+                        }
+                        else if (DDLcondicion.Text == "Denegado")
+                        {
+                        DateTime inicio = Convert.ToDateTime(txtfechainicio.Text);
+                        DateTime final = Convert.ToDateTime(txtfechafinal.Text);
+                        gvdatos.DataSource = Singleton.opsolicitud.ListarVacaciones(inicio, final, Login.EmpleadoGlobal.Cedula, false);//Singleton.opsolicitud.BuscarsolicitudPorId(y).Where(x => x.FechaFinal == Convert.ToDateTime(DDLAño.Text) && x.Cedula == y && x.Condicion == false);
+                        gvdatos.DataBind();
+                        txtfechafinal.Enabled = true;
+                        DDLcondicion.Enabled = true;
+                        txtfechainicio.Enabled = true;
+                        mensajeinfo.Visible = false;
+                        mensajeError.Visible = false;
+                       }
+                    }
+                    else
+                    {
+                        mensajeinfo.Visible = true;
+                        mensajeError.Visible = false;
+                        textomensajeinfo.InnerHtml = "El rango de fechas elegido no es valido";
+                    }
+                   
+                }
+                else
+                {
+                    mensajeinfo.Visible = false;
+                    mensajeError.Visible = true;
+                    textoMensajeError.InnerHtml = "Debes elegir un rango de fechas valido";
+                }
+
+                
+
             }
             catch (Exception)
             {
@@ -198,11 +268,20 @@ namespace RRHH.UI
                 {
                     txtfechainicio.Enabled = false;
                     DDLcondicion.Enabled = false;
+                    txtfechafinal.Enabled = false;
+                    btnbuscar.Enabled = false;
+                    mensajeinfo.Visible = false;
+                    mensajeError.Visible = false;
+
                 }
                 else if (RB_personalizada.Checked)
                 {
                     txtfechainicio.Enabled = true;
                     DDLcondicion.Enabled = true;
+                    txtfechafinal.Enabled = true;
+                    btnbuscar.Enabled = true;
+                    mensajeinfo.Visible = false;
+                    mensajeError.Visible = false;
                 }
 
             }

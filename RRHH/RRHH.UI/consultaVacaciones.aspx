@@ -12,7 +12,17 @@
 
 
         }
+
 </style>
+    <div class="alert alert-danger" visible="false" id="mensajeError" runat="server">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong id="textoMensajeError" runat="server"></strong>
+    </div>
+     <div class="alert alert-info" visible="false" id="mensajeinfo" runat="server">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong id="textomensajeinfo" runat="server"></strong>
+    </div>
+
     <h1 style="text-align:center; font-family:cursive;" >Consulta de Vacaciones</h1>
    <br />
     
@@ -28,14 +38,14 @@
            <asp:Label ID="Label3" runat="server" Text="De:"></asp:Label></div>
        <div style="margin-left:220px; margin-top:-30px;  width: 115px;">
           
-            <asp:TextBox ID="txtfechainicio" CssClass="form-control" Width="150" TextMode="Date" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtfechainicio" CssClass="form-control" Width="150"  TextMode="date" runat="server"></asp:TextBox>
           
             </div>
       <div style="width: 34px; margin-left:380px; margin-top:-30px; "> 
            <asp:Label ID="Label5" runat="server" Text="Hasta:"></asp:Label></div>
        <div style="margin-left:420px; margin-top:-30px;  width: 115px;">
           
-            <asp:TextBox ID="txtfechafinal" CssClass="form-control" Width="150" TextMode="Date" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtfechafinal" CssClass="form-control" Width="150" TextMode="date"  runat="server"></asp:TextBox>
           
             </div>
        
