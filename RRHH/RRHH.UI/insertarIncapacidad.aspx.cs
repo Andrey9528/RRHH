@@ -34,7 +34,7 @@ namespace RRHH.UI
                         FechaEmision = Convert.ToDateTime(txtfechaemision.Text),
                         CentroEmisor = txtcentroemisor.Text,
                         NombreDoctor = txtnombredoc.Text,
-                        Estado = false,
+                        Estado = true,
 
                     };
                     Singleton.opIncapacidad.InsertarIncapacidad(inca);

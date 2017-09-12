@@ -10,7 +10,7 @@
 namespace RRHH.UI {
     
     
-    public partial class consultaVacaciones {
+    public partial class ConsultaIncapacidades {
         
         /// <summary>
         /// mensajeError control.
@@ -121,31 +121,13 @@ namespace RRHH.UI {
         protected global::System.Web.UI.WebControls.TextBox txtfechafinal;
         
         /// <summary>
-        /// Label4 control.
+        /// Btnbusca control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
-        
-        /// <summary>
-        /// DDLcondicion control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DDLcondicion;
-        
-        /// <summary>
-        /// btnbuscar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnbuscar;
+        protected global::System.Web.UI.WebControls.Button Btnbusca;
         
         /// <summary>
         /// lblExportar control.
