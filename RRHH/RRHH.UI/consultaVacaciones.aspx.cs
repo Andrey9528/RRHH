@@ -7,17 +7,17 @@ using System.Web.UI.WebControls;
 using RRHH.DATA;
 using System.IO;
 using System.Globalization;
-//using iTextSharp.text;
-//using iTextSharp.text.pdf;
-//using iTextSharp.text.html;
-//using iTextSharp.text.html.simpleparser;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using iTextSharp.text.html;
+using iTextSharp.text.html.simpleparser;
 
 namespace RRHH.UI
 {
     public partial class consultaVacaciones : System.Web.UI.Page
     {
-      public static int valor = 0;
-        public static DateTime LaMalditaFecha;
+      //public static int valor = 0;
+        
         public static int dias;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -295,6 +295,11 @@ namespace RRHH.UI
         protected void RB_busquedageneral_CheckedChanged(object sender, EventArgs e)
         {
            
+        }
+
+        protected void btnreportar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
