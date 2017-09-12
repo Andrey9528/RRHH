@@ -22,7 +22,7 @@ namespace RRHH.UI
         {
             gvdatos.DataSource = Singleton.opsolicitud.Listarsolicitudes();
             gvdatos.DataBind();
-            DDLAño.Enabled = false;
+            txtfechainicio.Enabled = false;
             DDLcondicion.Enabled = false;
         }
 
@@ -157,36 +157,36 @@ namespace RRHH.UI
             }
 
         }
-        private void CargarAños()
-        {
-            try
-            {
-                string y = "116130806";
-                List<SolicitudVacaciones> AñosPrueba = Singleton.opsolicitud.BuscarsolicitudPorId(y);
-                foreach (var x in AñosPrueba)
-                {
-                    var fecha = (AñosPrueba[valor].FechaFinal.Year).ToString();
-                    DDLAño.Items.Add(fecha);
-                    DDLAño.DataBind();
-                    valor = valor + 1;
-                }
+        //private void CargarAños()
+        //{
+        //    try
+        //    {
+        //        string y = "116130806";
+        //        List<SolicitudVacaciones> AñosPrueba = Singleton.opsolicitud.BuscarsolicitudPorId(y);
+        //        foreach (var x in AñosPrueba)
+        //        {
+        //            var fecha = (AñosPrueba[valor].FechaFinal.Year).ToString();
+        //            DDLAño.Items.Add(fecha);
+        //            DDLAño.DataBind();
+        //            valor = valor + 1;
+        //        }
 
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
+        //    }
+        //    catch (Exception)
+        //    {
+        //        throw;
+        //    }
+        //}
        
         protected void DDLAño_SelectedIndexChanged(object sender, EventArgs e)
         {
-            VerControlesConsulta();
+            
         }
 
         protected void RB_personalizada_CheckedChanged(object sender, EventArgs e)
         {
             VerControlesConsulta();
-            CargarAños();
+          
             
         }
 
@@ -196,12 +196,12 @@ namespace RRHH.UI
             {
                 if (RB_busquedageneral.Checked )
                 {
-                    DDLAño.Enabled = false;
+                    txtfechainicio.Enabled = false;
                     DDLcondicion.Enabled = false;
                 }
                 else if (RB_personalizada.Checked)
                 {
-                    DDLAño.Enabled = true;
+                    txtfechainicio.Enabled = true;
                     DDLcondicion.Enabled = true;
                 }
 

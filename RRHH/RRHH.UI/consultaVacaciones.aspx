@@ -17,19 +17,26 @@
    <br />
     
    
-      <div style="margin-left:80px;">
+      <div style="margin-left:-20px;">
        <asp:RadioButton ID="RB_personalizada" Autopostback="true" runat="server" GroupName="Seleccion" OnCheckedChanged="RB_personalizada_CheckedChanged" OnInit="DDLAño_SelectedIndexChanged" />
        <asp:Label ID="Label2" runat="server" Text="Busqueda Personalizada"></asp:Label>
         <br />
        <asp:RadioButton ID="RB_busquedageneral" Autopostback="true" Checked="true" runat="server" GroupName="Seleccion" OnCheckedChanged="RB_busquedageneral_CheckedChanged" />
        <asp:Label ID="Label1" runat="server" Text="Busqueda general"></asp:Label>
        </div>
-       <div style="width: 34px; margin-left:350px; margin-top:-30px; "> 
-           <asp:Label ID="Label3" runat="server" Text="Año:"></asp:Label></div>
-       <div style="margin-left:400px; margin-top:-30px;  width: 115px;">
-      
-       <asp:DropDownList CssClass="form-control"  Width="180" ID="DDLAño" runat="server" OnSelectedIndexChanged="DDLAño_SelectedIndexChanged" AutoPostBack="True">
-           </asp:DropDownList>
+       <div style="width: 34px; margin-left:190px; margin-top:-35px; "> 
+           <asp:Label ID="Label3" runat="server" Text="De:"></asp:Label></div>
+       <div style="margin-left:220px; margin-top:-30px;  width: 115px;">
+          
+            <asp:TextBox ID="txtfechainicio" CssClass="form-control" Width="150" TextMode="Date" runat="server"></asp:TextBox>
+          
+            </div>
+      <div style="width: 34px; margin-left:380px; margin-top:-30px; "> 
+           <asp:Label ID="Label5" runat="server" Text="Hasta:"></asp:Label></div>
+       <div style="margin-left:420px; margin-top:-30px;  width: 115px;">
+          
+            <asp:TextBox ID="txtfechafinal" CssClass="form-control" Width="150" TextMode="Date" runat="server"></asp:TextBox>
+          
             </div>
        
        <div style="width: 69px; margin-left:600px; margin-top:-20px;"><asp:Label ID="Label4" runat="server" Text="Condicion:"></asp:Label></div>
