@@ -34,6 +34,10 @@ namespace RRHH.DATA
         public string Genero { get; set; }
         public bool Bloqueado { get; set; }
         public int IntentosFallidos { get; set; }
+        public string Imagen { get; set; }
+       
+       
+
 
 
     }

@@ -85,6 +85,7 @@ namespace RRHH.UI
                                         IdRol = EmpleadoGlobal.IdRol,
                                         Estado = EmpleadoGlobal.Estado,
                                         Genero = EmpleadoGlobal.Genero,
+                                        Imagen=EmpleadoGlobal.Imagen,
                                         Password = Encriptacion.Encriptar(txtcontra.Text, Encriptacion.Llave),
                                         Bloqueado = false,
                                         IntentosFallidos = 0,
@@ -106,6 +107,7 @@ namespace RRHH.UI
                                         IdDepartamento = EmpleadoGlobal.IdDepartamento,
                                         IdRol = EmpleadoGlobal.IdRol,
                                         Estado = EmpleadoGlobal.Estado,
+                                        Imagen=EmpleadoGlobal.Imagen,
                                         Genero = EmpleadoGlobal.Genero,
                                         Password = Encriptacion.Encriptar(txtcontra.Text, Encriptacion.Llave),
                                         Bloqueado = false,
@@ -130,6 +132,7 @@ namespace RRHH.UI
                                         IdRol = EmpleadoGlobal.IdRol,
                                         Estado = EmpleadoGlobal.Estado,
                                         Genero = EmpleadoGlobal.Genero,
+                                        Imagen=EmpleadoGlobal.Imagen,
                                         Password = Encriptacion.Encriptar(txtcontra.Text, Encriptacion.Llave),
                                         Bloqueado = false,
                                         IntentosFallidos = 0,
@@ -167,6 +170,7 @@ namespace RRHH.UI
                                         IdRol = EmpleadoGlobal.IdRol,
                                         Estado = EmpleadoGlobal.Estado,
                                         Genero = EmpleadoGlobal.Genero,
+                                        Imagen=EmpleadoGlobal.Imagen,
                                         Password = EmpleadoGlobal.Password,
                                         Bloqueado = false,
                                         IntentosFallidos = EmpleadoGlobal.IntentosFallidos + 1,
@@ -194,6 +198,7 @@ namespace RRHH.UI
                                         IdDepartamento = EmpleadoBloqueo.IdDepartamento,
                                         IdRol = EmpleadoBloqueo.IdRol,
                                         Estado = EmpleadoBloqueo.Estado,
+                                        Imagen=EmpleadoGlobal.Imagen,
                                         Genero = EmpleadoBloqueo.Genero,
                                         Password = EmpleadoGlobal.Password,
                                         Bloqueado = true,
@@ -257,7 +262,8 @@ namespace RRHH.UI
                         IdDepartamento=EmpleadoGlobal.IdDepartamento,
                         IdRol=EmpleadoGlobal.IdRol,
                         Estado=true,
-                        Genero=EmpleadoGlobal.Genero
+                        Genero=EmpleadoGlobal.Genero,
+                        Imagen=EmpleadoGlobal.Imagen
 
                         
                     };

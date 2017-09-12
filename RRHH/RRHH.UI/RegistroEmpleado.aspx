@@ -51,11 +51,24 @@
     <asp:Label ID="Label9"   runat="server" Text="Rol"></asp:Label>
      <br> 
     <asp:DropDownList ID="ddlRol" Width="280" class = "form-control" runat="server"></asp:DropDownList>
+        <br />
+       <div class="form-inline">
+       
+        <asp:TextBox ID="txtImagen" placeholder="imagen" runat="server" CssClass="form-control"></asp:TextBox>
+       
+         <asp:FileUpload ID="fileUpload1" accept="image/*" style="display:none;" runat="server" />
+        <input type="button" id="btnnAdjuntar" runat="server" value="adjuntar" class="btn btn-success" onclick="adjuntarImagen()" /> 
+       
+        </div>
+       <script>
+           function adjuntarImagen()
+           {
+               document.getElementById('MainContent_fileUpload1').click();
+               document.getElementById('MainContent_txtImagen').readOnly = true;
 
+           }
+       </script>
 
-    <asp:Label ID="Label10"   runat="server" Text="Imagen"></asp:Label>    
-   <%-- <asp:TextBox ID="txtImagen" CssClass="form-control" runat="server"></asp:TextBox>--%>
-    <asp:FileUpload ID="fupImagen" accept="image/*" runat="server"  />
         <asp:Label ID="Label11" runat="server" Text="Genero"></asp:Label>
         <asp:DropDownList ID="DDLgenero"  Width="280" CssClass="form-control" runat="server">
             <asp:ListItem>Masculino</asp:ListItem>

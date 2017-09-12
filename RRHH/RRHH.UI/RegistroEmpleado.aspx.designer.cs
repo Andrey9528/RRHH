@@ -193,22 +193,31 @@ namespace RRHH.UI {
         protected global::System.Web.UI.WebControls.DropDownList ddlRol;
         
         /// <summary>
-        /// Label10 control.
+        /// txtImagen control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label10;
+        protected global::System.Web.UI.WebControls.TextBox txtImagen;
         
         /// <summary>
-        /// fupImagen control.
+        /// fileUpload1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fupImagen;
+        protected global::System.Web.UI.WebControls.FileUpload fileUpload1;
+        
+        /// <summary>
+        /// btnnAdjuntar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputButton btnnAdjuntar;
         
         /// <summary>
         /// Label11 control.

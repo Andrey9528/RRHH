@@ -59,7 +59,7 @@
  </div>
    <br />
     
-    <img src="https://3.imimg.com/data3/HQ/KK/MY-8835125/5-250x250.png" class="img-responsive" />
+    <img src="https://3.imimg.com/data3/HQ/KK/MY-8835125/5-250x250.png" runat="server"   class="img-responsive" />
     <br />
     <br />
     <br />
@@ -150,9 +150,8 @@
    
      
     <p  style="margin-left:300px; margin-top:-350px; "> 
-    <asp:Label ID="Label13"  runat="server" Text="Imagen"></asp:Label>    
-   <%-- <asp:TextBox ID="txtImagen" CssClass="form-control" runat="server"></asp:TextBox>--%>
-   <asp:FileUpload ID="FileUpload1" accept="image/*" runat="server"  />
+    <asp:Label ID="Label13"  runat="server" Text="Empleado:"></asp:Label>    
+        <asp:Image ID="imgEmple" Width="100px" Height="100px" runat="server" />
    </p>
       
          <p  style="margin-left:300px;   height: 28px; width: 76px;"> 
