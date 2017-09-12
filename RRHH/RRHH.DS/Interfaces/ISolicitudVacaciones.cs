@@ -15,7 +15,7 @@ namespace RRHH.DS.Interfaces
         void ActualizarSolicitud(SolicitudVacaciones solicitud);
         void EliminarSolicitud(int idsolicitud);
         List<SolicitudVacaciones> BuscarsolicitudPorId (string cedula);
-        List<ListarVacaciones> ListarVacaciones(DateTime FechaFinal, string cedula);
+        List<ListarVacaciones> ListarVacaciones(DateTime FechaInicio, DateTime FechaFinal, string cedula, bool Condicion);
 
 
     }
