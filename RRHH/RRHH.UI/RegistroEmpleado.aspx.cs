@@ -9,7 +9,7 @@ using RRHH.DS.Interfaces;
 using RRHH.DS.Metodos;
 using System.Net.Mail;
 using System.Net;
-
+using System.IO;
 
 namespace RRHH.UI
 {
@@ -39,6 +39,9 @@ namespace RRHH.UI
                 
                 try
                 {
+                    string nombrearchivo = Path.GetFileName(fileUpload1.FileName);
+                    fileUpload1.SaveAs(Server.MapPath("~/Empleados/" + nombrearchivo));
+
 
                     //frmLogin.AutorGlobal = Utilitarios.OpAutores.BuscarAutorNombre(CboAutor.Text);
                     //var identificacionAutor = frmLogin.AutorGlobal.Id_Autor.ToString();
@@ -61,7 +64,10 @@ namespace RRHH.UI
                         Estado = true,
                         Bloqueado = false,
                         Password = Encriptacion.Encriptar(contrasena, Encriptacion.Llave),
-                        Genero=DDLgenero.SelectedItem.ToString()
+                        Genero = DDLgenero.SelectedItem.ToString(),
+                        Imagen = "~/Empleados/" + nombrearchivo 
+
+
                     };
                     Singleton.OpEmpleados.InsertarEmpleados(emple);
                     mensaje.Visible = true;

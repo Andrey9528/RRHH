@@ -77,6 +77,9 @@ namespace RRHH.UI
                         Password = Encriptacion.Encriptar(txtNuevaContraseñaConfirmar.Text, Encriptacion.Llave),
                         FechaNacimiento = Login.EmpleadoGlobal.FechaNacimiento,
                         IdDepartamento = Login.EmpleadoGlobal.IdDepartamento,
+                        Genero=Login.EmpleadoGlobal.Genero,
+                        Imagen=Login.EmpleadoGlobal.Imagen,
+
                         IdRol = Login.EmpleadoGlobal.IdRol,
                         Estado = true
                     };

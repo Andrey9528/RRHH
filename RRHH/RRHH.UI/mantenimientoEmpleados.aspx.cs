@@ -68,6 +68,7 @@ namespace RRHH.UI
                     //DataBind();
                    
                     Chk_estado.Checked = (bool)emple.Estado;
+                    imgEmple.ImageUrl = emple.Imagen;
                     Empleadosmantenimiento.Visible = true;
                     txtcedula.ReadOnly = true;
                     mensaje.Visible = false;
