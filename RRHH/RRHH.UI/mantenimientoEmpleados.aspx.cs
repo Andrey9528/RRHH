@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using RRHH.DATA;
+using System.IO;
 
 namespace RRHH.UI
 {
@@ -29,6 +30,7 @@ namespace RRHH.UI
                 //ddlRol.Text = Singleton.oproles.ListarRoles().Select(x => x.Nombre).ToString();
                 //ddlRol.DataBind();
 
+
                 List<Empleado> listaEmpleados = Singleton.OpEmpleados.ListarEmpleados();
                 var emple = listaEmpleados.FirstOrDefault(x => x.Cedula == txtcedula.Text);
                 var rol = Singleton.oproles.BuscarRoles(Convert.ToInt32(emple.IdRol)).Nombre.ToString();
@@ -50,6 +52,7 @@ namespace RRHH.UI
                 var fecha = emple.FechaNacimiento.ToString();
                 if (emple != null)
                 {
+                   
                     txtNombre.Text = emple.Nombre;
                     txtDireccion.Text = emple.Direccion;
                     txtTelefono.Text = emple.Telefono;
@@ -68,6 +71,7 @@ namespace RRHH.UI
                     //DataBind();
                    
                     Chk_estado.Checked = (bool)emple.Estado;
+                    
                     imgEmple.ImageUrl = emple.Imagen;
                     Empleadosmantenimiento.Visible = true;
                     txtcedula.ReadOnly = true;
@@ -110,6 +114,9 @@ namespace RRHH.UI
                 //RolGlobal = Singleton.oproles.BuscarRolesPorNombre(ddlRol.Text);
                 RolGlobal = Singleton.oproles.BuscarRolesPorNombre(ddlRol.Text);
                 var IdRol = RolGlobal.IdRol.ToString();
+                //string nombrearchivo = Path.GetFileName(fileUpload1.FileName);
+               //fileUpload1.SaveAs(Server.MapPath("~/Empleados/" + nombrearchivo));
+
                 if (Chk_bloqueado.Checked==bloqueoOrigen)
                 {
                     Empleado emple = new Empleado()
@@ -124,6 +131,8 @@ namespace RRHH.UI
                         IdDepartamento = Convert.ToInt32(IdDepartamento),
                         IdRol = Convert.ToInt32(IdRol),
                         Estado = Chk_estado.Checked,
+                        Imagen = EmpleadoGlobal.Imagen,
+
                         Bloqueado = true,
                         Genero = DDLgenero.SelectedItem.ToString(),
                         Password = EmpleadoGlobal.Password,
@@ -137,7 +146,7 @@ namespace RRHH.UI
                     mensaje.Visible = false;
                     mensajeError.Visible = false;
                     mensajawarning.Visible = true;
-                    textomensajewarning.InnerHtml = "La cuenta ha sido actualizada";
+                    textomensajewarning.InnerHtml = "La cuenta ha sido actualizada(imagen)";
                     txtcedula.ReadOnly = false;
                     txtcedula.Focus();
                     txtcedula.Text = string.Empty;
@@ -148,7 +157,7 @@ namespace RRHH.UI
 
                 else if (/*bloqueoOrigen != Chk_bloqueado.Checked &&*/ bloqueoOrigen==true && Chk_bloqueado.Checked==false)
                 {
-
+                   
                     Empleado emple = new Empleado()
                     {
                         Cedula = txtcedula.Text,
@@ -162,6 +171,7 @@ namespace RRHH.UI
                         IdRol = Convert.ToInt32(IdRol),
                         Estado = Chk_estado.Checked,
                         Bloqueado = false,
+                        Imagen = EmpleadoGlobal.Imagen,
                         Genero = DDLgenero.SelectedItem.ToString(),
                         Password = EmpleadoGlobal.Password,
                         IntentosFallidos = 0,
@@ -182,6 +192,7 @@ namespace RRHH.UI
                 }
                 else if (bloqueoOrigen == false && Chk_bloqueado.Checked==true)
                 {
+                    
                     Empleado emple = new Empleado()
                     {
                         Cedula = txtcedula.Text,
@@ -195,6 +206,7 @@ namespace RRHH.UI
                         IdRol = Convert.ToInt32(IdRol),
                         Estado = Chk_estado.Checked,
                         Bloqueado = true,
+                        Imagen = EmpleadoGlobal.Imagen,
                         Genero = DDLgenero.SelectedItem.ToString(),
                         Password = EmpleadoGlobal.Password,
                         IntentosFallidos = 4,
@@ -215,7 +227,7 @@ namespace RRHH.UI
 
                 else
                 {
-
+                   
                     Empleado emple = new Empleado()
                     {
                         Cedula = txtcedula.Text,
@@ -228,6 +240,7 @@ namespace RRHH.UI
                         IdDepartamento = Convert.ToInt32(IdDepartamento),
                         IdRol = Convert.ToInt32(IdRol),
                         Estado = Chk_estado.Checked,
+                        Imagen = EmpleadoGlobal.Imagen,
                         Bloqueado = EmpleadoGlobal.Bloqueado,
                         Genero = DDLgenero.SelectedItem.ToString(),
                         Password = EmpleadoGlobal.Password,
@@ -286,7 +299,8 @@ namespace RRHH.UI
                         IdRol = Convert.ToInt32(IdRol),
                         Estado = Chk_estado.Checked,
                         Bloqueado=Chk_bloqueado.Checked,
-                        Genero=DDLgenero.SelectedItem.ToString(),
+                        Imagen = EmpleadoGlobal.Imagen,
+                        Genero = DDLgenero.SelectedItem.ToString(),
                         Password = EmpleadoGlobal.Password,
                         IntentosFallidos=Convert.ToInt32(EmpleadoGlobal.IntentosFallidos)
                     };

@@ -216,7 +216,13 @@
    
     <ol id="menu" >
     <li><a href="EmpleadoView.aspx">Home</a></li>
-    <li><a href="#">Perfil</a></li>
+    <li><a href="#">Perfil</a>
+        <ul>
+           <li> <a data-target="#Miperfil" data-toggle="modal"  href="#" >Ver perfil</a></li>
+          <li> <a href="#" >Actualizar datos</a></li>
+
+        </ul>
+    </li>
     <li><a href="#">Actualizar datos</a></li>
 
        
@@ -331,6 +337,55 @@
     </div>
   </div>
         </div>
+
+
+
+
+    
+        <div class="container"  >
+  
+  <div class="modal fade" id="Miperfil" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content " style=" margin-top:130px; margin-left:35px; height:300px; width:500px;">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Mi Perfil</h4>
+        </div>
+        <div class="modal-body">
+            <asp:Label ID="lblnombre" runat="server" Text="Nombre:"></asp:Label>
+            <br />
+            <asp:Label ID="lblCedula" runat="server" Text="Cedula"></asp:Label>
+            <br />
+            <asp:Label ID="lblDirreccion" runat="server" Text="Dirrección:"></asp:Label>
+            <br />
+             <asp:Label ID="lblTelefono" runat="server" Text="Teléfono:"></asp:Label>
+            <br />
+             <asp:Label ID="lblCorreo" runat="server" Text="Correo:"></asp:Label>
+            <br />
+             <asp:Label ID="lblestadocivil" runat="server" Text="Estado Civil:"></asp:Label>
+            <br />
+             <asp:Label ID="lblfechaNaci" runat="server" Text="Fecha de nacimiento:"></asp:Label>
+            <br />
+             <asp:Label ID="lbldepa" runat="server" Text="Departamento:"></asp:Label>
+            <br />
+             <asp:Label ID="lblRol" runat="server" Text="Rol:"></asp:Label>
+            <br />
+            <p style="margin-left:280px; margin-top:-155px;"><asp:Image ID="imgPerfil" Width="170px" Height="120px" runat="server" />
+                </p>
+
+
+
+
+
+
+        </div>
+        <div class="modal-footer">
+          <button style="margin-top:-30px;" type="button" class="btn btn-warning" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
     
        
 </asp:Content>

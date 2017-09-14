@@ -354,7 +354,7 @@
           <a class="dropdown-toggle" data-toggle="dropdown" style="background-color:#04acec; color:white; font-family:cursive;" href="#">Vacaciones <span class="caret"></span></a>
           <ul class="dropdown-menu">
 
-            <li><a  href="adminVacaciones.aspx">Mantenimiento</a></li>
+            <li><a  href="adminVacas.aspx">Mantenimiento</a></li>
             
           </ul>
         </li>

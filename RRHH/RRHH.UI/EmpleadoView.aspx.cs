@@ -15,6 +15,16 @@ namespace RRHH.UI
         public static int dias;
         protected void Page_Load(object sender, EventArgs e)
         {
+            lblnombre.Text = "Nombre: " + Login.EmpleadoGlobal.Nombre;
+            lblCedula.Text = "Cédula:" + Login.EmpleadoGlobal.Cedula;
+            lblDirreccion.Text = "Dirreccion:" + Login.EmpleadoGlobal.Direccion;
+            lblTelefono.Text = "Telefono: " + Login.EmpleadoGlobal.Telefono;
+            lblCorreo.Text = "Correo: " + Login.EmpleadoGlobal.Correo;
+            lblestadocivil.Text = "Estado Civil: " + Login.EmpleadoGlobal.EstadoCivil;
+            lblfechaNaci.Text = "Fecha nacimiento: " + Login.EmpleadoGlobal.FechaNacimiento;
+            lbldepa.Text = "Departamento: " + Singleton.opdepartamento.BuscarDepartamentos(Login.EmpleadoGlobal.IdDepartamento).Nombre;
+            lblRol.Text = "Rol: " + Singleton.oproles.BuscarRoles(Login.EmpleadoGlobal.IdRol).Nombre;
+            imgPerfil.ImageUrl = Login.EmpleadoGlobal.Imagen;
 
         }
 
@@ -59,6 +69,8 @@ namespace RRHH.UI
                         FechaNacimiento = Login.EmpleadoGlobal.FechaNacimiento,
                         IdDepartamento = Login.EmpleadoGlobal.IdDepartamento,
                         IdRol = Login.EmpleadoGlobal.IdRol,
+                        Imagen=Login.EmpleadoGlobal.Imagen,
+                        Genero=Login.EmpleadoGlobal.Genero,
                         Estado = true
                     };
                     Singleton.OpEmpleados.ActualizarEmpleados(empleado);
@@ -112,7 +124,7 @@ namespace RRHH.UI
                     textoMensaje.InnerHtml = "Solicitud generada";
                     //string mail = Singleton.opNotificacion.CorreoJefe(Login.EmpleadoGlobal.Cedula).Select(x => x.EmailJefeDpto).ToString();
                     string mail = Singleton.opdepartamento.BuscarDepartamentos(Login.EmpleadoGlobal.IdDepartamento).EmailJefeDpto.ToString();
-                    Email.Notificacion("dollars.chat.room@hotmail.com", "fidelitasw2","andsarav@gmail.com","Nueva solicitud de vacaciones", "se ha recibido una nueva solicitud de vacaciones de parte del empleado\nNombre:"+Login.EmpleadoGlobal.Nombre+ "\nUsuario:"+Login.EmpleadoGlobal.Correo);
+                    Email.Notificacion("dollars.chat.room@hotmail.com", "fidelitasw2",mail,"Nueva solicitud de vacaciones", "se ha recibido una nueva solicitud de vacaciones de parte del empleado\nNombre:"+Login.EmpleadoGlobal.Nombre+ "\nUsuario:"+Login.EmpleadoGlobal.Correo);
                     //using (SmtpClient cliente = new SmtpClient("smtp.live.com", 25))
                     //{
                     //    cliente.EnableSsl = true;

@@ -59,7 +59,7 @@
  </div>
    <br />
     
-    <img src="https://3.imimg.com/data3/HQ/KK/MY-8835125/5-250x250.png" runat="server"   class="img-responsive" />
+    <img id="img1" src="https://3.imimg.com/data3/HQ/KK/MY-8835125/5-250x250.png" runat="server"   class="img-responsive" />
     <br />
     <br />
     <br />
@@ -149,11 +149,30 @@
    
    
      
-    <p  style="margin-left:300px; margin-top:-350px; "> 
+    <p  style="margin-left:360px; margin-top:-450px; "> 
     <asp:Label ID="Label13"  runat="server" Text="Empleado:"></asp:Label>    
-        <asp:Image ID="imgEmple" Width="100px" Height="100px" runat="server" />
+        <asp:Image ID="imgEmple" Width="200px" Height="180px" runat="server" />
    </p>
-      
+       <div class="form-inline" style="margin-left:430px;">
+
+        <asp:TextBox ID="txtImagen" Width="180" placeholder="Cambiar foto" runat="server" CssClass="form-control"></asp:TextBox>
+         <asp:FileUpload ID="fileUpload1" accept="image/*" style="display:none;" runat="server" />
+        <input type="button" id="btnnAdjuntar" runat="server" value="adjuntar" class="btn btn-success" onclick="adjuntarImagen()" /> 
+       
+         <%--  <asp:TextBox ID="txtimagen" CssClass="form-control" Width="180px" runat="server"></asp:TextBox>
+           <asp:FileUpload  ID="fotoPerfil" style="display:none;"  runat="server" />
+           <input type="button" id="btnfoto"  runat="server"  value="Cambiar foto" class="btn btn-success"/>
+
+       --%>
+        </div>
+          <script>
+           function adjuntarImagen()
+           {
+               document.getElementById('MainContent_fileUpload1').click();
+               document.getElementById('MainContent_txtImagen').readOnly = false;
+
+           }
+       </script>
          <p  style="margin-left:300px;   height: 28px; width: 76px;"> 
                <asp:Label ID="Label11"  runat="server" Text="Estado"></asp:Label>
    <asp:CheckBox ID="Chk_estado"    runat="server" />
