@@ -57,15 +57,19 @@ namespace RRHH.UI
                     txtDireccion.Text = emple.Direccion;
                     txtTelefono.Text = emple.Telefono;
                     txtCorreo.Text = emple.Correo;
-                    DddlEstadoCivil.SelectedValue = emple.EstadoCivil;
-                    
+                    //DddlEstadoCivil.SelectedValue = emple.EstadoCivil;
+                     txtEstadoCivil.Text= emple.EstadoCivil;
+
                     txtFechaNacimiento.Text = Convert.ToDateTime(fecha).ToString("dd/MM/yyyy");
                     //ddlDepartamento.DataSource = rol.ToList();
                     //DataBind();
-                   
-                    ddlRol.SelectedValue = rol;
-                    ddlDepartamento.SelectedValue = depar;
-                    DDLgenero.SelectedValue = emple.Genero;
+
+                    //ddlRol.SelectedValue = rol;
+                    //ddlDepartamento.SelectedValue = depar;
+                    //DDLgenero.SelectedValue = emple.Genero;
+                    txtRol.Text = rol;
+                    txtDepartamento.Text = depar;
+                    txtGenero.Text = emple.Genero;
                     Chk_bloqueado.Checked = (bool)emple.Bloqueado;
                     //ddlRol.DataSource = depar.ToList() ;
                     //DataBind();
@@ -107,12 +111,15 @@ namespace RRHH.UI
 
             {
                 // DepartamentoGlobal = Singleton.opdepartamento.BuscarDepartamentosPorNombre(ddlDepartamento.Text);
-                DepartamentoGlobal = Singleton.opdepartamento.BuscarDepartamentosPorNombre(ddlDepartamento.Text);
+                //DepartamentoGlobal = Singleton.opdepartamento.BuscarDepartamentosPorNombre(ddlDepartamento.Text);
+                DepartamentoGlobal = Singleton.opdepartamento.BuscarDepartamentosPorNombre(txtDepartamento.Text);
+
                 var IdDepartamento = DepartamentoGlobal.IdDepartamento.ToString();
                 EmpleadoGlobal = Singleton.OpEmpleados.BuscarEmpleados(txtcedula.Text); // DESMADRE DE MARCOS
                 bool bloqueoOrigen = EmpleadoGlobal.Bloqueado;
                 //RolGlobal = Singleton.oproles.BuscarRolesPorNombre(ddlRol.Text);
-                RolGlobal = Singleton.oproles.BuscarRolesPorNombre(ddlRol.Text);
+                //RolGlobal = Singleton.oproles.BuscarRolesPorNombre(ddlRol.Text);
+                RolGlobal = Singleton.oproles.BuscarRolesPorNombre(txtRol.Text);
                 var IdRol = RolGlobal.IdRol.ToString();
                 //string nombrearchivo = Path.GetFileName(fileUpload1.FileName);
                //fileUpload1.SaveAs(Server.MapPath("~/Empleados/" + nombrearchivo));
@@ -126,15 +133,17 @@ namespace RRHH.UI
                         Direccion = txtDireccion.Text,
                         Telefono = txtTelefono.Text,
                         Correo = txtCorreo.Text,
-                        EstadoCivil = DddlEstadoCivil.SelectedItem.ToString(),
+                       // EstadoCivil = DddlEstadoCivil.SelectedItem.ToString(),
+                       EstadoCivil = txtEstadoCivil.Text,
                         FechaNacimiento = Convert.ToDateTime(txtFechaNacimiento.Text),
                         IdDepartamento = Convert.ToInt32(IdDepartamento),
                         IdRol = Convert.ToInt32(IdRol),
                         Estado = Chk_estado.Checked,
                         Imagen = EmpleadoGlobal.Imagen,
 
-                        Bloqueado = true,
-                        Genero = DDLgenero.SelectedItem.ToString(),
+                        Bloqueado = Chk_bloqueado.Checked,
+                       // Genero = DDLgenero.SelectedItem.ToString(),
+                       Genero = txtGenero.Text,
                         Password = EmpleadoGlobal.Password,
                         IntentosFallidos = EmpleadoGlobal.IntentosFallidos,
                     };
@@ -146,7 +155,7 @@ namespace RRHH.UI
                     mensaje.Visible = false;
                     mensajeError.Visible = false;
                     mensajawarning.Visible = true;
-                    textomensajewarning.InnerHtml = "La cuenta ha sido actualizada(imagen)";
+                    textomensajewarning.InnerHtml = "La cuenta ha sido actualizada";
                     txtcedula.ReadOnly = false;
                     txtcedula.Focus();
                     txtcedula.Text = string.Empty;
@@ -165,14 +174,15 @@ namespace RRHH.UI
                         Direccion = txtDireccion.Text,
                         Telefono = txtTelefono.Text,
                         Correo = txtCorreo.Text,
-                        EstadoCivil = DddlEstadoCivil.SelectedItem.ToString(),
+                        EstadoCivil = txtEstadoCivil.Text,
                         FechaNacimiento = Convert.ToDateTime(txtFechaNacimiento.Text),
                         IdDepartamento = Convert.ToInt32(IdDepartamento),
                         IdRol = Convert.ToInt32(IdRol),
                         Estado = Chk_estado.Checked,
                         Bloqueado = false,
                         Imagen = EmpleadoGlobal.Imagen,
-                        Genero = DDLgenero.SelectedItem.ToString(),
+                        //Genero = DDLgenero.SelectedItem.ToString(),
+                        Genero = txtGenero.Text,
                         Password = EmpleadoGlobal.Password,
                         IntentosFallidos = 0,
                     };
@@ -200,14 +210,15 @@ namespace RRHH.UI
                         Direccion = txtDireccion.Text,
                         Telefono = txtTelefono.Text,
                         Correo = txtCorreo.Text,
-                        EstadoCivil = DddlEstadoCivil.SelectedItem.ToString(),
+                        EstadoCivil = txtEstadoCivil.Text,
                         FechaNacimiento = Convert.ToDateTime(txtFechaNacimiento.Text),
                         IdDepartamento = Convert.ToInt32(IdDepartamento),
                         IdRol = Convert.ToInt32(IdRol),
                         Estado = Chk_estado.Checked,
                         Bloqueado = true,
                         Imagen = EmpleadoGlobal.Imagen,
-                        Genero = DDLgenero.SelectedItem.ToString(),
+                       // Genero = DDLgenero.SelectedItem.ToString(),
+                       Genero  = txtGenero.Text,
                         Password = EmpleadoGlobal.Password,
                         IntentosFallidos = 4,
                     };
@@ -235,14 +246,15 @@ namespace RRHH.UI
                         Direccion = txtDireccion.Text,
                         Telefono = txtTelefono.Text,
                         Correo = txtCorreo.Text,
-                        EstadoCivil = DddlEstadoCivil.SelectedItem.ToString(),
+                        EstadoCivil = txtEstadoCivil.Text,
                         FechaNacimiento = Convert.ToDateTime(txtFechaNacimiento.Text),
                         IdDepartamento = Convert.ToInt32(IdDepartamento),
                         IdRol = Convert.ToInt32(IdRol),
                         Estado = Chk_estado.Checked,
                         Imagen = EmpleadoGlobal.Imagen,
                         Bloqueado = EmpleadoGlobal.Bloqueado,
-                        Genero = DDLgenero.SelectedItem.ToString(),
+                       // Genero = DDLgenero.SelectedItem.ToString(),
+                       Genero = txtGenero.Text,
                         Password = EmpleadoGlobal.Password,
                         IntentosFallidos = EmpleadoGlobal.IntentosFallidos,
                     };
@@ -281,10 +293,12 @@ namespace RRHH.UI
 
                 if (Chk_estado.Checked == false && confirmValue == "Yes")
                 {
-                    DepartamentoGlobal = Singleton.opdepartamento.BuscarDepartamentosPorNombre(ddlDepartamento.Text);
+                    //DepartamentoGlobal = Singleton.opdepartamento.BuscarDepartamentosPorNombre(ddlDepartamento.Text);
+
                     var IdDepartamento = DepartamentoGlobal.IdDepartamento.ToString();
                     //RolGlobal = Singleton.oproles.BuscarRolesPorNombre(ddlRol.Text);
-                    RolGlobal = Singleton.oproles.BuscarRolesPorNombre(ddlRol.Text);
+                    // RolGlobal = Singleton.oproles.BuscarRolesPorNombre(ddlRol.Text);
+                    RolGlobal = Singleton.oproles.BuscarRolesPorNombre(txtRol.Text);
                     var IdRol = RolGlobal.IdRol.ToString();
                     Empleado emple = new Empleado()
                     {
@@ -293,14 +307,15 @@ namespace RRHH.UI
                         Direccion = txtDireccion.Text,
                         Telefono = txtTelefono.Text,
                         Correo = txtCorreo.Text,
-                        EstadoCivil = DddlEstadoCivil.SelectedItem.ToString(),
+                        EstadoCivil = txtEstadoCivil.Text,
                         FechaNacimiento = Convert.ToDateTime(txtFechaNacimiento.Text),
                         IdDepartamento = Convert.ToInt32(IdDepartamento),
                         IdRol = Convert.ToInt32(IdRol),
                         Estado = Chk_estado.Checked,
                         Bloqueado=Chk_bloqueado.Checked,
                         Imagen = EmpleadoGlobal.Imagen,
-                        Genero = DDLgenero.SelectedItem.ToString(),
+                        //  Genero = DDLgenero.SelectedItem.ToString(),
+                        Genero = txtGenero.Text,
                         Password = EmpleadoGlobal.Password,
                         IntentosFallidos=Convert.ToInt32(EmpleadoGlobal.IntentosFallidos)
                     };
