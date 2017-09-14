@@ -236,6 +236,7 @@
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
     <Content Include="adminVacaciones.aspx" />
+    <Content Include="AdminVacas.aspx" />
     <Content Include="AdminView.aspx" />
     <Content Include="ConsultaIncapacidades.aspx" />
     <Content Include="consultaVacaciones.aspx" />
@@ -428,6 +429,13 @@
     </Compile>
     <Compile Include="adminVacaciones.aspx.designer.cs">
       <DependentUpon>adminVacaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminVacas.aspx.cs">
+      <DependentUpon>AdminVacas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminVacas.aspx.designer.cs">
+      <DependentUpon>AdminVacas.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdminView.aspx.cs">
       <DependentUpon>AdminView.aspx</DependentUpon>

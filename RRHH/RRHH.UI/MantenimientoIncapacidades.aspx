@@ -184,7 +184,7 @@
                <a class="btn btn-primary"  href="AdminView.aspx"><span class="glyphicon glyphicon-backward"></span> Regresar</a>
 
             <asp:Button ID="btnModificar" runat="server" Text="Modificar" CssClass="btn btn-warning"  OnClick="btnModificar_Click" OnClientClick="Confirm()" />
-            <asp:Button ID="btndesahabilitar"  runat="server" Text="Deshabilitar" CssClass="btn btn-danger" OnClick="btndesahabilitar_Click"  OnClientClick="Confirm()" />
+            
         </div>
     </div>
 </asp:Content>

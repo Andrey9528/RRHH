@@ -12,6 +12,25 @@ namespace RRHH.UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            try
+            {
+                lblnombre.Text = "Nombre: " + Login.EmpleadoGlobal.Nombre;
+                lblCedula.Text = "Cédula:" + Login.EmpleadoGlobal.Cedula;
+                lblDirreccion.Text = "Dirreccion:" + Login.EmpleadoGlobal.Direccion;
+                lblTelefono.Text = "Telefono: " + Login.EmpleadoGlobal.Telefono;
+                lblCorreo.Text = "Correo: " + Login.EmpleadoGlobal.Correo;
+                lblestadocivil.Text = "Estado Civil: " + Login.EmpleadoGlobal.EstadoCivil;
+                lblfechaNaci.Text = "Fecha nacimiento: " + Login.EmpleadoGlobal.FechaNacimiento;
+                lbldepa.Text = "Departamento: " + Singleton.opdepartamento.BuscarDepartamentos(Login.EmpleadoGlobal.IdDepartamento).Nombre;
+                lblRol.Text = "Rol: " + Singleton.oproles.BuscarRoles(Login.EmpleadoGlobal.IdRol).Nombre;
+                imgPerfil.ImageUrl = Login.EmpleadoGlobal.Imagen;
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
 
         }
 
@@ -52,6 +71,8 @@ namespace RRHH.UI
                         FechaNacimiento = Login.EmpleadoGlobal.FechaNacimiento,
                         IdDepartamento = Login.EmpleadoGlobal.IdDepartamento,
                         IdRol = Login.EmpleadoGlobal.IdRol,
+                        Genero=Login.EmpleadoGlobal.Genero,
+                        Imagen=Login.EmpleadoGlobal.Imagen,
                         Estado = true
                     };
                     Singleton.OpEmpleados.ActualizarEmpleados(empleado);
