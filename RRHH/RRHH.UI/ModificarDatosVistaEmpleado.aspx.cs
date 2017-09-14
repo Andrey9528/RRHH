@@ -48,7 +48,7 @@ namespace RRHH.UI
                 if (Login.EmpleadoGlobal.Imagen!=imgEmple.ImageUrl)
                 {
                     string nombrearchivo = Path.GetFileName(fileUpload1.FileName);
-                    fileUpload1.SaveAs(Server.MapPath("~/Empleados/" + nombrearchivo));
+                    fileUpload1.SaveAs(Server.MapPath("~/Empleados/" +  nombrearchivo));
                     Empleado emple = new Empleado()
                     {
                         Cedula = Login.EmpleadoGlobal.Cedula,
