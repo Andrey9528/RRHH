@@ -219,11 +219,9 @@
     <li><a href="#">Perfil</a>
         <ul>
            <li> <a data-target="#Miperfil" data-toggle="modal"  href="#" >Ver perfil</a></li>
-          <li> <a href="#" >Actualizar datos</a></li>
-
         </ul>
     </li>
-    <li><a href="#">Actualizar datos</a></li>
+    <li><a href="ModificarDatosVistaEmpleado.aspx">Actualizar datos</a></li>
 
        
     <li>

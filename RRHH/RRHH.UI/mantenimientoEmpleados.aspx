@@ -72,7 +72,7 @@
    
     <asp:Label ID="Label2" runat="server"   Text="Nombre"></asp:Label>
     
-        <asp:TextBox ID="txtNombre" CssClass="form-control " runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtNombre" enabled="false" CssClass="form-control " runat="server"></asp:TextBox>
        
 
    
@@ -81,72 +81,75 @@
    
     <asp:Label ID="Label3"  runat="server"   Text="Direccion"></asp:Label>
    
-      <asp:TextBox ID="txtDireccion" Width="280" CssClass="form-control "    TextMode="MultiLine" runat="server"></asp:TextBox>
+      <asp:TextBox ID="txtDireccion" enabled="false" Width="280" CssClass="form-control "    TextMode="MultiLine" runat="server"></asp:TextBox>
           
         
          <asp:Label ID="Label4"  runat="server"    Text="Teléfono"></asp:Label>
     
-        <asp:TextBox ID="txtTelefono" CssClass="form-control"    runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtTelefono" enabled="false" CssClass="form-control" ReadOnly="true"   runat="server"></asp:TextBox>
     
 
 
 
-    <asp:Label ID="Label5" runat="server"   Text="Correo"></asp:Label>
-<asp:TextBox ID="txtCorreo" TextMode="Email" CssClass="form-control" runat="server"></asp:TextBox>
+    <asp:Label ID="Label5" runat="server"    Text="Correo"></asp:Label>
+<asp:TextBox ID="txtCorreo" TextMode="Email" enabled="false" ReadOnly="true" CssClass="form-control" runat="server"></asp:TextBox>
 
 
 
             <asp:Label ID="Label6"  runat="server"   Text="Estado Civil:"></asp:Label>
     
-    <asp:DropDownList ID="DddlEstadoCivil"  Width="280" class = "form-control" runat="server">
+<%--    <asp:DropDownList ID="DddlEstadoCivil" enabled="false" ReadOnly="true" Width="280" class = "form-control" runat="server">
         <asp:ListItem>Casado</asp:ListItem>
         <asp:ListItem>Soltero</asp:ListItem>
         <asp:ListItem>Unión libre</asp:ListItem>
         <asp:ListItem>Viudo</asp:ListItem>
         <asp:ListItem Selected="True">Indefinido</asp:ListItem>
-    </asp:DropDownList>
+    </asp:DropDownList>--%>
+                       <asp:TextBox ID="txtEstadoCivil" Enabled="false" CssClass="form-control" ReadOnly="true" runat="server"></asp:TextBox>
 
 
         
         <asp:Label ID="Label7"    runat="server" Text="Fecha Nacimiento"></asp:Label>
    
-    <asp:TextBox ID="txtFechaNacimiento"  Width="280"  CssClass="form-control"  runat="server"></asp:TextBox>
+    <asp:TextBox ID="txtFechaNacimiento" enabled="false" ReadOnly="true" Width="280"  CssClass="form-control"  runat="server"></asp:TextBox>
     
     
 
                 <asp:Label ID="Label8"     runat="server" Text="Departamento"></asp:Label>
      
-   <asp:DropDownList ID="ddlDepartamento"  Width="280" class = "form-control" runat="server">
+  <%-- <asp:DropDownList ID="ddlDepartamento" enabled="false" ReadOnly="true" Width="280" class = "form-control" runat="server">
        <asp:ListItem>Programacion</asp:ListItem>
        <asp:ListItem>Vacunas</asp:ListItem>
        <asp:ListItem>Medicamentos</asp:ListItem>
        <asp:ListItem></asp:ListItem>
-        </asp:DropDownList>
-            
+        </asp:DropDownList>--%>
+                   <asp:TextBox ID="txtDepartamento" Enabled="false" CssClass="form-control" ReadOnly="true" runat="server"></asp:TextBox>
+   
    
 
+    <br/>
+    <asp:Label ID="Label9" runat="server" Text="Rol"></asp:Label>
+     
    
-    <asp:Label ID="Label9"   runat="server" Text="Rol"></asp:Label>
-      
-   
-  <asp:DropDownList ID="ddlRol" Width="280" class = "form-control" runat="server">
+ <%-- <asp:DropDownList ID="ddlRol"  enabled="false" Width="280" class = "form-control" runat="server">
       <asp:ListItem>Empleado</asp:ListItem>
       <asp:ListItem>Jefe</asp:ListItem>
       <asp:ListItem>Admin</asp:ListItem>
       <asp:ListItem></asp:ListItem>
-        </asp:DropDownList>
-   
+        </asp:DropDownList>--%>
+          <asp:TextBox ID="txtRol" Enabled="false" CssClass="form-control" ReadOnly="true" runat="server"></asp:TextBox>
 
   
    
    
         <asp:Label ID="Label1"  runat="server" Text="Genero"></asp:Label>
-   <asp:DropDownList ID="DDLgenero"  Width="280"  CssClass="form-control" runat="server">
+   <%--<asp:DropDownList ID="DDLgenero" enabled="false" ReadOnly="true"  Width="280"  CssClass="form-control" runat="server">
              <asp:ListItem>Femenino</asp:ListItem>
              <asp:ListItem>Masculino</asp:ListItem>
              <asp:ListItem Selected="True">Sin establecer</asp:ListItem>
-        </asp:DropDownList>
-   
+        </asp:DropDownList>--%>
+             <asp:TextBox ID="txtGenero" Enabled="false" CssClass="form-control" ReadOnly="true" runat="server"></asp:TextBox>
+
    
      
     <p  style="margin-left:360px; margin-top:-450px; "> 
@@ -155,9 +158,9 @@
    </p>
        <div class="form-inline" style="margin-left:430px;">
 
-        <asp:TextBox ID="txtImagen" Width="180" placeholder="Cambiar foto" runat="server" CssClass="form-control"></asp:TextBox>
+       <%-- <asp:TextBox ID="txtImagen" Width="180" placeholder="Cambiar foto" runat="server" CssClass="form-control"></asp:TextBox>
          <asp:FileUpload ID="fileUpload1" accept="image/*" style="display:none;" runat="server" />
-        <input type="button" id="btnnAdjuntar" runat="server" value="adjuntar" class="btn btn-success" onclick="adjuntarImagen()" /> 
+        <input type="button" id="btnnAdjuntar" runat="server" value="adjuntar" class="btn btn-success" onclick="adjuntarImagen()" /> --%>
        
          <%--  <asp:TextBox ID="txtimagen" CssClass="form-control" Width="180px" runat="server"></asp:TextBox>
            <asp:FileUpload  ID="fotoPerfil" style="display:none;"  runat="server" />

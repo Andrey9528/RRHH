@@ -7,10 +7,10 @@ using System.Web.UI.WebControls;
 using RRHH.DATA;
 using System.IO;
 using System.Globalization;
-using iTextSharp.text;
-using iTextSharp.text.pdf;
-using iTextSharp.text.html;
-using iTextSharp.text.html.simpleparser;
+//using iTextSharp.text;
+//using iTextSharp.text.pdf;
+//using iTextSharp.text.html;
+//using iTextSharp.text.html.simpleparser;
 
 namespace RRHH.UI
 {
