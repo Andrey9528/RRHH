@@ -13,6 +13,7 @@ namespace RRHH.UI
     public partial class EmpleadoView : System.Web.UI.Page
     {
         public static int dias;
+        public static string nombrearchivo;
         protected void Page_Load(object sender, EventArgs e)
         {
             lblnombre.Text = "Nombre: " + Login.EmpleadoGlobal.Nombre;

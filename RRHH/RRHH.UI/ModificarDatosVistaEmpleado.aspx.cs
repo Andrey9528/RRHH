@@ -13,33 +13,45 @@ namespace RRHH.UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            CargarPerfil();
+        }
+
+        public void CargarPerfil()
+        {
             try
             {
-            txtNombre.Text = Login.EmpleadoGlobal.Nombre;
-            DDLgenero.Text = Login.EmpleadoGlobal.Genero;
-            txtDireccion.Text = Login.EmpleadoGlobal.Direccion;
-            txtTelefono.Text = Login.EmpleadoGlobal.Telefono;
-            txtCorreo.Text = Login.EmpleadoGlobal.Correo;
-            DddlEstadoCivil.Text = Login.EmpleadoGlobal.EstadoCivil;
-            txtFechaNacimiento.Text = Login.EmpleadoGlobal.FechaNacimiento.ToString();
-            ddlDepartamento.Text = Singleton.opdepartamento.BuscarDepartamentos(Login.EmpleadoGlobal.IdDepartamento).Nombre;
-            ddlRol.Text = Singleton.oproles.BuscarRoles(Login.EmpleadoGlobal.IdRol).Nombre;
-            imgEmple.ImageUrl = Login.EmpleadoGlobal.Imagen;
+                if (!IsPostBack)
+                {
+                    txtNombre.Text = Login.EmpleadoGlobal.Nombre;
+                    DDLgenero.Text = Login.EmpleadoGlobal.Genero;
+                    txtDireccion.Text = Login.EmpleadoGlobal.Direccion;
+                    txtTelefono.Text = Login.EmpleadoGlobal.Telefono;
+                    txtCorreo.Text = Login.EmpleadoGlobal.Correo;
+                    DddlEstadoCivil.Text = Login.EmpleadoGlobal.EstadoCivil;
+                    txtFechaNacimiento.Text = Login.EmpleadoGlobal.FechaNacimiento.ToString();
+                    ddlDepartamento.Text = Singleton.opdepartamento.BuscarDepartamentos(Login.EmpleadoGlobal.IdDepartamento).Nombre;
+                    ddlRol.Text = Singleton.oproles.BuscarRoles(Login.EmpleadoGlobal.IdRol).Nombre;
+                    imgEmple.ImageUrl = Login.EmpleadoGlobal.Imagen;
+                }
             }
+
             catch (Exception)
             {
 
                 throw;
             }
-            
-           
-
         }
 
+        public static void ActualizarEmpeladoGlobal()
+        {
+            Login.EmpleadoGlobal = Singleton.OpEmpleados.BuscarEmpleados(Login.EmpleadoGlobal.Cedula);
+
+        }
         protected void btnModificar_Click(object sender, EventArgs e)
         {
             try
             {
+               
                var DepartamentoGlobal = Singleton.opdepartamento.BuscarDepartamentosPorNombre(ddlDepartamento.Text);
                var IdDepartamento = DepartamentoGlobal.IdDepartamento.ToString();
                var RolGlobal = Singleton.oproles.BuscarRolesPorNombre(ddlRol.Text);
@@ -65,7 +77,7 @@ namespace RRHH.UI
                         Estado = true,
                         Imagen = "~/Empleados/" + nombrearchivo,
                         Bloqueado = false,
-                        Genero = DDLgenero.SelectedItem.ToString(),
+                        Genero = DDLgenero.Text.ToString(),
                         Password = Login.EmpleadoGlobal.Password,
                         IntentosFallidos = 0,
                     };
@@ -93,11 +105,12 @@ namespace RRHH.UI
                         Estado = true,
                         Imagen = Login.EmpleadoGlobal.Imagen,
                         Bloqueado = false,
-                        Genero = DDLgenero.SelectedItem.ToString(),
+                        Genero = DDLgenero.Text.ToString(),
                         Password = Login.EmpleadoGlobal.Password,
                         IntentosFallidos = 0,
                     };
                     Singleton.OpEmpleados.ActualizarEmpleados(emple2);
+                    ActualizarEmpeladoGlobal();
                     Empleadosmantenimiento.Visible = false;
                     mensajeinfo.Visible = false;
                     mensaje.Visible = true;
