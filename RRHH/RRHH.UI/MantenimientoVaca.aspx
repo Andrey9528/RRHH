@@ -1,6 +1,16 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MantenimientoVaca.aspx.cs" Inherits="RRHH.UI.MantenimientoVaca" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <style>
+          body 
+        {
+            background-image: url("http://1070noticias.com.mx/wp-content/uploads/2016/07/fondos-de-pantalla-blancos-para-descargar.jpg");
+            background-attachment:fixed;
+            background-size:100vw 100vh ;
+            
 
+
+        }
+    </style>
 <script type="text/javascript">
     function Confirm() {
         var confirm_value = document.createElement("INPUT");
@@ -46,7 +56,18 @@
      <br />
     <br />
     
-    <asp:GridView ID="gvdatos" CssClass="table table-striped table-bordered table-hover" runat="server"></asp:GridView>
+    <asp:GridView ID="gvdatos" CssClass="table  table-bordered " runat="server" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Vertical">
+        <AlternatingRowStyle BackColor="#DCDCDC" />
+        <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
+        <HeaderStyle BackColor="#000084" Font-Bold="True" ForeColor="White" />
+        <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
+        <RowStyle BackColor="#EEEEEE" ForeColor="Black" />
+        <SelectedRowStyle BackColor="#008A8C" Font-Bold="True" ForeColor="White" />
+        <SortedAscendingCellStyle BackColor="#F1F1F1" />
+        <SortedAscendingHeaderStyle BackColor="#0000A9" />
+        <SortedDescendingCellStyle BackColor="#CAC9C9" />
+        <SortedDescendingHeaderStyle BackColor="#000065" />
+     </asp:GridView>
    <br />
     <br />
     <p style="margin-top:50px; margin-left:20px; width: 144px;"><asp:Label ID="Label1" runat="server" Text="Numero de Solicitud"></asp:Label></p>

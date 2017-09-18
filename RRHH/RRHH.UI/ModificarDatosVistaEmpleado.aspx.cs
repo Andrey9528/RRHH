@@ -51,6 +51,8 @@ namespace RRHH.UI
                     fileUpload1.SaveAs(Server.MapPath("~/Empleados/" +  nombrearchivo));
                     Empleado emple = new Empleado()
                     {
+
+
                         Cedula = Login.EmpleadoGlobal.Cedula,
                         Nombre = txtNombre.Text,
                         Direccion = txtDireccion.Text,
@@ -77,7 +79,7 @@ namespace RRHH.UI
                 }
                 else 
                 {
-                    Empleado emple = new Empleado()
+                    Empleado emple2 = new Empleado()
                     {
                         Cedula = Login.EmpleadoGlobal.Cedula,
                         Nombre = txtNombre.Text,
@@ -95,13 +97,13 @@ namespace RRHH.UI
                         Password = Login.EmpleadoGlobal.Password,
                         IntentosFallidos = 0,
                     };
-                    Singleton.OpEmpleados.ActualizarEmpleados(emple);
+                    Singleton.OpEmpleados.ActualizarEmpleados(emple2);
                     Empleadosmantenimiento.Visible = false;
                     mensajeinfo.Visible = false;
                     mensaje.Visible = true;
                     mensajeError.Visible = false;
                     mensajawarning.Visible = false;
-                    textoMensaje.InnerHtml = "Los datos han sido actualizados";
+                    textoMensaje.InnerHtml = "Los datos han sido actualizados XD";
                 }
 
                

@@ -400,7 +400,12 @@
 </nav>
     
 
-   
+    <script type="text/javascript"  >
+        function popup()
+        {
+            $('#cambio').modal('show');
+        }
+    </script>
         
     <div class="container">
           <div class="row">

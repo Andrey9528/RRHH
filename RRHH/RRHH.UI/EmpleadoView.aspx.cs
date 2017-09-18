@@ -37,6 +37,8 @@ namespace RRHH.UI
                     txtNuevaContraseña.Enabled = true;
                     txtNuevaContraseñaConfirmar.Enabled = true;
                     btnCambiarEmpleado.Enabled = true;
+                    ClientScript.RegisterStartupScript(GetType(), "Modal", "popup();", true);
+
                 }
                 else
                 {

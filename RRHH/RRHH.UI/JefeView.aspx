@@ -201,14 +201,14 @@
 
         <ul>
             <li><a data-target="#Miperfil" data-toggle="modal" href="#">Ver mi perfil</a></li>
-            <li><a  data-target="#updatePerfil" data-toggle="modal" href="#">Actualizar perfil</a></li>
+            <li><a   href="#">Actualizar perfil</a></li>
         
         </ul>
     </li>
     <li>
         <a href="#">Empleados</a>
         <ul>
-            <li><a href="#">Lista empleados</a></li>
+            <li><a href="ListarEmpleados.aspx">Lista empleados</a></li>
             
         </ul>
     </li>
@@ -241,12 +241,14 @@
 
     
 </ol>
-
-    <div class="container">
+    
+    
+    
+           <div class="container">
           <div class="row">
               <div class="col-xs-12">
                   <%--<button class="btn btn-primary btn-sm pull-right" data-target="#olvide" data-toggle="modal">Popup</button>--%>
-                  <div class="modal fade"  data-keyboard="false" data-backdrop="static" id="cambiojefe"  tabindex="-1">
+                  <div class="modal fade"  data-keyboard="false" data-backdrop="static" id="cambiojefe"    tabindex="-1">
                       <div class="modal-dialog modal-sm">
                           <div class="modal-content" style="margin-top:100px;">
                               <div class="modal-header">
@@ -255,7 +257,7 @@
 
 
                               </div>
-                              <div  class="modal-body">
+                              <div   class="modal-body">
                              <div class="form-group">
                                  <asp:Label ID="Label1" runat="server" Text="Digita tu contraseña actual:"></asp:Label>
                                   <asp:TextBox ID="txtContraseñaActualJefe" TextMode="Password" runat="server" CssClass="form-control"  placeholder="Contraseña"></asp:TextBox>      
@@ -275,7 +277,7 @@
                               </div>
                               <div class="modal-footer">
                                   <asp:Button ID="btnCambiarJefe" CssClass="btn btn-success" Enabled="false" runat="server" OnClick="btnCambiarJefe_Click" Text="Cambiar" />
-                                  <asp:Button ID="btnSalirJefe" CssClass="btn btn-danger" OnClick="btnSalirJefe_Click" runat="server"  Text="Salir" />
+                                  <asp:Button ID="btnSalirJefe" CssClass="btn btn-danger" data-dismiss="modal" OnClick="btnSalirJefe_Click" runat="server"  Text="Salir" />
                               </div>
 
                           </div>
@@ -284,8 +286,16 @@
               </div>
           </div>
       </div>
-
-
+    
+    <script type="text/javascript"  >
+        function popup()
+        {
+            $('#cambiojefe').modal('show');
+        }
+    </script>
+    
+         
+        
     <div class="container"  >
   
   <div class="modal fade" id="Miperfil" role="dialog">
