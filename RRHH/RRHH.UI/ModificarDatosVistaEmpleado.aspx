@@ -114,9 +114,9 @@
    
         <asp:Label ID="Label1"  runat="server" Text="Genero"></asp:Label>
    <asp:DropDownList ID="DDLgenero"  Width="280"  CssClass="form-control" runat="server">
-             <asp:ListItem>Femenino</asp:ListItem>
-             <asp:ListItem>Masculino</asp:ListItem>
-             <asp:ListItem Selected="True">Sin establecer</asp:ListItem>
+       <asp:ListItem>Masculino</asp:ListItem>
+       <asp:ListItem>Femenino</asp:ListItem>
+       <asp:ListItem>Sin Establecer</asp:ListItem>
         </asp:DropDownList>
    
    
@@ -131,7 +131,7 @@
          <asp:FileUpload ID="fileUpload1" accept="image/*" style="display:none;" runat="server" />
         <input type="button" id="btnnAdjuntar" runat="server" value="adjuntar" class="btn btn-success" onclick="adjuntarImagen()" /> 
        
-         <%--  <asp:TextBox ID="txtimagen" CssClass="form-control" Width="180px" runat="server"></asp:TextBox>
+         <%--  <asp:TextBox ID="txtimagen" CssClass="form-control" Width="180px" runat="server"></asp:TextBox >
            <asp:FileUpload  ID="fotoPerfil" style="display:none;"  runat="server" />
            <input type="button" id="btnfoto"  runat="server"  value="Cambiar foto" class="btn btn-success"/>
 
@@ -140,8 +140,12 @@
           <script>
            function adjuntarImagen()
            {
+               
                document.getElementById('MainContent_fileUpload1').click();
                document.getElementById('MainContent_txtImagen').readOnly = false;
+               <%
+// haces desmadre aqui
+               %>
 
            }
        </script>
