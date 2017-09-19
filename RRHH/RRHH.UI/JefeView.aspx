@@ -201,7 +201,7 @@
 
         <ul>
             <li><a data-target="#Miperfil" data-toggle="modal" href="#">Ver mi perfil</a></li>
-            <li><a   href="#">Actualizar perfil</a></li>
+            <li><a  href="ModificarDatosVistaEmpleado.aspx">Actualizar perfil</a></li>
         
         </ul>
     </li>
@@ -223,7 +223,7 @@
     <li>
         <a href="#">Incapacidades</a>
         <ul>
-            <li><a href="#"> Lista incapacidades</a></li>
+            <li><a href="ListaIncapacidades.aspx"> Lista incapacidades</a></li>
            
         </ul>
     </li>
