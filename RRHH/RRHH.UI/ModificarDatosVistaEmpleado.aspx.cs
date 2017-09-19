@@ -116,7 +116,7 @@ namespace RRHH.UI
                     mensaje.Visible = true;
                     mensajeError.Visible = false;
                     mensajawarning.Visible = false;
-                    textoMensaje.InnerHtml = "Los datos han sido actualizados XD";
+                    textoMensaje.InnerHtml = "Los datos han sido actualizados correctamente";
                 }
 
                

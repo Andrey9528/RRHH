@@ -44,9 +44,8 @@
    
     <asp:Label ID="Label2" runat="server"   Text="Nombre"></asp:Label>
     
-        <asp:TextBox ID="txtNombre" CssClass="form-control " runat="server"></asp:TextBox>
+       <asp:TextBox ID="txtNombre" CssClass="form-control " runat="server"></asp:TextBox>
        
-
    
 
    
@@ -65,25 +64,25 @@
 
     <asp:Label ID="Label5" runat="server"   Text="Correo"></asp:Label>
 <asp:TextBox ID="txtCorreo" TextMode="Email" CssClass="form-control" runat="server"></asp:TextBox>
-
+    
 
 
             <asp:Label ID="Label6"  runat="server"   Text="Estado Civil:"></asp:Label>
     
-    <asp:DropDownList ID="DddlEstadoCivil"  Width="280" class = "form-control" runat="server">
+  <asp:DropDownList ID="DddlEstadoCivil"  Width="280" class = "form-control" runat="server">
         <asp:ListItem>Casado</asp:ListItem>
         <asp:ListItem>Soltero</asp:ListItem>
         <asp:ListItem>Unión libre</asp:ListItem>
         <asp:ListItem>Viudo</asp:ListItem>
         <asp:ListItem Selected="True">Indefinido</asp:ListItem>
     </asp:DropDownList>
-
+       
 
         
         <asp:Label ID="Label7"    runat="server" Text="Fecha Nacimiento"></asp:Label>
    
-    <asp:TextBox ID="txtFechaNacimiento"  Width="280"  CssClass="form-control"  runat="server"></asp:TextBox>
-    
+   <asp:TextBox ID="txtFechaNacimiento"  Width="280"  CssClass="form-control"  runat="server"></asp:TextBox>
+   
     
 
                 <asp:Label ID="Label8"     runat="server" Text="Departamento"></asp:Label>
@@ -94,7 +93,7 @@
        <asp:ListItem>Medicamentos</asp:ListItem>
        <asp:ListItem></asp:ListItem>
         </asp:DropDownList>
-            
+       
    
 
    
@@ -107,7 +106,7 @@
       <asp:ListItem>Admin</asp:ListItem>
       <asp:ListItem></asp:ListItem>
         </asp:DropDownList>
-   
+  
 
   
    
@@ -118,10 +117,10 @@
        <asp:ListItem>Femenino</asp:ListItem>
        <asp:ListItem>Sin Establecer</asp:ListItem>
         </asp:DropDownList>
-   
+  
    
      
-    <p  style="margin-left:360px; margin-top:-450px; "> 
+  <p  style="margin-left:360px; margin-top:-450px; "> 
     <asp:Label ID="Label13"  runat="server" Text="Empleado:"></asp:Label>    
         <asp:Image ID="imgEmple" Width="200px" Height="180px" runat="server" />
    </p>
@@ -131,11 +130,7 @@
          <asp:FileUpload ID="fileUpload1" accept="image/*" style="display:none;" runat="server" />
         <input type="button" id="btnnAdjuntar" runat="server" value="adjuntar" class="btn btn-success" onclick="adjuntarImagen()" /> 
        
-         <%--  <asp:TextBox ID="txtimagen" CssClass="form-control" Width="180px" runat="server"></asp:TextBox >
-           <asp:FileUpload  ID="fotoPerfil" style="display:none;"  runat="server" />
-           <input type="button" id="btnfoto"  runat="server"  value="Cambiar foto" class="btn btn-success"/>
-
-       --%>
+       
         </div>
           <script>
            function adjuntarImagen()
@@ -143,10 +138,15 @@
                
                document.getElementById('MainContent_fileUpload1').click();
                document.getElementById('MainContent_txtImagen').readOnly = false;
-               <%
-// haces desmadre aqui
-               %>
+              <%
+             
+              string archi = fileUpload1.FileName;
+              if (archi != null)
+              {
+                  imgEmple.ImageUrl = archi;
+              }
 
+               %>
            }
        </script>
  
