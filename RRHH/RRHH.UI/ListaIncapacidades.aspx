@@ -29,8 +29,8 @@
     <div class="col-xs-3  col-sm-offset-4">
         
         <asp:DropDownList   OnSelectedIndexChanged="DDLEstado_SelectedIndexChanged" ID="DDLEstado" CssClass="form-control" runat="server" AutoPostBack="True">
-            <asp:ListItem>Activos </asp:ListItem>
-            <asp:ListItem>Inactivos</asp:ListItem>
+            <asp:ListItem>Registradas</asp:ListItem>
+            <asp:ListItem>No registradas</asp:ListItem>
         </asp:DropDownList></div>
 
     <br /><br /> <br /><br /> <br /><br />
@@ -55,7 +55,7 @@
 
     </div>
 
-   <div id="btn"  class="boton"> <asp:Button CssClass="btn btn-danger" ID="Button1" runat="server" Text="XXX" />
-       </div>
+    <a   class="btn btn-primary"  href="JefeView.aspx"><span class="glyphicon glyphicon-backward"></span> Regresar</a>
+      
 
 </asp:Content>
