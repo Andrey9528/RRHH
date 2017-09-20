@@ -127,5 +127,31 @@ namespace RRHH.UI
                 throw;
             }
         }
+
+        protected void btnRegresar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Login.EmpleadoGlobal.IdRol == 1)
+                {
+                    Response.Redirect("EmpleadoView.aspx");
+                }
+                else if (Login.EmpleadoGlobal.IdRol == 2)
+                {
+
+                    Response.Redirect("JefeView.aspx");
+                }
+                else 
+                {
+                    Response.Redirect("AdminView.aspx");
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

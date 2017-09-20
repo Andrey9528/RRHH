@@ -11,6 +11,16 @@
 
 
         }
+       
+        #btn {
+            margin-left:800px;
+        }
+        @media only screen and (max-width: 500px)  {
+
+            #btn{
+                margin-left:50px;
+            }
+        }
         </style>
 
     <h1 style="font-family:cursive; font-size:30px; text-align:center;" >Lista de Incapacidades</h1>
@@ -44,5 +54,8 @@
         </asp:GridView>
 
     </div>
+
+   <div id="btn"  class="boton"> <asp:Button CssClass="btn btn-danger" ID="Button1" runat="server" Text="XXX" />
+       </div>
 
 </asp:Content>
