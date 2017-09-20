@@ -227,7 +227,7 @@
     <li>
         <a href="#">Incapacidades</a>
         <ul>
-            <li><a href="insertarIncapacidad.aspx">Solicitud</a></li>
+            <li><a href="insertarIncapacidad.aspx">Registrar</a></li>
             <li><a href="ConsultaIncapacidades.aspx">Consulta</a></li>
 
            

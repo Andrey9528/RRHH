@@ -62,6 +62,7 @@
     <br />
     <br />
     <asp:Button ID="btninsertar" runat="server" Text="Insertar" CssClass="btn btn-success" OnClick="btninsertar_Click"  />
+    <a   class="btn btn-primary"  href="EmpleadoView.aspx"><span class="glyphicon glyphicon-backward"></span> Regresar</a>
 
 
 </div>

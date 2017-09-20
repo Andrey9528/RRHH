@@ -4,6 +4,16 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System.IO;
+using System.Diagnostics;
+using iTextSharp.text.html.simpleparser;
+using iTextSharp.tool.xml;
+
+
+
 
 namespace RRHH.UI
 {
@@ -19,6 +29,7 @@ namespace RRHH.UI
             mensajeinfo.Visible = false;
             mensajeError.Visible = false;
             Btnbusca.Enabled = false;
+            
         }
 
        
@@ -86,8 +97,29 @@ namespace RRHH.UI
 
         protected void btnexportar_Click(object sender, EventArgs e)
         {
+            string attachment = "attachment; filename=Article.pdf";
+            Response.ClearContent();
+            Response.AddHeader("content-disposition", attachment);
+            Response.ContentType = "application/pdf";
+            StringWriter stw = new StringWriter();
+            HtmlTextWriter htextw = new HtmlTextWriter(stw);
+            gvdatos.RenderControl(htextw);
+            Document document = new Document();
+            PdfWriter.GetInstance(document, Response.OutputStream);
+            document.Open();
+            StringReader str = new StringReader(stw.ToString());
+            HTMLWorker htmlworker = new HTMLWorker(document);
+            htmlworker.Parse(str);
+            document.Close();
+            Response.Write(document);
+            Response.End();
 
         }
+        public override void VerifyRenderingInServerForm(Control control)
+        {
+
+        }
+        
         private void VerControlesConsulta()
         {
             try

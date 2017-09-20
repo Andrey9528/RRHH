@@ -20,12 +20,12 @@ namespace RRHH.UI
 
         protected void DDLEstado_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (DDLEstado.Text == "Activos")
+            if (DDLEstado.Text == "Registradas")
             {
                 GV_inca.DataSource = Singleton.opIncapacidad.ListarIncapacidades().Where(X => X.Estado == true);
                 GV_inca.DataBind();
             }
-            else if(DDLEstado.Text=="Inactivos")
+            else if(DDLEstado.Text=="No registradas")
             {
                 GV_inca.DataSource = Singleton.opIncapacidad.ListarIncapacidades().Where(X => X.Estado ==false);
                 GV_inca.DataBind();

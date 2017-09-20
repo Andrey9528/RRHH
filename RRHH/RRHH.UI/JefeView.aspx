@@ -213,12 +213,12 @@
         </ul>
     </li>
     <li>
-        <a href="#">Expedientes</a>
+       <%-- <a href="#">Expedientes</a>
         <ul>
             <li><a href="#">Lista expedientes</a></li>
             
             
-        </ul>
+        </ul>--%>
     </li>
     <li>
         <a href="#">Incapacidades</a>
