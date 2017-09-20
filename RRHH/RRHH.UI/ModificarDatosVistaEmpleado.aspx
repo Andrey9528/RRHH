@@ -155,8 +155,8 @@
     </div>
     <div class="form-horizontal" style="margin-top:-15px; margin-left:720px; width: 347px;">
            
-             <a   class="btn btn-primary"  href="EmpleadoView.aspx"><span class="glyphicon glyphicon-backward"></span> Regresar</a>
-
+             <%--<a   class="btn btn-primary"   href="EmpleadoView.aspx" ><span class="glyphicon glyphicon-backward"></span> Regresar</a>--%>
+            <asp:Button ID="btnRegresar" OnClick="btnRegresar_Click" CssClass="btn btn-success" runat="server" Text="Regresar" />
              <asp:Button ID="btnModificar" runat="server" Text="Modificar" CssClass="btn btn-warning" OnClick="btnModificar_Click" />         
         </div>
 </asp:Content>
