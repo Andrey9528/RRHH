@@ -8,6 +8,7 @@ using System.Data;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.IO;
+using System.Drawing;
 //using System.Diagnostics;
 using iTextSharp.text.html.simpleparser;
 //using iTextSharp.tool.xml;
@@ -125,8 +126,14 @@ namespace RRHH.UI
         }
         public void CargarPdf(GridView gvdatos)
         {
+ 
+
+            //
+            
+
+            //
             Response.ContentType = "application/pdf";
-            Response.AddHeader("content-disposition", "attachment;filename=UserDetails.pdf");
+            Response.AddHeader("content-disposition", "attachment;filename=Reporte de Incapacidades.pdf");
             Response.Cache.SetCacheability(HttpCacheability.NoCache);
             StringWriter sw = new StringWriter();
             HtmlTextWriter hw = new HtmlTextWriter(sw);
@@ -140,11 +147,26 @@ namespace RRHH.UI
             gvdatos.Style.Add("font-size", "8px");
             StringReader sr = new StringReader(sw.ToString());
             Document pdfDoc = new Document(PageSize.A2, 7f, 7f, 7f, 0f);
+
+            //
+          
+            //
             HTMLWorker htmlparser = new HTMLWorker(pdfDoc);
             PdfWriter.GetInstance(pdfDoc, Response.OutputStream);
             pdfDoc.Open();
             htmlparser.Parse(sr);
+            pdfDoc.Add(new Chunk("\n"));
+            pdfDoc.Add(new Chunk("\n"));
+            Paragraph prgGeneratedBY = new Paragraph();
+            BaseFont btnAuthor = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
+            prgGeneratedBY.Alignment = Element.ALIGN_RIGHT;
+            prgGeneratedBY.Add(new Chunk("Reporte generado por : RRHH Farmacias San Gabriel"));
+            prgGeneratedBY.Add(new Chunk("\nFecha : " + DateTime.Now.ToShortDateString()));
+            pdfDoc.Add(prgGeneratedBY);
+            //
             pdfDoc.Close();
+            //Response.AddHeader("content-disposition", "attachment;" + "filename=Reporte de Incapacidades.pdf");
+            //Response.Cache.SetCacheability(HttpCacheability.NoCache);
             Response.Write(pdfDoc);
             Response.End();
 

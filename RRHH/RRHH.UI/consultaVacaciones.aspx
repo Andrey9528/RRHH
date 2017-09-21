@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="consultaVacaciones.aspx.cs" Inherits="RRHH.UI.consultaVacaciones" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" EnableEventValidation = "false" CodeBehind="consultaVacaciones.aspx.cs" Inherits="RRHH.UI.consultaVacaciones" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
 <style>
@@ -50,7 +50,7 @@
             </div>
        
        <div style="width: 69px; margin-left:600px; margin-top:-20px;"><asp:Label ID="Label4" runat="server" Text="Condicion:"></asp:Label></div>
-      <div style="width: 178px; margin-left:680px; margin-top:-30px;"> <asp:DropDownList ID="DDLcondicion" CssClass="form-control" Width="180" runat="server" AutoPostBack="True">
+      <div style="width: 178px; margin-left:680px; margin-top:-30px;"> <asp:DropDownList ID="DDLcondicion" CssClass="form-control" Width="180" runat="server" OnTextChanged="DDLcondicion_TextChanged" AutoPostBack="True">
           <asp:ListItem>Aceptado</asp:ListItem>
           <asp:ListItem>Denegado</asp:ListItem>
           <asp:ListItem></asp:ListItem>
