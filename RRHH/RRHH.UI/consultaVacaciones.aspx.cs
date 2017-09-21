@@ -21,7 +21,7 @@ namespace RRHH.UI
         public static int dias;
         protected void Page_Load(object sender, EventArgs e)
         {
-            gvdatos.DataSource = Singleton.opsolicitud.Listarsolicitudes();
+            gvdatos.DataSource = Singleton.opsolicitud.Listarsolicitudes().Where(x=> x.Cedula ==Login.EmpleadoGlobal.Cedula);
             gvdatos.DataBind();
             txtfechainicio.Enabled = false;
             DDLcondicion.Enabled = false;
