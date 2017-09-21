@@ -22,16 +22,23 @@ namespace RRHH.UI
         public static int dias;
         protected void Page_Load(object sender, EventArgs e)
         {
-           
-
+            if (!IsPostBack)
+            {
                 gvdatos.DataSource = Singleton.opIncapacidad.ListarIncapacidades().Where(x => x.Cedula == Login.EmpleadoGlobal.Cedula);
                 gvdatos.DataBind();
                 txtfechafinal.Enabled = false;
                 txtfechainicio.Enabled = false;
-            
-            
-            
-            
+                Btnbusca.Enabled = false;
+            }
+            else
+            {
+                gvdatos.DataSource = Singleton.opIncapacidad.ListarIncapacidades().Where(x => x.Cedula == Login.EmpleadoGlobal.Cedula);
+                gvdatos.DataBind();
+                txtfechafinal.Enabled = false;
+                txtfechainicio.Enabled = false;
+                Btnbusca.Enabled = true;
+            }
+                 
         }
      
 
@@ -42,8 +49,7 @@ namespace RRHH.UI
             VerControlesConsulta();
             txtfechafinal.Enabled = true;
             txtfechainicio.Enabled = true;
-            gvdatos.DataSource = null;
-            gvdatos.DataBind();
+         
 
         }
 
@@ -54,6 +60,9 @@ namespace RRHH.UI
             gvdatos.DataBind();
             txtfechafinal.Enabled = false;
             txtfechainicio.Enabled = false;
+            txtfechafinal.Text = string.Empty;
+            txtfechainicio.Text = string.Empty;
+
         }
 
         protected void Btnbusca_Click(object sender, EventArgs e)
@@ -70,6 +79,7 @@ namespace RRHH.UI
                             DateTime final = Convert.ToDateTime(txtfechafinal.Text);
                             gvdatos.DataSource = Singleton.opIncapacidad.ListarIncapacidades2(inicio, final, Login.EmpleadoGlobal.Cedula);//Singleton.opsolicitud.BuscarsolicitudPorId(y).Where(x => x.FechaFinal == Convert.ToDateTime(DDLAño.Text) && x.Cedula == y && x.Condicion == false);
                             gvdatos.DataBind();
+                            btnexportar.Enabled = true;
                             txtfechafinal.Enabled = true;
                             txtfechainicio.Enabled = true;
                             mensajeinfo.Visible = false;
@@ -83,6 +93,11 @@ namespace RRHH.UI
                         mensajeinfo.Visible = true;
                         mensajeError.Visible = false;
                         textomensajeinfo.InnerHtml = "El rango de fechas elegido no es valido";
+                        txtfechafinal.Text = string.Empty;
+                        txtfechainicio.Text = string.Empty;
+                        txtfechafinal.Enabled = true;
+                        txtfechainicio.Enabled = true;
+                        Btnbusca.Enabled = true;
                     }
 
                 }
@@ -91,6 +106,12 @@ namespace RRHH.UI
                     mensajeinfo.Visible = false;
                     mensajeError.Visible = true;
                     textoMensajeError.InnerHtml = "Debes elegir un rango de fechas valido";
+                    txtfechafinal.Text = string.Empty;
+                    txtfechainicio.Text = string.Empty;
+                    txtfechafinal.Enabled = true;
+                    txtfechainicio.Enabled = true;
+                    Btnbusca.Enabled = true;
+
                 }
 
 
@@ -102,7 +123,7 @@ namespace RRHH.UI
                 throw;
             }
         }
-        public void CargarPdf()
+        public void CargarPdf(GridView gvdatos)
         {
             Response.ContentType = "application/pdf";
             Response.AddHeader("content-disposition", "attachment;filename=UserDetails.pdf");
@@ -132,12 +153,28 @@ namespace RRHH.UI
         {
             try
             {
-                CargarPdf();
+                if (RB_busquedageneral.Checked)
+                {
+                    CargarPdf(gvdatos);
+                }
+                else if (RB_personalizada.Checked)
+                {
+                    DateTime inicio = Convert.ToDateTime(txtfechainicio.Text);
+                    DateTime final = Convert.ToDateTime(txtfechafinal.Text);
+                    gvdatos.DataSource = null;
+                    gvdatos.DataSource = Singleton.opIncapacidad.ListarIncapacidades2(inicio, final, Login.EmpleadoGlobal.Cedula);//Singleton.opsolicitud.BuscarsolicitudPorId(y).Where(x => x.FechaFinal == Convert.ToDateTime(DDLAño.Text) && x.Cedula == y && x.Condicion == false);
+                    gvdatos.DataBind();
+                    CargarPdf(gvdatos);
+                    Btnbusca.Enabled = true;
+                }
+               
+                
             }
             catch (Exception)
             {
-
-                throw;
+                mensajeError.Visible = true;
+                mensajeinfo.Visible = false;
+                textoMensajeError.InnerHtml = "Ha ocurrido un error";
             }
         }
         public override void VerifyRenderingInServerForm(Control control)
@@ -154,6 +191,7 @@ namespace RRHH.UI
             {
                 if (RB_busquedageneral.Checked)
                 {
+                    btnexportar.Enabled = true;
                     txtfechainicio.Enabled = false;
                     txtfechafinal.Enabled = false;
                     Btnbusca.Enabled = false;
@@ -163,6 +201,7 @@ namespace RRHH.UI
                 }
                 else if (RB_personalizada.Checked)
                 {
+                    btnexportar.Enabled = false;
                     txtfechainicio.Enabled = true;
                     txtfechafinal.Enabled = true;
                     Btnbusca.Enabled = true;
