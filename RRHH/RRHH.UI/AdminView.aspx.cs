@@ -13,17 +13,23 @@ namespace RRHH.UI
         public static Empleado EmpleadoGlobal = new Empleado();
         protected void Page_Load(object sender, EventArgs e)
         {
-            lblnombre.Text = "Nombre: " + Login.EmpleadoGlobal.Nombre;
-            lblCedula.Text = "Cédula:" + Login.EmpleadoGlobal.Cedula;
-            lblDirreccion.Text = "Dirreccion:" + Login.EmpleadoGlobal.Direccion;
-            lblTelefono.Text = "Telefono: " + Login.EmpleadoGlobal.Telefono;
-            lblCorreo.Text = "Correo: " + Login.EmpleadoGlobal.Correo;
-            lblestadocivil.Text = "Estado Civil: " + Login.EmpleadoGlobal.EstadoCivil;
-            lblfechaNaci.Text = "Fecha nacimiento: " + Login.EmpleadoGlobal.FechaNacimiento;
-            lbldepa.Text = "Departamento: " + Singleton.opdepartamento.BuscarDepartamentos(Login.EmpleadoGlobal.IdDepartamento).Nombre;
-            lblRol.Text = "Rol: " +Singleton.oproles.BuscarRoles(Login.EmpleadoGlobal.IdRol).Nombre;
-            imgPerfil.ImageUrl= Login.EmpleadoGlobal.Imagen; 
-        }
+            try
+            {
+                lblnombre.Text = "Nombre: " + Login.EmpleadoGlobal.Nombre;
+                lblCedula.Text = "Cédula:" + Login.EmpleadoGlobal.Cedula;
+                lblDirreccion.Text = "Dirreccion:" + Login.EmpleadoGlobal.Direccion;
+                lblTelefono.Text = "Telefono: " + Login.EmpleadoGlobal.Telefono;
+                lblCorreo.Text = "Correo: " + Login.EmpleadoGlobal.Correo;
+                lblestadocivil.Text = "Estado Civil: " + Login.EmpleadoGlobal.EstadoCivil;
+                lblfechaNaci.Text = "Fecha nacimiento: " + Login.EmpleadoGlobal.FechaNacimiento;
+                lbldepa.Text = "Departamento: " + Singleton.opdepartamento.BuscarDepartamentos(Login.EmpleadoGlobal.IdDepartamento).Nombre;
+                lblRol.Text = "Rol: " + Singleton.oproles.BuscarRoles(Login.EmpleadoGlobal.IdRol).Nombre;
+                imgPerfil.ImageUrl = Login.EmpleadoGlobal.Imagen;
+            }
+            catch
+            {
+            }
+            }
         //
         public static bool ValidarPassword(string contraseña)
         {

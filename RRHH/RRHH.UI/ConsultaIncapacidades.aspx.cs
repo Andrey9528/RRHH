@@ -8,9 +8,9 @@ using System.Data;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.IO;
-using System.Diagnostics;
+//using System.Diagnostics;
 using iTextSharp.text.html.simpleparser;
-using iTextSharp.tool.xml;
+//using iTextSharp.tool.xml;
 
 
 
@@ -22,11 +22,12 @@ namespace RRHH.UI
         public static int dias;
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            gvdatos.DataSource = Singleton.opIncapacidad.ListarIncapacidades().Where(x => x.Cedula == Login.EmpleadoGlobal.Cedula);
-            gvdatos.DataBind();
-            txtfechafinal.Enabled = false;
-            txtfechainicio.Enabled = false;
+           
+
+                gvdatos.DataSource = Singleton.opIncapacidad.ListarIncapacidades().Where(x => x.Cedula == Login.EmpleadoGlobal.Cedula);
+                gvdatos.DataBind();
+                txtfechafinal.Enabled = false;
+                txtfechainicio.Enabled = false;
             
             
             
@@ -41,14 +42,18 @@ namespace RRHH.UI
             VerControlesConsulta();
             txtfechafinal.Enabled = true;
             txtfechainicio.Enabled = true;
+            gvdatos.DataSource = null;
+            gvdatos.DataBind();
 
         }
 
         protected void RB_busquedageneral_CheckedChanged(object sender, EventArgs e)
         {
             VerControlesConsulta();
-
-
+            gvdatos.DataSource = Singleton.opIncapacidad.ListarIncapacidades().Where(x => x.Cedula == Login.EmpleadoGlobal.Cedula);
+            gvdatos.DataBind();
+            txtfechafinal.Enabled = false;
+            txtfechainicio.Enabled = false;
         }
 
         protected void Btnbusca_Click(object sender, EventArgs e)

@@ -320,7 +320,9 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class=""><a style="background-color:#04acec; color:white; font-family:cursive;" href="AdminView.aspx">Home</a></li>
-          <li><a style="background-color:#04acec;  color:white; font-family:cursive;" data-target="#Miperfil" data-toggle="modal"  href="#">Perfil</a></li>   
+          <li><a style="background-color:#04acec;  color:white; font-family:cursive;" data-target="#Miperfil" data-toggle="modal"  href="#">Perfil</a></li>  
+          
+          <li><a style="background-color:#04acec; color:white; font-family:cursive; " href="ModificarDatosVistaEmpleado.aspx" >Actualizar perfil</a></li> 
         <li class="dropdown">
           
           <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="background-color:#04acec; color:white; font-family:cursive;">Empleados <span class="caret"></span></a>
