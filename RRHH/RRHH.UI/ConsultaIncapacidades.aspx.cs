@@ -24,7 +24,7 @@ namespace RRHH.UI
         {
             if (!IsPostBack)
             {
-                gvdatos.DataSource = Singleton.opIncapacidad.ListarIncapacidades().Where(x => x.Cedula == Login.EmpleadoGlobal.Cedula);
+                gvdatos.DataSource = Singleton.opIncapacidad.ListarIncapacidades().Where(x => x.Cedula ==  Login.EmpleadoGlobal.Cedula);
                 gvdatos.DataBind();
                 txtfechafinal.Enabled = false;
                 txtfechainicio.Enabled = false;
