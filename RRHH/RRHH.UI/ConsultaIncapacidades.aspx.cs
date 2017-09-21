@@ -22,22 +22,25 @@ namespace RRHH.UI
         public static int dias;
         protected void Page_Load(object sender, EventArgs e)
         {
-            gvdatos.DataSource = Singleton.opIncapacidad.ListarIncapacidades();
+            
+            gvdatos.DataSource = Singleton.opIncapacidad.ListarIncapacidades().Where(x => x.Cedula == Login.EmpleadoGlobal.Cedula);
             gvdatos.DataBind();
             txtfechafinal.Enabled = false;
             txtfechainicio.Enabled = false;
-            mensajeinfo.Visible = false;
-            mensajeError.Visible = false;
-            Btnbusca.Enabled = false;
+            
+            
+            
             
         }
+     
 
-       
-       
+
+
         protected void RB_personalizada_CheckedChanged(object sender, EventArgs e)
         {
             VerControlesConsulta();
-
+            txtfechafinal.Enabled = true;
+            txtfechainicio.Enabled = true;
 
         }
 
@@ -60,7 +63,7 @@ namespace RRHH.UI
                         
                             DateTime inicio = Convert.ToDateTime(txtfechainicio.Text);
                             DateTime final = Convert.ToDateTime(txtfechafinal.Text);
-                            gvdatos.DataSource = Singleton.opIncapacidad.ListarIncapacidades(inicio, final, Login.EmpleadoGlobal.Cedula);//Singleton.opsolicitud.BuscarsolicitudPorId(y).Where(x => x.FechaFinal == Convert.ToDateTime(DDLAño.Text) && x.Cedula == y && x.Condicion == false);
+                            gvdatos.DataSource = Singleton.opIncapacidad.ListarIncapacidades2(inicio, final, Login.EmpleadoGlobal.Cedula);//Singleton.opsolicitud.BuscarsolicitudPorId(y).Where(x => x.FechaFinal == Convert.ToDateTime(DDLAño.Text) && x.Cedula == y && x.Condicion == false);
                             gvdatos.DataBind();
                             txtfechafinal.Enabled = true;
                             txtfechainicio.Enabled = true;
@@ -94,32 +97,52 @@ namespace RRHH.UI
                 throw;
             }
         }
-
-        protected void btnexportar_Click(object sender, EventArgs e)
+        public void CargarPdf()
         {
-            string attachment = "attachment; filename=Article.pdf";
-            Response.ClearContent();
-            Response.AddHeader("content-disposition", attachment);
             Response.ContentType = "application/pdf";
-            StringWriter stw = new StringWriter();
-            HtmlTextWriter htextw = new HtmlTextWriter(stw);
-            gvdatos.RenderControl(htextw);
-            Document document = new Document();
-            PdfWriter.GetInstance(document, Response.OutputStream);
-            document.Open();
-            StringReader str = new StringReader(stw.ToString());
-            HTMLWorker htmlworker = new HTMLWorker(document);
-            htmlworker.Parse(str);
-            document.Close();
-            Response.Write(document);
+            Response.AddHeader("content-disposition", "attachment;filename=UserDetails.pdf");
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            StringWriter sw = new StringWriter();
+            HtmlTextWriter hw = new HtmlTextWriter(sw);
+            gvdatos.AllowPaging = false;
+            gvdatos.DataBind();
+            gvdatos.RenderControl(hw);
+            gvdatos.HeaderRow.Style.Add("width", "15%");
+            gvdatos.HeaderRow.Style.Add("font-size", "10px");
+            gvdatos.Style.Add("text-decoration", "none");
+            gvdatos.Style.Add("font-family", "Arial, Helvetica, sans-serif;");
+            gvdatos.Style.Add("font-size", "8px");
+            StringReader sr = new StringReader(sw.ToString());
+            Document pdfDoc = new Document(PageSize.A2, 7f, 7f, 7f, 0f);
+            HTMLWorker htmlparser = new HTMLWorker(pdfDoc);
+            PdfWriter.GetInstance(pdfDoc, Response.OutputStream);
+            pdfDoc.Open();
+            htmlparser.Parse(sr);
+            pdfDoc.Close();
+            Response.Write(pdfDoc);
             Response.End();
 
         }
+        protected void btnexportar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                CargarPdf();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
         public override void VerifyRenderingInServerForm(Control control)
         {
-
+            /* Verifies that the control is rendered */
         }
-        
+        public void GeneratePDF_Click(object sender, EventArgs e)
+        {
+            
+        }
         private void VerControlesConsulta()
         {
             try

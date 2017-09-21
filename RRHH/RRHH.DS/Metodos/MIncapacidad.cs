@@ -54,7 +54,7 @@ namespace RRHH.DS.Metodos
             return _db.Select<Incapacidad>();
         }
 
-        public List<ListarIncapacidades> ListarIncapacidades(DateTime Fecha_Inicio, DateTime Fecha_finalizacion, string Cedula)
+        public List<ListarIncapacidades> ListarIncapacidades2(DateTime Fecha_Inicio, DateTime Fecha_finalizacion, string Cedula)
         {
 
             return _db.SqlList<ListarIncapacidades>("exec ListarIncapacidades '" + Fecha_Inicio + "' , '" + Fecha_finalizacion + "' , '" + Cedula + "'" );

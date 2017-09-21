@@ -1,4 +1,6 @@
-﻿    <%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ConsultaIncapacidades.aspx.cs" Inherits="RRHH.UI.ConsultaIncapacidades" %>
+﻿    <%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" EnableEventValidation = "false" AutoEventWireup="true" CodeBehind="ConsultaIncapacidades.aspx.cs" Inherits="RRHH.UI.ConsultaIncapacidades" %>
+
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
   <style>

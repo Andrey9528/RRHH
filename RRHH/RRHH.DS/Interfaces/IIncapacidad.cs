@@ -17,7 +17,7 @@ namespace RRHH.DS.Interfaces
         void InsertarIncapacidad(Incapacidad incapacidad);
         void ActualizarIncapacidad(Incapacidad incapacidad);
         void EliminarIncapacidad(int  idIncapacidad);
-        List<ListarIncapacidades> ListarIncapacidades(DateTime Fecha_Inicio, DateTime Fecha_finalizacion, string Cedula);
+        List<ListarIncapacidades> ListarIncapacidades2(DateTime Fecha_Inicio, DateTime Fecha_finalizacion, string Cedula);
 
     }
 }
