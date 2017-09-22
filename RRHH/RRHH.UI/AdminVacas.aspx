@@ -13,7 +13,7 @@
         }
      
  </style>
-<div class="inline">
+<div class="form-group">
         <div class="alert alert-success" visible="false"  id="mensaje" runat="server">
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times</a>
              <strong id="textoMensaje" runat="server"></strong>
@@ -32,26 +32,34 @@
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times</a>
              <strong id="textomensajeinfo" runat="server"></strong>
         </div>
-
-
-    
-    <div style="margin-top:40px; margin-left:70px; width: 100px;"><asp:Label ID="Label2" runat="server" Text="Fecha de inicio:"></asp:Label></div>
-        <p style="margin-top:-30px; margin-left:170px; width: 224px;"><asp:TextBox ID="txtfechaincio" CssClass="form-control" runat="server"></asp:TextBox></p>
+</div>   
+     <div class="container">
+    <div class="form-inline">
+    <div class="form-group">
+     <asp:Label ID="Label2" runat="server" Text="Fecha de inicio:"></asp:Label>
+    <asp:TextBox ID="txtfechaincio" CssClass="form-control" runat="server"></asp:TextBox>
+    </div>
       
-    <p style="margin-left:400px; margin-top:-35px; width: 54px;"><asp:Label ID="Label1" runat="server" Text="Solicitud:"></asp:Label></p>
-    <p style="margin-top:-38px; margin-left:460px;" ><asp:DropDownList ID="DDLidsoli" CssClass="form-control" Width="280" runat="server"></asp:DropDownList></p>
-
-      <p style="margin-left:760px; margin-top:-34px; width: 154px;"><asp:Label ID="Label3" runat="server" Text="Fecha de finalización:"></asp:Label></p>
-        <p style="margin-top:-40px; margin-left:900px; width: 224px;"><asp:TextBox ID="txtfechafinal" CssClass="form-control" runat="server"></asp:TextBox></p>
-       
+    <div class="form-group">
+        <asp:Label ID="Label1" runat="server" Text="Solicitud:"></asp:Label>
+   <asp:DropDownList ID="DDLidsoli" CssClass="form-control"  runat="server"></asp:DropDownList> 
+        </div>  
+        
+         <div class="form-group" >
+         <asp:Label ID="Label3" runat="server" Text="Fecha de finalización:"></asp:Label>
+         <asp:TextBox ID="txtfechafinal" CssClass="form-control" runat="server"></asp:TextBox>
+         </div>
+        </div>  
+        </div>
     <br />
      
     <div class="form-inline col-xs-6 col-md-4 col-md-4 "  >
          <asp:Button ID="btnactualizar" CssClass="btn btn-warning " OnClick="btnactualizar_Click" runat="server"   Text="Actualizar" /> 
         <asp:Button ID="btnbuscar" CssClass="btn btn-primary" runat="server" Text="Buscar" OnClick="btnbuscar_Click" /></div>
     
-</div>
+
     <br /><br />
+    <div class="table-responsive">
     <asp:GridView ID="Gv_datos"  CssClass="table  table-bordered table-responsive"   runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3">
             <FooterStyle BackColor="White" ForeColor="#000066" />
             <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
@@ -63,7 +71,7 @@
             <SortedDescendingCellStyle BackColor="#CAC9C9" />
             <SortedDescendingHeaderStyle BackColor="#00547E" />
         </asp:GridView>
-
+        </div>
 
     
 

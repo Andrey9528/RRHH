@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ListarEmpleados.aspx.cs" Inherits="RRHH.UI.Lista_de_Empleados" %>
+﻿    <%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ListarEmpleados.aspx.cs" Inherits="RRHH.UI.Lista_de_Empleados" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 <style>
      body 

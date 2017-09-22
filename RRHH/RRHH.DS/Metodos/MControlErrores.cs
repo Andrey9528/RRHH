@@ -21,8 +21,7 @@ namespace RRHH.DS.Metodos
         }
         public void InsertarAuditorias(ControlErrores controlErrores)
         {
-            _db.SqlScalar<ControlAuditorias>("exec nombredelProcedure parametros", new { });
-
+           
         }
 
         public List<ControlErrores> ListarErrores()

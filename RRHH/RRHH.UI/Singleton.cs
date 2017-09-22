@@ -10,7 +10,9 @@ namespace RRHH.UI
     public class Singleton
     {
         public static DS.Interfaces.IEmpleado OpEmpleados = new DS.Metodos.MEmpleado();
-        public static DS.Interfaces.IControlAuditorias opaudi = new DS.Metodos.MControlAuditorias();
+        public static DS.Interfaces.IControlAuditoriasAdmin opaudi = new DS.Metodos.MControlAuditoriasAdmin();
+        public static DS.Interfaces.IControlAuditoriasEmpleado opAudiEmple = new DS.Metodos.MControlAuditoriasEmpleado();
+        public static DS.Interfaces.IControlAuditoriasJefe opAudiJefe = new DS.Metodos.MControlAuditoriasJefe();
         public static DS.Interfaces.IControlErrores opErrores = new DS.Metodos.MControlErrores();
         public static DS.Interfaces.Idepartamento opdepartamento = new DS.Metodos.MDepartamento();
         public static DS.Interfaces.IIncapacidad opIncapacidad = new DS.Metodos.MIncapacidad();
