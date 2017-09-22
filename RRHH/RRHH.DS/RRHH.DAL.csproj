@@ -30,9 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="itextsharp">
-      <HintPath>..\..\..\..\..\Documents\Programacion 5 CONEJO\pdf\itextsharp.dll</HintPath>
-    </Reference>
     <Reference Include="itextsharp.licensekey">
       <HintPath>..\..\..\..\..\Documents\Programacion 5 CONEJO\pdf\itextsharp.licensekey.dll</HintPath>
     </Reference>
