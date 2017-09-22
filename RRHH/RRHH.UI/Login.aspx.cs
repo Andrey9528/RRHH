@@ -19,6 +19,7 @@ namespace RRHH.UI
         public static string contrasena;
         public static Empleado EmpleadoGlobal = new Empleado();
         public static Empleado EmpleadoBloqueo = new Empleado();
+       
         public static string Correo;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -91,6 +92,7 @@ namespace RRHH.UI
                                         IntentosFallidos = 0,
                                     };
                                     Singleton.OpEmpleados.ActualizarEmpleados(emple);
+                                    Singleton.opAudiEmple.InsertarAuditoriasEmpleado(EmpleadoGlobal.Nombre,EmpleadoGlobal.Cedula,false,false,false,false,false,false,false,false,false,true,false);
                                     Response.Redirect("EmpleadoView.aspx");
                                 }
                                 else if (EmpleadoGlobal.IdRol == 2 && EmpleadoGlobal.Bloqueado == false)
@@ -114,6 +116,7 @@ namespace RRHH.UI
                                         IntentosFallidos = 0,
                                     };
                                     Singleton.OpEmpleados.ActualizarEmpleados(emple);
+                                    Singleton.opAudiJefe.InsertarAuditoriasJefe(EmpleadoGlobal.Nombre, EmpleadoGlobal.Cedula,false,false,false,false,false,false,false,false,true,true);
                                     Response.Redirect("JefeView.aspx");
 
                                 }
@@ -138,6 +141,7 @@ namespace RRHH.UI
                                         IntentosFallidos = 0,
                                     };
                                     Singleton.OpEmpleados.ActualizarEmpleados(emple);
+                                    Singleton.opaudi.InsertarAuditoriasAdmin(EmpleadoGlobal.Nombre,EmpleadoGlobal.Cedula,true,false,false,false,false,false,false,false,false,false,false,false,false,false);
                                     Response.Redirect("AdminView.aspx");
                                 }
                             }
@@ -223,11 +227,11 @@ namespace RRHH.UI
             }
             catch (Exception ex)
             {
-
-                mensaje.Visible = false;
-                mensajeError.Visible = true;
-                mensajeinfo.Visible = false;
-                textoMensajeError.InnerHtml = "error";
+                throw;
+                //mensaje.Visible = false;
+                //mensajeError.Visible = true;
+                //mensajeinfo.Visible = false;
+                //textoMensajeError.InnerHtml = "error";
                 //ImprimirMensajeError(ex.Message);
                 //Utilitarios.OpErrores.InsertarEnErrores(PersonaGlobal.Nombre, PersonaGlobal.Cedula, ex.ToString());
             }

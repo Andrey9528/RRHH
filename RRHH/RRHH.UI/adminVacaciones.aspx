@@ -48,7 +48,8 @@
 
 
 </div>
-     <asp:GridView ID="Gv_datos"  CssClass="table  table-bordered"   runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3">
+    <div class="table-responsive">
+     <asp:GridView ID="Gv_datos"  CssClass="table  table-bordered"   runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="0px" CellPadding="3">
             <FooterStyle BackColor="White" ForeColor="#000066" />
             <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
             <PagerStyle BackColor="White" ForeColor="#000066" HorizontalAlign="Left" />
@@ -59,6 +60,7 @@
             <SortedDescendingCellStyle BackColor="#CAC9C9" />
             <SortedDescendingHeaderStyle BackColor="#00547E" />
         </asp:GridView>
+        </div>
     <div class="form-vertical" visible="true" id="mantenimientovacaciones" runat="server">
 
         

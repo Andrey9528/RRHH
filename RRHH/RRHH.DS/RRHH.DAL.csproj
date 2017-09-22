@@ -37,19 +37,19 @@
       <HintPath>..\..\..\..\..\Documents\Programacion 5 CONEJO\pdf\itextsharp.xmlworker.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.Common">
-      <HintPath>..\..\..\..\..\Documents\Programacion5\progra 5\Semana3\ServiceStack.Common.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\Progra 5\Semana 3\Codigo de la clase\ServiceStack.Common.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.Interfaces">
-      <HintPath>..\..\..\..\..\Documents\Programacion5\progra 5\Semana3\ServiceStack.Interfaces.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\Progra 5\Semana 3\Codigo de la clase\ServiceStack.Interfaces.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.OrmLite">
-      <HintPath>..\..\..\..\..\Documents\Programacion5\progra 5\Semana3\ServiceStack.OrmLite.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\Progra 5\Semana 3\Codigo de la clase\ServiceStack.OrmLite.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.OrmLite.SqlServer">
-      <HintPath>..\..\..\..\..\Documents\Programacion5\progra 5\Semana3\ServiceStack.OrmLite.SqlServer.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\Progra 5\Semana 3\Codigo de la clase\ServiceStack.OrmLite.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.Text">
-      <HintPath>..\..\..\..\..\Documents\Programacion5\progra 5\Semana3\ServiceStack.Text.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\Progra 5\Semana 3\Codigo de la clase\ServiceStack.Text.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -66,7 +66,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>BD.settings</DependentUpon>
     </Compile>
-    <Compile Include="Interfaces\IControlAuditorias.cs" />
+    <Compile Include="Interfaces\IControlAuditoriasAdmin.cs" />
+    <Compile Include="Interfaces\IControlAuditoriasEmpleado.cs" />
+    <Compile Include="Interfaces\IControlAuditoriasJefe.cs" />
     <Compile Include="Interfaces\IControlErrores.cs" />
     <Compile Include="Interfaces\Idepartamento.cs" />
     <Compile Include="Interfaces\IEmpleado.cs" />
@@ -74,7 +76,9 @@
     <Compile Include="Interfaces\INotificacionCorreoJefe.cs" />
     <Compile Include="Interfaces\IRoles.cs" />
     <Compile Include="Interfaces\ISolicitudVacaciones.cs" />
-    <Compile Include="Metodos\MControlAuditorias.cs" />
+    <Compile Include="Metodos\MControlAuditoriasAdmin.cs" />
+    <Compile Include="Metodos\MControlAuditoriasEmpleado.cs" />
+    <Compile Include="Metodos\MControlAuditoriasJefe.cs" />
     <Compile Include="Metodos\MControlErrores.cs" />
     <Compile Include="Metodos\MDepartamento.cs" />
     <Compile Include="Metodos\MEmpleado.cs" />
