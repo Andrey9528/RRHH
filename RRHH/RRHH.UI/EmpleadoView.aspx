@@ -208,7 +208,7 @@
 <%--            <li><a href="#">Cambio de contraseña</a></li>--%>
                 <li><a data-target="#cambioEmpleado" data-toggle="modal" href="#">Cambio de contraseña</a></li>
 
-            <li><a <% RRHH.UI.Singleton.opAudiEmple.InsertarAuditoriasEmpleado(RRHH.UI.Login.EmpleadoGlobal.Nombre, RRHH.UI.Login.EmpleadoGlobal.Cedula, false, false, false, false, false, false, false, false, true, false, false);%>href="Login.aspx">Cerrar Sesión</a>
+            <li><a href="Login.aspx">Cerrar Sesión</a>
 </li>
             <li class="divider"></li>
         </ul>
@@ -219,8 +219,7 @@
     <li><a href="EmpleadoView.aspx">Home</a></li>
     <li><a href="#">Perfil</a>
         <ul>
-           <li> <a data-target="#Miperfil" data-toggle="modal" <% RRHH.UI.Singleton.opAudiEmple.InsertarAuditoriasEmpleado(RRHH.UI.Login.EmpleadoGlobal.Nombre, RRHH.UI.Login.EmpleadoGlobal.Cedula, true, false, false, false, false, false, false, false, false, false, false);%>
- href="#" >Ver perfil </a></li>
+           <li> <a data-target="#Miperfil"  data-toggle="modal" > Ver perfil </a></li>
         </ul>
     </li>
     <li><a href="ModificarDatosVistaEmpleado.aspx">Actualizar datos</a></li>
@@ -238,7 +237,7 @@
     <li>
         <a href="#">Vacaciones</a>
         <ul>
-            <li><a data-toggle="modal" <% RRHH.UI.Singleton.opAudiEmple.InsertarAuditoriasEmpleado(RRHH.UI.Login.EmpleadoGlobal.Nombre, RRHH.UI.Login.EmpleadoGlobal.Cedula, false, false, false, false, true, false, false, false, false, false, false);%> data-target="#vaca"   href="#">Solicitud  </a></li>
+            <li><a data-toggle="modal"  data-target="#vaca"   href="#">Solicitud  </a></li>
             <li><a href="consultaVacaciones.aspx">Consulta </a></li>
              <li><a href="#">Historial</a></li>
             
@@ -351,7 +350,7 @@
     
         <div class="container"  >
   
-  <div class="modal fade" id="Miperfil" role="dialog">
+  <div class="modal fade" data-keyboard="false" data-backdrop="static" id="Miperfil" role="dialog">
     <div class="modal-dialog modal-sm">
       <div class="modal-content " style=" margin-top:130px; margin-left:35px; height:300px; width:500px;">
         <div class="modal-header">
@@ -388,11 +387,22 @@
         </div>
         <div class="modal-footer">
           <button style="margin-top:-30px;" type="button" class="btn btn-warning" data-dismiss="modal">Cerrar</button>
+            <div style="margin-top:-30px;"><asp:Button ID="btnsalir" CssClass="btn btn-danger" runat="server" Text="Salir" OnClick="btnsalir_Click" />
         </div>
+            </div>
       </div>
     </div>
   </div>
 </div>
+
+    <script type="text/javascript">
+
+        function CerrarPopup() {
+            $('#btnsalir').click(function () {
+                $('#Miperfil').modal('hide');
+            });
+        }
+    </script>
     
        
 </asp:Content>

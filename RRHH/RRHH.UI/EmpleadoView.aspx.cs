@@ -192,5 +192,11 @@ namespace RRHH.UI
             }
         }
 
+        protected void btnsalir_Click(object sender, EventArgs e)
+        {
+           Singleton.opAudiEmple.InsertarAuditoriasEmpleado(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, true, false, false, false, false, false, false, false, false, false, false);
+            ClientScript.RegisterStartupScript(GetType(), "Modal", "CerrarPopup();", true);
+
+        }
     }
 }
