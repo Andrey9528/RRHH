@@ -21,7 +21,7 @@ namespace RRHH.DS.Metodos
         }
         public void InsertarAuditoriasJefe(string NombreJefe, string Cedula, bool VerPerfil, bool ActualizarPerfil, bool ListarEmpleados, bool ListarIncapacidades, bool VerVacaciones, bool Ayuda, bool CambioContraseña, bool CerrarSeccion, bool LoginExitoso, bool LoginFallido)
         {
-            _db.SqlScalar<ControlAuditoriasJefe>("exec insertarAuditoriasJefe '" + NombreJefe + "' , '" + Cedula + "' , '" + VerPerfil + "' , '" + ActualizarPerfil + "' , '" + ListarIncapacidades + "' , '" + VerVacaciones + "' , '" + Ayuda + "' , '" + CambioContraseña + "' , '" + CerrarSeccion + "' , '" + LoginExitoso + "' , " + LoginFallido );
+            _db.SqlScalar<ControlAuditoriasJefe>("exec insertarAuditoriasJefe '" + NombreJefe + "' , '" + Cedula + "' , '" + VerPerfil + "' , '" + ActualizarPerfil + "' , '" + ListarEmpleados + "' , '" + ListarIncapacidades + "' , '" +VerVacaciones +"', '" + Ayuda + "' , '" + CambioContraseña + "' , '" + CerrarSeccion + "' , '" + LoginExitoso + "' , " + LoginFallido );
 
         }
 

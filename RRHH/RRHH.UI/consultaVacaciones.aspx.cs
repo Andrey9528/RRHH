@@ -79,6 +79,8 @@ namespace RRHH.UI
                 {
                     if (ValidacionDias(Convert.ToDateTime(txtfechafinal.Text),Convert.ToDateTime(txtfechainicio.Text)))
                     {
+                        Singleton.opAudiEmple.InsertarAuditoriasEmpleado(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, false, false, false, false, true, false, false, false, false, false);
+
                         if (DDLcondicion.Text == "Aceptado")
                         {
                         DateTime inicio = Convert.ToDateTime(txtfechainicio.Text);

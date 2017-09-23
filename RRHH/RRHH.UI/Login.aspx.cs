@@ -82,7 +82,7 @@ namespace RRHH.UI
                                         Correo = EmpleadoGlobal.Correo ,
                                         EstadoCivil = EmpleadoGlobal.EstadoCivil,
                                         FechaNacimiento = EmpleadoGlobal.FechaNacimiento,
-                                        IdDepartamento = EmpleadoGlobal.IdDepartamento,
+                                        IdDepartamento = EmpleadoGlobal.IdDepartamento, 
                                         IdRol = EmpleadoGlobal.IdRol,
                                         Estado = EmpleadoGlobal.Estado,
                                         Genero = EmpleadoGlobal.Genero,
@@ -116,7 +116,7 @@ namespace RRHH.UI
                                         IntentosFallidos = 0,
                                     };
                                     Singleton.OpEmpleados.ActualizarEmpleados(emple);
-                                    Singleton.opAudiJefe.InsertarAuditoriasJefe(EmpleadoGlobal.Nombre, EmpleadoGlobal.Cedula,false,false,false,false,false,false,false,false,true,true);
+                                    Singleton.opAudiJefe. InsertarAuditoriasJefe(EmpleadoGlobal.Nombre, EmpleadoGlobal.Cedula, false, false, false, false, false, false, false, false, true, false);
                                     Response.Redirect("JefeView.aspx");
 
                                 }
@@ -150,6 +150,19 @@ namespace RRHH.UI
                             if (EmpleadoGlobal.Password !=
                                 Encriptacion.Encriptar(txtcontra.Text, Encriptacion.Llave) && EmpleadoGlobal.Bloqueado == false)//Sigleton.Encriptar(txtPassword.Text, Utilitarios.Llave))
                             {
+                                if (EmpleadoGlobal.IdRol == 1)
+                                {
+                                    Singleton.opAudiEmple.InsertarAuditoriasEmpleado(EmpleadoGlobal.Nombre, EmpleadoGlobal.Cedula, false, false, false, false, false, false, false, false, false, false, true);
+                                }
+                                else if (EmpleadoGlobal.IdRol == 2)
+                                {
+
+                                }
+                                else
+                                {
+
+                                }
+
                                 if (EmpleadoGlobal.IntentosFallidos <= 2)
                                 {
                                     EmpleadoGlobal = Singleton.OpEmpleados.BuscarEmpleadoCorreo(txtcorreo.Text);

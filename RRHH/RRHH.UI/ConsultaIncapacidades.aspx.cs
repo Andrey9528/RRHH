@@ -85,9 +85,10 @@ namespace RRHH.UI
                             txtfechainicio.Enabled = true;
                             mensajeinfo.Visible = false;
                             mensajeError.Visible = false;
-                        
-                        
-                        
+                        Singleton.opAudiEmple.InsertarAuditoriasEmpleado(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, false, false, true, false, false, false, false, false, false, false);
+
+
+
                     }
                     else
                     {
