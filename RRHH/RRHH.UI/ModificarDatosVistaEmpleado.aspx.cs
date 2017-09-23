@@ -82,6 +82,7 @@ namespace RRHH.UI
                         IntentosFallidos = 0,
                     };
                     Singleton.OpEmpleados.ActualizarEmpleados(emple);
+                    Singleton.opAudiEmple.InsertarAuditoriasEmpleado(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, true, false, false, false, false, false, false, false, false, false);
                     Empleadosmantenimiento.Visible = false;
                     mensajeinfo.Visible = false;
                     mensaje.Visible = true;

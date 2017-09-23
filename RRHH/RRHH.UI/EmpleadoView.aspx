@@ -208,7 +208,8 @@
 <%--            <li><a href="#">Cambio de contraseña</a></li>--%>
                 <li><a data-target="#cambioEmpleado" data-toggle="modal" href="#">Cambio de contraseña</a></li>
 
-            <li><a href="Login.aspx">Cerrar Sesión</a></li>
+            <li><a <% RRHH.UI.Singleton.opAudiEmple.InsertarAuditoriasEmpleado(RRHH.UI.Login.EmpleadoGlobal.Nombre, RRHH.UI.Login.EmpleadoGlobal.Cedula, false, false, false, false, false, false, false, false, true, false, false);%>href="Login.aspx">Cerrar Sesión</a>
+</li>
             <li class="divider"></li>
         </ul>
     </li>
@@ -218,7 +219,8 @@
     <li><a href="EmpleadoView.aspx">Home</a></li>
     <li><a href="#">Perfil</a>
         <ul>
-           <li> <a data-target="#Miperfil" data-toggle="modal"  href="#" >Ver perfil</a></li>
+           <li> <a data-target="#Miperfil" data-toggle="modal" <% RRHH.UI.Singleton.opAudiEmple.InsertarAuditoriasEmpleado(RRHH.UI.Login.EmpleadoGlobal.Nombre, RRHH.UI.Login.EmpleadoGlobal.Cedula, true, false, false, false, false, false, false, false, false, false, false);%>
+ href="#" >Ver perfil </a></li>
         </ul>
     </li>
     <li><a href="ModificarDatosVistaEmpleado.aspx">Actualizar datos</a></li>
@@ -236,7 +238,7 @@
     <li>
         <a href="#">Vacaciones</a>
         <ul>
-            <li><a data-toggle="modal" data-target="#vaca"   href="#">Solicitud</a></li>
+            <li><a data-toggle="modal" <% RRHH.UI.Singleton.opAudiEmple.InsertarAuditoriasEmpleado(RRHH.UI.Login.EmpleadoGlobal.Nombre, RRHH.UI.Login.EmpleadoGlobal.Cedula, false, false, false, false, true, false, false, false, false, false, false);%> data-target="#vaca"   href="#">Solicitud  </a></li>
             <li><a href="consultaVacaciones.aspx">Consulta </a></li>
              <li><a href="#">Historial</a></li>
             

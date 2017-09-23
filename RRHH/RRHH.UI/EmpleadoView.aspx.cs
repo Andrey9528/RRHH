@@ -16,6 +16,7 @@ namespace RRHH.UI
         public static string nombrearchivo;
         protected void Page_Load(object sender, EventArgs e)
         {
+        
             lblnombre.Text = "Nombre: " + Login.EmpleadoGlobal.Nombre;
             lblCedula.Text = "Cédula:" + Login.EmpleadoGlobal.Cedula;
             lblDirreccion.Text = "Dirreccion:" + Login.EmpleadoGlobal.Direccion;
@@ -39,6 +40,7 @@ namespace RRHH.UI
                     txtNuevaContraseñaConfirmar.Enabled = true;
                     btnCambiarEmpleado.Enabled = true;
                     ClientScript.RegisterStartupScript(GetType(), "Modal", "popup();", true);
+
 
                 }
                 else
@@ -78,6 +80,7 @@ namespace RRHH.UI
                     };
                     Singleton.OpEmpleados.ActualizarEmpleados(empleado);
                     //this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('La contraseña ha sido modificada, por favor vuelve a iniciar sesión')", true);
+                    Singleton.opAudiEmple.InsertarAuditoriasEmpleado(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, false, false, false, false, false, false, true, false, false, false);
 
                     Response.Redirect("Login.aspx");
                 }
@@ -117,6 +120,8 @@ namespace RRHH.UI
                         Condicion = null,
                     };
                     Singleton.opsolicitud.InsertarSolicitud(vacaciones);
+                    Singleton.opAudiEmple.InsertarAuditoriasEmpleado(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, false, false, false, true, false, false, false, false, false, false);
+
                     mensaje.Visible = true;
                     mensajeError.Visible = false;
                     mensajeinfo.Visible = false;

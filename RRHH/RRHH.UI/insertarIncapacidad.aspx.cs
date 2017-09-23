@@ -38,6 +38,8 @@ namespace RRHH.UI
 
                     };
                     Singleton.opIncapacidad.InsertarIncapacidad(inca);
+                    Singleton.opAudiEmple.InsertarAuditoriasEmpleado(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, false, true, false, false, false, false, false, false, false, false);
+
                     mensaje.Visible = true;
                     mensajeError.Visible = false;
                     mensajeinfo.Visible = false;
