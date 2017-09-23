@@ -82,7 +82,7 @@ namespace RRHH.UI
                                         Correo = EmpleadoGlobal.Correo ,
                                         EstadoCivil = EmpleadoGlobal.EstadoCivil,
                                         FechaNacimiento = EmpleadoGlobal.FechaNacimiento,
-                                        IdDepartamento = EmpleadoGlobal.IdDepartamento,
+                                        IdDepartamento = EmpleadoGlobal.IdDepartamento, 
                                         IdRol = EmpleadoGlobal.IdRol,
                                         Estado = EmpleadoGlobal.Estado,
                                         Genero = EmpleadoGlobal.Genero,
