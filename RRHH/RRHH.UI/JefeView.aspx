@@ -17,7 +17,7 @@
     }
 
     #menu {
-        width: 558px;
+        width: 658px;
         margin: 60px auto;
         /*border: 1px solid #222;*/
       

@@ -133,7 +133,11 @@
         border-radius: 3px 3px 0 0;
     }
 
+
+
+
         #menu ul li:first-child > a:after {
+
             content: '';
             position: absolute;
             left: 40px;
@@ -387,7 +391,7 @@
         </div>
         <div class="modal-footer">
           <button style="margin-top:-30px;" type="button" class="btn btn-warning" data-dismiss="modal">Cerrar</button>
-            <div style="margin-top:-30px;"><asp:Button ID="btnsalir" CssClass="btn btn-danger" runat="server" Text="Salir" OnClick="btnsalir_Click" />
+            <div style="margin-top:-30px;"><asp:Button ID="btnsalir" CssClass="btn btn-danger" runat="server" Text="Salir"  OnClick="btnsalir_Click" />
         </div>
             </div>
       </div>

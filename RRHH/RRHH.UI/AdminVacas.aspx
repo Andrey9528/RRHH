@@ -33,23 +33,21 @@
              <strong id="textomensajeinfo" runat="server"></strong>
         </div>
 </div>   
-     <div class="container">
+     <div class="container col-sm-offset-1">
     <div class="form-inline">
-    <div class="form-group">
+   
      <asp:Label ID="Label2" runat="server" Text="Fecha de inicio:"></asp:Label>
     <asp:TextBox ID="txtfechaincio" CssClass="form-control" runat="server"></asp:TextBox>
-    </div>
+   
       
-    <div class="form-group">
-        <asp:Label ID="Label1" runat="server" Text="Solicitud:"></asp:Label>
+    <asp:Label ID="Label1" runat="server" Text="Solicitud:"></asp:Label>
    <asp:DropDownList ID="DDLidsoli" CssClass="form-control"  runat="server"></asp:DropDownList> 
-        </div>  
+  
         
-         <div class="form-group" >
-         <asp:Label ID="Label3" runat="server" Text="Fecha de finalización:"></asp:Label>
-         <asp:TextBox ID="txtfechafinal" CssClass="form-control" runat="server"></asp:TextBox>
-         </div>
-        </div>  
+ 
+   <asp:Label ID="Label3" runat="server" Text="Fecha de finalización:"></asp:Label>
+   <asp:TextBox ID="txtfechafinal" CssClass="form-control" runat="server"></asp:TextBox>
+         </div>  
         </div>
     <br />
      
