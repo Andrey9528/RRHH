@@ -29,22 +29,7 @@
     <br />
     <br />
 
-   <%-- <div class="table-responsive ">
-        <asp:GridView ID="gv_datos" CssClass="table table-bordered" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None">
-            <AlternatingRowStyle BackColor="White" />
-            <EditRowStyle BackColor="#2461BF" />
-            <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-            <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-            <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
-            <RowStyle BackColor="#EFF3FB" />
-            <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-            <SortedAscendingCellStyle BackColor="#F5F7FB" />
-            <SortedAscendingHeaderStyle BackColor="#6D95E1" />
-            <SortedDescendingCellStyle BackColor="#E9EBEF" />
-            <SortedDescendingHeaderStyle BackColor="#4870BE" />
-        </asp:GridView>
-    </div>--%>
-
+  
    
 
     <div class="table-responsive">
@@ -209,111 +194,28 @@
           </div>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:BD_RRHHConnectionString3 %>" SelectCommand="SELECT [Cedula], [Nombre], [Direccion], [Telefono], [Correo], [EstadoCivil], [FechaNacimiento], [Estado], [Genero], [Imagen] FROM [Empleado]"></asp:SqlDataSource>
 
+    <div class="table-responsive">
+        <asp:GridView ID="GV_personas" AutoGenerateColumns = False runat="server">
+           <Columns runat="server" >         
+                <asp:BoundField  DataField = "Cedula" runat="server" HeaderText = "Cedula" />
+                <asp:BoundField DataField = "Nombre" runat="server" HeaderText = "Nombre" />
+                <asp:BoundField DataField = "Direccion" runat="server" HeaderText = "Direccion" />
+                <asp:BoundField DataField = "Telefono" runat="server" HeaderText = "Telefono" />
+                <asp:BoundField DataField = "Correo" runat="server" HeaderText = "Correo" />
+                <asp:BoundField DataField = "EstadoCivil" runat="server" HeaderText = "Estado Civil" />
+                <asp:BoundField DataField = "Genero" runat="server" HeaderText = "Genero" />
+                <asp:BoundField DataField = "FechaNacimiento" runat="server" HeaderText = "Fecha de Nacimiento" />
+                <asp:BoundField DataField = "Estado" runat="server" HeaderText = "Estado" />
+                <asp:ImageField HeaderText="Imagen" runat="server"  DataImageUrlField="Imagen" 
+            ControlStyle-Width="100"></asp:ImageField>
+           </Columns>
 
+
+        </asp:GridView>
+
+    </div>
     
 
     
-     <%--   <asp:ListView ID="lv_empleados"     DataKeyNames="Cedula"  runat="server">
-            <EmptyDataTemplate>
-                <table>
-                    <tr><td>no hay datos </td></tr>
-                </table>
-            </EmptyDataTemplate>
-            <EmptyItemTemplate>
-
-            </EmptyItemTemplate>
-
-            <ItemTemplate >
-              <div class="table-responsive"> <table >
-                
-                    <tr>
-                        <td>
-                       <asp:Label ID="Label1"   runat="server" Text='<%# Eval("Cedula") %>'></asp:Label>
-
-                        </td>
-
-                    </tr>
-                    <tr>
-                        <td>
-                            <asp:Label ID="Label2" runat="server" Text='<%# Eval("Nombre") %>'></asp:Label>
-                        </td>
-
-                    </tr>
-                    <tr>
-                        <td>
-                            <asp:Label ID="Label3" runat="server" Text='<%# Eval("Direccion") %>'></asp:Label>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>
-                            <asp:Label ID="Label4" runat="server" Text='<%# Eval("Telefono") %>'></asp:Label></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <asp:Label ID="Label5" runat="server" Text='<%# Eval("Correo") %>'></asp:Label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <asp:Label ID="Label6" runat="server" Text='<%# Eval("EstadoCivil") %>'></asp:Label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <asp:Label ID="Label7" runat="server" Text='<%# Eval("FechaNacimiento") %>'></asp:Label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td> <asp:CheckBox ID="Chk_estado" Enabled="false" Checked='<%# Eval("Estado") %>' runat="server" />  </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <asp:Label ID="Label8" runat="server" Text='<%# Eval("Genero") %>'></asp:Label></td>
-                    </tr>
-                      <tr>
-                  <td>
-                      <asp:Image ID="Imgperfil" runat="server" ImageUrl='<%# Eval("Imagen") %>'  Width="120px" Height="120"/>
-
-                  </td>
-                  </tr>
-                </table>
-                  </div>
-            </ItemTemplate>
-                <GroupTemplate>
-                <tr id="itemPlaceholderContainer" runat="server">
-                    <td id="itemPlaceholder" runat="server"></td>
-                </tr>
-            </GroupTemplate>
-              <LayoutTemplate>
-                <table style="width: 100%;">
-                    <tbody>
-                        <tr>
-                            <td>
-                                <table id="groupPlaceholderContainer" runat="server" style="width: 100%">
-                                    <tr id="groupPlaceholder">
-                                 <th runat="server">Cedula</th>
-                                <th runat="server">Nombre</th>
-                                <th runat="server">Direccion</th>
-                                <th runat="server">Telefono</th>
-                                <th runat="server">Correo</th>
-                                <th runat="server">EstadoCivil</th>
-                                <th runat="server">FechaNacimiento</th>
-                                <th runat="server">Estado</th>
-                                <th runat="server">Genero</th>
-                                <th runat="server">Perfil</th>
-
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                        </tr>
-                        <tr></tr>
-                    </tbody>
-                </table>
-            </LayoutTemplate>
-        </asp:ListView>
-    --%>
+   
 </asp:Content>
