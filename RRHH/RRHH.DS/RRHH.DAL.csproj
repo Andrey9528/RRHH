@@ -30,12 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="itextsharp.licensekey">
-      <HintPath>..\..\..\..\..\Documents\Programacion 5 CONEJO\pdf\itextsharp.licensekey.dll</HintPath>
-    </Reference>
-    <Reference Include="itextsharp.xmlworker">
-      <HintPath>..\..\..\..\..\Documents\Programacion 5 CONEJO\pdf\itextsharp.xmlworker.dll</HintPath>
-    </Reference>
     <Reference Include="ServiceStack.Common">
       <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\Progra 5\Semana 3\Codigo de la clase\ServiceStack.Common.dll</HintPath>
     </Reference>

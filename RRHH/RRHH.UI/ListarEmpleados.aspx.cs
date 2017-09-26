@@ -33,8 +33,10 @@ namespace RRHH.UI
                     //listview
                     //lv_empleados.DataSource = listaEmple.Where(x=>x.Estado==true);
                     //lv_empleados.DataBind();
-                    lv_datos.DataSource = listaEmple.Where(x => x.Estado == true);
-                    lv_datos.DataBind();
+                    //lv_datos.DataSource = listaEmple.Where(x => x.Estado == true);
+                    //lv_datos.DataBind();
+                GV_personas.DataSource = listaEmple.Where(x => x.Estado == true);
+                GV_personas.DataBind();
                 
 
             }
@@ -52,54 +54,74 @@ namespace RRHH.UI
 
             if (DDLActivos.Text == "Activo" && EmpleaoGlobal.Estado==true )
             {
-                
-                lv_datos.DataSource = listaEmple.Where(x => x.Estado == true);
-                    lv_datos.DataBind();
+
+                //lv_datos.DataSource = listaEmple.Where(x => x.Estado == true);
+                //lv_datos.DataBind();
+
+                GV_personas.DataSource = listaEmple.Where(x => x.Estado == true);
+               GV_personas.DataBind();
             }
             else if (DDLActivos.Text == "Inactivo" && EmpleaoGlobal.Estado==false)    
             {
 
-                lv_datos.DataSource = listaEmple.Where(x => x.Estado == false);
-                lv_datos.DataBind();
+                //lv_datos.DataSource = listaEmple.Where(x => x.Estado == false);
+                //lv_datos.DataBind();
+                GV_personas.DataSource = listaEmple.Where(x => x.Estado == false);
+               GV_personas.DataBind();
+
             }
         }
 
         protected void btnPDF_Click(object sender, EventArgs e)
         {
-            CargarPdf(lv_datos);
+            CargarPdf(GV_personas);
         }
-        public void CargarPdf(ListView lvdatos)
+        public override void VerifyRenderingInServerForm(Control control)
         {
-          
+            /* Confirms that an HtmlForm control is rendered for the specified ASP.NET
+               server control at run time. */
+        }
 
-            //DataTable dt = new DataTable();
-            //foreach (ListViewItem item in lvdatos.Items)
-            //{
-
-            //}
+        public void CargarPdf(GridView gvdatos)
+        {
 
 
-            //Spire.DataExport.PDF.PDFExport PDFExport = new Spire.DataExport.PDF.PDFExport();
-            //PDFExport.DataSource = Spire.DataExport.Common.ExportSource.DataTable;
-            //PDFExport.DataTable = dt;
-            //PDFExport.SaveToFile("SpireExport.pdf");
 
+            Response.ContentType = "application/pdf";
+            Response.AddHeader("content-disposition",
+                "attachment;filename=GridViewExport.pdf");
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            StringWriter sw = new StringWriter();
+            HtmlTextWriter hw = new HtmlTextWriter(sw);
+            GV_personas.AllowPaging = false;
+            GV_personas.DataBind();
+            GV_personas.RenderControl(hw);
+            StringReader sr = new StringReader(sw.ToString());
+            Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 0f);
+            HTMLWorker htmlparser = new HTMLWorker(pdfDoc);
+            PdfWriter.GetInstance(pdfDoc, Response.OutputStream);
+            pdfDoc.Open();
+            htmlparser.Parse(sr);
+            pdfDoc.Close();
+            Response.Write(pdfDoc);
+            Response.End();
             //
 
-            //pdf
+
+            //
             //Response.ContentType = "application/pdf";
-            //Response.AddHeader("content-disposition", "attachment;filename=Listado de empleados.pdf");
+            //Response.AddHeader("content-disposition", "attachment;filename=Reporte de Vacaciones.pdf");
             //Response.Cache.SetCacheability(HttpCacheability.NoCache);
             //StringWriter sw = new StringWriter();
             //HtmlTextWriter hw = new HtmlTextWriter(sw);
-            //lv_datos.AllowPaging = false;
-            //lv_datos.DataBind();
-            //lv_datos.RenderControl(hw);
-            //lv_datos.HeaderRow.Style.Add("width", "15%");
-            //lv_datos.HeaderRow.Style.Add("font-size", "10px");
-            //lv_datos.Style.Add("text-decoration", "none");
-            //lv_datos.Style.Add("font-family", "Arial, Helvetica, sans-serif;");
-            //lv_datos.Style.Add("font-size", "8px");
+            //gvdatos.AllowPaging = false;
+            //gvdatos.DataBind();
+            //gvdatos.RenderControl(hw);
+            //gvdatos.HeaderRow.Style.Add("width", "15%");
+            //gvdatos.HeaderRow.Style.Add("font-size", "10px");
+            //gvdatos.Style.Add("text-decoration", "none");
+            //gvdatos.Style.Add("font-family", "Arial, Helvetica, sans-serif;");
+            //gvdatos.Style.Add("font-size", "8px");
             //StringReader sr = new StringReader(sw.ToString());
             //Document pdfDoc = new Document(PageSize.A2, 7f, 7f, 7f, 0f);
 
