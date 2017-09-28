@@ -245,6 +245,8 @@
     <Content Include="adminVacaciones.aspx" />
     <Content Include="AdminVacas.aspx" />
     <Content Include="AdminView.aspx" />
+    <Content Include="Ayuda.aspx" />
+    <Content Include="AyudaAdmin.aspx" />
     <Content Include="ConsultaIncapacidades.aspx" />
     <Content Include="consultaVacaciones.aspx" />
     <Content Include="Contact.aspx" />
@@ -260,14 +262,20 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\bombillo.jpg" />
+    <Content Include="Images\manitas.jpg" />
     <Content Include="Images\pastillas.png" />
     <Content Include="Images\WhatsApp Image 2017-09-04 at 8.05.30 AM.jpeg" />
     <Content Include="Images\WhatsApp Image 2017-09-06 at 12.09.45 PM.jpeg" />
+    <Content Include="Images\^3D0DC1289D3BDF88217B01A82B7D97BC5426586684389B6CE5^pimgpsh_fullsize_distr.jpg" />
+    <Content Include="Images\^88D82C5E5CC0B0B42C7F3BB75E1910BA0497497AC6B7AF664E^pimgpsh_fullsize_distr.jpg" />
+    <Content Include="Images\^BAB9AE299E8BA8FD8EB5E52078106B4C4357E19194980363CD^pimgpsh_fullsize_distr.png" />
     <Content Include="ListaExpedientes.aspx" />
     <Content Include="ListaIncapacidades.aspx" />
     <Content Include="ListarEmpleados.aspx" />
     <Content Include="ListarDepartamentos.aspx" />
     <Content Include="ModificarDatosVistaEmpleado.aspx" />
+    <Content Include="Videos\mov_bbb.mp4" />
     <Content Include="WebForm1.aspx" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="InsertarDepartamentos.aspx" />
@@ -321,6 +329,7 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Site.Mobile.Master" />
+    <Content Include="Tutoriales\Seashore piano technic.pdf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -466,6 +475,20 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Ayuda.aspx.cs">
+      <DependentUpon>Ayuda.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ayuda.aspx.designer.cs">
+      <DependentUpon>Ayuda.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AyudaAdmin.aspx.cs">
+      <DependentUpon>AyudaAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AyudaAdmin.aspx.designer.cs">
+      <DependentUpon>AyudaAdmin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ConsultaIncapacidades.aspx.cs">
       <DependentUpon>ConsultaIncapacidades.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

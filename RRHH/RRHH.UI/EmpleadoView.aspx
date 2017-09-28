@@ -209,11 +209,12 @@
     <li class="dropdown pull-right">
         <a href="#" data-toggle="dropdown" class="dropdown-toggle">Administración <b class="caret"></b></a>
         <ul class="dropdown-menu">
-<%--            <li><a href="#">Cambio de contraseña</a></li>--%>
+         
                 <li><a data-target="#cambioEmpleado" data-toggle="modal" href="#">Cambio de contraseña</a></li>
-
-            <li><a href="Login.aspx">Cerrar Sesión</a>
-</li>
+            <li><a href="Ayuda.aspx">Ayuda</a></li>
+            <li><a href="Login.aspx">Cerrar Sesión</a></li>
+              
+            
             <li class="divider"></li>
         </ul>
     </li>
