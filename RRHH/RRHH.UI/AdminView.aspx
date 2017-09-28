@@ -194,120 +194,14 @@
         </div>
          </div>
 
-<%--<ul class="nav nav-pills nav-justified ">
-  <li class="active"><a data-toggle="pill" href="#">Inicio</a></li>
-  <li><a data-toggle="pill" href="#">Perfil</a></li>
-  <li><a data-toggle="pill" href="#">Mensajes</a></li>
-</ul>--%>
-<%--<ul class="nav nav-pills">--%>
-   <%-- <li  class="active"><a  href="#" style=" background:#2dadf7; color:white;" >Home</a></li>
-    <li><a   style="background:#2dadf7; color:white;" href="#">Perfil</a></li>
-   <li class="dropdown">
-        <a href="#" data-toggle="dropdown" class="dropdown-toggle" style=" background:#2dadf7; color:white;">Empleados</a>
-        <ul class="dropdown-menu">
-             <li><a href="#"  >Agregar</a></li>
-            <li><a href="#">Mantenimiento</a></li>
-             <li class="divider"></li>
-        </ul>
-    </li>
-    <li class="dropdown">
-        <a href="#" data-toggle="dropdown" style=" background:#2dadf7; color:white;" class="dropdown-toggle">Expedientes</a>
-        <ul class="dropdown-menu">
-             <li><a href="#">Agregar</a></li>
-            <li><a href="#">Mantenimiento</a></li>
-             <li class="divider"></li>
-        </ul>
-    </li>
-    <li class="dropdown">
-        <a href="#" data-toggle="dropdown" style=" background:#2dadf7; color:white;" class="dropdown-toggle">Incapacidades</a>
-        <ul class="dropdown-menu">
-             <li><a href="#">Agregar</a></li>
-            <li><a href="#">Mantenimiento</a></li>
-             <li class="divider"></li>
-        </ul>
-    </li>
-    <li class="dropdown">
-        <a href="#" data-toggle="dropdown" style=" background:#2dadf7; color:white;" >Vacaciones</a>
-        <ul class="dropdown-menu">
-             <li><a href="#">Agregar</a></li>
-            <li><a href="#">Mantenimiento</a></li>
-             <li class="divider"></li>
-        </ul>
-    </li>
-    <li class="dropdown" >
-        <a href="#" data-toggle="dropdown" style=" background:#2dadf7; color:white;" class="dropdown-toggle">Departamentos</a>
-        <ul class="dropdown-menu">
-             <li><a href="#">Agregar</a></li>
-            <li><a href="#">Mantenimiento</a></li>
-             <li class="divider"></li>
-        </ul>
-    </li>--%>
-    
 
+     <div  style="margin-top:-3px;">
+ <img class="img-responsive img-rounded "  width="144" height="236"  src="Images/^88D82C5E5CC0B0B42C7F3BB75E1910BA0497497AC6B7AF664E^pimgpsh_fullsize_distr.jpg"/>
    
-<%--    
-    <li class="dropdown pull-right">
-        <a href="#" style=" background-color:#04acec;  font-family:cursive; color:white; " data-toggle="dropdown" class="dropdown-toggle">Administración <b class="caret"></b></a>
-        <ul class="dropdown-menu">
-            <li><a data-target="#cambio" data-toggle="modal" href="#">Cambio de contraseña</a></li>
-
-            <li><a href="Login.aspx">Cerrar Sesión</a></li>
-            <li class="divider"></li>
-        </ul>
-    </li>
-</ul>
- 
+     </div>
+   
     
-       
-    <ol id="menu" >
-       
-   <li ><a   href="AdminView.aspx">Home</a></li>
-      
-    <li><a href="#">Perfil</a></li>
-    <li>
-        <a href="#">Empleados</a>
-        <ul>
-            <li><a href="RegistroEmpleado.aspx">Agregar</a></li>
-            <li><a href="mantenimientoEmpleados.aspx">Mantenimiento</a></li>
-        </ul>
-    </li>
-    <li>
-        <a href="#">Expedientes</a>
-        <ul>
-            
-            <li><a href="#">Listado</a></li>
-            
-        </ul>
-    </li>
-    <li>
-        <a href="#">Incapacidades</a>
-        <ul>
-           
-            <li><a href="MantenimientoIncapacidades.aspx">Mantenimiento </a></li>
-
-        </ul>
-    </li>
-    <li>
-        <a href="#">Vacaciones</a>
-        <ul>
-           
-            <li><a href="adminVacaciones.aspx">Mantenimiento </a></li>
-            
-        </ul>
-    </li>
-    <li>
-        <a href="#">Departamentos</a>
-        <ul>
-           
-            <li><a  data-toggle="modal" data-target="#depa"  href ="#">Registrar </a></li>
-            <li><a href="MantenimientoDepa.aspx">Mantenimiento </a></li>
-            
-              
-        </ul>
-    </li>
-</ol>--%>
-
-       <nav  style="margin-top:20px;  border-radius:10px; background-color:#04acec; color:white;"   class=" navbar-inverse">
+       <nav   style="margin-top:-40px;   border-radius:10px; background-color:#04acec; color:white;"   class="  navbar-inverse col-xs-10 col-sm-offset-2 ">
   <div class="container-fluid"  >
         <div class="navbar-header">	
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -317,15 +211,26 @@
           </button>
       
     </div>
+  
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class=""><a style="background-color:#04acec; color:white; font-family:cursive;" href="AdminView.aspx">Home</a></li>
-          <li><a style="background-color:#04acec;  color:white; font-family:cursive;" data-target="#Miperfil" data-toggle="modal"  href="#">Perfil</a></li>  
+        <li class=""><a style="background-color:#04acec; font-size:14px; color:white; font-family:cursive;" href="AdminView.aspx">Home</a></li>
+
+           <li class="dropdown">
           
-          <li><a style="background-color:#04acec; color:white; font-family:cursive; " href="ModificarDatosVistaEmpleado.aspx" >Actualizar perfil</a></li> 
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" style= "background-color:#04acec; font-size:14px; color:white; font-family:cursive;">Perfil <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+
+            <li><a style="  font-family:cursive;   " data-target="#Miperfil" data-toggle="modal"  href="#">Perfil </a></li>  
+          
+          <li><a style="  font-family:cursive; " href="ModificarDatosVistaEmpleado.aspx" >Actualizar perfil</a></li> 
+           
+          </ul>
+        </li>
+         
         <li class="dropdown">
           
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="background-color:#04acec; color:white; font-family:cursive;">Empleados <span class="caret"></span></a>
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="background-color:#04acec; font-size:14px; color:white; font-family:cursive;">Empleados <span class="caret"></span></a>
           <ul class="dropdown-menu">
 
             <li><a  href="RegistroEmpleado.aspx">Agregar</a></li>
@@ -339,7 +244,7 @@
         </li>
            <li class="dropdown">
           
-          <a class="dropdown-toggle" data-toggle="dropdown" style="background-color:#04acec; color:white; font-family:cursive;" href="#">Incapacidades <span class="caret"></span></a>
+          <a class="dropdown-toggle" data-toggle="dropdown" style="font-size:14px;  background-color:#04acec; color:white; font-family:cursive;" href="#">Incapacidades <span class="caret"></span></a>
           <ul class="dropdown-menu">
 
             <li><a  href="MantenimientoIncapacidades.aspx">Mantenimiento</a></li>
@@ -348,7 +253,7 @@
         </li>
            <li class="dropdown">
           
-          <a class="dropdown-toggle" data-toggle="dropdown" style="background-color:#04acec; color:white; font-family:cursive;" href="#">Vacaciones <span class="caret"></span></a>
+          <a class="dropdown-toggle"  data-toggle="dropdown" style="font-size:14px;  background-color:#04acec; color:white;    font-family:cursive;" href="#">Vacaciones <span class="caret"></span></a>
           <ul class="dropdown-menu">
 
             <li><a  href="adminVacas.aspx">Mantenimiento</a></li>
@@ -357,44 +262,40 @@
         </li>
            <li class="dropdown">
           
-          <a class="dropdown-toggle"  style="background-color:#04acec; color:white; font-family:cursive;" data-toggle="dropdown" href="#">Departamentos<span class="caret"></span></a>
+          <a class="dropdown-toggle"  style="background-color:#04acec; color:white; font-size:14px;  font-family:cursive;" data-toggle="dropdown" href="#">Departamentos<span class="caret"></span></a>
           <ul  class="dropdown-menu">
             <li><a data-toggle="modal" data-target="#depa"  href="#">Registrar</a></li>
             <li><a  href="MantenimientoDepa.aspx">Mantenimiento</a></li>
             
           </ul>
         </li>
-        <li><a style="color:white;" href="#">Ayuda</a></li>
+        <li><a style="color:white; font-size:14px; " href="#">Ayuda</a></l>
         <li class="dropdown">
           
-          <a class="dropdown-toggle"  style="background-color:#04acec; color:white; font-family:cursive;" data-toggle="dropdown" href="#">Administración<span class="caret"></span></a>
+          <a class="dropdown-toggle"  style="background-color:#04acec; font-size:14px;  color:white; font-family:cursive;" data-toggle="dropdown" href="#">Administración<span class="caret"></span></a>
           <ul  class="dropdown-menu">
             <li><a data-target="#cambio" data-toggle="modal"  href="#">Cambio de contraseña</a></li>
             <li><a  href="Login.aspx">Cerrar sesión</a></li>
             
           </ul>
+       
         </li>
+           <li>
+               <a href="#"><span class="glyphicon glyphicon-log-out"></span></a>
+
+           </li>
+      
        
       </ul>
-      <ul class="nav navbar-nav navbar-right" >
         
-            <%--<li class="dropdown">
-          
-          <a  class="dropdown-toggle"   data-toggle="dropdown"  href="#"  style="background-color:#04acec; color:white; font-family:cursive;">Administración<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Cambio de contraseña</a></li>
-            <li><a href="#">Cerrar sesión</a></li>
-            
-          </ul>
-        </li>--%>
-    
-      
-      </ul>
+       
+     
     </div>
   </div>
 </nav>
     
 
+   
     <script type="text/javascript"  >
         function popup()
         {
@@ -530,7 +431,92 @@
   </div>
 </div>
         
+    <style>
+        .navbar2 {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+   
+     
+  .carousel-inner img {
+      width: 100%; /* Set width to 100% */
+      margin: auto;
+      max-height:400px;
+  }
+      .col-sm-4  {
+      width:33%;
+      height:100%;
+      }
+      .well p  {
+     text-align:center;
+     width:100%;
+     height:100%;
+     color:red;
+      }
+  
 
+  /* Hide the carousel text when the screen is less than 600 pixels wide */
+  @media (max-width: 600px) {
+    .carousel-caption {
+      display: none; 
+    }
+  }
+    </style>
+
+
+    <br />
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="Images/^BAB9AE299E8BA8FD8EB5E52078106B4C4357E19194980363CD^pimgpsh_fullsize_distr.png"   alt="Image">
+        <div class="carousel-caption">
+          
+          
+        </div>      
+      </div>
+
+      <div class="item">
+        <img src="Images/^3D0DC1289D3BDF88217B01A82B7D97BC5426586684389B6CE5^pimgpsh_fullsize_distr.jpg" alt="Image">
+        <div class="carousel-caption">
+         
+          
+        </div>      
+      </div>
+
+        <div class="item">
+        <img src="Images/bombillo.jpg" alt="Image">
+        <div class="carousel-caption">
+         
+         
+        </div>      
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+</div>
+    
+     <br />
+            <footer style="">
+                <p>&copy; <%: DateTime.Now.Year %>  RRHH</p>
+            </footer>
 
  
 </asp:Content>
