@@ -22,7 +22,8 @@ video {
     <div class="col-sm-4">
       <div class="panel panel-primary">
         <div class="panel-heading">BLACK FRIDAY DEAL</div>
-        <div class="panel-body"><video width="400" controls><source src="Videos/mov_bbb.mp4" type="video/mp4"></video>
+        <div class="panel-body">
+            <video width="400" controls><source src="Videos/mov_bbb.mp4" type="video/mp4"></video>
 
         </div>
         <div class="panel-footer"><asp:Button ID="btnReportar" OnClick="btnReportar_Click" CssClass="btn btn-link" runat="server" Text="Descargar tutorial" /> </div>
