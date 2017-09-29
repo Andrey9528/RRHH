@@ -309,7 +309,7 @@
         </li>
            
           
-        <li><a style="color:white; font-size:14px; " href="Ayuda.aspx">Ayuda</a></l>
+        <li><a style="color:white; font-size:14px; " href="Ayuda.aspx">Ayuda</a></li>
         <li class="dropdown">
           
           <a class="dropdown-toggle"  style="background-color:#04acec; font-size:14px;  color:white; font-family:cursive;" data-toggle="dropdown" href="#">Administración<span class="caret"></span></a>
@@ -529,22 +529,6 @@
    
     <br />
 
-  
-<div class="container-fluid bg-3 text-center ">    
-  <h3>Some of my Work</h3><br>
-  <div class="row ">
-    <div class="col-sm-3">
-      <p>Some text..</p>
-      <img src="https://microjurisve.files.wordpress.com/2016/01/vacaciones.jpg" class="img-responsive" style="width:100%; " alt="Image">
-    </div>
-    <div class="col-sm-3"> 
-      <p>Some text..</p>
-      <img src="http://4.bp.blogspot.com/-uO23E3cYYoY/VUivzcQ-v_I/AAAAAAAAFZo/98v_4O0xIL0/s1600/Incapacidad2.jpg" class="img-responsive" style="width:100%; "   alt="Image">
-    </div>
-   
-   
-  </div>
-</div>
 
     <%--Slider lo quite porque no me gusto como se vio en la vista empleado -- %>
 
