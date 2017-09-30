@@ -56,11 +56,13 @@ namespace RRHH.UI
                var IdDepartamento = DepartamentoGlobal.IdDepartamento.ToString();
                var RolGlobal = Singleton.oproles.BuscarRolesPorNombre(ddlRol.Text);
                var IdRol = RolGlobal.IdRol.ToString();
-                
+                string nombreArchivo = Path.GetFileName(fileUpload1.FileName);
+                fileUpload1.SaveAs(Server.MapPath("~/Empleados/" + nombreArchivo));
+
                 if (Login.EmpleadoGlobal.Imagen!=imgEmple.ImageUrl)
                 {
-                    string nombrearchivo = Path.GetFileName(fileUpload1.FileName);
-                    fileUpload1.SaveAs(Server.MapPath("~/Empleados/" +  nombrearchivo));
+                    //string nombrearchivo = Path.GetFileName(fileUpload1.FileName);
+                    //fileUpload1.SaveAs(Server.MapPath("~/Empleados/" +  nombrearchivo));
                     Empleado emple = new Empleado()
                     {
 
@@ -75,11 +77,12 @@ namespace RRHH.UI
                         IdDepartamento = Convert.ToInt32(IdDepartamento),
                         IdRol = Convert.ToInt32(IdRol),
                         Estado = true,
-                        Imagen = "~/Empleados/" + nombrearchivo,
+                        Imagen = "~/Empleados/" + nombreArchivo,
                         Bloqueado = false,
                         Genero = DDLgenero.Text.ToString(),
                         Password = Login.EmpleadoGlobal.Password,
                         IntentosFallidos = 0,
+                        DiasVacaciones = Login.EmpleadoGlobal.DiasVacaciones,
                     };
                     Singleton.OpEmpleados.ActualizarEmpleados(emple);
                     Singleton.opAudiEmple.InsertarAuditoriasEmpleado(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, true, false, false, false, false, false, false, false, false, false);
@@ -109,6 +112,7 @@ namespace RRHH.UI
                         Genero = DDLgenero.Text.ToString(),
                         Password = Login.EmpleadoGlobal.Password,
                         IntentosFallidos = 0,
+                        DiasVacaciones= Login.EmpleadoGlobal.DiasVacaciones,
                     };
                     Singleton.OpEmpleados.ActualizarEmpleados(emple2);
                     ActualizarEmpeladoGlobal();

@@ -90,10 +90,11 @@ namespace RRHH.UI
                                         Password = Encriptacion.Encriptar(txtcontra.Text, Encriptacion.Llave),
                                         Bloqueado = false,
                                         IntentosFallidos = 0,
+                                        DiasVacaciones = EmpleadoGlobal.DiasVacaciones,
                                     };
                                     Singleton.OpEmpleados.ActualizarEmpleados(emple);
                                     Singleton.opAudiEmple.InsertarAuditoriasEmpleado(EmpleadoGlobal.Nombre,EmpleadoGlobal.Cedula,false,false,false,false,false,false,false,false,false,true,false);
-                                    Response.Redirect("EmpleadoView.aspx");
+                                    Response.Redirect("WebForm1.aspx");
                                 }
                                 else if (EmpleadoGlobal.IdRol == 2 && EmpleadoGlobal.Bloqueado == false)
                                 {
@@ -114,6 +115,8 @@ namespace RRHH.UI
                                         Password = Encriptacion.Encriptar(txtcontra.Text, Encriptacion.Llave),
                                         Bloqueado = false,
                                         IntentosFallidos = 0,
+                                        DiasVacaciones = EmpleadoGlobal.DiasVacaciones,
+
                                     };
                                     Singleton.OpEmpleados.ActualizarEmpleados(emple);
                                     Singleton.opAudiJefe. InsertarAuditoriasJefe(EmpleadoGlobal.Nombre, EmpleadoGlobal.Cedula, false, false, false, false, false, false, false, false, true, false);
@@ -139,6 +142,8 @@ namespace RRHH.UI
                                         Password = Encriptacion.Encriptar(txtcontra.Text, Encriptacion.Llave),
                                         Bloqueado = false,
                                         IntentosFallidos = 0,
+                                        DiasVacaciones = EmpleadoGlobal.DiasVacaciones,
+
                                     };
                                     Singleton.OpEmpleados.ActualizarEmpleados(emple);
                                     Singleton.opaudi.InsertarAuditoriasAdmin(EmpleadoGlobal.Nombre,EmpleadoGlobal.Cedula,true,false,false,false,false,false,false,false,false,false,false,false,false,false);
@@ -191,6 +196,8 @@ namespace RRHH.UI
                                         Password = EmpleadoGlobal.Password,
                                         Bloqueado = false,
                                         IntentosFallidos = EmpleadoGlobal.IntentosFallidos + 1,
+                                        DiasVacaciones = EmpleadoGlobal.DiasVacaciones,
+
                                     };
                                     Singleton.OpEmpleados.ActualizarEmpleados(emple);
                                 }
@@ -220,6 +227,8 @@ namespace RRHH.UI
                                         Password = EmpleadoGlobal.Password,
                                         Bloqueado = true,
                                         IntentosFallidos = EmpleadoGlobal.IntentosFallidos+1,
+                                        DiasVacaciones = EmpleadoGlobal.DiasVacaciones,
+
                                     };
                                     Singleton.OpEmpleados.ActualizarEmpleados(emple);
                                 }
@@ -280,9 +289,10 @@ namespace RRHH.UI
                         IdRol=EmpleadoGlobal.IdRol,
                         Estado=true,
                         Genero=EmpleadoGlobal.Genero,
-                        Imagen=EmpleadoGlobal.Imagen
+                        Imagen=EmpleadoGlobal.Imagen,
+                        DiasVacaciones = EmpleadoGlobal.DiasVacaciones,
 
-                        
+
                     };
                     Singleton.OpEmpleados.ActualizarEmpleados(empleado);
                     using (SmtpClient cliente = new SmtpClient("smtp.live.com", 25))

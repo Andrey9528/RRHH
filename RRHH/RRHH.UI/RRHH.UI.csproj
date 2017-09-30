@@ -49,7 +49,7 @@
     </Reference>
     <Reference Include="itextsharp, Version=5.5.10.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\Proyecto Analisis\itextsharp.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Proyecto Analisis\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="itextsharp.licensekey">
       <HintPath>..\..\..\..\..\Documents\Programacion 5 CONEJO\pdf\itextsharp.licensekey.dll</HintPath>
