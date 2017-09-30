@@ -65,7 +65,8 @@ namespace RRHH.UI
                         Bloqueado = false,
                         Password = Encriptacion.Encriptar(contrasena, Encriptacion.Llave),
                         Genero = DDLgenero.SelectedItem.ToString(),
-                        Imagen = "~/Empleados/" + nombrearchivo 
+                        Imagen = "~/Empleados/" + nombrearchivo,
+                        DiasVacaciones = 0,
 
 
                     };

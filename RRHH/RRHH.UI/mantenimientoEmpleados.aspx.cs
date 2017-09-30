@@ -146,6 +146,7 @@ namespace RRHH.UI
                        Genero = txtGenero.Text,
                         Password = EmpleadoGlobal.Password,
                         IntentosFallidos = EmpleadoGlobal.IntentosFallidos,
+                        DiasVacaciones = EmpleadoGlobal.DiasVacaciones,
                     };
 
 
@@ -166,7 +167,7 @@ namespace RRHH.UI
 
                 else if (/*bloqueoOrigen != Chk_bloqueado.Checked &&*/ bloqueoOrigen==true && Chk_bloqueado.Checked==false)
                 {
-                   
+
                     Empleado emple = new Empleado()
                     {
                         Cedula = txtcedula.Text,
@@ -185,6 +186,7 @@ namespace RRHH.UI
                         Genero = txtGenero.Text,
                         Password = EmpleadoGlobal.Password,
                         IntentosFallidos = 0,
+                        DiasVacaciones = EmpleadoGlobal.DiasVacaciones,
                     };
 
 
@@ -221,6 +223,7 @@ namespace RRHH.UI
                        Genero  = txtGenero.Text,
                         Password = EmpleadoGlobal.Password,
                         IntentosFallidos = 4,
+                        DiasVacaciones = EmpleadoGlobal.DiasVacaciones,
                     };
 
 
@@ -257,6 +260,7 @@ namespace RRHH.UI
                        Genero = txtGenero.Text,
                         Password = EmpleadoGlobal.Password,
                         IntentosFallidos = EmpleadoGlobal.IntentosFallidos,
+                        DiasVacaciones = EmpleadoGlobal.DiasVacaciones,
                     };
 
 
@@ -317,7 +321,8 @@ namespace RRHH.UI
                         //  Genero = DDLgenero.SelectedItem.ToString(),
                         Genero = txtGenero.Text,
                         Password = EmpleadoGlobal.Password,
-                        IntentosFallidos=Convert.ToInt32(EmpleadoGlobal.IntentosFallidos)
+                        IntentosFallidos=Convert.ToInt32(EmpleadoGlobal.IntentosFallidos),
+                        DiasVacaciones = EmpleadoGlobal.DiasVacaciones,
                     };
                     Singleton.OpEmpleados.ActualizarEmpleados(emple);
                     Empleadosmantenimiento.Visible = false;

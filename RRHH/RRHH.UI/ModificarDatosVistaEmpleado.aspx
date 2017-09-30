@@ -127,7 +127,7 @@
        <div class="form-inline" style="margin-left:430px;">
 
         <asp:TextBox ID="txtImagen" Width="180" placeholder="Cambiar foto" runat="server" CssClass="form-control"></asp:TextBox>
-         <asp:FileUpload ID="fileUpload1" accept="image/*" style="display:none;" runat="server" />
+         <asp:FileUpload ID="fileUpload1" accept="image/*" runat="server" />
         <input type="button" id="btnnAdjuntar" runat="server" value="adjuntar" class="btn btn-success" onclick="adjuntarImagen()" /> 
        
        
@@ -138,15 +138,7 @@
                
                document.getElementById('MainContent_fileUpload1').click();
                document.getElementById('MainContent_txtImagen').readOnly = false;
-              <%
              
-              string archi = fileUpload1.FileName;
-              if (archi != null)
-              {
-                  imgEmple.ImageUrl = archi;
-              }
-
-               %>
            }
        </script>
  

@@ -70,7 +70,7 @@ namespace RRHH.UI
 
                     var correo = Singleton.OpEmpleados.BuscarEmpleados(cedula).Correo;
                     var nombre = Singleton.OpEmpleados.BuscarEmpleados(cedula).Nombre;
-
+                    var CantidadDias = Singleton.OpEmpleados.BuscarEmpleados(cedula).DiasVacaciones;
 
 
                     SolicitudVacaciones soli2 = new SolicitudVacaciones();
@@ -84,15 +84,38 @@ namespace RRHH.UI
                         FechaInicio = soli2.FechaInicio,
                         FechaFinal = soli2.FechaFinal,
                         TotalDias = soli2.TotalDias,
-                        Condicion = true
+                        Condicion = true,
                     };
                     Singleton.opsolicitud.ActualizarSolicitud(soli);
-                    
+
+                     Empleado EmpleadoGlobal2 = new Empleado();
+                     EmpleadoGlobal2 =Singleton.OpEmpleados.BuscarEmpleados(txtcedula.Text);
+                     Empleado emple = new Empleado()
+                    {
+                        Cedula = EmpleadoGlobal2.Cedula,
+                        Nombre = EmpleadoGlobal2.Nombre,
+                         Direccion = EmpleadoGlobal2.Direccion,
+                         Telefono = EmpleadoGlobal2.Telefono,
+                         Correo = EmpleadoGlobal2.Correo,
+                         EstadoCivil = EmpleadoGlobal2.EstadoCivil,
+                         FechaNacimiento = Convert.ToDateTime(EmpleadoGlobal2.FechaNacimiento),
+                        IdDepartamento = Convert.ToInt32(EmpleadoGlobal2.IdDepartamento),
+                        IdRol = Convert.ToInt32(EmpleadoGlobal2.IdRol),
+                        Estado = EmpleadoGlobal2.Estado,
+                        Bloqueado = EmpleadoGlobal2.Bloqueado,
+                        Imagen = EmpleadoGlobal2.Imagen,
+                        //  Genero = DDLgenero.SelectedItem.ToString(),
+                        Genero = EmpleadoGlobal2.Genero,
+                        Password = EmpleadoGlobal2.Password,
+                        IntentosFallidos = Convert.ToInt32(EmpleadoGlobal2.IntentosFallidos),
+                        DiasVacaciones = EmpleadoGlobal2.DiasVacaciones-soli2.TotalDias,
+                    };
+                    Singleton.OpEmpleados.ActualizarEmpleados(emple);
 
 
 
 
-                    
+
                     //using (SmtpClient cliente = new SmtpClient("smtp.live.com", 25))
                     //{
                     //    cliente.EnableSsl = true;

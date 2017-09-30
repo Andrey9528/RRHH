@@ -35,8 +35,10 @@ namespace RRHH.DATA
         public bool Bloqueado { get; set; }
         public int IntentosFallidos { get; set; }
         public string Imagen { get; set; }
-       
-       
+        public int DiasVacaciones { get; set; }
+
+
+
 
 
 
