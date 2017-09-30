@@ -73,7 +73,7 @@ namespace RRHH.UI
                                 //Sigleton.OpAuditoria.InsertarEnLogin(PersonaGlobal.Cedula, PersonaGlobal.Nombre, PersonaGlobal.PrimerApellido);
                                 if (EmpleadoGlobal.IdRol == 1)
                                 {
-                                    Empleado emple = new Empleado()
+                                    Empleado emple = new Empleado ()
                                     {
                                         Cedula = EmpleadoGlobal.Cedula,
                                         Nombre = EmpleadoGlobal.Nombre,
