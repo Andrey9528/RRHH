@@ -81,7 +81,7 @@
 
 
    <p style="margin-left:670px; margin-top:-40px;"> <asp:Button ID="btnactualizar" CssClass="btn btn-warning" OnClick="btnactualizar_Click" runat="server" Text="Actualizar" /></p>
- <p style="margin-top:-43px; width: 142px; height: 30px;"><a style="margin-left:800px; " class="btn btn-primary "  href="JefeView.aspx"><span class="glyphicon glyphicon-backward"></span> Regresar</a>
+ <p style="margin-top:-43px; width: 142px; height: 30px;"><a style="margin-left:800px; " class="btn btn-primary "  href="VistaJefe.aspx"><span class="glyphicon glyphicon-backward"></span> Regresar</a>
     </p>
 
 </div>

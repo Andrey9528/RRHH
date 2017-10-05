@@ -122,33 +122,53 @@
   <div class="row">
     <div class="col-sm-3 well">
       <div class="well">
-        <p><a  href="#">Mi perfil</a></p>
+          <p>
+              <asp:Label ID="lblNombre2" runat="server" ></asp:Label>
 
-      <asp:Image ID="Image1" Width="65px" Height="65px"  CssClass="img-circle" runat="server" />
-      </div>
+          </p>
+       <%-- <p><a  href="#">Mi perfil</a></p>--%>
+
+      <asp:Image ID="Image1" Width="80px" Height="80px"  CssClass="img-circle" runat="server" />
+     
+     
+           </div>
       <div class="well">
-        <p><a href="#">Interests</a></p>
-        <p>
+
+
+
+        <h6 style="font-family:Arial, Helvetica, sans-serif;">Mis Datos</h6>
+
+          <div class="form-horizontal">
+              <div style="font-family:Arial, Helvetica, sans-serif;"><asp:Label ID="lblcorreo2"    CssClass="control-label" runat="server" ></asp:Label>
+              <asp:Label ID="lbldirreccion2" runat="server" Text=""></asp:Label>
+              <asp:Label ID="lblGenero2" runat="server" Text=""></asp:Label>
+                  </div>
+
+          </div>
+
+       <%-- <p>
           <span class="label label-default">News</span>
-          <span class="label label-primary">W3Schools</span>
+          <span class="label label-primary">W3Shools</span>
           <span class="label label-success">Labels</span>
           <span class="label label-info">Football</span>
           <span class="label label-warning">Gaming</span>
           <span class="label label-danger">Friends</span>
-        </p>
+        </p>--%>
+
+          
       </div>
-      <div class="alert alert-success fade in">
+      <%--<div class="alert alert-success fade in">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
         <p><strong>Ey!</strong></p>
         People are looking at your profile. Find out who.
-      </div>
+      </div>--%>
+     <%-- <p><a href="#">Link</a></p>
       <p><a href="#">Link</a></p>
-      <p><a href="#">Link</a></p>
-      <p><a href="#">Link</a></p>
+      <p><a href="#">Link</a></p>--%>
     </div>
     <div class="col-sm-7">
     
-      <div class="row">
+     <%-- <div class="row">
         <div class="col-sm-12">
           <div class="panel panel-default text-left">
             <div class="panel-body">
@@ -159,44 +179,44 @@
             </div>
           </div>
         </div>
-      </div>
+      </div>--%>
       
       <div class="row">
         <div class="col-sm-3">
           <div class="well">
-           <p>John</p>
-           <img src="Images/pastillas.png" class="img-circle" height="55" width="55" alt="Avatar"/>
+           <p>Misión</p>
+           <img src="Images/icono-mision.png" class="img-circle  " height="55" width="60" alt="Avatar"/>
           </div>
         </div>
         <div class="col-sm-9">
           <div class="well">
-            <p>Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p>
+            <p style="font-family:Arial, Helvetica, sans-serif;" >Somos una empresa dedicada a la excelencia en el servicio como tambien preocupada por la mejoria de salud en todos nuestros clientes.</p>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-sm-3">
           <div class="well">
-           <p>Bo</p>
-           <img src="Images/manitas.jpg" class="img-circle" height="55" width="55" alt="Avatar"/>
+           <p>Visión</p>
+           <img src="Images/icono-Vision.png" class="img-circle" height="55" width="60" alt="Avatar"/>
           </div>
         </div>
         <div class="col-sm-9">
           <div class="well">
-            <p>Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p>
+            <p style="font-family:Arial, Helvetica, sans-serif;">Ser la farmacia con la mejor calidad de servicio, producto y compromiso con sus clientes y colaboradores.</p>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-sm-3">
           <div class="well">
-           <p>Jane</p>
-           <img src="Images/^88D82C5E5CC0B0B42C7F3BB75E1910BA0497497AC6B7AF664E^pimgpsh_fullsize_distr.jpg" class="img-circle" height="55" width="55" alt="Avatar"/>
+           <p>Sistema RRHH</p>
+           <img src="Images/^88D82C5E5CC0B0B42C7F3BB75E1910BA0497497AC6B7AF664E^pimgpsh_fullsize_distr.jpg" class="img-circle" height="55" width="75" alt="Avatar"/>
           </div>
         </div>
         <div class="col-sm-9">
           <div class="well">
-            <p>Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p>
+            <p style="font-family:Arial, Helvetica, sans-serif;">Solicite vacaciones,incapacidades</p>
           </div>
         </div>
       </div>
@@ -205,7 +225,7 @@
     <div class="col-sm-2 well">
       <div class="thumbnail">
         <p>Contáctenos:</p>
-        <img src="Images/pastillas.png" alt="Paris" width="200" height="200"/>
+        <img src="Images/^3D0DC1289D3BDF88217B01A82B7D97BC5426586684389B6CE5^pimgpsh_fullsize_distr.jpg" width="200" height="600"/>
         <p><strong>Farmacias San Gabriel</strong></p>
         <p>Teléfono:24462046</p>
        
@@ -215,6 +235,10 @@
   </div>
 </div>
 
+        <hr />
+        <footer class="text-center">
+           Sistema de Recursos Humanos
+        </footer>
 
 
 
@@ -330,8 +354,10 @@
                              
                                  <asp:Label ID="Label1" runat="server" Text="Digita tu contraseña actual:"></asp:Label>
                                   <asp:TextBox ID="txtContraseñaActualEmpleado" TextMode="Password" runat="server" CssClass="form-control"  placeholder="Contraseña"></asp:TextBox>
-                                 <br />      
-                                 <p style="margin-left:300px; margin-top:-35px;">  <asp:Button ID= "btnConfirmarEmpleado" runat="server" Text="Confirmar" CssClass="btn btn-warning" OnClick="btnConfirmarEmpleado_Click" /> </p>
+                                       
+                                 <p style="margin-top:10px;">  
+                                     
+                                     <asp:Button ID= "btnConfirmarEmpleado" runat="server" Text="Confirmar" CssClass="btn btn-warning" OnClick="btnConfirmarEmpleado_Click" /> </p>
                                  <br/> <br/>
                                  <asp:Label ID="Label2" runat="server" Text="Nueva contraseña"></asp:Label>
                                  <asp:TextBox ID="txtNuevaContraseña" Enabled="false" TextMode="Password" CssClass="form-control"  runat="server" placeholder="Nueva contraseña"></asp:TextBox>

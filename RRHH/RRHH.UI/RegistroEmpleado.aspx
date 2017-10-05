@@ -77,15 +77,15 @@
             <asp:ListItem Selected="True">Sin establecer</asp:ListItem>
         </asp:DropDownList> 
    
-    <br/>
-    
+   
+    </div>
       
              
      <a class="btn btn-primary"  href="AdminView.aspx"><span class="glyphicon glyphicon-backward"></span> Regresar</a>
     
         <asp:Button ID="btnCrear" OnClick="btnCrear_Click" CssClass="btn btn-success" runat="server" Text="Crear" />
     <asp:Button ID="btnLimpiar" onclick="btnLimpiar_Click" CssClass="btn btn-danger" runat="server" Text="Limpiar" />
-        <img  id="img" class=" img-responsive img-rounded  col-sm-offset-6 " style="margin-top:-530px;" src="http://eqmed.com/wp-content/uploads/2013/05/Comunicaci%C3%B3n-efectiva-en-farmacia.jpg" />
+        
    
             
          

@@ -56,13 +56,13 @@ namespace RRHH.UI
                var IdDepartamento = DepartamentoGlobal.IdDepartamento.ToString();
                var RolGlobal = Singleton.oproles.BuscarRolesPorNombre(ddlRol.Text);
                var IdRol = RolGlobal.IdRol.ToString();
-                string nombreArchivo = Path.GetFileName(fileUpload1.FileName);
-                fileUpload1.SaveAs(Server.MapPath("~/Empleados/" + nombreArchivo));
+                //string nombreArchivo = Path.GetFileName(fileUpload1.FileName);
+                //fileUpload1.SaveAs(Server.MapPath("~/Empleados/" + nombreArchivo));
 
                 if (Login.EmpleadoGlobal.Imagen!=imgEmple.ImageUrl)
                 {
-                    //string nombrearchivo = Path.GetFileName(fileUpload1.FileName);
-                    //fileUpload1.SaveAs(Server.MapPath("~/Empleados/" +  nombrearchivo));
+                    string nombrearchivo = Path.GetFileName(fileUpload1.FileName);
+                    fileUpload1.SaveAs(Server.MapPath("~/Empleados/" + nombrearchivo));
                     Empleado emple = new Empleado()
                     {
 
@@ -77,7 +77,7 @@ namespace RRHH.UI
                         IdDepartamento = Convert.ToInt32(IdDepartamento),
                         IdRol = Convert.ToInt32(IdRol),
                         Estado = true,
-                        Imagen = "~/Empleados/" + nombreArchivo,
+                        Imagen = "~/Empleados/" + nombrearchivo,
                         Bloqueado = false,
                         Genero = DDLgenero.Text.ToString(),
                         Password = Login.EmpleadoGlobal.Password,
@@ -139,12 +139,12 @@ namespace RRHH.UI
             {
                 if (Login.EmpleadoGlobal.IdRol == 1)
                 {
-                    Response.Redirect("EmpleadoView.aspx");
+                    Response.Redirect("WebForm1.aspx");
                 }
                 else if (Login.EmpleadoGlobal.IdRol == 2)
                 {
 
-                    Response.Redirect("JefeView.aspx");
+                    Response.Redirect("VistaJefe.aspx");
                 }
                 else 
                 {

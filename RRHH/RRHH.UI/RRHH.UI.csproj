@@ -49,7 +49,7 @@
     </Reference>
     <Reference Include="itextsharp, Version=5.5.10.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Documents\Proyecto Analisis\itextsharp.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\Proyecto Analisis\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="itextsharp.licensekey">
       <HintPath>..\..\..\..\..\Documents\Programacion 5 CONEJO\pdf\itextsharp.licensekey.dll</HintPath>
@@ -263,6 +263,8 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\bombillo.jpg" />
+    <Content Include="Images\icono-mision.png" />
+    <Content Include="Images\icono-Vision.png" />
     <Content Include="Images\manitas.jpg" />
     <Content Include="Images\pastillas.png" />
     <Content Include="Images\WhatsApp Image 2017-09-04 at 8.05.30 AM.jpeg" />

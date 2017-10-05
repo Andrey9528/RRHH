@@ -120,7 +120,7 @@ namespace RRHH.UI
                                     };
                                     Singleton.OpEmpleados.ActualizarEmpleados(emple);
                                     Singleton.opAudiJefe. InsertarAuditoriasJefe(EmpleadoGlobal.Nombre, EmpleadoGlobal.Cedula, false, false, false, false, false, false, false, false, true, false);
-                                    Response.Redirect("JefeView.aspx");
+                                    Response.Redirect("VistaJefe.aspx");
 
                                 }
                                 else if (EmpleadoGlobal.IdRol == 3 && EmpleadoGlobal.Bloqueado == false)
