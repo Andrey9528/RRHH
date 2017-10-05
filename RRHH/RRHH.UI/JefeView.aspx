@@ -145,7 +145,7 @@
         </li>
            
           
-        <li><a style="color:white; font-size:14px; " href="Ayuda.aspx">Ayuda</a></l>
+        <li><a style="color:white; font-size:14px; " href="Ayuda.aspx">Ayuda</a></li>
         <li class="dropdown">
           
           <a class="dropdown-toggle"  style="background-color:#04acec; font-size:14px;  color:white; font-family:cursive;" data-toggle="dropdown" href="#">Administración<span class="caret"></span></a>

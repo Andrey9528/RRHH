@@ -34,7 +34,7 @@
 
    
      <div class="col-sm-offset-5">
-      <a class="btn btn-success btn-sm"  href="JefeView.aspx"><span class="glyphicon glyphicon-backward"></span> Regresar</a>
+      <a class="btn btn-success btn-sm"  href="VistaJefe.aspx"><span class="glyphicon glyphicon-backward"></span> Regresar</a>
       <asp:Button ID="btnPDF" runat="server" CssClass="btn btn-danger" OnClick="btnPDF_Click" Text="PDF"/>
           </div>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:BD_RRHHConnectionString3 %>" SelectCommand="SELECT [Cedula], [Nombre], [Direccion], [Telefono], [Correo], [EstadoCivil], [FechaNacimiento], [Estado], [Genero], [Imagen] FROM [Empleado]"></asp:SqlDataSource>

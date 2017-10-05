@@ -84,6 +84,6 @@
         </asp:GridView>
     </div>
        
-    <a class="btn btn-success" href="EmpleadoView.aspx"><span class="glyphicon glyphicon-backward"></span> Regresar</a>
+    <a class="btn btn-success" href="WebForm1.aspx"><span class="glyphicon glyphicon-backward"></span> Regresar</a>
 
 </asp:Content>

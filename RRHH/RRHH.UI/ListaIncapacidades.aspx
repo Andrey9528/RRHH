@@ -55,7 +55,7 @@
 
     </div>
 
-    <a   class="btn btn-primary"  href="JefeView.aspx"><span class="glyphicon glyphicon-backward"></span> Regresar</a>
+    <a   class="btn btn-primary"  href="VistaJefe.aspx"><span class="glyphicon glyphicon-backward"></span> Regresar</a>
       
 
 </asp:Content>
