@@ -11,6 +11,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Net.Mail;
 using System.Net;
+using System.Threading;
 
 namespace RRHH.UI
 {
@@ -19,7 +20,7 @@ namespace RRHH.UI
         public static string contrasena;
         public static Empleado EmpleadoGlobal = new Empleado();
         public static Empleado EmpleadoBloqueo = new Empleado();
-       
+
         public static string Correo;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -73,27 +74,27 @@ namespace RRHH.UI
                                 //Sigleton.OpAuditoria.InsertarEnLogin(PersonaGlobal.Cedula, PersonaGlobal.Nombre, PersonaGlobal.PrimerApellido);
                                 if (EmpleadoGlobal.IdRol == 1)
                                 {
-                                    Empleado emple = new Empleado ()
+                                    Empleado emple = new Empleado()
                                     {
                                         Cedula = EmpleadoGlobal.Cedula,
                                         Nombre = EmpleadoGlobal.Nombre,
                                         Direccion = EmpleadoGlobal.Direccion,
                                         Telefono = EmpleadoGlobal.Telefono,
-                                        Correo = EmpleadoGlobal.Correo ,
+                                        Correo = EmpleadoGlobal.Correo,
                                         EstadoCivil = EmpleadoGlobal.EstadoCivil,
                                         FechaNacimiento = EmpleadoGlobal.FechaNacimiento,
-                                        IdDepartamento = EmpleadoGlobal.IdDepartamento, 
+                                        IdDepartamento = EmpleadoGlobal.IdDepartamento,
                                         IdRol = EmpleadoGlobal.IdRol,
                                         Estado = EmpleadoGlobal.Estado,
                                         Genero = EmpleadoGlobal.Genero,
-                                        Imagen=EmpleadoGlobal.Imagen,
+                                        Imagen = EmpleadoGlobal.Imagen,
                                         Password = Encriptacion.Encriptar(txtcontra.Text, Encriptacion.Llave),
                                         Bloqueado = false,
                                         IntentosFallidos = 0,
                                         DiasVacaciones = EmpleadoGlobal.DiasVacaciones,
                                     };
                                     Singleton.OpEmpleados.ActualizarEmpleados(emple);
-                                    Singleton.opAudiEmple.InsertarAuditoriasEmpleado(EmpleadoGlobal.Nombre,EmpleadoGlobal.Cedula,false,false,false,false,false,false,false,false,false,true,false);
+                                    Singleton.opAudiEmple.InsertarAuditoriasEmpleado(EmpleadoGlobal.Nombre, EmpleadoGlobal.Cedula, false, false, false, false, false, false, false, false, false, true, false);
                                     Response.Redirect("WebForm1.aspx");
                                 }
                                 else if (EmpleadoGlobal.IdRol == 2 && EmpleadoGlobal.Bloqueado == false)
@@ -110,7 +111,7 @@ namespace RRHH.UI
                                         IdDepartamento = EmpleadoGlobal.IdDepartamento,
                                         IdRol = EmpleadoGlobal.IdRol,
                                         Estado = EmpleadoGlobal.Estado,
-                                        Imagen=EmpleadoGlobal.Imagen,
+                                        Imagen = EmpleadoGlobal.Imagen,
                                         Genero = EmpleadoGlobal.Genero,
                                         Password = Encriptacion.Encriptar(txtcontra.Text, Encriptacion.Llave),
                                         Bloqueado = false,
@@ -119,7 +120,7 @@ namespace RRHH.UI
 
                                     };
                                     Singleton.OpEmpleados.ActualizarEmpleados(emple);
-                                    Singleton.opAudiJefe. InsertarAuditoriasJefe(EmpleadoGlobal.Nombre, EmpleadoGlobal.Cedula, false, false, false, false, false, false, false, false, true, false);
+                                    Singleton.opAudiJefe.InsertarAuditoriasJefe(EmpleadoGlobal.Nombre, EmpleadoGlobal.Cedula, false, false, false, false, false, false, false, false, true, false);
                                     Response.Redirect("VistaJefe.aspx");
 
                                 }
@@ -138,7 +139,7 @@ namespace RRHH.UI
                                         IdRol = EmpleadoGlobal.IdRol,
                                         Estado = EmpleadoGlobal.Estado,
                                         Genero = EmpleadoGlobal.Genero,
-                                        Imagen=EmpleadoGlobal.Imagen,
+                                        Imagen = EmpleadoGlobal.Imagen,
                                         Password = Encriptacion.Encriptar(txtcontra.Text, Encriptacion.Llave),
                                         Bloqueado = false,
                                         IntentosFallidos = 0,
@@ -146,7 +147,7 @@ namespace RRHH.UI
 
                                     };
                                     Singleton.OpEmpleados.ActualizarEmpleados(emple);
-                                    Singleton.opaudi.InsertarAuditoriasAdmin(EmpleadoGlobal.Nombre,EmpleadoGlobal.Cedula,true,false,false,false,false,false,false,false,false,false,false,false,false,false);
+                                    Singleton.opaudi.InsertarAuditoriasAdmin(EmpleadoGlobal.Nombre, EmpleadoGlobal.Cedula, true, false, false, false, false, false, false, false, false, false, false, false, false, false);
                                     Response.Redirect("AdminView.aspx");
                                 }
                             }
@@ -192,7 +193,7 @@ namespace RRHH.UI
                                         IdRol = EmpleadoGlobal.IdRol,
                                         Estado = EmpleadoGlobal.Estado,
                                         Genero = EmpleadoGlobal.Genero,
-                                        Imagen=EmpleadoGlobal.Imagen,
+                                        Imagen = EmpleadoGlobal.Imagen,
                                         Password = EmpleadoGlobal.Password,
                                         Bloqueado = false,
                                         IntentosFallidos = EmpleadoGlobal.IntentosFallidos + 1,
@@ -222,11 +223,11 @@ namespace RRHH.UI
                                         IdDepartamento = EmpleadoBloqueo.IdDepartamento,
                                         IdRol = EmpleadoBloqueo.IdRol,
                                         Estado = EmpleadoBloqueo.Estado,
-                                        Imagen=EmpleadoGlobal.Imagen,
+                                        Imagen = EmpleadoGlobal.Imagen,
                                         Genero = EmpleadoBloqueo.Genero,
                                         Password = EmpleadoGlobal.Password,
                                         Bloqueado = true,
-                                        IntentosFallidos = EmpleadoGlobal.IntentosFallidos+1,
+                                        IntentosFallidos = EmpleadoGlobal.IntentosFallidos + 1,
                                         DiasVacaciones = EmpleadoGlobal.DiasVacaciones,
 
                                     };
@@ -244,8 +245,8 @@ namespace RRHH.UI
                             }
                         }
                     }
-                    }
-                
+                }
+
             }
             catch (Exception ex)
             {
@@ -257,14 +258,14 @@ namespace RRHH.UI
                 //ImprimirMensajeError(ex.Message);
                 //Utilitarios.OpErrores.InsertarEnErrores(PersonaGlobal.Nombre, PersonaGlobal.Cedula, ex.ToString());
             }
-        
-        
+
+
         }
-       
+
 
         protected void btnRegistrar_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         protected void btnValidar_Click(object sender, EventArgs e)
@@ -285,30 +286,37 @@ namespace RRHH.UI
                         EstadoCivil = EmpleadoGlobal.EstadoCivil,
                         Password = Encriptacion.Encriptar(contrasena, Encriptacion.Llave),
                         FechaNacimiento = EmpleadoGlobal.FechaNacimiento,
-                        IdDepartamento=EmpleadoGlobal.IdDepartamento,
-                        IdRol=EmpleadoGlobal.IdRol,
-                        Estado=true,
-                        Genero=EmpleadoGlobal.Genero,
-                        Imagen=EmpleadoGlobal.Imagen,
+                        IdDepartamento = EmpleadoGlobal.IdDepartamento,
+                        IdRol = EmpleadoGlobal.IdRol,
+                        Estado = true,
+                        Genero = EmpleadoGlobal.Genero,
+                        Imagen = EmpleadoGlobal.Imagen,
                         DiasVacaciones = EmpleadoGlobal.DiasVacaciones,
 
 
                     };
                     Singleton.OpEmpleados.ActualizarEmpleados(empleado);
-                    using (SmtpClient cliente = new SmtpClient("smtp.live.com", 25))
-                    {
-                        cliente.EnableSsl = true;
-                        cliente.Credentials = new NetworkCredential("soporte.biblioteca@hotmail.com", "soporte123.");
-                        MailMessage msj = new MailMessage("soporte.biblioteca@hotmail.com", txtemail.Text, "Restauración de contraseña", "Has recibido una nueva contraseña:  " + contrasena+":"+"Para tu usuario: "+txtemail.Text);
-                        cliente.Send(msj);
+                    ThreadStart delegado = new ThreadStart(EnvioCorreo);
+                    Thread hilo = new Thread(delegado);
+                    hilo.Start();
+                    mensajeError.Visible = false;
+                    mensaje.Visible = false;
+                    mensajeinfo.Visible = true;
+                    textomensajeinfo.InnerHtml = "Se envio un codigo pin a tu dirreccion de correo";
+                    //using (SmtpClient cliente = new SmtpClient("smtp.live.com", 25))
+                    //{
+                    //    cliente.EnableSsl = true;
+                    //    cliente.Credentials = new NetworkCredential("soporte.biblioteca@hotmail.com", "soporte123.");
+                    //    MailMessage msj = new MailMessage("soporte.biblioteca@hotmail.com", txtemail.Text, "Restauración de contraseña", "Has recibido una nueva contraseña:  " + contrasena + ":" + "Para tu usuario: " + txtemail.Text);
+                    //    cliente.Send(msj);
 
-                        mensajeinfo.Visible = true;
-                        mensajeError.Visible = false;
-                        mensaje.Visible = false;
-                        textomensajeinfo.InnerHtml = "Correo enviado";
+                    //    mensajeinfo.Visible = true;
+                    //    mensajeError.Visible = false;
+                    //    mensaje.Visible = false;
+                    //    textomensajeinfo.InnerHtml = "Correo enviado";
 
 
-                    }
+                    //}
                 }
                 else
                 {
@@ -327,7 +335,23 @@ namespace RRHH.UI
 
             }
         }
+        private void EnvioCorreo()
+        {
+            using (SmtpClient cliente = new SmtpClient("smtp.live.com", 25))
+            {
+                cliente.EnableSsl = true;
+                cliente.Credentials = new NetworkCredential("soporte.biblioteca@hotmail.com", "soporte123.");
+                MailMessage msj = new MailMessage("soporte.biblioteca@hotmail.com", txtemail.Text, "Restauración de contraseña", "Has recibido una nueva contraseña:  " + contrasena + ":" + "Para tu usuario: " + txtemail.Text);
+                cliente.Send(msj);
 
+                mensajeinfo.Visible = true;
+                mensajeError.Visible = false;
+                mensaje.Visible = false;
+                textomensajeinfo.InnerHtml = "Correo enviado";
+
+
+            }
+        }
         private void CodigoPin()
         {
             Random rd = new Random(DateTime.Now.Millisecond);

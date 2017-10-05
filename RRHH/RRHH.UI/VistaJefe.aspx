@@ -80,7 +80,7 @@
         <li><a  href="ListaIncapacidades.aspx">Lista de Incapacidades</a></li>
           <li><a   href="mantenimientoVaca.aspx">Ver solicitudes</a></li>
             <li><a data-target="#cambiojefe" data-toggle="modal"  href="#">Cambio de  contraseña</a></li>
-          <li><a  href="Login.aspx">Cerrar seccion</a></li>
+          <li><a  href="Login.aspx">Cerrar sesión</a></li>
           <li><a   href="#">Ayuda</a></li>
      
       </ul><br/>

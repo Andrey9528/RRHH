@@ -1,4 +1,4 @@
-﻿    using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using RRHH.DATA;
 using System.Net.Mail;
 using System.Net;
+using System.Threading;
 
 namespace RRHH.UI
 {
@@ -70,6 +71,7 @@ namespace RRHH.UI
 
                     var correo = Singleton.OpEmpleados.BuscarEmpleados(cedula).Correo;
                     var nombre = Singleton.OpEmpleados.BuscarEmpleados(cedula).Nombre;
+
                     var CantidadDias = Singleton.OpEmpleados.BuscarEmpleados(cedula).DiasVacaciones;
 
 
@@ -130,9 +132,16 @@ namespace RRHH.UI
                     mensajawarning.Visible = false;
                     mensajeError.Visible = false;
                     mensajeinfo.Visible = false;
+                    ThreadStart delegado = new ThreadStart(EnvioCorreo);
+                    Thread hilo = new Thread(delegado);
                     textoMensaje.InnerHtml = "Solicitud aprobada";
-                    Email.Notificacion("soporte.biblioteca@hotmail.com", "soporte123.", correo, "Estado de solicitud de vacaciones", "se ha aprobado su solicitud de vacaciones para el empleado \nNombre:" + nombre + "\nUsuario:" + correo);
+                    hilo.Start();
+                    //codigo bueno
+                    //textoMensaje.InnerHtml = "Solicitud aprobada";
 
+
+                    //Email.Notificacion("soporte.biblioteca@hotmail.com", "soporte123.", correo, "Estado de solicitud de vacaciones", "se ha aprobado su solicitud de vacaciones para el empleado \nNombre:" + nombre + "\nUsuario:" + correo);
+                    //termina bueno
 
 
 
@@ -179,6 +188,17 @@ namespace RRHH.UI
                     throw;
                 }
             
+        }
+
+        private void EnvioCorreo()
+        {
+            var cedula = Singleton.opsolicitud.BuscarSolicitud(Convert.ToInt32(DDLidsolicitud.Text)).Cedula;
+
+            var correo = Singleton.OpEmpleados.BuscarEmpleados(cedula).Correo;
+            var nombre = Singleton.OpEmpleados.BuscarEmpleados(cedula).Nombre;
+
+            Email.Notificacion("soporte.biblioteca@hotmail.com", "soporte123.", correo, "Estado de solicitud de vacaciones", "se ha aprobado su solicitud de vacaciones para el empleado \nNombre:" + nombre + "\nUsuario:" + correo);
+
         }
     }
    
