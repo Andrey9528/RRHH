@@ -5,6 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using RRHH.DATA;
+using System.Net;
+using System.Net.Mail;
+using System.Threading;
 
 namespace RRHH.UI
 {
@@ -70,23 +73,18 @@ namespace RRHH.UI
                         //txttotaldias.Text = dias.ToString();
                         textoMensaje.InnerHtml = "Solicitud generada";
                         //string mail = Singleton.opNotificacion.CorreoJefe(Login.EmpleadoGlobal.Cedula).Select(x => x.EmailJefeDpto).ToString();
-                        string mail = Singleton.opdepartamento.BuscarDepartamentos(Login.EmpleadoGlobal.IdDepartamento).EmailJefeDpto.ToString();
-                        Email.Notificacion("dollars.chat.room@hotmail.com", "fidelitasw2", mail, "Nueva solicitud de vacaciones", "se ha recibido una nueva solicitud de vacaciones de parte del empleado\nNombre:" + Login.EmpleadoGlobal.Nombre + "\nUsuario:" + Login.EmpleadoGlobal.Correo);
-                        //using (SmtpClient cliente = new SmtpClient("smtp.live.com", 25))
-                        //{
-                        //    cliente.EnableSsl = true;
-                        //    cliente.Credentials = new NetworkCredential("dollars.chat.room@hotmail.com", "fidelitasw2");
-                        //    MailMessage msj = new MailMessage("dollars.chat.room@hotmail.com", mail, "Nueva solicitud de vacaciones", "Se ha recibido una nueva solicitud de vacaciones de parte del empleado\nNombre:  " + Login.EmpleadoGlobal.Nombre+"\nUsuario:"+Login.EmpleadoGlobal.Correo);
-                        //    cliente.Send(msj);
+                        //bueno   
+                        //string mail = Singleton.opdepartamento.BuscarDepartamentos(Login.EmpleadoGlobal.IdDepartamento).EmailJefeDpto.ToString();
+                        //Email.Notificacion("dollars.chat.room@hotmail.com", "fidelitasw2", mail, "Nueva solicitud de vacaciones", "se ha recibido una nueva solicitud de vacaciones de parte del empleado\nNombre:" + Login.EmpleadoGlobal.Nombre + "\nUsuario:" + Login.EmpleadoGlobal.Correo);
+                        //termina bueno
 
-                        //    mensajeinfo.Visible = true;
-                        //    mensajeError.Visible = false;
-                        //    mensaje.Visible = false;
-                        //    textomensajeinfo.InnerHtml = "Correo enviado";
-
-
-                        //}
-
+                        ThreadStart delegado = new ThreadStart(EnvioCorreo);
+                        Thread hilo = new Thread(delegado);
+                        hilo.Start();
+                        mensajeinfo.Visible = true;
+                        mensajeError.Visible = false;
+                        mensaje.Visible = false;
+                        textomensajeinfo.InnerHtml = "Tu solicitud ha sido enviada";
 
                     }
                     else
@@ -204,6 +202,22 @@ namespace RRHH.UI
                 throw;
             }
 
+        }
+
+        private void EnvioCorreo()
+        {
+            string mail = Singleton.opdepartamento.BuscarDepartamentos(Login.EmpleadoGlobal.IdDepartamento).EmailJefeDpto.ToString();
+            using (SmtpClient cliente = new SmtpClient("smtp.live.com", 25))
+            {
+                cliente.EnableSsl = true;
+                cliente.Credentials = new NetworkCredential("dollars.chat.room@hotmail.com", "fidelitasw2");
+                MailMessage msj = new MailMessage("dollars.chat.room@hotmail.com", mail, "Nueva solicitud de vacaciones", "Se ha recibido una nueva solicitud de vacaciones de parte del empleado\nNombre:  " + Login.EmpleadoGlobal.Nombre + "\nUsuario:" + Login.EmpleadoGlobal.Correo);
+                cliente.Send(msj);
+
+              
+
+
+            }
         }
 
         protected void btnSalirEmpleado_Click(object sender, EventArgs e)
