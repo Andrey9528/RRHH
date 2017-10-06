@@ -35,18 +35,36 @@
              <strong id="textomensajeinfo" runat="server"></strong>
         </div>
 
-
+</div>
     <br />
+
+    <h1 style="font-size:30px; font-family:cursive; text-align:center; ">Registro de Incapacidades</h1>
+ 
+     <br /><br />
    
-     <asp:Label ID="Label2" runat="server" Text="Fecha de inicio:"></asp:Label>
+
+    <div class="row">
+        <div class="col-xs-6 col-sm-4 col-sm-offset-2">
+
+
+            <div class="form-inline col-sm-offset-0">
+
+                <div class="form-inline">
+
+<asp:Label ID="Label2" runat="server" Text="Fecha de inicio:"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <asp:TextBox ID="txtfechainicio"  TextMode="Date" CssClass="form-control" runat="server"></asp:TextBox>
 
-     <asp:Label ID="Label1" runat="server" Text="Fecha de finalizacion:"></asp:Label>
-    <asp:TextBox ID="txtfechafinal"  TextMode="Date" CssClass="form-control" runat="server"></asp:TextBox>
+                </div>
+               
+                <br /><br />
+                <div class="form-inline">
+ <asp:Label ID="Label5" runat="server" Text="Fecha de emisión:"></asp:Label>&nbsp;&nbsp;&nbsp;
+    <asp:TextBox ID="txtfechaemision"  TextMode="Date" CssClass="form-control" runat="server"></asp:TextBox>
 
-
-  
-    <asp:Label ID="Label4" runat="server" Text="Tipo de incapacidad:"></asp:Label>
+                </div>
+                <br /><br />
+                <div class="form-inline">
+  <asp:Label ID="Label4" runat="server" Text="Tipo de incapacidad:"></asp:Label>
     <asp:DropDownList ID="DDLTipo"  CssClass="form-control" runat="server">
         <asp:ListItem>Enfermedad</asp:ListItem>
         <asp:ListItem>Maternidad</asp:ListItem>
@@ -54,32 +72,63 @@
       </asp:DropDownList>
    
     
-
-
-    <asp:Label ID="Label9" runat="server" Text="Descripcion:"></asp:Label>
-    <asp:TextBox ID="txtdescripcion"   TextMode="MultiLine" CssClass="form-control" runat="server"></asp:TextBox>
-
-
-    <asp:Label ID="Label5" runat="server" Text="Fecha de emisión:"></asp:Label>
-    <asp:TextBox ID="txtfechaemision"  TextMode="Date" CssClass="form-control" runat="server"></asp:TextBox>
-
-     <asp:Label ID="Label7" runat="server" Text="Centro emisor:"></asp:Label>
+                </div>
+                <br /><br />
+                <div class="form-inline">
+   <asp:Label ID="Label7" runat="server" Text="Centro emisor:"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <asp:TextBox ID="txtcentroemisor" CssClass="form-control" runat="server"></asp:TextBox>
 
+                </div>
+               
+            </div>
+        </div>
 
-    <asp:Label ID="Label8" runat="server" Text="Nombre del doctor:"></asp:Label>
+         <div class="clearfix visible-xs"></div>
+        <div class="col-xs-6 col-sm-4">
+            <div class="form-inline">
+            <div class="form-inline">
+ <asp:Label ID="Label1" runat="server" Text="Fecha de finalizacion:"></asp:Label>
+    <asp:TextBox ID="txtfechafinal"  TextMode="Date" CssClass="form-control" runat="server"></asp:TextBox>
+
+            </div>
+            <br /><br /><br/>
+            <div class="form-inline">
+<asp:Label ID="Label9" runat="server" Text="Descripcion:"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <asp:TextBox ID="txtdescripcion"   TextMode="MultiLine" CssClass="form-control" runat="server"></asp:TextBox>
+
+            </div>
+            <br /><br /><br /><br />
+            <div class="form-inline">
+
+    <asp:Label ID="Label8" runat="server" Text="Doctor:"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <asp:TextBox ID="txtnombredoc" CssClass="form-control" runat="server"></asp:TextBox>
+
+            </div>
+        </div>
+            </div>
+    </div>
+    <br /><br />
+
+    
+  
+  
 
 
     
 
-    <br />
-    <br />
+   
+  
+
+
+    
+
+    <div class="form-inline col-sm-offset-5">
+    
     <asp:Button ID="btninsertar" runat="server" Text="Insertar" CssClass="btn btn-success" OnClick="btninsertar_Click"  />
     <a   class="btn btn-primary"  href="WebForm1.aspx"><span class="glyphicon glyphicon-backward"></span> Regresar</a>
 
 
-</div>
 
+        </div>
 
 </asp:Content>

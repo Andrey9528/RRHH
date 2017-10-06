@@ -14,53 +14,139 @@
         }
      
  </style>
-     <h1 style="font-size:30px; font-family:cursive; text-align:center; ">Agregar Empleado</h1>
-    <br />
-    <br />
-    <div class = "form-group col-sm-offset-2" style="margin-top:-30px;" > 
+    
     <div class="alert alert-success" visible="false"  id="mensaje" runat="server">
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times</a>
              <strong id="textoMensaje" runat="server"></strong>
         </div>        
-    <asp:Label ID="Label1" runat="server"   Text="Cédula"></asp:Label>
-    <asp:TextBox ID="txtCedula" CssClass="form-control" runat="server"></asp:TextBox>
+   
+     <h1 style="font-size:30px; font-family:cursive; text-align:center; ">Agregar Empleado</h1>
   
-    <asp:Label ID="Label2" runat="server"  Text="Nombre"></asp:Label>
+      <br />
+   <div class="row">
+       <div class="col-xs-6 col-sm-4 col-sm-offset-2">
+           <div class="form-inline col-sm-offset-2">
+        <div class="form-inline">
+     <asp:Label ID="Label1" runat="server"   Text="Cédula"></asp:Label>&nbsp;&nbsp;
+      <asp:TextBox ID="txtCedula" CssClass="form-control" runat="server"></asp:TextBox>
+  
+
+        </div>
+               <br /><br />
+               <div class="form-inline">
+
+<asp:Label ID="Label2" runat="server"  Text="Nombre"></asp:Label>&nbsp;
     <asp:TextBox ID="txtNombre" CssClass="form-control" runat="server"></asp:TextBox>
-    <asp:Label ID="Label3" runat="server"   Text="Direccion"></asp:Label>
-    <asp:TextBox ID="txtDireccion" CssClass="form-control"    TextMode="MultiLine" runat="server"></asp:TextBox>
-      <asp:Label ID="Label4" runat="server"    Text="Teléfono"></asp:Label>
+
+               </div>
+               <br /><br />
+               <div class="form-inline">
+
+   <asp:Label ID="Label4" runat="server"    Text="Teléfono"></asp:Label>
     <asp:TextBox ID="txtTelefono" CssClass="form-control"    runat="server"></asp:TextBox>
     
-    <asp:Label ID="Label5" runat="server"   Text="Correo"></asp:Label>
+               </div>
+               <br /><br />
+               <div class="form-inline">
+   <asp:Label ID="Label5" runat="server"   Text="Correo"></asp:Label>&nbsp;&nbsp;&nbsp;
     <asp:TextBox ID="txtCorreo" TextMode="Email" CssClass="form-control" runat="server"></asp:TextBox>
-    <asp:Label ID="Label6" runat="server"   Text="Estado Civil"></asp:Label>
-     <br> 
-    <asp:DropDownList ID="DddlEstadoCivil" class = "form-control" runat="server">
-        <asp:ListItem>Casado</asp:ListItem>
-        <asp:ListItem>Soltero</asp:ListItem>
-        <asp:ListItem>Unión libre</asp:ListItem>
-        <asp:ListItem>Viudo</asp:ListItem>
-        <asp:ListItem Selected="True">Indefinido</asp:ListItem>
-    </asp:DropDownList>
-        <asp:Label ID="Label7"  runat="server" Text="Fecha Nacimiento"></asp:Label>
-     <br> 
+    
+    
+               </div>
+               <br /><br />
+               <div class="form-inline">
+
+<asp:Label ID="Label7"  runat="server" Text="Fecha "></asp:Label> &nbsp; &nbsp;
     <asp:TextBox ID="txtFechaNacimiento" CssClass="form-control" TextMode="Date" runat="server"></asp:TextBox>
-    <asp:Label ID="Label8"    runat="server" Text="Departamento"></asp:Label>
-     <br> 
-    <asp:DropDownList ID="ddlDepartamento" class = "form-control" runat="server"> </asp:DropDownList>
-    <asp:Label ID="Label9"   runat="server" Text="Rol"></asp:Label>
-     <br> 
-    <asp:DropDownList ID="ddlRol" class = "form-control" runat="server"></asp:DropDownList>
-        <br />
-       <div class="form-inline">
+    
+               </div>
+               <br /><br />
+               <div class="form-inline">
+
+ <asp:Label ID="Label9"   runat="server" Text="Rol"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+       <asp:DropDownList ID="ddlRol" class = "form-control" runat="server"></asp:DropDownList>
        
-        <asp:TextBox ID="txtImagen" placeholder="imagen" runat="server" CssClass="form-control"></asp:TextBox>
-       
+               </div>
+
+           </div>
+       </div>
+
+
+
+       <div class="clearfix visible-xs"></div>
+       <div class="col-xs-6 col-sm-4">
+
+           <div class="form-inline">
+
+               <div class="form-inline">
+                   <asp:Label ID="Label10" runat="server"   Text="Imagen"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   
+<asp:TextBox ID="txtImagen" placeholder="imagen" runat="server" CssClass="form-control"></asp:TextBox>       
          <asp:FileUpload ID="fileUpload1" accept="image/*" style="display:none;" runat="server" />
         <input type="button" id="btnnAdjuntar" runat="server" value="adjuntar" class="btn btn-success" onclick="adjuntarImagen()" /> 
        
-        </div>
+
+               </div>
+               <br /><br />
+               <div class="form-inline">
+
+    <asp:Label ID="Label11" runat="server" Text="Genero"></asp:Label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:DropDownList ID="DDLgenero"   CssClass="form-control" runat="server">
+            <asp:ListItem>Masculino</asp:ListItem>
+            <asp:ListItem>Femenino</asp:ListItem>
+            <asp:ListItem Selected="True">Sin establecer</asp:ListItem>
+        </asp:DropDownList> 
+               </div>
+               <br /><br />
+               <div class="form-inline">
+
+  <asp:Label ID="Label6" runat="server"   Text="Estado Civil"></asp:Label>&nbsp;&nbsp;&nbsp;
+     
+    <asp:DropDownList ID="DddlEstadoCivil" class = "form-control" runat="server">
+        <asp:ListItem>Casado/a</asp:ListItem>
+        <asp:ListItem>Soltero/a</asp:ListItem>
+        <asp:ListItem>Unión libre</asp:ListItem>
+        <asp:ListItem>Viudo/a</asp:ListItem>
+        <asp:ListItem Selected="True">Indefinido</asp:ListItem>
+    </asp:DropDownList>
+               </div>
+               <br /><br />
+               <div class="form-inline">
+
+<asp:Label ID="Label8"    runat="server" Text="Departamento"></asp:Label>
+      
+    <asp:DropDownList ID="ddlDepartamento" class = "form-control" runat="server"> </asp:DropDownList>
+    
+               </div>
+               <br /><br />
+               <div class="form-inline">
+ <asp:Label ID="Label3" runat="server"   Text="Direccion"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <asp:TextBox ID="txtDireccion" CssClass="form-control"    TextMode="MultiLine" runat="server"></asp:TextBox>
+   
+
+               </div>
+               <br /><br />
+
+           </div>
+       </div>
+
+   </div>
+    <br /><br />
+    <div class="form-inline col-sm-offset-5">
+ <a class="btn btn-primary"  href="AdminView.aspx"><span class="glyphicon glyphicon-backward"></span> Regresar</a>
+    
+        <asp:Button ID="btnCrear" OnClick="btnCrear_Click" CssClass="btn btn-success" runat="server" Text="Crear" />
+    <asp:Button ID="btnLimpiar" onclick="btnLimpiar_Click" CssClass="btn btn-danger" runat="server" Text="Limpiar" />
+        
+   
+    </div>
+    
+   
+        
+        
+        
+       
+   
        <script>
            function adjuntarImagen()
            {
@@ -70,23 +156,13 @@
            }
        </script>
 
-        <asp:Label ID="Label11" runat="server" Text="Genero"></asp:Label>
-        <asp:DropDownList ID="DDLgenero"   CssClass="form-control" runat="server">
-            <asp:ListItem>Masculino</asp:ListItem>
-            <asp:ListItem>Femenino</asp:ListItem>
-            <asp:ListItem Selected="True">Sin establecer</asp:ListItem>
-        </asp:DropDownList> 
+    
    
    
-    </div>
+    
       
              
-     <a class="btn btn-primary"  href="AdminView.aspx"><span class="glyphicon glyphicon-backward"></span> Regresar</a>
     
-        <asp:Button ID="btnCrear" OnClick="btnCrear_Click" CssClass="btn btn-success" runat="server" Text="Crear" />
-    <asp:Button ID="btnLimpiar" onclick="btnLimpiar_Click" CssClass="btn btn-danger" runat="server" Text="Limpiar" />
-        
-   
             
          
    <%-- <asp:RequiredFieldValidator id="RequiredFieldValidator1" runat="server"
@@ -95,17 +171,8 @@
   ForeColor="Red">
 </asp:RequiredFieldValidator>--%>
       
-</>
+
 
    
-   <style>
-       @media only screen and (max-width: 1024px) and (max-height: 768px) {
-           #img {
-              
-               margin-left:-20px;
-               width:303px;
-               height:200px;
-           }
-       }
-   </style>
+   
 </asp:Content>
