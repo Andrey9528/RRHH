@@ -1,130 +1,124 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="popup.aspx.cs" Inherits="RRHH.UI.popup" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-<style>
-    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-    .row.content {height: 550px}
-    
-    /* Set gray background color and 100% height */
-    .sidenav {
-      background-color: #f1f1f1;
-      height: 100%;
-    }
-        
-    /* On small screens, set height to 'auto' for the grid */
-    @media screen and (max-width: 767px) {
-      .row.content {height: auto;} 
-    }
-        body 
+ <style>
+       body 
         {
             background-image: url("http://1070noticias.com.mx/wp-content/uploads/2016/07/fondos-de-pantalla-blancos-para-descargar.jpg");
             background-attachment:fixed;
             background-size:100vw 100vh ;
+            
+
+
         }
-  </style>
-
-    <nav class="navbar navbar-inverse visible-xs">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" href="#">Logo</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li class="active"><a data-toggle="pill" href="#">Dashboard</a></li>
-        <li><a  href="#">Age</a></li>
-        <li><a href="#">Gender</a></li>
-        <li><a  href="#">Geo</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<div class="container-fluid">
-  <div class="row content">
-    <div class="col-sm-3 sidenav hidden-xs">
-      <h2>Logo</h2>
-      <ul class="nav nav-pills nav-stacked">
-        <li class="active"><a href="#section1">Dashboard</a></li>
-        <li><a href="#section2">Age</a></li>
-        <li><a href="#section3">Gender</a></li>
-        <li><a href="#section3">Geo</a></li>
-      </ul><br>
-    </div>
-    <br>
-    
-    <div class="col-sm-9">
-      <div class="well">
-        <h4>Dashboard</h4>
-        <p>Some text..</p>
-      </div>
-      <div class="row">
-        <div class="col-sm-3">
-          <div class="well">
-            <h4>Users</h4>
-            <p>1 Million</p> 
-          </div>
-        </div>
-        <div class="col-sm-3">
-          <div class="well">
-            <h4>Pages</h4>
-            <p>100 Million</p> 
-          </div>
-        </div>
-        <div class="col-sm-3">
-          <div class="well">
-            <h4>Sessions</h4>
-            <p>10 Million</p> 
-          </div>
-        </div>
-        <div class="col-sm-3">
-          <div class="well">
-            <h4>Bounce</h4>
-            <p>30%</p> 
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-4">
-          <div class="well">
-            <p>Text</p> 
-            <p>Text</p> 
-            <p>Text</p> 
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="well">
-            <p>Text</p> 
-            <p>Text</p> 
-            <p>Text</p> 
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="well">
-            <p>Text</p> 
-            <p>Text</p> 
-            <p>Text</p> 
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-8">
-          <div class="well">
-            <p>Text</p> 
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="well">
-            <p>Text</p> 
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+     
+ </style>
+    <h1 style="font-size:30px; font-family:cursive; text-align:center; ">Registro de Incapacidades</h1>
+ 
+     <br />
    
+    <div class="row">
+       <div class="col-xs-6 col-sm-4 col-sm-offset-2">
+           <div class="form-inline col-sm-offset-0">
+        <div class="form-inline">
+     <asp:Label ID="Label1" runat="server"   Text="Fecha de Inicio"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <asp:TextBox ID="txtCedula" TextMode="Date" CssClass="form-control" runat="server"></asp:TextBox>
+  
+
+        </div>
+               <br /><br />
+               <div class="form-inline">
+
+<asp:Label ID="Label2" runat="server"  Text="Fecha de emision"></asp:Label>&nbsp;&nbsp;&nbsp;
+    <asp:TextBox ID="txtNombre" TextMode="Date" CssClass="form-control" runat="server"></asp:TextBox>
+
+               </div>
+               <br /><br />
+               <div class="form-inline">
+
+   <asp:Label ID="Label4" runat="server"    Text="Tipo de incapacidad"></asp:Label>
+                   <asp:DropDownList ID="DropDownList1" CssClass="form-control" runat="server">
+                          <asp:ListItem>Enfermedad</asp:ListItem>
+        <asp:ListItem>Maternidad</asp:ListItem>
+        <asp:ListItem Selected="True">Indefinido</asp:ListItem>
+                   </asp:DropDownList>
+                     
+               </div>
+               <br /><br />
+               <div class="form-inline">
+   <asp:Label ID="Label5" runat="server"   Text="Centro emisor"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <asp:TextBox ID="txtCorreo" CssClass="form-control" runat="server"></asp:TextBox>
+    
+    
+               </div>
+              
+             
+
+           </div>
+       </div>
+
+
+
+       <div class="clearfix visible-xs"></div>
+       <div class="col-xs-6 col-sm-4 ">
+
+           <div class="form-inline">
+
+               <div class="form-inline">
+          <asp:Label ID="Label7"  runat="server" Text="Fecha de Finalizacion "></asp:Label> 
+
+    <asp:TextBox ID="txtFechaNacimiento" CssClass="form-control" TextMode="Date" runat="server"></asp:TextBox>
+    
+               </div>
+               <br /><br /><br />
+               <div class="form-inline">
+
+    <asp:Label ID="Label11" runat="server" Text="Descricpcion"></asp:Label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:TextBox ID="TextBox1" CssClass="form-control" TextMode="Multiline" runat="server"></asp:TextBox>
+   
+               </div>
+               <br /><br /><br />
+               <div class="form-inline">
+
+  <asp:Label ID="Label6" runat="server"   Text="Doctor"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   
+  <asp:TextBox ID="TextBox2" CssClass="form-control"  runat="server"></asp:TextBox>
+     
+               </div>
+             
+
+           </div>
+       </div>
+
+   </div>
+    <br /><br />
+    <div class="form-inline col-sm-offset-5">
+ <a class="btn btn-primary"  href="AdminView.aspx"><span class="glyphicon glyphicon-backward"></span> Regresar</a>
+    
+        <asp:Button ID="btnCrear" CssClass="btn btn-success" runat="server" Text="Crear" />
+    <asp:Button ID="btnLimpiar"  CssClass="btn btn-danger" runat="server" Text="Limpiar" />
+        
+   
+    </div>
+    
+   
+        
+        
+        
+       
+   
+   
+    
+      
+  
+   <%-- <asp:RequiredFieldValidator id="RequiredFieldValidator1" runat="server"
+  ControlToValidate="txtCedula"
+  ErrorMessage="Cedula es requerida."
+  ForeColor="Red">
+</asp:RequiredFieldValidator>--%>
+      
+
+
+   
+  
 </asp:Content>
