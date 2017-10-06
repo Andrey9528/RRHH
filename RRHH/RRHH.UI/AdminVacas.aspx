@@ -58,7 +58,7 @@
 
     <br /><br />
     <div class="table-responsive">
-    <asp:GridView ID="Gv_datos"  CssClass="table  table-bordered table-responsive"   runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3">
+    <asp:GridView ID="Gv_datos" AutoGenerateColumns = False  CssClass="table  table-bordered table-responsive"   runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3">
             <FooterStyle BackColor="White" ForeColor="#000066" />
             <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
             <PagerStyle BackColor="White" ForeColor="#000066" HorizontalAlign="Left" />
@@ -68,6 +68,15 @@
             <SortedAscendingHeaderStyle BackColor="#007DBB" />
             <SortedDescendingCellStyle BackColor="#CAC9C9" />
             <SortedDescendingHeaderStyle BackColor="#00547E" />
+            <Columns runat="server" >         
+            <asp:BoundField  DataField = "IdSolicitud" runat="server" HeaderText = "N.solicitud" />
+            <asp:BoundField  DataField = "Cedula" runat="server" HeaderText = "Cédula" />
+            <asp:BoundField  DataField = "FechaInicio" runat="server" HeaderText = "Inicio" />
+            <asp:BoundField  DataField = "FechaFinal" runat="server" HeaderText = "Final" />
+            <asp:BoundField  DataField = "TotalDias" runat="server" HeaderText = "Cantidad de dias" />
+            <asp:BoundField  DataField = "Condicion" runat="server" HeaderText = "Estado" />
+
+                  </columns>
         </asp:GridView>
         </div>
 

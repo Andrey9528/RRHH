@@ -37,7 +37,7 @@
     
     <div class="table-responsive" >
 
-        <asp:GridView ID="GV_inca"  CssClass="table table-bordered table-condensed "    runat ="server" CellPadding="4" ForeColor="#333333" GridLines="None">
+        <asp:GridView ID="GV_inca" AutoGenerateColumns = False CssClass="table table-bordered table-condensed "    runat ="server" CellPadding="4" ForeColor="#333333" GridLines="None">
             <AlternatingRowStyle BackColor="White" />
             <EditRowStyle BackColor="#7C6F57" />
             <EmptyDataRowStyle Font-Names="Broadway" />
@@ -50,7 +50,20 @@
             <SortedAscendingHeaderStyle BackColor="#246B61" />
             <SortedDescendingCellStyle BackColor="#D4DFE1" />
             <SortedDescendingHeaderStyle BackColor="#15524A" />
-
+            <Columns runat="server" >         
+                <asp:BoundField  DataField = "IdIncapacidad" runat="server" HeaderText = "N. Incapacidad" />
+                <asp:BoundField  DataField = "Cedula" runat="server" HeaderText = "Cédula" />
+                <asp:BoundField  DataField = "Fecha_Inicio" runat="server" HeaderText = "Inicio" />
+                <asp:BoundField  DataField = "Fecha_finalizacion" runat="server" HeaderText = "Finalización" />
+                <asp:BoundField  DataField = "CantidadDias" runat="server" HeaderText = "Cantidad de dias" />
+                <asp:BoundField  DataField = "TipoIncapacidad" runat="server" HeaderText = "Tipo" />
+                <asp:BoundField  DataField = "Descripcion" runat="server" HeaderText = "Descripción" />
+                <asp:BoundField  DataField = "FechaEmision" runat="server" HeaderText = "Fecha de Emisión" />
+                <asp:BoundField  DataField = "CentroEmisor" runat="server" HeaderText = "Emisor" />
+                <asp:BoundField  DataField = "NombreDoctor" runat="server" HeaderText = "Doctor" />
+                <asp:BoundField  DataField = "Estado" runat="server" HeaderText = "Estado" />
+    
+             </Columns>
         </asp:GridView>
 
     </div>

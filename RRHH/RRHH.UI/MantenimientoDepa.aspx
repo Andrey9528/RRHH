@@ -119,7 +119,7 @@
 
 
     <div class="table-responsive">
-        <asp:GridView ID="Gv_datos" runat="server" CssClass="table table-bordered" CellPadding="4" ForeColor="#333333" GridLines="None">
+        <asp:GridView ID="Gv_datos" runat="server" AutoGenerateColumns = False CssClass="table table-bordered" CellPadding="4" ForeColor="#333333" GridLines="None">
             <AlternatingRowStyle BackColor="White" />
             <EditRowStyle BackColor="#2461BF" />
             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -131,6 +131,15 @@
             <SortedAscendingHeaderStyle BackColor="#6D95E1" />
             <SortedDescendingCellStyle BackColor="#E9EBEF" />
             <SortedDescendingHeaderStyle BackColor="#4870BE" />
+             <Columns runat="server" >         
+                <asp:BoundField  DataField = "IdDepartamento" runat="server" HeaderText = "N. Departamento" />
+                <asp:BoundField  DataField = "Nombre" runat="server" HeaderText = "Nombre" />
+                <asp:BoundField  DataField = "EmailjefeDpto" runat="server" HeaderText = "Email" />
+                <asp:BoundField  DataField = "NombreJefe" runat="server" HeaderText = "Jefe" />
+                <asp:BoundField  DataField = "Estado" runat="server" HeaderText = "Estado" />
+           
+                  </Columns>
+
         </asp:GridView>
     </div>
 

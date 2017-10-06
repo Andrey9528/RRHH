@@ -69,7 +69,7 @@
 
     <div style="width: 969px; margin-left:-16px; margin-top:40px;">
 
-        <asp:GridView ID="gvdatos" runat="server"    CssClass="table table-responsive table-bordered " CellPadding="4" ForeColor="#333333" GridLines="None" Width="1030px">
+        <asp:GridView ID="gvdatos" runat="server" AutoGenerateColumns = False   CssClass="table table-responsive table-bordered " CellPadding="4" ForeColor="#333333" GridLines="None" Width="1030px">
             <AlternatingRowStyle BackColor="White" />
             <EditRowStyle BackColor="#2461BF" />
             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -81,6 +81,20 @@
             <SortedAscendingHeaderStyle BackColor="#6D95E1" />
             <SortedDescendingCellStyle BackColor="#E9EBEF" />
             <SortedDescendingHeaderStyle BackColor="#4870BE" />
+             <Columns runat="server" >         
+                <asp:BoundField  DataField = "IdIncapacidad" runat="server" HeaderText = "N. Incapacidad" />
+                <asp:BoundField  DataField = "Cedula" runat="server" HeaderText = "Cédula" />
+                <asp:BoundField  DataField = "Fecha_Inicio" runat="server" HeaderText = "Inicio" />
+                <asp:BoundField  DataField = "Fecha_finalizacion" runat="server" HeaderText = "Finalización" />
+                <asp:BoundField  DataField = "CantidadDias" runat="server" HeaderText = "Cantidad de dias" />
+                <asp:BoundField  DataField = "TipoIncapacidad" runat="server" HeaderText = "Tipo" />
+                <asp:BoundField  DataField = "Descripcion" runat="server" HeaderText = "Descripción" />
+                <asp:BoundField  DataField = "FechaEmision" runat="server" HeaderText = "Fecha de Emisión" />
+                <asp:BoundField  DataField = "CentroEmisor" runat="server" HeaderText = "Emisor" />
+                <asp:BoundField  DataField = "NombreDoctor" runat="server" HeaderText = "Doctor" />
+                <asp:BoundField  DataField = "Estado" runat="server" HeaderText = "Estado" />
+    
+             </Columns>
         </asp:GridView>
     </div>
        
