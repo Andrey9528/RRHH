@@ -377,7 +377,7 @@
         <div class="modal-footer">
           <asp:Button ID="btndepa" runat="server" Text="Insertar" CssClass="btn btn-success"  OnClick="btndepa_Click" />
 
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
         
         </div>
       </div>
