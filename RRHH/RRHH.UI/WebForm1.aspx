@@ -271,26 +271,20 @@
             <br />
              <asp:Label ID="lbldepa" runat="server" Text="Departamento:"></asp:Label>
             <br />
-             <asp:Label ID="lblRol" runat="server" Text="Rol:"></asp:Label>
+<%--             <asp:Label ID="lblRol" runat="server" Text="Rol:"></asp:Label>--%>
             <br />
             <p style="margin-left:280px; margin-top:-155px;"><asp:Image ID="imgPerfil" Width="170px" Height="120px" runat="server" />
                 </p>
-
-        
-
-
-
-
         </div>
         <div class="modal-footer">
-          <button style="margin-top:-30px;" type="button" class="btn btn-warning" data-dismiss="modal">Cerrar</button>
-           <div style="margin-top:-30px;"><asp:Button ID="btnsalir" CssClass="btn btn-danger" runat="server" Text="Salir"  OnClick="btnsalir_Click" />
+          <button  type="button" class="btn btn-warning" data-dismiss="modal">Cerrar</button>
+<%--           <div style="margin-top:-30px;"><asp:Button ID="btnsalir" CssClass="btn btn-danger" runat="server" Text="Salir"  OnClick="btnsalir_Click" />--%>
         </div>
             </div>
       </div>
     </div>
   </div>
-</div>
+<%--</div>--%>
 
 
     <div class="container">
@@ -321,7 +315,7 @@
             
           <asp:Button ID="btnvaca" runat="server" Text="Insertar" CssClass="btn btn-success" OnClick="btnvaca_Click"  />
             
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
         
         </div>
       </div>
