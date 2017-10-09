@@ -54,20 +54,20 @@
     
                </div>
                <br /><br />
-               <div class="form-inline">
-
-<asp:Label ID="Label7"  runat="server" Text="Fecha "></asp:Label> &nbsp; &nbsp;
-    <asp:TextBox ID="txtFechaNacimiento" CssClass="form-control" TextMode="Date" runat="server"></asp:TextBox>
-    
-               </div>
-               <br /><br />
-               <div class="form-inline">
+             <div class="form-inline">
 
  <asp:Label ID="Label9"   runat="server" Text="Rol"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
        <asp:DropDownList ID="ddlRol" class = "form-control" runat="server"></asp:DropDownList>
        
                </div>
+               <br /><br />
+               
+  <div class="form-inline col-sm-offset-2">
 
+<asp:Label ID="Label7"  runat="server" Text="Fecha Nacimiento "></asp:Label>&nbsp;&nbsp;
+    <asp:TextBox ID="txtFechaNacimiento" CssClass="form-control" TextMode="Date" runat="server"></asp:TextBox>
+    
+               </div>
            </div>
        </div>
 
