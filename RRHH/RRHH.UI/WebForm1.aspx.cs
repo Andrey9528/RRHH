@@ -27,7 +27,7 @@ namespace RRHH.UI
                 lblestadocivil.Text = "Estado Civil: " + Login.EmpleadoGlobal.EstadoCivil;
                 lblfechaNaci.Text = "Fecha nacimiento: " + Login.EmpleadoGlobal.FechaNacimiento;
                 lbldepa.Text = "Departamento: " + Singleton.opdepartamento.BuscarDepartamentos(Login.EmpleadoGlobal.IdDepartamento).Nombre;
-                lblRol.Text = "Rol: " + Singleton.oproles.BuscarRoles(Login.EmpleadoGlobal.IdRol).Nombre;
+                //lblRol.Text = "Rol: " + Singleton.oproles.BuscarRoles(Login.EmpleadoGlobal.IdRol).Nombre;
                 imgPerfil.ImageUrl = Login.EmpleadoGlobal.Imagen;
                 Image1.ImageUrl = Login.EmpleadoGlobal.Imagen;
                 lblNombre2.Text=  Login.EmpleadoGlobal.Nombre;

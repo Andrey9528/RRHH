@@ -83,7 +83,7 @@ namespace RRHH.UI
 
                         if (DDLcondicion.Text == "Aceptado")
                         {
-                        DateTime inicio = Convert.ToDateTime(txtfechainicio.Text);
+                        DateTime inicio = Convert.ToDateTime  (txtfechainicio.Text);
                         DateTime final = Convert.ToDateTime(txtfechafinal.Text);
                         gvdatos.DataSource = Singleton.opsolicitud.ListarVacaciones(inicio, final, Login.EmpleadoGlobal.Cedula, true);//Singleton.opsolicitud.BuscarsolicitudPorId(y).Where(x => x.FechaFinal == Convert.ToDateTime(DDLAño.Text) && x.Cedula == y && x.Condicion == false);
                         gvdatos.DataBind();
