@@ -140,7 +140,7 @@ namespace RRHH.UI
         {
             try
             {
-                if (AdminView.ValidarPassword(txtContraseñaActualEmpleado.Text.ToString()))
+                if (AdminView.FormatoContraseña(txtContraseñaActualEmpleado.Text.ToString()))
                 {
                     txtNuevaContraseña.Enabled = true;
                     txtNuevaContraseñaConfirmar.Enabled = true;

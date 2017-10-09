@@ -31,7 +31,7 @@ namespace RRHH.UI
             }
             }
         //
-        public static bool ValidarPassword(string contraseña)
+        public static bool FormatoContraseña(string contraseña)
         {
             try
             {
@@ -59,7 +59,7 @@ namespace RRHH.UI
         {
             try
             {
-                if (ValidarPassword(txtContraseñaActual.Text.ToString()))
+                if (FormatoContraseña(txtContraseñaActual.Text.ToString()))
                 {
                     txtNuevaContraseña.Enabled = true;
                     txtNuevaContraseñaConfirmar.Enabled = true;
@@ -83,7 +83,7 @@ namespace RRHH.UI
             {
                 if (txtNuevaContraseña.Text == txtNuevaContraseñaConfirmar.Text)
                 {
-                    if (ValidarPassword(txtNuevaContraseña.Text.ToString()))
+                    if (PasswordPolicy.FormatoContraseña(txtNuevaContraseña.Text.ToString()))
                     {
                         Empleado empleado = new Empleado()
                         {
@@ -111,7 +111,7 @@ namespace RRHH.UI
                     {
                         this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('La contraseña debe contener al menos:/n un carácter , una letra mayúscula,una letra minúscula y un numero')", true);
 
-                        ClientScript.RegisterStartupScript(GetType(), "Modal", "popup();", true);
+                        //ClientScript.RegisterStartupScript(GetType(), "Modal", "popup();", true);
 
                     }
                 }

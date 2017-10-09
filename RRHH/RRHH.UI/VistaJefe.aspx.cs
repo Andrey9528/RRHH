@@ -38,7 +38,7 @@ namespace RRHH.UI
         {
             try
             {
-                if (AdminView.ValidarPassword(txtContraseñaActualJefe.Text.ToString()))
+                if (AdminView.FormatoContraseña(txtContraseñaActualJefe.Text.ToString()))
                 {
                     txtNuevaContraseña.Enabled = true;
                     txtNuevaContraseñaConfirmar.Enabled = true;

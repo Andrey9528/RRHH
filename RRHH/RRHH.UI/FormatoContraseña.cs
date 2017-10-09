@@ -6,7 +6,7 @@ using System.Web;
 
 namespace RRHH.UI
 {
-    public class ValidarPassword
+    public class PasswordPolicy
     {
         public static bool FormatoContraseña(string Password)
         {
