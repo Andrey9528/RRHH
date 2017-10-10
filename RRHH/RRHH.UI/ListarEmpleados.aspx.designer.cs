@@ -13,6 +13,24 @@ namespace RRHH.UI {
     public partial class Lista_de_Empleados {
         
         /// <summary>
+        /// mensajeError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl mensajeError;
+        
+        /// <summary>
+        /// textoMensajeError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl textoMensajeError;
+        
+        /// <summary>
         /// DDLActivos control.
         /// </summary>
         /// <remarks>

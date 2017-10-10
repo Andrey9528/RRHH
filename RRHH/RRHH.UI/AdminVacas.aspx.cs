@@ -52,7 +52,18 @@ namespace RRHH.UI
         {
             try
             {
-                List<SolicitudVacaciones> lista = Singleton.opsolicitud.Listarsolicitudes();
+                if (string.IsNullOrEmpty(txtfechaincio.Text) && string.IsNullOrEmpty(txtfechafinal.Text))
+                {
+                    mensajeError.Visible = false;
+                    mensajawarning.Visible = false;
+                    mensaje.Visible = false;
+                    mensajeinfo.Visible = true;
+                    textomensajeinfo.InnerHtml = "Los campos son requeridos";
+
+                }
+                else
+                {
+ List<SolicitudVacaciones> lista = Singleton.opsolicitud.Listarsolicitudes();
                 var vaca = lista.FirstOrDefault(x => x.IdSolicitud == Convert.ToInt32(DDLidsoli.Text));
 
 
@@ -91,12 +102,19 @@ namespace RRHH.UI
                     textoMensajeError.InnerHtml = "Cantidad de dias incorrecta";
 
                 }
+                }
+               
 
 
             }
             catch (Exception)
             {
-                throw;
+                mensajeError.Visible = true;
+                mensajawarning.Visible = false;
+                mensaje.Visible = false;
+                mensajeinfo.Visible = false;
+                textoMensajeError.InnerHtml = "Hubo un error";
+
             }
         }
 

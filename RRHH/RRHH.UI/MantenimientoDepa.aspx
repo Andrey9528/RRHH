@@ -66,7 +66,7 @@
            </asp:DropDownList>
          
        <div style="margin-left:300px; margin-top:-24px; width: 75px;">
-           <asp:Label ID="Label4" runat="server" Text="Activo:"></asp:Label>
+           <asp:Label ID="lblActivo" runat="server" Visible="false" Text="Activo:"></asp:Label>
 
        </div>
             <div style="width:137px; margin-left:350px; margin-top:-17px;">

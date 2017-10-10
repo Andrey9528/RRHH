@@ -43,13 +43,17 @@ namespace RRHH.UI
             catch (Exception)
             {
 
-                throw;
+                mensajeError.Visible = true;
+                textoMensajeError.InnerHtml = "Hubo un error";
             }
         }
 
         protected void DDLActivos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            List<Empleado> listar = Singleton.OpEmpleados.ListarEmpleados();
+            try
+
+            {
+ List<Empleado> listar = Singleton.OpEmpleados.ListarEmpleados();
             var listaEmple = listar.Select(x => new {x.Cedula, x.Nombre, x.Direccion, x.Telefono, x.Correo, x.EstadoCivil, x.Genero, x.FechaNacimiento, x.Estado,x.Imagen });
 
             if (DDLActivos.Text == "Activo" && EmpleaoGlobal.Estado==true )
@@ -57,7 +61,7 @@ namespace RRHH.UI
 
                 //lv_datos.DataSource = listaEmple.Where(x => x.Estado == true);
                 //lv_datos.DataBind();
-
+                mensajeError.Visible = false;
                 GV_personas.DataSource = listaEmple.Where(x => x.Estado == true);
                GV_personas.DataBind();
             }
@@ -66,15 +70,27 @@ namespace RRHH.UI
 
                 //lv_datos.DataSource = listaEmple.Where(x => x.Estado == false);
                 //lv_datos.DataBind();
+                mensajeError.Visible = false;
                 GV_personas.DataSource = listaEmple.Where(x => x.Estado == false);
                GV_personas.DataBind();
 
             }
+
+            }
+
+            catch
+            {
+
+                mensajeError.Visible = true;
+                textoMensajeError.InnerHtml = "Hubo un error";
+            }
+           
         }
 
         protected void btnPDF_Click(object sender, EventArgs e)
         {
-            CargarPdf(GV_personas);
+
+            //CargarPdf(GV_personas);
         }
         public override void VerifyRenderingInServerForm(Control control)
         {

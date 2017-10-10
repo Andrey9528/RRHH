@@ -31,6 +31,42 @@ namespace RRHH.UI {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl textoMensaje;
         
         /// <summary>
+        /// mensajeError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl mensajeError;
+        
+        /// <summary>
+        /// textomensajeError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl textomensajeError;
+        
+        /// <summary>
+        /// mensajeInfo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl mensajeInfo;
+        
+        /// <summary>
+        /// textomensajeInfo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl textomensajeInfo;
+        
+        /// <summary>
         /// Label1 control.
         /// </summary>
         /// <remarks>

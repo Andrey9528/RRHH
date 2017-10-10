@@ -21,7 +21,21 @@ namespace RRHH.UI
         {
             try
             {
-                //Incapacidad inca = new Incapacidad();
+
+                if (string.IsNullOrEmpty(txtcedula.Text))
+                {
+                    mensajeError.Visible = false;
+                    mensaje.Visible = false;
+                    mensajeinfo.Visible = true;
+                    mensajawarning.Visible = false;
+                    textomensajeinfo.InnerHtml = "La cedula es requerida";
+
+                }
+                else
+
+                {
+                    
+                    //Incapacidad inca = new Incapacidad();
                 //inca = Singleton.opIncapacidad.BuscarIncapacidad(Convert.ToInt32(txtcedula.Text));
                 Inca = Singleton.opIncapacidad.BuscarIncapacidadPorCedula(txtcedula.Text);
 
@@ -58,10 +72,17 @@ namespace RRHH.UI
                     textoMensajeError.InnerHtml = "Cedula incorrecta";
                 }
 
+                }
+                
+
             }
             catch
             {
-                throw;
+                mensajeError.Visible = true;
+                textoMensajeError.InnerHtml = "Hubo un error";
+                mensajeinfo.Visible = false;
+                mensaje.Visible = false;
+                mensajawarning.Visible = false;
             }
         }
 
@@ -223,7 +244,11 @@ namespace RRHH.UI
             catch (Exception)
             {
 
-                throw;
+                mensajeError.Visible = true;
+                mensajeinfo.Visible = false;
+                mensaje.Visible = false;
+                mensajawarning.Visible = false;
+                textoMensajeError.InnerHtml = "Hubo un error";
             }
         }
 

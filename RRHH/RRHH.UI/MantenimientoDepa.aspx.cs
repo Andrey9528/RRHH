@@ -30,6 +30,8 @@ namespace RRHH.UI
                 var depa = lista.FirstOrDefault(x => x.Nombre == DDLdepa.Text);
                 if (depa != null)
                 {
+                    lblActivo.Visible = true;
+                    Chk_estado.Visible = true;
                     Chk_estado.Enabled = true;
                     DDLdepa.Enabled = false;
                     mantenimientoDepa.Visible = true;

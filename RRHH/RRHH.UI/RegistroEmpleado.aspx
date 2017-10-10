@@ -18,7 +18,15 @@
     <div class="alert alert-success" visible="false"  id="mensaje" runat="server">
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times</a>
              <strong id="textoMensaje" runat="server"></strong>
-        </div>        
+        </div> 
+     <div class="alert alert-danger" visible="false"  id="mensajeError" runat="server">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times</a>
+             <strong id="textomensajeError" runat="server"></strong>
+        </div>  
+    <div class="alert alert-info" visible="false"  id="mensajeInfo" runat="server">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times</a>
+             <strong id="textomensajeInfo" runat="server"></strong>
+        </div>      
    
      <h1 style="font-size:30px; font-family:cursive; text-align:center; ">Agregar Empleado</h1>
   

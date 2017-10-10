@@ -39,6 +39,15 @@ namespace RRHH.UI
                 
                 try
                 {
+                    if (string.IsNullOrEmpty(txtDireccion.Text) && string.IsNullOrEmpty(txtNombre.Text) && string.IsNullOrEmpty(txtCorreo.Text) && string.IsNullOrEmpty(txtCedula.Text) && string.IsNullOrEmpty(txtFechaNacimiento.Text) && string.IsNullOrEmpty(txtTelefono.Text))
+                    {
+                        mensaje.Visible = false;
+                        mensajeError.Visible = false;
+                        mensajeInfo.Visible = true;
+                        textomensajeInfo.InnerHtml = "Los campos son requeridos";
+                    }
+                    else
+                    {
                     string nombrearchivo = Path.GetFileName(fileUpload1.FileName);
                     fileUpload1.SaveAs(Server.MapPath("~/Empleados/" + nombrearchivo));
 
@@ -72,7 +81,9 @@ namespace RRHH.UI
                     };
                     Singleton.OpEmpleados.InsertarEmpleados(emple);
                     mensaje.Visible = true;
-                    textoMensaje.InnerHtml = "Usuario agregado y correo enviado";
+                    mensajeError.Visible = false;
+                    mensajeInfo.Visible = false;
+                     textoMensaje.InnerHtml = "Usuario agregado y correo enviado";
                     cliente.EnableSsl = true;
                     cliente.Credentials = new NetworkCredential("soporte.biblioteca@hotmail.com", "soporte123.");
                     MailMessage mensajeC = new MailMessage("soporte.biblioteca@hotmail.com", txtCorreo.Text, "Creación de cuenta", "Se ha creado una nueva cuenta para tu usuario" + txtCorreo.Text + "con la contraseña: " + contrasena + "por motivos de seguridad, te recomendamos cambiar la contraseña una vez que ingreses");
@@ -85,18 +96,42 @@ namespace RRHH.UI
                     txtCorreo.Text = string.Empty;
 
 
+                    }
+                   
+                  
                 }
                 catch (Exception)
                 {
-                    throw;
+                    mensajeInfo.Visible = false;
+                    mensaje.Visible = false;
+                    mensajeError.Visible = true;
+                    textomensajeError.InnerHtml = "Hubo un error";
                 }
             }
         
         }
+        public void limpiar()
+        {
+            txtCedula.Text = string.Empty;
+            txtNombre.Text = string.Empty;
+            txtTelefono.Text = string.Empty;
+            txtCorreo.Text = string.Empty;
+            txtFechaNacimiento.Text = string.Empty;
+            txtDireccion.Text = string.Empty;
+
+        }
 
         protected void btnLimpiar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                limpiar();
+            }
+            catch
+            {
 
+               
+            }
         }
         
 
