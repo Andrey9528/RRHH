@@ -115,7 +115,11 @@ namespace RRHH.UI
             }
             catch (Exception)
             {
-                throw;
+                mensajawarning.Visible = false;
+                mensajeinfo.Visible = false;
+                mensaje.Visible = false;
+                mensajeError.Visible = true;
+                textomensajeError.InnerHtml = "Hubo un error";
             }
 
 
@@ -169,27 +173,42 @@ namespace RRHH.UI
             {
                 if (txtNuevaContraseña.Text == txtNuevaContraseñaConfirmar.Text)
                 {
-                    Empleado empleado = new Empleado()
-                    {
-                        Cedula = Login.EmpleadoGlobal.Cedula,
-                        Nombre = Login.EmpleadoGlobal.Nombre,
-                        Direccion = Login.EmpleadoGlobal.Direccion,
-                        Telefono = Login.EmpleadoGlobal.Telefono,
-                        Correo = Login.EmpleadoGlobal.Correo,
-                        EstadoCivil = Login.EmpleadoGlobal.EstadoCivil,
-                        Password = Encriptacion.Encriptar(txtNuevaContraseñaConfirmar.Text, Encriptacion.Llave),
-                        FechaNacimiento = Login.EmpleadoGlobal.FechaNacimiento,
-                        IdDepartamento = Login.EmpleadoGlobal.IdDepartamento,
-                        IdRol = Login.EmpleadoGlobal.IdRol,
-                        Imagen = Login.EmpleadoGlobal.Imagen,
-                        Genero = Login.EmpleadoGlobal.Genero,
-                        Estado = true
-                    };
-                    Singleton.OpEmpleados.ActualizarEmpleados(empleado);
-                    //this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('La contraseña ha sido modificada, por favor vuelve a iniciar sesión')", true);
-                    Singleton.opAudiEmple.InsertarAuditoriasEmpleado(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, false, false, false, false, false, false, true, false, false, false);
+                    if (PasswordPolicy.FormatoContraseña(txtNuevaContraseña.Text))
 
-                    Response.Redirect("Login.aspx");
+                    {
+
+
+
+
+                        Empleado empleado = new Empleado()
+                        {
+                            Cedula = Login.EmpleadoGlobal.Cedula,
+                            Nombre = Login.EmpleadoGlobal.Nombre,
+                            Direccion = Login.EmpleadoGlobal.Direccion,
+                            Telefono = Login.EmpleadoGlobal.Telefono,
+                            Correo = Login.EmpleadoGlobal.Correo,
+                            EstadoCivil = Login.EmpleadoGlobal.EstadoCivil,
+                            Password = Encriptacion.Encriptar(txtNuevaContraseñaConfirmar.Text, Encriptacion.Llave),
+                            FechaNacimiento = Login.EmpleadoGlobal.FechaNacimiento,
+                            IdDepartamento = Login.EmpleadoGlobal.IdDepartamento,
+                            IdRol = Login.EmpleadoGlobal.IdRol,
+                            Imagen = Login.EmpleadoGlobal.Imagen,
+                            Genero = Login.EmpleadoGlobal.Genero,
+                            Estado = true
+                        };
+                        Singleton.OpEmpleados.ActualizarEmpleados(empleado);
+                        //this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('La contraseña ha sido modificada, por favor vuelve a iniciar sesión')", true);
+                        Singleton.opAudiEmple.InsertarAuditoriasEmpleado(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, false, false, false, false, false, false, true, false, false, false);
+
+                        Response.Redirect("Login.aspx");
+                    }
+                    else
+                    {
+                        this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('La contraseña debe contener al menos:/n un carácter , una letra mayúscula,una letra minúscula y un numero')", true);
+
+                        //ClientScript.RegisterStartupScript(GetType(), "Modal", "popup();", true);
+
+                    }
                 }
                 else
                 {

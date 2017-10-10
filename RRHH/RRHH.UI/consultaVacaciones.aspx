@@ -73,8 +73,8 @@
 
 
     <div style="width: 969px; margin-left:84px; margin-top:40px;">
-
-        <asp:GridView ID="gvdatos" runat="server" AutoGenerateColumns = False   CssClass="table table-responsive table-bordered " CellPadding="4" ForeColor="#333333" GridLines="None" Width="1030px">
+        <%-- AutoGenerateColumns = False  --%>
+        <asp:GridView ID="gvdatos" runat="server"   AutoGenerateColumns = False CssClass="table table-responsive table-bordered " CellPadding="4" ForeColor="#333333" GridLines="None" Width="1030px">
             <AlternatingRowStyle BackColor="White" />
             <EditRowStyle BackColor="#2461BF" />
             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -88,7 +88,7 @@
             <SortedDescendingHeaderStyle BackColor="#4870BE" />
             <Columns runat="server" >         
                 <asp:BoundField  DataField = "IdSolicitud" runat="server" HeaderText = "N. Solicitud" />
-                <asp:BoundField  DataField = "Cedula" runat="server" HeaderText = "Cédula" />
+               <%-- <asp:BoundField  DataField = "Cedula"  runat="server"  HeaderText = "Cédula" />--%>
                 <asp:BoundField  DataField = "FechaInicio" runat="server" HeaderText = "Inicio" />
                 <asp:BoundField  DataField = "FechaFinal" runat="server" HeaderText = "Final" />
                 <asp:BoundField  DataField = "TotalDias" runat="server" HeaderText = "Cantidad de días" />

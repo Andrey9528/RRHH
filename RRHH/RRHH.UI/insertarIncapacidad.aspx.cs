@@ -57,7 +57,7 @@ namespace RRHH.UI
                 //    mensajawarning.Visible = false;
                 //    textoMensajeError.InnerHtml = "Los campos son requeridos";
                 //}
-                
+
                 else
                 {
                     mensajeError.Visible = true;
@@ -72,7 +72,11 @@ namespace RRHH.UI
             catch (Exception)
             {
 
-                throw;
+                mensajawarning.Visible = false;
+                mensajeError.Visible = true;
+                mensaje.Visible = false;
+                mensajeinfo.Visible = false;
+                textoMensajeError.InnerHtml = "Hubo un error";
             }
         }
         public bool ValidacionDias(string fechaFinal, string fechadeInicio)

@@ -22,15 +22,15 @@ namespace RRHH.UI
                 lblestadocivil.Text = "Estado Civil: " + Login.EmpleadoGlobal.EstadoCivil;
                 lblfechaNaci.Text = "Fecha nacimiento: " + Login.EmpleadoGlobal.FechaNacimiento;
                 lbldepa.Text = "Departamento: " + Singleton.opdepartamento.BuscarDepartamentos(Login.EmpleadoGlobal.IdDepartamento).Nombre;
-                lblRol.Text = "Rol: " + Singleton.oproles.BuscarRoles(Login.EmpleadoGlobal.IdRol).Nombre;
+                //lblRol.Text = "Rol: " + Singleton.oproles.BuscarRoles(Login.EmpleadoGlobal.IdRol).Nombre;
                 imgPerfil.ImageUrl = Login.EmpleadoGlobal.Imagen;
                 imgPerfil2.ImageUrl = Login.EmpleadoGlobal.Imagen;
 
             }
-            catch (Exception)
+            catch 
             {
 
-                throw;
+                
             }
         }
 
@@ -63,26 +63,37 @@ namespace RRHH.UI
             {
                 if (txtNuevaContraseña.Text == txtNuevaContraseñaConfirmar.Text)
                 {
-                    Empleado empleado = new Empleado()
+                    if (PasswordPolicy.FormatoContraseña(txtNuevaContraseñaConfirmar.Text))
                     {
-                        Cedula = Login.EmpleadoGlobal.Cedula,
-                        Nombre = Login.EmpleadoGlobal.Nombre,
-                        Direccion = Login.EmpleadoGlobal.Direccion,
-                        Telefono = Login.EmpleadoGlobal.Telefono,
-                        Correo = Login.EmpleadoGlobal.Correo,
-                        EstadoCivil = Login.EmpleadoGlobal.EstadoCivil,
-                        Password = Encriptacion.Encriptar(txtNuevaContraseñaConfirmar.Text, Encriptacion.Llave),
-                        FechaNacimiento = Login.EmpleadoGlobal.FechaNacimiento,
-                        IdDepartamento = Login.EmpleadoGlobal.IdDepartamento,
-                        IdRol = Login.EmpleadoGlobal.IdRol,
-                        Genero = Login.EmpleadoGlobal.Genero,
-                        Imagen = Login.EmpleadoGlobal.Imagen,
-                        Estado = true
-                    };
-                    Singleton.OpEmpleados.ActualizarEmpleados(empleado);
-                    //this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('La contraseña ha sido modificada, por favor vuelve a iniciar sesión')", true);
 
-                    Response.Redirect("Login.aspx");
+                        Empleado empleado = new Empleado()
+                        {
+                            Cedula = Login.EmpleadoGlobal.Cedula,
+                            Nombre = Login.EmpleadoGlobal.Nombre,
+                            Direccion = Login.EmpleadoGlobal.Direccion,
+                            Telefono = Login.EmpleadoGlobal.Telefono,
+                            Correo = Login.EmpleadoGlobal.Correo,
+                            EstadoCivil = Login.EmpleadoGlobal.EstadoCivil,
+                            Password = Encriptacion.Encriptar(txtNuevaContraseñaConfirmar.Text, Encriptacion.Llave),
+                            FechaNacimiento = Login.EmpleadoGlobal.FechaNacimiento,
+                            IdDepartamento = Login.EmpleadoGlobal.IdDepartamento,
+                            IdRol = Login.EmpleadoGlobal.IdRol,
+                            Genero = Login.EmpleadoGlobal.Genero,
+                            Imagen = Login.EmpleadoGlobal.Imagen,
+                            Estado = true
+                        };
+                        Singleton.OpEmpleados.ActualizarEmpleados(empleado);
+                        //this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('La contraseña ha sido modificada, por favor vuelve a iniciar sesión')", true);
+
+                        Response.Redirect("Login.aspx");
+                    }
+                    else
+                    {
+                        this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('La contraseña debe contener al menos:/n un carácter , una letra mayúscula,una letra minúscula y un numero')", true);
+
+                        //ClientScript.RegisterStartupScript(GetType(), "Modal", "popup();", true);
+
+                    }
                 }
                 else
                 {

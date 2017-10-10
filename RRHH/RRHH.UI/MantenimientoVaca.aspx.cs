@@ -24,35 +24,68 @@ namespace RRHH.UI
         {
             try
             {
-                 empleado = Singleton.OpEmpleados.BuscarEmpleados(txtcedula.Text);
-                
-                //List<Empleado> listaEmpleados = Singleton.OpEmpleados.BuscarEmpleados(txtcedula.Text);
-               
-               
-                if (empleado != null)
+                if (string.IsNullOrEmpty(txtcedula.Text))
                 {
-                    gvdatos.DataSource = Singleton.opsolicitud.Listarsolicitudes().Where(x=>x.Cedula==empleado.Cedula);
-                    //var lista = Singleton.opsolicitud.BuscarsolicitudPorId2(empleado.Cedula).Select(x => x.IdSolicitud).ToList();
-                    gvdatos.DataSource = Singleton.opsolicitud.Listarsolicitudes().Where(x => x.Cedula == empleado.Cedula);
-                    gvdatos.DataBind();
-                }
-                else
-                {
-
-                     
-                    mensajeError.Visible = true;
+                    mensajeinfo.Visible = true;
                     mensaje.Visible = false;
                     mensajawarning.Visible = false;
-                    mensajeinfo.Visible = false;
-                    textoMensajeError.InnerHtml = "Empleado no existe";
+                    mensajeError.Visible = false;
+                    textomensajeinfo.InnerHtml = "Cedula es requerida";
+                }
+                else
+
+
+                {
+
+
+
+
+                    empleado = Singleton.OpEmpleados.BuscarEmpleados(txtcedula.Text);
+
+                    //List<Empleado> listaEmpleados = Singleton.OpEmpleados.BuscarEmpleados(txtcedula.Text);
+
+
+                    if (empleado != null)
+                    {
+                        mensajeError.Visible = false;
+                        mensaje.Visible = false;
+                        mensajawarning.Visible = false;
+                        mensajeinfo.Visible = false;
+                        gvdatos.DataSource = Singleton.opsolicitud.Listarsolicitudes().Where(x => x.Cedula == empleado.Cedula);
+                        //var lista = Singleton.opsolicitud.BuscarsolicitudPorId2(empleado.Cedula).Select(x => x.IdSolicitud).ToList();
+                        gvdatos.DataSource = Singleton.opsolicitud.Listarsolicitudes().Where(x => x.Cedula == empleado.Cedula);
+                        gvdatos.DataBind();
+                    }
+                    else
+                    {
+
+
+                        mensajeError.Visible = true;
+                        mensaje.Visible = false;
+                        mensajawarning.Visible = false;
+                        mensajeinfo.Visible = false;
+                        textoMensajeError.InnerHtml = "Empleado no existe";
+
+                    }
+
+                    DDLidsolicitud.DataSource = Singleton.opsolicitud.BuscarsolicitudPorId(empleado.Cedula).Select(x => x.IdSolicitud); //Singleton.opsolicitud.Listarsolicitudes().Select(x=>x.IdSolicitud).ToList();
+                    DDLidsolicitud.DataBind();
+
+
 
                 }
 
-                DDLidsolicitud.DataSource =  Singleton.opsolicitud.BuscarsolicitudPorId(empleado.Cedula).Select(x=> x.IdSolicitud); //Singleton.opsolicitud.Listarsolicitudes().Select(x=>x.IdSolicitud).ToList();
-                DDLidsolicitud.DataBind();
+
+                   
             }
             catch
             {
+
+                mensajeinfo.Visible = false;
+                mensajeError.Visible = true;
+                mensajawarning.Visible = false;
+                mensaje.Visible = false;
+                textoMensajeError.InnerHtml = "Hubo un error";
             }
         }
 
@@ -185,20 +218,35 @@ namespace RRHH.UI
                 catch (Exception)
                 {
 
-                    throw;
+                mensajeinfo.Visible = false;
+                mensaje.Visible = false;
+                mensajawarning.Visible = false;
+                mensajeError.Visible = true;
+                textoMensajeError.InnerHtml = "Hubo un error";
+
                 }
             
         }
 
         private void EnvioCorreo()
         {
-            var cedula = Singleton.opsolicitud.BuscarSolicitud(Convert.ToInt32(DDLidsolicitud.Text)).Cedula;
+            try
+            {
+                var cedula = Singleton.opsolicitud.BuscarSolicitud(Convert.ToInt32(DDLidsolicitud.Text)).Cedula;
 
-            var correo = Singleton.OpEmpleados.BuscarEmpleados(cedula).Correo;
-            var nombre = Singleton.OpEmpleados.BuscarEmpleados(cedula).Nombre;
+                var correo = Singleton.OpEmpleados.BuscarEmpleados(cedula).Correo;
+                var nombre = Singleton.OpEmpleados.BuscarEmpleados(cedula).Nombre;
 
-            Email.Notificacion("soporte.biblioteca@hotmail.com", "soporte123.", correo, "Estado de solicitud de vacaciones", "se ha aprobado su solicitud de vacaciones para el empleado \nNombre:" + nombre + "\nUsuario:" + correo);
-
+                Email.Notificacion("soporte.biblioteca@hotmail.com", "soporte123.", correo, "Estado de solicitud de vacaciones", "se ha aprobado su solicitud de vacaciones para el empleado \nNombre:" + nombre + "\nUsuario:" + correo);
+            }
+            catch
+            {
+                mensajeinfo.Visible = false;
+                mensaje.Visible = false;
+                mensajawarning.Visible = false;
+                mensajeError.Visible = true;
+                textoMensajeError.InnerHtml = "Hubo un error";
+            }
         }
     }
    

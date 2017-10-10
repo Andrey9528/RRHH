@@ -13,6 +13,12 @@
         }
 </style>
 
+     <div class="aler alert-danger" visible="false" id="mensajeError" runat="server">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times</a>
+            <strong id="textoMensajeError" runat="server"></strong>
+
+        </div>
+
     <h1 style="text-align:center; font-family:cursive; font-size:27px;">Lista de empleados</h1>
    <br />
     <br />

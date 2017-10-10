@@ -13,22 +13,44 @@ namespace RRHH.UI
         Incapacidad IncapacidadGlobal = new Incapacidad();
         protected void Page_Load(object sender, EventArgs e)
         {
+            try {
             GV_inca.DataSource = Singleton.opIncapacidad.ListarIncapacidades().Where(X=>X.Estado==true);
             GV_inca.DataBind();
 
+            }
+            catch
+            {
+                mensajeError.Visible = true;
+                textoMensajeError.InnerHtml = "Hubo un error";
+            }
+           
         }
 
         protected void DDLEstado_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (DDLEstado.Text == "Registradas")
+
+            try
             {
-                GV_inca.DataSource = Singleton.opIncapacidad.ListarIncapacidades().Where(X => X.Estado == true);
-                GV_inca.DataBind();
+                if (DDLEstado.Text == "Registradas")
+                {
+                    mensajeError.Visible = false;
+                   
+                    GV_inca.DataSource = Singleton.opIncapacidad.ListarIncapacidades().Where(X => X.Estado == true);
+                    GV_inca.DataBind();
+                }
+                else if (DDLEstado.Text == "No registradas")
+                {
+                    mensajeError.Visible = false;
+
+                    GV_inca.DataSource = Singleton.opIncapacidad.ListarIncapacidades().Where(X => X.Estado == false);
+                    GV_inca.DataBind();
+                }
             }
-            else if(DDLEstado.Text=="No registradas")
+            catch
             {
-                GV_inca.DataSource = Singleton.opIncapacidad.ListarIncapacidades().Where(X => X.Estado ==false);
-                GV_inca.DataBind();
+                mensajeError.Visible = true;
+                textoMensajeError.InnerHtml = "Hubo un error";
+
             }
         }
     }

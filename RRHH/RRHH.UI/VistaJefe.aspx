@@ -308,7 +308,7 @@ body {font-family: Verdana, sans-serif;}
                           <div class="modal-content" style="margin-top:100px;">
                               <div class="modal-header">
                                   <button class="close"  data-dismiss="modal">&times;</button>
-                                  <h4 class="model-tittle">Olvidé mi contraseña</h4>
+                                  <h4 class="model-tittle">Cambio de contraseña</h4>
 
 
                               </div>
@@ -374,9 +374,8 @@ body {font-family: Verdana, sans-serif;}
              <asp:Label ID="lblfechaNaci" runat="server" Text="Fecha de nacimiento:"></asp:Label>
             <br />
              <asp:Label ID="lbldepa" runat="server" Text="Departamento:"></asp:Label>
-            <br />
-             <asp:Label ID="lblRol" runat="server" Text="Rol:"></asp:Label>
-            <br />
+         
+            
             <p style="margin-left:280px; margin-top:-155px;">
                 <asp:Image ID="imgPerfil" Width="150px" Height="120px" runat="server" />
                 

@@ -354,7 +354,7 @@
      <div class="container">
   
  
-  <div class="modal fade" id="depa" role="dialog">
+  <div class="modal fade" data-keyboard="false" data-backdrop="static" id="depa" role="dialog">
        
     <div class="modal-dialog modal-sm">
        
@@ -365,7 +365,7 @@
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Insertar Departamentos</h4>
         </div>
-        <div class="modal-body">
+        <div class="modal-body ">
           
          <asp:Label ID="Label4" runat="server" Text="Nombre del departamento:"></asp:Label>
          <asp:TextBox ID="txtnombre" CssClass="form-control" runat="server"></asp:TextBox>
@@ -388,7 +388,7 @@
    
         <div class="container"  >
   
-  <div class="modal fade" id="Miperfil" role="dialog">
+  <div class="modal fade" data-keyboard="false" data-backdrop="static" id="Miperfil" role="dialog">
     <div class="modal-dialog modal-sm">
       <div class="modal-content " style=" margin-top:130px; margin-left:35px; height:300px; width:500px;">
         <div class="modal-header">
