@@ -19,6 +19,11 @@ namespace RRHH.UI
         {
             try
             {
+
+                mensajawarning.Visible = false;
+                mensajeError.Visible = false;
+                mensajeinfo.Visible = false;
+                mensaje.Visible = false;
                 lblnombre.Text = "Nombre: " + Login.EmpleadoGlobal.Nombre;
                 lblCedula.Text = "Cédula:" + Login.EmpleadoGlobal.Cedula;
                 lblDirreccion.Text = "Dirreccion:" + Login.EmpleadoGlobal.Direccion;
@@ -32,7 +37,7 @@ namespace RRHH.UI
                 Image1.ImageUrl = Login.EmpleadoGlobal.Imagen;
                 lblNombre2.Text=  Login.EmpleadoGlobal.Nombre;
                 lblcorreo2.Text= "Correo: " + Login.EmpleadoGlobal.Correo; 
-                lbldirreccion2.Text= "Dirreccion:" + Login.EmpleadoGlobal.Direccion;
+                lbldirreccion2.Text= "Dirección:" + Login.EmpleadoGlobal.Direccion;
                 lblGenero2.Text = "Genero:" + Login.EmpleadoGlobal.Genero;
             }
             catch

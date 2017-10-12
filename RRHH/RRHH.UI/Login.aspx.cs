@@ -74,6 +74,7 @@ namespace RRHH.UI
                                 //Sigleton.OpAuditoria.InsertarEnLogin(PersonaGlobal.Cedula, PersonaGlobal.Nombre, PersonaGlobal.PrimerApellido);
                                 if (EmpleadoGlobal.IdRol == 1)
                                 {
+                                    
                                     Empleado emple = new Empleado()
                                     {
                                         Cedula = EmpleadoGlobal.Cedula,
@@ -95,7 +96,7 @@ namespace RRHH.UI
                                     };
                                     Singleton.OpEmpleados.ActualizarEmpleados(emple);
                                     Singleton.opAudiEmple.InsertarAuditoriasEmpleado(EmpleadoGlobal.Nombre, EmpleadoGlobal.Cedula, false, false, false, false, false, false, false, false, false, true, false);
-                                    Response.Redirect("WebForm1.aspx");
+                                    Response.Redirect("Error.aspx");
                                 }
                                 else if (EmpleadoGlobal.IdRol == 2 && EmpleadoGlobal.Bloqueado == false)
                                 {
@@ -126,8 +127,11 @@ namespace RRHH.UI
                                 }
                                 else if (EmpleadoGlobal.IdRol == 3 && EmpleadoGlobal.Bloqueado == false)
                                 {
+                                    Session["ROL"] = EmpleadoGlobal.IdRol;
+                                    
                                     Empleado emple = new Empleado()
                                     {
+                                       
                                         Cedula = EmpleadoGlobal.Cedula,
                                         Nombre = EmpleadoGlobal.Nombre,
                                         Direccion = EmpleadoGlobal.Direccion,
@@ -148,7 +152,7 @@ namespace RRHH.UI
                                     };
                                     Singleton.OpEmpleados.ActualizarEmpleados(emple);
                                     Singleton.opaudi.InsertarAuditoriasAdmin(EmpleadoGlobal.Nombre, EmpleadoGlobal.Cedula, true, false, false, false, false, false, false, false, false, false, false, false, false, false);
-                                    Response.Redirect("AdminView.aspx");
+                                    Response.Redirect("AdminView.aspx?ROL="+EmpleadoGlobal.IdRol);
                                 }
                             }
 
