@@ -201,7 +201,7 @@
      </div>
    
     
-       <nav   style="margin-top:-40px;   border-radius:10px; background-color:#04acec; color:white;"   class="  navbar-inverse col-xs-10 col-sm-offset-2 ">
+       <nav   style="margin-top:-40px;   border-radius:10px; background-color:#04acec; color:white;"   class="  navbar-inverse col-sm-10 col-sm-offset-2 ">
   <div class="container-fluid"  >
         <div class="navbar-header">	
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -214,7 +214,14 @@
   
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class=""><a style="background-color:#04acec; font-size:14px; color:white; font-family:cursive;" href="AdminView.aspx">Home</a></li>
+        <li class="active" style="margin-top:10px; color:white;">
+            
+
+       <div style="color:white; "><asp:Button CssClass="btn btn-link" ID="btnHome" runat="server" Text="Home"    OnClick="btnHome_Click" />
+            </div>
+            
+
+        </li>
 
            <li class="dropdown">
           
@@ -269,7 +276,7 @@
             
           </ul>
         </li>
-        <li><a style="color:white; font-size:14px; " href="#">Ayuda</a></l>
+        <li><a style="color:white; font-size:14px; " href="#">Ayuda</a></li>
         <li class="dropdown">
           
           <a class="dropdown-toggle"  style="background-color:#04acec; font-size:14px;  color:white; font-family:cursive;" data-toggle="dropdown" href="#">Administración<span class="caret"></span></a>

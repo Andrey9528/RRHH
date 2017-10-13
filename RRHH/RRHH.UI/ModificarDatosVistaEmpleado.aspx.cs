@@ -139,16 +139,22 @@ namespace RRHH.UI
             {
                 if (Login.EmpleadoGlobal.IdRol == 1)
                 {
-                    Response.Redirect("WebForm1.aspx");
+                    Session["ROL"] = Login.EmpleadoGlobal.IdRol;
+
+                    Response.Redirect("WebForm1.aspx?ROL="+Login.EmpleadoGlobal.IdRol);
                 }
                 else if (Login.EmpleadoGlobal.IdRol == 2)
                 {
+                    Session["ROL"] = Login.EmpleadoGlobal.IdRol;
 
-                    Response.Redirect("VistaJefe.aspx");
+                    Response.Redirect("VistaJefe.aspx?ROL="+Login.EmpleadoGlobal.IdRol);
                 }
                 else 
                 {
-                    Response.Redirect("AdminView.aspx");
+                    Session["ROL"] = Login.EmpleadoGlobal.IdRol;
+
+                    Response.Redirect("AdminView.aspx?ROL=" + Login.EmpleadoGlobal.IdRol);
+
                 }
 
             }

@@ -164,5 +164,13 @@ namespace RRHH.UI
             //Response.End();
 
         }
+
+        protected void btnregresar_Click(object sender, EventArgs e)
+        {
+            Session["ROL"] = Login.EmpleadoGlobal.IdRol;
+
+            Response.Redirect("VistaJefe.aspx?ROL=" + Login.EmpleadoGlobal.IdRol);
+
+        }
     }
 }

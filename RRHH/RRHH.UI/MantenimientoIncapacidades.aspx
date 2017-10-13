@@ -195,8 +195,9 @@
 
          <div class="form-inline">
             <br />
-               <a class="btn btn-primary"  href="AdminView.aspx"><span class="glyphicon glyphicon-backward"></span> Regresar</a>
-
+              
+          <asp:Button ID="btnRegresar" runat="server" Text="Regresar" CssClass="btn btn-primary"  OnClick="btnRegresar_Click"  />
+            
             <asp:Button ID="btnModificar" runat="server" Text="Modificar" CssClass="btn btn-warning"  OnClick="btnModificar_Click" OnClientClick="Confirm()" />
             
         </div>

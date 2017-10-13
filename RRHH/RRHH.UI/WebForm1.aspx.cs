@@ -19,27 +19,35 @@ namespace RRHH.UI
         {
             try
             {
+                Session["ROL"] = Login.EmpleadoGlobal.IdRol;
+                if (Request.QueryString["ROL"] != null)
+                {
 
-                mensajawarning.Visible = false;
-                mensajeError.Visible = false;
-                mensajeinfo.Visible = false;
-                mensaje.Visible = false;
-                lblnombre.Text = "Nombre: " + Login.EmpleadoGlobal.Nombre;
-                lblCedula.Text = "Cédula:" + Login.EmpleadoGlobal.Cedula;
-                lblDirreccion.Text = "Dirreccion:" + Login.EmpleadoGlobal.Direccion;
-                lblTelefono.Text = "Telefono: " + Login.EmpleadoGlobal.Telefono;
-                lblCorreo.Text = "Correo: " + Login.EmpleadoGlobal.Correo;
-                lblestadocivil.Text = "Estado Civil: " + Login.EmpleadoGlobal.EstadoCivil;
-                lblfechaNaci.Text = "Fecha nacimiento: " + Login.EmpleadoGlobal.FechaNacimiento;
-                lbldepa.Text = "Departamento: " + Singleton.opdepartamento.BuscarDepartamentos(Login.EmpleadoGlobal.IdDepartamento).Nombre;
-                //lblRol.Text = "Rol: " + Singleton.oproles.BuscarRoles(Login.EmpleadoGlobal.IdRol).Nombre;
-                imgPerfil.ImageUrl = Login.EmpleadoGlobal.Imagen;
-                Image1.ImageUrl = Login.EmpleadoGlobal.Imagen;
-                lblNombre2.Text=  Login.EmpleadoGlobal.Nombre;
-                lblcorreo2.Text= "Correo: " + Login.EmpleadoGlobal.Correo; 
-                lbldirreccion2.Text= "Dirección:" + Login.EmpleadoGlobal.Direccion;
-                lblGenero2.Text = "Genero:" + Login.EmpleadoGlobal.Genero;
-            }
+                    mensajawarning.Visible = false;
+                    mensajeError.Visible = false;
+                    mensajeinfo.Visible = false;
+                    mensaje.Visible = false;
+                    lblnombre.Text = "Nombre: " + Login.EmpleadoGlobal.Nombre;
+                    lblCedula.Text = "Cédula:" + Login.EmpleadoGlobal.Cedula;
+                    lblDirreccion.Text = "Dirreccion:" + Login.EmpleadoGlobal.Direccion;
+                    lblTelefono.Text = "Telefono: " + Login.EmpleadoGlobal.Telefono;
+                    lblCorreo.Text = "Correo: " + Login.EmpleadoGlobal.Correo;
+                    lblestadocivil.Text = "Estado Civil: " + Login.EmpleadoGlobal.EstadoCivil;
+                    lblfechaNaci.Text = "Fecha nacimiento: " + Login.EmpleadoGlobal.FechaNacimiento;
+                    lbldepa.Text = "Departamento: " + Singleton.opdepartamento.BuscarDepartamentos(Login.EmpleadoGlobal.IdDepartamento).Nombre;
+                    //lblRol.Text = "Rol: " + Singleton.oproles.BuscarRoles(Login.EmpleadoGlobal.IdRol).Nombre;
+                    imgPerfil.ImageUrl = Login.EmpleadoGlobal.Imagen;
+                    Image1.ImageUrl = Login.EmpleadoGlobal.Imagen;
+                    lblNombre2.Text = Login.EmpleadoGlobal.Nombre;
+                    lblcorreo2.Text = "Correo: " + Login.EmpleadoGlobal.Correo;
+                    lbldirreccion2.Text = "Dirección:" + Login.EmpleadoGlobal.Direccion;
+                    lblGenero2.Text = "Genero:" + Login.EmpleadoGlobal.Genero;
+                }
+                else
+                {
+                    Response.Redirect("Error.aspx");
+                }
+                }
             catch
             {
 

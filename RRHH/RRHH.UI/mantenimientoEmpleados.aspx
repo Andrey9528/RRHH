@@ -198,10 +198,13 @@
 
      <div class="form-horizontal" style="margin-top:-15px; margin-left:720px; width: 347px;">
            
-             <a   class="btn btn-primary"  href="AdminView.aspx"><span class="glyphicon glyphicon-backward"></span> Regresar</a>
-
+            
+         
+          <asp:Button ID="btnRegresar" runat="server" Text="Regresar" CssClass="btn btn-primary"  OnClick="btnRegresar_Click" />
+         
              <asp:Button ID="btnModificar" runat="server" Text="Modificar" CssClass="btn btn-warning"  OnClick="btnModificar_Click" />
-            <asp:Button ID="btnEliminar"  runat="server" Text="Deshabilitar" CssClass="btn btn-danger" OnClick="btnEliminar_Click"  OnClientClick="Confirm()" />
+           
+          <asp:Button ID="btnEliminar"  runat="server" Text="Deshabilitar" CssClass="btn btn-danger" OnClick="btnEliminar_Click"  OnClientClick="Confirm()" />
          
         </div>
         

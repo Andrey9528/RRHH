@@ -75,7 +75,7 @@
          
        <br />
         <div > 
-              <a class="btn btn-primary"  href="AdminView.aspx"><span class="glyphicon glyphicon-backward"></span> Regresar</a>
+             <asp:Button CssClass="btn btn-primary"  ID="btnRegresar" OnClick="btnRegresar_Click" runat="server" Text="Regresar" />
 
              <asp:Button CssClass="btn btn-primary" OnClick="btnbuscardepa_Click" ID="btnbuscardepa" runat="server" Text="Buscar" />
 

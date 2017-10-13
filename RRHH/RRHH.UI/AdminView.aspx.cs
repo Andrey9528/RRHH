@@ -176,6 +176,14 @@ namespace RRHH.UI
             }
         }
 
+        protected void btnHome_Click(object sender, EventArgs e)
+        {
+            Session["ROL"] = Login.EmpleadoGlobal.IdRol;
+
+            Response.Redirect("AdminView.aspx?ROL=" + Login.EmpleadoGlobal.IdRol);
+
+        }
+
         //protected void ChkVerContraseña_CheckedChanged(object sender, EventArgs e)
         //{
         //    try

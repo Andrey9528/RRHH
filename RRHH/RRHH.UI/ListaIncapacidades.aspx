@@ -73,7 +73,7 @@
 
     </div>
 
-    <a   class="btn btn-primary"  href="VistaJefe.aspx"><span class="glyphicon glyphicon-backward"></span> Regresar</a>
-      
+    
+    <asp:Button ID="btnRegresar" CssClass="btn btn-primary"  OnClick="btnRegresar_Click" runat="server" Text="Regresar" />   
 
 </asp:Content>
