@@ -40,9 +40,12 @@
 
    
      <div class="col-sm-offset-5">
-      <a class="btn btn-success btn-sm"  href="VistaJefe.aspx"><span class="glyphicon glyphicon-backward"></span> Regresar</a>
+      <asp:Button ID="btnregresar" runat="server" CssClass="btn btn-success" OnClick="btnregresar_Click" Text="Regresar"/>
+     
+         
       <asp:Button ID="btnPDF" runat="server" CssClass="btn btn-danger" OnClick="btnPDF_Click" Text="PDF"/>
-          </div>
+          
+     </div>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:BD_RRHHConnectionString3 %>" SelectCommand="SELECT [Cedula], [Nombre], [Direccion], [Telefono], [Correo], [EstadoCivil], [FechaNacimiento], [Estado], [Genero], [Imagen] FROM [Empleado]"></asp:SqlDataSource>
 
     <div class="table-responsive">

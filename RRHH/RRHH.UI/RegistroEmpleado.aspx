@@ -141,10 +141,11 @@
    </div>
     <br /><br />
     <div class="form-inline col-sm-offset-5">
- <a class="btn btn-primary"  href="AdminView.aspx"><span class="glyphicon glyphicon-backward"></span> Regresar</a>
-    
+       <asp:Button ID="btnRegresar" onclick="btnRegresar_Click" CssClass="btn btn-primary" runat="server" Text="Regresar" />
+        
         <asp:Button ID="btnCrear" OnClick="btnCrear_Click" CssClass="btn btn-success" runat="server" Text="Crear" />
-    <asp:Button ID="btnLimpiar" onclick="btnLimpiar_Click" CssClass="btn btn-danger" runat="server" Text="Limpiar" />
+    
+        <asp:Button ID="btnLimpiar" onclick="btnLimpiar_Click" CssClass="btn btn-danger" runat="server" Text="Limpiar" />
         
    
     </div>

@@ -11,16 +11,7 @@ namespace RRHH.UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Login.EmpleadoGlobal.IdRol == 1)
-            {
-                vistaJefe.Visible = false;
-                VistaEmpleado.Visible = true;
-            }
-            else
-            {
-                vistaJefe.Visible = true;
-                VistaEmpleado.Visible = false; 
-            }
+          
         }
     }
 }

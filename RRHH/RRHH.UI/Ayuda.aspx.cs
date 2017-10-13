@@ -18,7 +18,7 @@ namespace RRHH.UI
         {
             Response.ContentType = "Application/pdf";
             Response.AppendHeader("Content-Disposition", "attachment; filename=help.pdf");
-            Response.TransmitFile(Server.MapPath("~/Tutoriales/Seashore piano technic.pdf"));
+            Response.TransmitFile(Server.MapPath("~/TutorialesPDF/Seashore piano technic.pdf"));
             Response.End();
         }
     }

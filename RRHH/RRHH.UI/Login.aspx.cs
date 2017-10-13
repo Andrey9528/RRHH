@@ -71,10 +71,11 @@ namespace RRHH.UI
                             if (EmpleadoGlobal.Password ==
                                  Encriptacion.Encriptar(txtcontra.Text, Encriptacion.Llave) && EmpleadoGlobal.Bloqueado == false)
                             {
-                                //Sigleton.OpAuditoria.InsertarEnLogin(PersonaGlobal.Cedula, PersonaGlobal.Nombre, PersonaGlobal.PrimerApellido);
+                                //Sigleton.OpAudistoria.InsertarEnLogin(PersonaGlobal.Cedula, PersonaGlobal.Nombre, PersonaGlobal.PrimerApellido);
                                 if (EmpleadoGlobal.IdRol == 1)
                                 {
-                                    
+                                    Session["ROL"] = EmpleadoGlobal.IdRol;
+
                                     Empleado emple = new Empleado()
                                     {
                                         Cedula = EmpleadoGlobal.Cedula,
@@ -96,10 +97,12 @@ namespace RRHH.UI
                                     };
                                     Singleton.OpEmpleados.ActualizarEmpleados(emple);
                                     Singleton.opAudiEmple.InsertarAuditoriasEmpleado(EmpleadoGlobal.Nombre, EmpleadoGlobal.Cedula, false, false, false, false, false, false, false, false, false, true, false);
-                                    Response.Redirect("Error.aspx");
+                                    Response.Redirect("WebForm1.aspx?ROL="+EmpleadoGlobal.IdRol);
                                 }
                                 else if (EmpleadoGlobal.IdRol == 2 && EmpleadoGlobal.Bloqueado == false)
                                 {
+                                    Session["ROL"] = EmpleadoGlobal.IdRol;
+
                                     Empleado emple = new Empleado()
                                     {
                                         Cedula = EmpleadoGlobal.Cedula,
@@ -122,7 +125,7 @@ namespace RRHH.UI
                                     };
                                     Singleton.OpEmpleados.ActualizarEmpleados(emple);
                                     Singleton.opAudiJefe.InsertarAuditoriasJefe(EmpleadoGlobal.Nombre, EmpleadoGlobal.Cedula, false, false, false, false, false, false, false, false, true, false);
-                                    Response.Redirect("VistaJefe.aspx");
+                                    Response.Redirect("VistaJefe.aspx?ROL="+EmpleadoGlobal.IdRol);
 
                                 }
                                 else if (EmpleadoGlobal.IdRol == 3 && EmpleadoGlobal.Bloqueado == false)
