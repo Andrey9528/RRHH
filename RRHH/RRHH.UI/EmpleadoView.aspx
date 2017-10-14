@@ -1,6 +1,15 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EmpleadoView.aspx.cs" Inherits="RRHH.UI.EmpleadoView" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <style >
+
+   <script type="text/javascript">
+     
+        function Alerta() {
+            alert('Tecuerda  cambiar tu contraseña al menos una vez cada tres meses: '+"<br>"+ <%= "Cantidad de días restamtes: "+RRHH.UI.Login.EmpleadoGlobal.DiasAntesCaducidad%>);
+        }
+     
+    </script>
+
+     <style >
        body 
         {
             background-image: url("http://1070noticias.com.mx/wp-content/uploads/2016/07/fondos-de-pantalla-blancos-para-descargar.jpg");

@@ -9,7 +9,13 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>Empleado</title>
      <link href="https://www.javatpoint.com/fullformpages/images/Medical.png" rel="shortcut icon" type="image/x-icon" />
-
+<%--<script type="text/javascript">
+     
+        function Alerta() {
+            alert('Tecuerda  cambiar tu contraseña al menos una vez cada tres meses: '+"<br>"+ <%= "Cantidad de días restamtes: "+RRHH.UI.Login.EmpleadoGlobal.DiasAntesCaducidad%>);
+        }
+     
+    </script>--%>
 </head>
 <body>
     <style>

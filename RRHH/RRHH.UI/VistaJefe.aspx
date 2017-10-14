@@ -11,8 +11,29 @@
  <link href="https://www.javatpoint.com/fullformpages/images/Medical.png" rel="shortcut icon" type="image/x-icon" />
 
 </head>
+
 <body>
+
     <form id="form1" runat="server">
+         <div class="form-group">
+         <div class="alert alert-danger" visible="false"  id="mensajeError" runat="server">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times</a>
+             <strong id="textomensajeError" runat="server"></strong>
+        </div>
+        <div class="alert alert-success" visible="false"  id="mensaje" runat="server">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times</a>
+             <strong id="textoMensaje" runat="server"></strong>
+        </div>
+           <div class="alert alert-warning" visible="false" id="mensajawarning" runat="server">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times</a>
+            <strong id="textomensajewarning" runat="server"></strong>
+
+        </div>
+      <div class="alert alert-info" visible="false"  id="mensajeinfo" runat="server">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times</a>
+             <strong id="textomensajeinfo" runat="server"></strong>
+        </div>
+          </div>
   <style>
     /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
     .row.content {height: 550px}

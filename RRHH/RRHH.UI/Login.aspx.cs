@@ -66,10 +66,20 @@ namespace RRHH.UI
                             txtcorreo.Text = string.Empty;
                         }
 
+                        if (EmpleadoGlobal.ContraseñaCaducada)
+                        {
+                            mensaje.Visible = false;
+                            mensajeinfo.Visible = false;
+                            mensajeError.Visible = true;
+                            textoMensajeError.InnerHtml = "Tu contraseña ha caducado, recuerda cambiar tu contraseña cada tres meses";
+                            txtcontra.Text = string.Empty;
+                            txtcorreo.Text = string.Empty;
+                        }
+
                         else if (EmpleadoGlobal.IntentosFallidos <= 3)
                         {
                             if (EmpleadoGlobal.Password ==
-                                 Encriptacion.Encriptar(txtcontra.Text, Encriptacion.Llave) && EmpleadoGlobal.Bloqueado == false)
+                                 Encriptacion.Encriptar(txtcontra.Text, Encriptacion.Llave) && EmpleadoGlobal.Bloqueado == false && EmpleadoGlobal.ContraseñaCaducada == false)
                             {
                                 //Sigleton.OpAudistoria.InsertarEnLogin(PersonaGlobal.Cedula, PersonaGlobal.Nombre, PersonaGlobal.PrimerApellido);
                                 if (EmpleadoGlobal.IdRol == 1)
@@ -94,12 +104,14 @@ namespace RRHH.UI
                                         Bloqueado = false,
                                         IntentosFallidos = 0,
                                         DiasVacaciones = EmpleadoGlobal.DiasVacaciones,
+                                        DiasAntesCaducidad = EmpleadoGlobal.DiasAntesCaducidad,
+                                        ContraseñaCaducada = false,
                                     };
                                     Singleton.OpEmpleados.ActualizarEmpleados(emple);
                                     Singleton.opAudiEmple.InsertarAuditoriasEmpleado(EmpleadoGlobal.Nombre, EmpleadoGlobal.Cedula, false, false, false, false, false, false, false, false, false, true, false);
                                     Response.Redirect("WebForm1.aspx?ROL="+EmpleadoGlobal.IdRol);
                                 }
-                                else if (EmpleadoGlobal.IdRol == 2 && EmpleadoGlobal.Bloqueado == false)
+                                else if (EmpleadoGlobal.IdRol == 2 && EmpleadoGlobal.Bloqueado == false && EmpleadoGlobal.ContraseñaCaducada == false)
                                 {
                                     Session["ROL"] = EmpleadoGlobal.IdRol;
 
@@ -121,6 +133,8 @@ namespace RRHH.UI
                                         Bloqueado = false,
                                         IntentosFallidos = 0,
                                         DiasVacaciones = EmpleadoGlobal.DiasVacaciones,
+                                        DiasAntesCaducidad = EmpleadoGlobal.DiasAntesCaducidad,
+                                        ContraseñaCaducada = false,
 
                                     };
                                     Singleton.OpEmpleados.ActualizarEmpleados(emple);
@@ -128,7 +142,7 @@ namespace RRHH.UI
                                     Response.Redirect("VistaJefe.aspx?ROL="+EmpleadoGlobal.IdRol);
 
                                 }
-                                else if (EmpleadoGlobal.IdRol == 3 && EmpleadoGlobal.Bloqueado == false)
+                                else if (EmpleadoGlobal.IdRol == 3 && EmpleadoGlobal.Bloqueado == false && EmpleadoGlobal.ContraseñaCaducada == false)
                                 {
                                     Session["ROL"] = EmpleadoGlobal.IdRol;
                                     
@@ -151,6 +165,8 @@ namespace RRHH.UI
                                         Bloqueado = false,
                                         IntentosFallidos = 0,
                                         DiasVacaciones = EmpleadoGlobal.DiasVacaciones,
+                                        DiasAntesCaducidad = EmpleadoGlobal.DiasAntesCaducidad,
+                                        ContraseñaCaducada = false,
 
                                     };
                                     Singleton.OpEmpleados.ActualizarEmpleados(emple);
@@ -161,7 +177,7 @@ namespace RRHH.UI
 
 
                             if (EmpleadoGlobal.Password !=
-                                Encriptacion.Encriptar(txtcontra.Text, Encriptacion.Llave) && EmpleadoGlobal.Bloqueado == false)//Sigleton.Encriptar(txtPassword.Text, Utilitarios.Llave))
+                                Encriptacion.Encriptar(txtcontra.Text, Encriptacion.Llave) && EmpleadoGlobal.Bloqueado == false && EmpleadoGlobal.ContraseñaCaducada == false)//Sigleton.Encriptar(txtPassword.Text, Utilitarios.Llave))
                             {
                                 if (EmpleadoGlobal.IdRol == 1)
                                 {
@@ -205,6 +221,8 @@ namespace RRHH.UI
                                         Bloqueado = false,
                                         IntentosFallidos = EmpleadoGlobal.IntentosFallidos + 1,
                                         DiasVacaciones = EmpleadoGlobal.DiasVacaciones,
+                                        DiasAntesCaducidad = EmpleadoGlobal.DiasAntesCaducidad,
+                                        ContraseñaCaducada = false,
 
                                     };
                                     Singleton.OpEmpleados.ActualizarEmpleados(emple);
@@ -236,6 +254,8 @@ namespace RRHH.UI
                                         Bloqueado = true,
                                         IntentosFallidos = EmpleadoGlobal.IntentosFallidos + 1,
                                         DiasVacaciones = EmpleadoGlobal.DiasVacaciones,
+                                        DiasAntesCaducidad = EmpleadoGlobal.DiasAntesCaducidad,
+                                        ContraseñaCaducada = false,
 
                                     };
                                     Singleton.OpEmpleados.ActualizarEmpleados(emple);
@@ -299,7 +319,8 @@ namespace RRHH.UI
                         Genero = EmpleadoGlobal.Genero,
                         Imagen = EmpleadoGlobal.Imagen,
                         DiasVacaciones = EmpleadoGlobal.DiasVacaciones,
-
+                        DiasAntesCaducidad = 90,
+                        ContraseñaCaducada = false,
 
                     };
                     Singleton.OpEmpleados.ActualizarEmpleados(empleado);

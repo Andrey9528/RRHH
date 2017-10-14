@@ -19,5 +19,6 @@ namespace RRHH.UI
         public static DS.Interfaces.IRoles oproles = new DS.Metodos.MRoles();
         public static DS.Interfaces.ISolicitudVacaciones opsolicitud = new DS.Metodos.MSolicitudVacaciones();
         public static DS.Interfaces.INotificacionCorreoJefe opNotificacion = new DS.Metodos.MNotificacionCorreoJefe();
+        public static DS.Interfaces.IRangoFechasVacaciones OpRangoFechas = new DS.Metodos.MRangoFechasVacaciones();
     }
 }

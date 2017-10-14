@@ -29,6 +29,14 @@ namespace RRHH.UI
                     //lblRol.Text = "Rol: " + Singleton.oproles.BuscarRoles(Login.EmpleadoGlobal.IdRol).Nombre;
                     imgPerfil.ImageUrl = Login.EmpleadoGlobal.Imagen;
                     imgPerfil2.ImageUrl = Login.EmpleadoGlobal.Imagen;
+                    if (Login.EmpleadoGlobal.DiasAntesCaducidad < 3)
+                    {
+                        mensaje.Visible = false;
+                        mensajeError.Visible = false;
+                        mensajeinfo.Visible = true;
+                        mensajawarning.Visible = false;
+                        mensajeinfo.InnerHtml = "Recuerda cambiar tu contraseña al menos una vez cada tres meses\nLa contraseña actual caduca en " + Login.EmpleadoGlobal.DiasAntesCaducidad + " dias";
+                    }
                 }
                 else
                 {
@@ -88,7 +96,9 @@ namespace RRHH.UI
                             IdRol = Login.EmpleadoGlobal.IdRol,
                             Genero = Login.EmpleadoGlobal.Genero,
                             Imagen = Login.EmpleadoGlobal.Imagen,
-                            Estado = true
+                            Estado = true,
+                            DiasAntesCaducidad = 90,
+                            ContraseñaCaducada = false,
                         };
                         Singleton.OpEmpleados.ActualizarEmpleados(empleado);
                         //this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('La contraseña ha sido modificada, por favor vuelve a iniciar sesión')", true);

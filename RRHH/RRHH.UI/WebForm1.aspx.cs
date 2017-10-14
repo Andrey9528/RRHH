@@ -15,10 +15,14 @@ namespace RRHH.UI
     {
         public static int dias;
         public static string nombrearchivo;
+        public static int IdSolicitudVacaciones; /// 
+        //DateTime FechaMinima = Convert.ToDateTime(Singleton.OpRangoFechas.RangoFechasVacaciones(Login.EmpleadoGlobal.Cedula).Select(x => x.FechaInicioMenor)); //
+        //DateTime FechaMaxima = Convert.ToDateTime(Singleton.OpRangoFechas.RangoFechasVacaciones(Login.EmpleadoGlobal.Cedula).Select(x => x.FechaInicioMayor)); //
         protected void Page_Load(object sender, EventArgs e)
         {
             try
             {
+               
                 Session["ROL"] = Login.EmpleadoGlobal.IdRol;
                 if (Request.QueryString["ROL"] != null)
                 {
@@ -42,6 +46,14 @@ namespace RRHH.UI
                     lblcorreo2.Text = "Correo: " + Login.EmpleadoGlobal.Correo;
                     lbldirreccion2.Text = "Dirección:" + Login.EmpleadoGlobal.Direccion;
                     lblGenero2.Text = "Genero:" + Login.EmpleadoGlobal.Genero;
+                    if (Login.EmpleadoGlobal.DiasAntesCaducidad < 3)
+                    {
+                        mensaje.Visible = false;
+                        mensajeError.Visible = false;
+                        mensajeinfo.Visible = true;
+                        mensajawarning.Visible = false;
+                        mensajeinfo.InnerHtml = "Recuerda cambiar tu contraseña al menos una vez cada tres meses\nLa contraseña actual caduca en " + Login.EmpleadoGlobal.DiasAntesCaducidad + " dias";
+                    }
                 }
                 else
                 {
@@ -55,6 +67,23 @@ namespace RRHH.UI
 
         }
 
+        public bool ValidarRangoFechas(string fecha)
+        {
+            var FechaMinima = Singleton.OpRangoFechas.RangoFechasVacaciones(Login.EmpleadoGlobal.Cedula).Select(x => x.FechaInicioMenor);
+            var FechaMaxima = Singleton.OpRangoFechas.RangoFechasVacaciones(Login.EmpleadoGlobal.Cedula).Select(x => x.FechaInicioMayor);
+
+            if ((Convert.ToDateTime(fecha) > (Convert.ToDateTime(FechaMinima)))) /*&& (Convert.ToDateTime(fecha) < FechaMaxima)*/
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+
+            //fecha > Singleton.opsolicitud.BuscarFechaMenorInicio(Login.EmpleadoGlobal.Cedula,true).ToString() && (txtfechadeincio.Text).ToString() < Singleton.opsolicitud.BuscarFechaMayorInicio().ToString())
+        }
+
         protected void btnvaca_Click(object sender, EventArgs e)
         {
             try
@@ -65,40 +94,51 @@ namespace RRHH.UI
                 {
                     if (Login.EmpleadoGlobal.DiasVacaciones >= dias)
                     {
-                        var vacaciones = new SolicitudVacaciones()
+                        if (ValidarRangoFechas(txtfechadeincio.Text))
                         {
+                            mensajeinfo.Visible = false;
+                            mensajeError.Visible = true;
+                            mensaje.Visible = false;
+                            mensajeError.InnerHtml = "Ya existe una solitud previa para el rango de fechas seleccionado";
+                        }
+                        else
+                        {
+                            var vacaciones = new SolicitudVacaciones()
+                            {
 
-                            FechaFinal = Convert.ToDateTime(txtfechafinal.Text),
-                            FechaInicio = Convert.ToDateTime(txtfechadeincio.Text),
-                            Cedula = Login.EmpleadoGlobal.Cedula,
-                            TotalDias = dias,
-                            Condicion = null,
-                        };
-                        Singleton.opsolicitud.InsertarSolicitud(vacaciones);
-                        Singleton.opAudiEmple.InsertarAuditoriasEmpleado(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, false, false, false, true, false, false, false, false, false, false);
+                                FechaFinal = Convert.ToDateTime(txtfechafinal.Text),
+                                FechaInicio = Convert.ToDateTime(txtfechadeincio.Text),
+                                Cedula = Login.EmpleadoGlobal.Cedula,
+                                TotalDias = dias,
+                                Condicion = null,
+                            };
 
-                        mensaje.Visible = true;
-                        mensajeError.Visible = false;
-                        mensajeinfo.Visible = false;
-                        mensajawarning.Visible = false;
-                        //TimeSpan diferencia = Convert.ToDateTime(txtfechafinal.Text) - Convert.ToDateTime(txtfechadeincio.Text);
-                        //var dias = diferencia.TotalDays;
-                        //txttotaldias.Text = dias.ToString();
-                        textoMensaje.InnerHtml = "Solicitud generada";
-                        //string mail = Singleton.opNotificacion.CorreoJefe(Login.EmpleadoGlobal.Cedula).Select(x => x.EmailJefeDpto).ToString();
-                        //bueno   
-                        //string mail = Singleton.opdepartamento.BuscarDepartamentos(Login.EmpleadoGlobal.IdDepartamento).EmailJefeDpto.ToString();
-                        //Email.Notificacion("dollars.chat.room@hotmail.com", "fidelitasw2", mail, "Nueva solicitud de vacaciones", "se ha recibido una nueva solicitud de vacaciones de parte del empleado\nNombre:" + Login.EmpleadoGlobal.Nombre + "\nUsuario:" + Login.EmpleadoGlobal.Correo);
-                        //termina bueno
+                            Singleton.opsolicitud.InsertarSolicitud(vacaciones);
+                            IdSolicitudVacaciones = Singleton.opsolicitud.Listarsolicitudes().Where(x => x.Cedula == Login.EmpleadoGlobal.Cedula).Select(x => x.IdSolicitud).LastOrDefault();
+                            Singleton.opAudiEmple.InsertarAuditoriasEmpleado(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, false, false, false, true, false, false, false, false, false, false);
 
-                        ThreadStart delegado = new ThreadStart(EnvioCorreo);
-                        Thread hilo = new Thread(delegado);
-                        hilo.Start();
-                        mensajeinfo.Visible = true;
-                        mensajeError.Visible = false;
-                        mensaje.Visible = false;
-                        textomensajeinfo.InnerHtml = "Tu solicitud ha sido enviada";
+                            mensaje.Visible = true;
+                            mensajeError.Visible = false;
+                            mensajeinfo.Visible = false;
+                            mensajawarning.Visible = false;
+                            //TimeSpan diferencia = Convert.ToDateTime(txtfechafinal.Text) - Convert.ToDateTime(txtfechadeincio.Text);
+                            //var dias = diferencia.TotalDays;
+                            //txttotaldias.Text = dias.ToString();
+                            textoMensaje.InnerHtml = "Solicitud generada";
+                            //string mail = Singleton.opNotificacion.CorreoJefe(Login.EmpleadoGlobal.Cedula).Select(x => x.EmailJefeDpto).ToString();
+                            //bueno   
+                            //string mail = Singleton.opdepartamento.BuscarDepartamentos(Login.EmpleadoGlobal.IdDepartamento).EmailJefeDpto.ToString();
+                            //Email.Notificacion("dollars.chat.room@hotmail.com", "fidelitasw2", mail, "Nueva solicitud de vacaciones", "se ha recibido una nueva solicitud de vacaciones de parte del empleado\nNombre:" + Login.EmpleadoGlobal.Nombre + "\nUsuario:" + Login.EmpleadoGlobal.Correo);
+                            //termina bueno
 
+                            ThreadStart delegado = new ThreadStart(EnvioCorreo);
+                            Thread hilo = new Thread(delegado);
+                            hilo.Start();
+                            mensajeinfo.Visible = true;
+                            mensajeError.Visible = false;
+                            mensaje.Visible = false;
+                            textomensajeinfo.InnerHtml = "Tu solicitud ha sido enviada";
+                        }
                     }
                     else
                     {
@@ -207,7 +247,9 @@ namespace RRHH.UI
                             IdRol = Login.EmpleadoGlobal.IdRol,
                             Imagen = Login.EmpleadoGlobal.Imagen,
                             Genero = Login.EmpleadoGlobal.Genero,
-                            Estado = true
+                            Estado = true,
+                            DiasAntesCaducidad = 90,
+                            ContraseñaCaducada = false,
                         };
                         Singleton.OpEmpleados.ActualizarEmpleados(empleado);
                         //this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('La contraseña ha sido modificada, por favor vuelve a iniciar sesión')", true);
@@ -243,7 +285,7 @@ namespace RRHH.UI
             {
                 cliente.EnableSsl = true;
                 cliente.Credentials = new NetworkCredential("dollars.chat.room@hotmail.com", "fidelitasw2");
-                MailMessage msj = new MailMessage("dollars.chat.room@hotmail.com", mail, "Nueva solicitud de vacaciones", "Se ha recibido una nueva solicitud de vacaciones de parte del empleado\nNombre:  " + Login.EmpleadoGlobal.Nombre + "\nUsuario:" + Login.EmpleadoGlobal.Correo);
+                MailMessage msj = new MailMessage("dollars.chat.room@hotmail.com", mail, "Nueva solicitud de vacaciones", "Se ha recibido una nueva solicitud de vacaciones de parte del empleado\nNombre:  " + Login.EmpleadoGlobal.Nombre + "\nUsuario:" + Login.EmpleadoGlobal.Correo+ "\nEl número de la solicitud es: "+ IdSolicitudVacaciones );
                 cliente.Send(msj);
 
               

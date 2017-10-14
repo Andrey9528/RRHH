@@ -37,7 +37,8 @@ namespace RRHH.DATA
         public string Imagen { get; set; }
         public int DiasVacaciones { get; set; }
 
-
+        public bool ContraseñaCaducada { get; set; } //  
+        public int DiasAntesCaducidad { get; set; } // 
 
 
 

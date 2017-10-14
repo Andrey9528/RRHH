@@ -24,6 +24,17 @@ namespace RRHH.DS.Metodos
             _db.Update(solicitud);
         }
 
+        public List<SolicitudVacaciones> BuscarFechaMayor(string cedula, bool condicion)
+        {
+            return _db.SqlList<SolicitudVacaciones>("select  max(FechaInicio) from SolicitudVacaciones where Cedula = " + cedula + "and Condicion = " + condicion + ";");
+        }
+
+        public List<SolicitudVacaciones> BuscarFechaMenor(string cedula, bool condicion)
+        {
+            return _db.SqlList<SolicitudVacaciones>("select  min(FechaInicio) from SolicitudVacaciones where Cedula = " + cedula + "and Condicion = " + condicion + ";");
+        }
+
+
         public SolicitudVacaciones BuscarSolicitud(int idsolicitud)
         {
             return _db.Select<SolicitudVacaciones>(x => x.IdSolicitud == idsolicitud).FirstOrDefault();

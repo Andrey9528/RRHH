@@ -147,6 +147,8 @@ namespace RRHH.UI
                         Password = EmpleadoGlobal.Password,
                         IntentosFallidos = EmpleadoGlobal.IntentosFallidos,
                         DiasVacaciones = EmpleadoGlobal.DiasVacaciones,
+                        DiasAntesCaducidad = EmpleadoGlobal.DiasAntesCaducidad,
+                        ContraseñaCaducada = false,
                     };
 
 
@@ -187,6 +189,8 @@ namespace RRHH.UI
                         Password = EmpleadoGlobal.Password,
                         IntentosFallidos = 0,
                         DiasVacaciones = EmpleadoGlobal.DiasVacaciones,
+                        DiasAntesCaducidad = EmpleadoGlobal.DiasAntesCaducidad,
+                        ContraseñaCaducada = false,
                     };
 
 
@@ -224,6 +228,8 @@ namespace RRHH.UI
                         Password = EmpleadoGlobal.Password,
                         IntentosFallidos = 4,
                         DiasVacaciones = EmpleadoGlobal.DiasVacaciones,
+                        DiasAntesCaducidad = EmpleadoGlobal.DiasAntesCaducidad,
+                        ContraseñaCaducada = false,
                     };
 
 
@@ -261,6 +267,8 @@ namespace RRHH.UI
                         Password = EmpleadoGlobal.Password,
                         IntentosFallidos = EmpleadoGlobal.IntentosFallidos,
                         DiasVacaciones = EmpleadoGlobal.DiasVacaciones,
+                        DiasAntesCaducidad = EmpleadoGlobal.DiasAntesCaducidad,
+                        ContraseñaCaducada = false,
                     };
 
 
@@ -323,6 +331,8 @@ namespace RRHH.UI
                         Password = EmpleadoGlobal.Password,
                         IntentosFallidos=Convert.ToInt32(EmpleadoGlobal.IntentosFallidos),
                         DiasVacaciones = EmpleadoGlobal.DiasVacaciones,
+                        DiasAntesCaducidad = EmpleadoGlobal.DiasAntesCaducidad,
+                        ContraseñaCaducada = false,
                     };
                     Singleton.OpEmpleados.ActualizarEmpleados(emple);
                     Empleadosmantenimiento.Visible = false;

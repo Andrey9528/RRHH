@@ -37,19 +37,19 @@
       <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\Proyecto Analisis\Librerias para el proyecto\itextsharp.pdfa.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.Common">
-      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\Proyecto Analisis\Librerias para el proyecto\ServiceStack.Common.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Analisis3\Librerias\Librerias para el proyecto\ServiceStack.Common.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.Interfaces">
-      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\Proyecto Analisis\Librerias para el proyecto\ServiceStack.Interfaces.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Analisis3\Librerias\Librerias para el proyecto\ServiceStack.Interfaces.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.OrmLite">
-      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\Proyecto Analisis\Librerias para el proyecto\ServiceStack.OrmLite.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Analisis3\Librerias\Librerias para el proyecto\ServiceStack.OrmLite.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.OrmLite.SqlServer">
-      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\Proyecto Analisis\Librerias para el proyecto\ServiceStack.OrmLite.SqlServer.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Analisis3\Librerias\Librerias para el proyecto\ServiceStack.OrmLite.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.Text">
-      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\Proyecto Analisis\Librerias para el proyecto\ServiceStack.Text.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Analisis3\Librerias\Librerias para el proyecto\ServiceStack.Text.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -74,6 +74,7 @@
     <Compile Include="Interfaces\IEmpleado.cs" />
     <Compile Include="Interfaces\IIncapacidad.cs" />
     <Compile Include="Interfaces\INotificacionCorreoJefe.cs" />
+    <Compile Include="Interfaces\IRangoFechasVacaciones.cs" />
     <Compile Include="Interfaces\IRoles.cs" />
     <Compile Include="Interfaces\ISolicitudVacaciones.cs" />
     <Compile Include="Metodos\MControlAuditoriasAdmin.cs" />
@@ -84,6 +85,7 @@
     <Compile Include="Metodos\MEmpleado.cs" />
     <Compile Include="Metodos\MIncapacidad.cs" />
     <Compile Include="Metodos\MNotificacionCorreoJefe.cs" />
+    <Compile Include="Metodos\MRangoFechasVacaciones.cs" />
     <Compile Include="Metodos\MRoles.cs" />
     <Compile Include="Metodos\MSolicitudVacaciones.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

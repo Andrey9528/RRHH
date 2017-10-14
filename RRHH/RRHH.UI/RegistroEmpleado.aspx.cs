@@ -59,23 +59,25 @@ namespace RRHH.UI
                     RolGlobal = Singleton.oproles.BuscarRolesPorNombre(ddlRol.Text);
                     var IdRol = RolGlobal.IdRol.ToString();
                     CodigoPin();
-                    Empleado emple = new Empleado()
-                    {
-                        Cedula = txtCedula.Text,
-                        Nombre = txtNombre.Text,
-                        Direccion = txtDireccion.Text,
-                        Telefono = txtTelefono.Text,
-                        Correo = txtCorreo.Text,
-                        EstadoCivil = DddlEstadoCivil.SelectedItem.ToString(),
-                        FechaNacimiento = Convert.ToDateTime(txtFechaNacimiento.Text),
-                        IdDepartamento = Convert.ToInt32(IdDepartamento),
-                        IdRol = Convert.ToInt32(IdRol),
-                        Estado = true,
-                        Bloqueado = false,
-                        Password = Encriptacion.Encriptar(contrasena, Encriptacion.Llave),
-                        Genero = DDLgenero.SelectedItem.ToString(),
-                        Imagen = "~/Empleados/" + nombrearchivo,
-                        DiasVacaciones = 0,
+                        Empleado emple = new Empleado()
+                        {
+                            Cedula = txtCedula.Text,
+                            Nombre = txtNombre.Text,
+                            Direccion = txtDireccion.Text,
+                            Telefono = txtTelefono.Text,
+                            Correo = txtCorreo.Text,
+                            EstadoCivil = DddlEstadoCivil.SelectedItem.ToString(),
+                            FechaNacimiento = Convert.ToDateTime(txtFechaNacimiento.Text),
+                            IdDepartamento = Convert.ToInt32(IdDepartamento),
+                            IdRol = Convert.ToInt32(IdRol),
+                            Estado = true,
+                            Bloqueado = false,
+                            Password = Encriptacion.Encriptar(contrasena, Encriptacion.Llave),
+                            Genero = DDLgenero.SelectedItem.ToString(),
+                            Imagen = "~/Empleados/" + nombrearchivo,
+                            DiasVacaciones = 0,
+                            ContraseñaCaducada = false,
+                            DiasAntesCaducidad = 90,
 
 
                     };

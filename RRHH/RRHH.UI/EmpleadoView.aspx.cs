@@ -16,6 +16,11 @@ namespace RRHH.UI
         public static string nombrearchivo;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Login.EmpleadoGlobal.DiasAntesCaducidad < 3)
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "CallAlerta()", "Alerta()", true);
+
+            }
             try
             {
                 lblnombre.Text = "Nombre: " + Login.EmpleadoGlobal.Nombre;
