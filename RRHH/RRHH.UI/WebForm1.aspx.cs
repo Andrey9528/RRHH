@@ -94,15 +94,15 @@ namespace RRHH.UI
                 {
                     if (Login.EmpleadoGlobal.DiasVacaciones >= dias)
                     {
-                        if (ValidarRangoFechas(txtfechadeincio.Text))
-                        {
-                            mensajeinfo.Visible = false;
-                            mensajeError.Visible = true;
-                            mensaje.Visible = false;
-                            mensajeError.InnerHtml = "Ya existe una solitud previa para el rango de fechas seleccionado";
-                        }
-                        else
-                        {
+                        //if (ValidarRangoFechas(txtfechadeincio.Text))
+                        //{
+                        //    mensajeinfo.Visible = false;
+                        //    mensajeError.Visible = true;
+                        //    mensaje.Visible = false;
+                        //    mensajeError.InnerHtml = "Ya existe una solitud previa para el rango de fechas seleccionado";
+                        //}
+                        //else
+                        //{
                             var vacaciones = new SolicitudVacaciones()
                             {
 
@@ -138,7 +138,7 @@ namespace RRHH.UI
                             mensajeError.Visible = false;
                             mensaje.Visible = false;
                             textomensajeinfo.InnerHtml = "Tu solicitud ha sido enviada";
-                        }
+                        //}
                     }
                     else
                     {
@@ -149,7 +149,7 @@ namespace RRHH.UI
                         textomensajeError.InnerHtml = "La cantidad de dias solicitados excede la cantidad de dias disponibles";
                         txtfechafinal.Focus();
                     }
-                }
+               }
 
                 else
                 {

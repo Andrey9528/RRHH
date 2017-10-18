@@ -261,5 +261,12 @@ namespace RRHH.UI
             }
         }
 
+        protected void btnregresar_Click(object sender, EventArgs e)
+        {
+            Session["ROL"] = Login.EmpleadoGlobal.IdRol;
+
+            Response.Redirect("WebForm1.aspx?ROL=" + Login.EmpleadoGlobal.IdRol);
+
+        }
     }
 }

@@ -217,7 +217,7 @@
         <li class="active" style="margin-top:10px; color:white;">
             
 
-       <div style="color:white; "><asp:Button CssClass="btn btn-link" ID="btnHome" runat="server" Text="Home"    OnClick="btnHome_Click" />
+       <div style="color:white; "><asp:Button CssClass="btn btn-primary" ID="btnHome" runat="server" Text="Home"    OnClick="btnHome_Click" />
             </div>
             
 

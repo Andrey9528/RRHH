@@ -322,5 +322,13 @@ namespace RRHH.UI
                 txtfechainicio.Enabled = true;
             }
         }
+
+        protected void btnRegresar_Click(object sender, EventArgs e)
+        {
+            Session["ROL"] = Login.EmpleadoGlobal.IdRol;
+
+            Response.Redirect("WebForm1.aspx?ROL=" + Login.EmpleadoGlobal.IdRol);
+
+        }
     }
 }

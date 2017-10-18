@@ -98,7 +98,6 @@
              </Columns>
         </asp:GridView>
     </div>
-       
-    <a class="btn btn-success" href="WebForm1.aspx"><span class="glyphicon glyphicon-backward"></span> Regresar</a>
-
+    <asp:Button ID="btnregresar" OnClick="btnregresar_Click" runat="server" CssClass="btn btn-success" Text="Regresar" /> 
+  
 </asp:Content>

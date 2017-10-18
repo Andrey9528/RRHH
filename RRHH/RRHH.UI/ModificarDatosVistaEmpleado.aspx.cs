@@ -117,6 +117,8 @@ namespace RRHH.UI
                     Singleton.OpEmpleados.ActualizarEmpleados(emple2);
                     ActualizarEmpeladoGlobal();
                     Empleadosmantenimiento.Visible = false;
+                    formularioImg.Visible = false;
+                    Botones.Visible = true;
                     mensajeinfo.Visible = false;
                     mensaje.Visible = true;
                     mensajeError.Visible = false;
@@ -142,6 +144,7 @@ namespace RRHH.UI
                     Session["ROL"] = Login.EmpleadoGlobal.IdRol;
 
                     Response.Redirect("WebForm1.aspx?ROL="+Login.EmpleadoGlobal.IdRol);
+
                 }
                 else if (Login.EmpleadoGlobal.IdRol == 2)
                 {

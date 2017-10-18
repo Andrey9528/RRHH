@@ -265,6 +265,15 @@ namespace RRHH.UI {
         protected global::System.Web.UI.WebControls.DropDownList DDLgenero;
         
         /// <summary>
+        /// formularioImg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl formularioImg;
+        
+        /// <summary>
         /// Label13 control.
         /// </summary>
         /// <remarks>
@@ -308,6 +317,15 @@ namespace RRHH.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputButton btnnAdjuntar;
+        
+        /// <summary>
+        /// Botones control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Botones;
         
         /// <summary>
         /// btnRegresar control.
