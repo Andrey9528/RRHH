@@ -33,74 +33,61 @@
  
     
  </div>
-    <br /><br />
+    <%--Empleadosmantenimiento  --%>
     
-    <img id="img1" src="https://3.imimg.com/data3/HQ/KK/MY-8835125/5-250x250.png" runat="server"   class="img-responsive" />
-    <br />
-    <br />
-    <br />
-    <div class="form-horizontal "  style="margin-left:420px; margin-top:-350px; width: 319px; height: 465px;"   id="Empleadosmantenimiento" runat="server" visible="true">
-           
-   
-    <asp:Label ID="Label2" runat="server"   Text="Nombre"></asp:Label>
-    
-       <asp:TextBox ID="txtNombre" CssClass="form-control " runat="server"></asp:TextBox>
-       
-   
+    <div class="container">
 
+        <div class="row">
+            <div class="col-sm-4">
+ <img id="img1" src="https://3.imimg.com/data3/HQ/KK/MY-8835125/5-250x250.png" runat="server"   class="img-responsive" />
+    
+      
+            </div>
+
+            <div class="col-sm-4" runat="server" id="Empleadosmantenimiento">
+
+<asp:Label ID="Label2" runat="server"   Text="Nombre"></asp:Label>
+     <asp:TextBox ID="txtNombre" CssClass="form-control " runat="server"></asp:TextBox>
+       
+ <asp:Label ID="Label3"  runat="server"   Text="Direccion"></asp:Label>
    
-   
-    <asp:Label ID="Label3"  runat="server"   Text="Direccion"></asp:Label>
-   
-      <asp:TextBox ID="txtDireccion" Width="280" CssClass="form-control "    TextMode="MultiLine" runat="server"></asp:TextBox>
+      <asp:TextBox ID="txtDireccion"  CssClass="form-control "    TextMode="MultiLine" runat="server"></asp:TextBox>
           
-        
-         <asp:Label ID="Label4"  runat="server"    Text="Teléfono"></asp:Label>
+        <asp:Label ID="Label4"  runat="server"    Text="Teléfono"></asp:Label>
     
         <asp:TextBox ID="txtTelefono" CssClass="form-control"    runat="server"></asp:TextBox>
     
-
-
 
     <asp:Label ID="Label5" runat="server"   Text="Correo"></asp:Label>
 <asp:TextBox ID="txtCorreo" TextMode="Email" CssClass="form-control" runat="server"></asp:TextBox>
     
 
-
             <asp:Label ID="Label6"  runat="server"   Text="Estado Civil:"></asp:Label>
     
-  <asp:DropDownList ID="DddlEstadoCivil"  Width="280" class = "form-control" runat="server">
+  <asp:DropDownList ID="DddlEstadoCivil"   class = "form-control" runat="server">
         <asp:ListItem>Casado</asp:ListItem>
         <asp:ListItem>Soltero</asp:ListItem>
         <asp:ListItem>Unión libre</asp:ListItem>
         <asp:ListItem>Viudo</asp:ListItem>
         <asp:ListItem Selected="True">Indefinido</asp:ListItem>
     </asp:DropDownList>
-       
-
-        
-        <asp:Label ID="Label7"    runat="server" Text="Fecha Nacimiento"></asp:Label>
+         <asp:Label ID="Label7"    runat="server" Text="Fecha Nacimiento"></asp:Label>
    
-   <asp:TextBox ID="txtFechaNacimiento"  Width="280"  CssClass="form-control"  runat="server"></asp:TextBox>
+   <asp:TextBox ID="txtFechaNacimiento"    CssClass="form-control"  runat="server"></asp:TextBox>
    
-    
-
                 <asp:Label ID="Label8"     runat="server" Text="Departamento"></asp:Label>
      
-   <asp:DropDownList ID="ddlDepartamento"  Width="280" class = "form-control" runat="server">
+   <asp:DropDownList ID="ddlDepartamento"   class = "form-control" runat="server">
        <asp:ListItem>Programacion</asp:ListItem>
        <asp:ListItem>Vacunas</asp:ListItem>
        <asp:ListItem>Medicamentos</asp:ListItem>
-       <asp:ListItem></asp:ListItem>
+       
         </asp:DropDownList>
        
-   
-
-   
-    <asp:Label ID="Label9"   runat="server" Text="Rol"></asp:Label>
+  <asp:Label ID="Label9"   runat="server" Text="Rol"></asp:Label>
       
    
-  <asp:DropDownList ID="ddlRol" Width="280" class = "form-control" runat="server">
+  <asp:DropDownList ID="ddlRol"  class = "form-control" runat="server">
       <asp:ListItem>Empleado</asp:ListItem>
       <asp:ListItem>Jefe</asp:ListItem>
       <asp:ListItem>Admin</asp:ListItem>
@@ -108,23 +95,22 @@
         </asp:DropDownList>
   
 
-  
-   
-   
         <asp:Label ID="Label1"  runat="server" Text="Genero"></asp:Label>
-   <asp:DropDownList ID="DDLgenero"  Width="280"  CssClass="form-control" runat="server">
+   <asp:DropDownList ID="DDLgenero"    CssClass="form-control" runat="server">
        <asp:ListItem>Masculino</asp:ListItem>
        <asp:ListItem>Femenino</asp:ListItem>
        <asp:ListItem>Sin Establecer</asp:ListItem>
         </asp:DropDownList>
   
-   
-     
-  <p  style="margin-left:360px; margin-top:-450px; "> 
-    <asp:Label ID="Label13"  runat="server" Text="Empleado:"></asp:Label>    
+
+            </div>
+
+            <div class="col-sm-4" id="formularioImg" runat="server">
+<asp:Label ID="Label13"  runat="server" Text="Empleado:"></asp:Label>    
         <asp:Image ID="imgEmple" Width="200px" Height="180px" runat="server" />
-   </p>
-       <div class="form-inline" style="margin-left:430px;">
+  
+           
+                  <div class="form-inline col-sm-offset-2" >
 
         <asp:TextBox ID="txtImagen" Width="180" placeholder="Cambiar foto" runat="server" CssClass="form-control"></asp:TextBox>
          <asp:FileUpload ID="fileUpload1" accept="image/*" runat="server" />
@@ -141,14 +127,29 @@
              
            }
        </script>
- 
-       
+  <br /><br /><br /><br /><br /><br /><br /><br /><br />
 
-    </div>
-    <div class="form-horizontal" style="margin-top:-15px; margin-left:720px; width: 347px;">
+            
+                 </div>
+
+  <div id="Botones"  runat="server" class="form-horizontal" >
            
              <%--<a   class="btn btn-primary"   href="EmpleadoView.aspx" ><span class="glyphicon glyphicon-backward"></span> Regresar</a>--%>
             <asp:Button ID="btnRegresar" OnClick="btnRegresar_Click" CssClass="btn btn-success" runat="server" Text="Regresar" />
              <asp:Button ID="btnModificar" runat="server" Text="Modificar" CssClass="btn btn-warning" OnClick="btnModificar_Click" />         
+        </div>  
+
         </div>
+    </div>
+           
+   
+   
+     
+   
+    
+     
+       
+
+    
+    
 </asp:Content>

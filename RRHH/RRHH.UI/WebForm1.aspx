@@ -254,18 +254,18 @@
   
   <div class="modal fade" data-keyboard="false" data-backdrop="static" id="Miperfil" role="dialog">
     <div class="modal-dialog modal-sm">
-      <div class="modal-content " style=" margin-top:130px; margin-left:35px; height:300px; width:500px;">
+      <div class="modal-content " style=" margin-top:130px;  height:300px; width:500px;">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Mi Perfil</h4>
         </div>
-        <div class="modal-body">
+        <div class="modal-body">    
         
             <asp:Label ID="lblnombre" runat="server" Text="Nombre:"></asp:Label>
             <br />
             <asp:Label ID="lblCedula" runat="server" Text="Cedula"></asp:Label>
             <br />
-            <asp:Label ID="lblDirreccion" runat="server" Text="Dirrección:"></asp:Label>
+            <asp:Label ID="lblDirreccion" runat="server" Text="Dirección:"></asp:Label>
             <br />
              <asp:Label ID="lblTelefono" runat="server" Text="Teléfono:"></asp:Label>
             <br />

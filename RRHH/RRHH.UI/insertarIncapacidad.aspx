@@ -123,10 +123,10 @@
     
 
     <div class="form-inline col-sm-offset-5">
-    
+     <asp:Button ID="btnRegresar" runat="server" Text="Regresar" CssClass="btn btn-primary" OnClick="btnRegresar_Click"  />
+   
     <asp:Button ID="btninsertar" runat="server" Text="Insertar" CssClass="btn btn-success" OnClick="btninsertar_Click"  />
-    <a   class="btn btn-primary"  href="WebForm1.aspx"><span class="glyphicon glyphicon-backward"></span> Regresar</a>
-
+   
 
 
         </div>
