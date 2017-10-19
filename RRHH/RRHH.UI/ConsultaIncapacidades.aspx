@@ -28,49 +28,52 @@
     <h1 style="text-align:center; font-family:cursive;" >Consulta de Incapacidades</h1>
    <br />
     
-   
-      <div style="margin-left:-20px;">
+   <br />
+    <div class="form-inline" style="margin-top:-25px;">
+      
        <asp:RadioButton ID="RB_personalizada" Autopostback="true" runat="server" GroupName="Seleccion" OnCheckedChanged="RB_personalizada_CheckedChanged"  />
        <asp:Label ID="Label2" runat="server" Text="Busqueda Personalizada"></asp:Label>
-        <br />
+      
        <asp:RadioButton ID="RB_busquedageneral" Autopostback="true" Checked="true" runat="server" GroupName="Seleccion" OnCheckedChanged="RB_busquedageneral_CheckedChanged" />
        <asp:Label ID="Label1" runat="server" Text="Busqueda general"></asp:Label>
-       </div>
-       <div style="width: 34px; margin-left:190px; margin-top:-35px; "> 
-           <asp:Label ID="Label3" runat="server" Text="De:"></asp:Label></div>
-       <div style="margin-left:220px; margin-top:-30px;  width: 115px;">
+      
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         
+           <asp:Label ID="Label3" runat="server" Text="De:"></asp:Label>
+       
           
             <asp:TextBox ID="txtfechainicio" CssClass="form-control" Width="150"  TextMode="date" runat="server"></asp:TextBox>
           
-            </div>
-      <div style="width: 34px; margin-left:380px; margin-top:-30px; "> 
-           <asp:Label ID="Label5" runat="server" Text="Hasta:"></asp:Label></div>
-       <div style="margin-left:420px; margin-top:-30px;  width: 115px;">
+        
+           <asp:Label ID="Label5" runat="server" Text="Hasta:"></asp:Label>
+       
           
             <asp:TextBox ID="txtfechafinal" CssClass="form-control" Width="150" TextMode="date"  runat="server"></asp:TextBox>
           
-            </div>
+          &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;
+   
        
      
 
-    <div style="width: 87px; margin-left:900px; margin-top:-30px;">
-        <asp:Button ID="Btnbusca" OnClick="Btnbusca_Click" CssClass="btn btn-primary" runat="server" Text="Buscar" />
-    </div>
-    <div style="margin-left:1000px; margin-top:-20px;">
-        <asp:Label ID="lblExportar" runat="server" Text="Exportar:"></asp:Label>
-    </div>
     
-    <div style="margin-left:1060px; margin-top:-30px;">
+        <asp:Button ID="Btnbusca" OnClick="Btnbusca_Click" CssClass="btn btn-primary" runat="server" Text="Buscar" />
+     &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;
+       
+    
+        <asp:Label ID="lblExportar" runat="server" Text="Exportar:"></asp:Label>
+    
+    
+    
            
         <asp:Button ID="btnexportar" CssClass="btn btn-danger"  OnClick="btnexportar_Click" runat="server" Text="PDF" />
 
-    </div>
-
-
-    <div style="width: 969px; margin-left:-16px; margin-top:40px;">
+    
+</div>
+    <br /><br /><br />
+    <div class="table-responsive">
 
         <%--AutoGenerateColumns = False para que funcione los alias y descomentar lo de abajo --%>
-        <asp:GridView ID="gvdatos" runat="server" AutoGenerateColumns = False   CssClass="table table-responsive table-bordered " CellPadding="4" ForeColor="#333333" GridLines="None" Width="1030px">
+        <asp:GridView ID="gvdatos" runat="server"    AutoGenerateColumns = False   CssClass="table table-responsive table-bordered " CellPadding="4" ForeColor="#333333" GridLines="None" Width="1200px">
             <AlternatingRowStyle BackColor="White" />
             <EditRowStyle BackColor="#2461BF" />
             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
