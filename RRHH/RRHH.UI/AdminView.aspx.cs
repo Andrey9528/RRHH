@@ -187,10 +187,10 @@ namespace RRHH.UI
 
        
 
-        protected void LB_Agregar_Click(object sender, EventArgs e)
-        {
-            Server.Transfer("RegistroEmpleado.aspx");
-        }
+        //protected void LB_Agregar_Click(object sender, EventArgs e)
+        //{
+        //    Server.Transfer("RegistroEmpleado.aspx");
+        //}
 
         protected void LnkHome_Click(object sender, EventArgs e)
         {

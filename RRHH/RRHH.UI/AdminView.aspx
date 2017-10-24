@@ -242,8 +242,8 @@
           
           <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="background-color:#04acec; font-size:14px; color:white; font-family:cursive;">Empleados <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li>
-                <asp:LinkButton ID="LB_Agregar" OnClick="LB_Agregar_Click" runat="server">Agregar</asp:LinkButton></li>
+            
+                
             <li><a  href="RegistroEmpleado.aspx">Agregar</a></li>
             <li><a  href="mantenimientoEmpleados.aspx">Mantenimiento</a></li>
            

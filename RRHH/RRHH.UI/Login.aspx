@@ -44,7 +44,7 @@
                               <div class="form-horizontal">
                                   <div style="margin-bottom:25px;" class="input-group">
                                       <span class="input-group-addon"><i class="glyphicon glyphicon-user "></i></span>
-                                      <asp:TextBox ID="txtcorreo" runat="server" class="form-control" placeholder="Email"></asp:TextBox>
+                                      <asp:TextBox ID="txtcorreo" runat="server" class="form-control" placeholder="usuario@ejemplo.com"></asp:TextBox>
 
                                   </div>
                                   <div style="margin-bottom:25px;" class="input-group">
@@ -90,7 +90,7 @@
                               <div  class="modal-body">
                              <div class="form-group">
                                  <asp:Label ID="Label1" runat="server" Text="Digita tu correo:"></asp:Label>
-                                  <asp:TextBox ID="txtemail" TextMode="Email" runat="server" CssClass="form-control"  placeholder="Correo"></asp:TextBox>      
+                                  <asp:TextBox ID="txtemail" TextMode="Email" runat="server" CssClass="form-control"  placeholder="usuario@ejemplo.com"></asp:TextBox>      
                                  
                               </div>
                              <div class="form-group">
