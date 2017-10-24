@@ -105,7 +105,7 @@
 
             </div>
 
-            <div class="col-sm-4" id="formularioImg" runat="server">
+            <div class="col-sm-4" id="formularioImg" visible="true" runat="server">
 <asp:Label ID="Label13"  runat="server" Text="Empleado:"></asp:Label>    
         <asp:Image ID="imgEmple" Width="200px" Height="180px" runat="server" />
   

@@ -55,7 +55,7 @@
     <asp:Button ID="btnBuscar" runat="server" Text="Buscar" CssClass="btn btn-primary" OnClick="btnBuscar_Click" />
      <br />
     <br />
-    
+    <div class="table-responsive">
     <asp:GridView ID="gvdatos" AutoGenerateColumns = False CssClass="table   table-bordered " runat="server" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Vertical">
         <AlternatingRowStyle BackColor="#DCDCDC" />
         <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
@@ -76,23 +76,32 @@
                 <asp:BoundField  DataField = "Condicion" runat="server" HeaderText = "Condición" />
              </Columns>  
      </asp:GridView>
+        </div>
    <br />
     <br />
-    <p style="margin-top:50px; margin-left:20px; width: 144px;"><asp:Label ID="Label1" runat="server" Text="Numero de Solicitud"></asp:Label></p>
-   <p style="margin-left:160px; margin-top:-35px; width: 185px;"> <asp:DropDownList ID="DDLidsolicitud" Width="178px" CssClass="form-control" runat="server"></asp:DropDownList></p>
-    <p style="margin-left:400px; margin-top:-38px;"><asp:Label ID="Label2" runat="server" Text="Estado"></asp:Label></p>
-    <p style="margin-left:460px; margin-top:-30px; width: 157px;" ><asp:DropDownList ID="DDLestado" Width="151px" CssClass="form-control" runat="server">
+    <div class="row">
+        <div class="col-sm-5">
+<asp:Label ID="Label1" runat="server" Text="Numero de Solicitud"></asp:Label>
+         <asp:DropDownList ID="DDLidsolicitud" CssClass="form-control" runat="server"></asp:DropDownList>
+       
+        </div>
+    <div class="col-sm-4">
+ <asp:Label ID="Label2" runat="server" Text="Estado"></asp:Label>
+   <asp:DropDownList ID="DDLestado"  CssClass="form-control" runat="server">
         <asp:ListItem>Aprobado</asp:ListItem>
         <asp:ListItem Selected="True">Denegado</asp:ListItem>
-        <asp:ListItem></asp:ListItem>
-     </asp:DropDownList></p>
+       
+     </asp:DropDownList>
+<asp:Button ID="btnactualizar" CssClass="btn btn-warning" OnClick="btnactualizar_Click" runat="server" Text="Actualizar" />
+           <asp:Button ID="btnregresar" CssClass="btn btn-primary" OnClick="btnregresar_Click" runat="server" Text="Regresar" />
+ 
+    </div>
+       
+ 
+    
 
-
-   <p style="margin-left:670px; margin-top:-40px;"> <asp:Button ID="btnactualizar" CssClass="btn btn-warning" OnClick="btnactualizar_Click" runat="server" Text="Actualizar" /></p>
- <p style="margin-top:-43px; margin-left:760px; width: 142px; height: 30px;">
-     <asp:Button ID="btnregresar" CssClass="btn btn-primary" OnClick="btnregresar_Click" runat="server" Text="Regresar" />
-    </p>
-
+   
+        </div>
 </div>
     
    

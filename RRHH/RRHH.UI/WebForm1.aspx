@@ -310,11 +310,11 @@
         <div class="modal-body">
           
     <asp:Label ID="Label4" runat="server" Text="Fecha de Inicio:"></asp:Label>
-    <asp:TextBox ID="txtfechadeincio" Width="280" TextMode="Date" CssClass="form-control" runat="server"></asp:TextBox>
+    <asp:TextBox ID="txtfechadeincio"  TextMode="Date" CssClass="form-control" runat="server"></asp:TextBox>
 
 
     <asp:Label ID="Label5" runat="server" Text="Fecha Final:"></asp:Label>
-    <asp:TextBox ID="txtfechafinal" Width="280" TextMode="Date" CssClass="form-control" runat="server" ></asp:TextBox>
+    <asp:TextBox ID="txtfechafinal"  TextMode="Date" CssClass="form-control" runat="server" ></asp:TextBox>
         
         </div>
         <div class="modal-footer">

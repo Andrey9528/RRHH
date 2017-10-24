@@ -9,20 +9,22 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   
     <title></title>
+   
 </head>
 <body>
     <form id="form1" runat="server">
-  
+        
+        
   <ul> 
    <li><a data-target="#Miperfil" data-toggle="modal" href="#">hola</a></li>
-          
+    <li><a href="popup.aspx">Prueba</a></li>      
        </ul> 
            
    <div class="container"  >
   
   <div class="modal fade" data-keyboard="false" data-backdrop="static" id="Miperfil" role="dialog">
     <div class="modal-dialog modal-md">
-      <div class="modal-content " style=" margin-top:130px;  ">
+      <div class="modal-content " style=" margin-top:130px;   ">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Mi Perfil</h4>
@@ -49,11 +51,11 @@
              <asp:Label ID="lbldepa" runat="server" Text="Departamento:"></asp:Label>
             <br />
 <%--             <asp:Label ID="lblRol" runat="server" Text="Rol:"></asp:Label>--%>
-            <br /> 
+            
                     
                   
                 </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
 
  <asp:Image ID="imgPerfil" Width="170px" Height="120px" runat="server" />
     

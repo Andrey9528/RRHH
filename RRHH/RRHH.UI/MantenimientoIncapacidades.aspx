@@ -49,14 +49,16 @@
         </div>
 
     <h1 style="text-align:center; font-family:'Comic Sans MS'; font-size:25px;">Mantenimiento de Incapacidades</h1>
+    </div>
     <br />
-    <br />
-    <br />
+    <div class="form-inline">
     <asp:Label ID="lbIdProducto" runat="server" Text="Cédula: "></asp:Label>
-        <asp:TextBox ID="txtcedula" runat="server" CssClass="form-control"></asp:TextBox>
-        
+    <asp:TextBox ID="txtcedula" runat="server" CssClass="form-control"></asp:TextBox>    
     <asp:Button ID="btnsBuscar" runat="server" Text="Buscar" CssClass="btn btn-primary" OnClick="btnsBuscar_Click" />
-    <br><br>
+    </div>
+    <br />
+    <br />
+        <div class="table-responsive">
 
     <asp:GridView ID="grVacaciones"  AutoGenerateColumns = False CssClass="table  table-condensed table-bordered  "  runat="server" CellPadding="4" ForeColor="#333333" GridLines="None">
         <AlternatingRowStyle BackColor="White" />
@@ -94,112 +96,136 @@
 
 
     <br />
-    <br />
-    <br />
      <br />
    
 
     <div class="form-inline" id="mantenimientoInca" runat="server" visible="true">
 
-<div class="form-group">
-   <p><asp:Label ID="Label2" runat="server" Text="Numero de incapacidad:"></asp:Label></p>
-   <p style="margin-left:153px; margin-top:-35px;"> <asp:DropDownList ID="DDLid_incapacidad" CssClass="form-control" Width="280" runat="server"></asp:DropDownList></p>
-    <asp:Button ID="btnBuscarIncapacidad" OnClick="btnBuscarIncapacidad_Click" CssClass="btn btn-success" runat="server" Text="Mostrar datos" />
 
-    </div>
-
-        <br />
-        <br />
-        <br />
+   <asp:Label ID="Label2" runat="server" Text="Numero de incapacidad:"></asp:Label>
+   <asp:DropDownList ID="DDLid_incapacidad" CssClass="form-control"  runat="server"></asp:DropDownList>
+    <br />
+        <asp:Button ID="btnBuscarIncapacidad" OnClick="btnBuscarIncapacidad_Click" CssClass="btn btn-success" runat="server" Text="Mostrar datos" />
         
-        <p>
-            <asp:Label ID="Label1" runat="server" Text="Fecha Inicio:"></asp:Label></p>
-        <p style="margin-left:90px; margin-top:-40px; width: 174px;">
-            <asp:TextBox CssClass="form-control" ID="txtfechainicio" runat="server" Width="147px"></asp:TextBox></p>
-
-         <p style="margin-left:260px; width: 146px; margin-top:-32px;">
-            <asp:Label ID="Label3"  runat="server" Text="Fecha de finalización:  "></asp:Label></p>
-        <p style="margin-left:403px; margin-top:-40px; width: 184px;">
-            <asp:TextBox CssClass="form-control" Width="147px" ID="txtfechafinalizacion" runat="server"></asp:TextBox></p>
-
-         <p style="margin-left:570px; width: 146px; margin-top:-32px;">
-            <asp:Label ID="Label4"  runat="server" Text="Fecha de emisión:  "></asp:Label></p>
-        <p style="margin-left:699px; margin-top:-40px; width: 184px;">
-            <asp:TextBox CssClass="form-control" Width="147px" ID="txtfechaemision" runat="server"></asp:TextBox></p>
+     <br />
+        <br />
 
 
-        <p style="margin-left:855px; width: 146px; margin-top:-32px;">
-            <asp:Label ID="Label5"  runat="server" Text="Nombre del doctor:  "></asp:Label></p>
-        <p style="margin-left:980px; margin-top:-40px; width: 184px;">
-            <asp:TextBox CssClass="form-control" Width="147px" ID="txtdoctor" runat="server"></asp:TextBox></p>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-inline">
+ <asp:Label ID="Label1" runat="server" Text="Fecha Inicio:"></asp:Label>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:TextBox CssClass="form-control" ID="txtfechainicio" runat="server" ></asp:TextBox>
 
         
-        <br />
-        <br />
-        <p>
-            <asp:Label ID="Label6" runat="server" Text="Tipo"></asp:Label></p>
-        <p style="margin-left:90px; margin-top:-40px; width: 134px;">
-            <asp:DropDownList ID="DDLtipoenfermedad" CssClass="form-control" Width="147" runat="server">
+                    </div>
+                </div>
+
+                 <div class="col-sm-4">
+                    <div class="form-inline">
+  <asp:Label ID="Label3"  runat="server" Text="Fecha de finalización:  "></asp:Label>
+        
+            <asp:TextBox CssClass="form-control" Width="147px" ID="txtfechafinalizacion" runat="server"></asp:TextBox>
+
+                    </div>
+                </div>
+
+
+
+                 <div class="col-sm-4">
+                    <div class="form-inline">
+ <asp:Label ID="Label5"  runat="server" Text="Nombre del doctor:  "></asp:Label>
+        
+            <asp:TextBox CssClass="form-control"  ID="txtdoctor" runat="server"></asp:TextBox>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br /><br />
+        <div class="container">
+            <div class="row">
+                 <div class="col-sm-4">
+                     <div class="form-inline">
+
+ <asp:Label ID="Label4"  runat="server" Text="Fecha de emisión:  "></asp:Label>
+        
+            <asp:TextBox CssClass="form-control"  ID="txtfechaemision" runat="server"></asp:TextBox>
+
+
+                     </div>
+                 </div>
+                <div class="col-sm-4">
+                     <div class="form-inline">
+   <asp:Label ID="Label8" runat="server" Text="Descripción:"></asp:Label>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+            
+             <asp:TextBox CssClass="form-control"  ID="txtdescripcion" runat="server"></asp:TextBox>
+
+       
+
+                     </div>
+                 </div>
+                <div class="col-sm-4">
+                     <div class="form-inline">
+ <asp:Label ID="Label7" runat="server" Text="Centro emisor:"></asp:Label>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+             <asp:TextBox CssClass="form-control"  ID="txtcentroemisor" runat="server"></asp:TextBox>
+
+
+                     </div>
+                 </div>
+            </div>
+        </div>
+        
+           <br /><br />
+          
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-inline">
+
+   <asp:Label ID="Label6" runat="server" Text="Tipo"></asp:Label>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        
+            <asp:DropDownList ID="DDLtipoenfermedad" CssClass="form-control" runat="server">
                 <asp:ListItem>Enfermedad</asp:ListItem>
                 <asp:ListItem>Maternidad</asp:ListItem>
                 <asp:ListItem Selected="True">Sin establecer</asp:ListItem>
-            </asp:DropDownList>  </p>
+            </asp:DropDownList> 
 
 
+                    </div>
+                </div>
 
-         <p style="margin-left:280px; margin-top:-35px; width: 97px;">
-            <asp:Label ID="Label7" runat="server" Text="Centro emisor:"></asp:Label></p>
-        <p style="margin-left:399px; margin-top:-35px; width: 179px;">
-
-             <asp:TextBox CssClass="form-control" Width="149px" ID="txtcentroemisor" runat="server"></asp:TextBox>
-
-        </p>
-
-
-
-
-         <p style="margin-left:600px; margin-top:-35px; width: 97px;">
-            <asp:Label ID="Label8" runat="server" Text="Descripción:"></asp:Label></p>
-        <p style="margin-left:699px; margin-top:-35px; width: 179px;">
-
-             <asp:TextBox CssClass="form-control" Width="147px" ID="txtdescripcion" runat="server"></asp:TextBox>
-
-        </p>
-
-
-         <p style="margin-left:890px; margin-top:-35px; width: 97px;">
-            <asp:Label ID="Label9" runat="server" Text="Estado:"></asp:Label></p>
-        <p style="margin-left:940px; margin-top:-28px; width: 179px;">
+                 <div class="col-sm-4">
+                    <div class="form-inline">
+ <asp:Label ID="Label9" runat="server" Text="Estado:"></asp:Label>
+        
 
             <asp:CheckBox ID="Chk_estado"  runat="server" />
 
-        </p>
+        
 
 
-              
+                    </div>
+                </div>
 
-
-
-      
-        <br />
-        <br />
-  
-    
-   
-    
-
-
-    
-    
-     
-
-         <div class="form-inline">
-            <br />
-              
-          <asp:Button ID="btnRegresar" runat="server" Text="Regresar" CssClass="btn btn-primary"  OnClick="btnRegresar_Click"  />
+                <div class="row">
+                 <div class="col-sm-4">
+                    <div class="form-inline">
+   <asp:Button ID="btnRegresar" runat="server" Text="Regresar" CssClass="btn btn-primary"  OnClick="btnRegresar_Click"  />
             
             <asp:Button ID="btnModificar" runat="server" Text="Modificar" CssClass="btn btn-warning"  OnClick="btnModificar_Click" OnClientClick="Confirm()" />
             
+
+                    </div>
+                </div>
+              </div>
+            </div>
         </div>
-    </div>
+   </div>
 </asp:Content>

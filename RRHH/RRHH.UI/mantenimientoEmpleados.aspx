@@ -52,36 +52,28 @@
         </div>
 
         <h1 style="text-align:center; font-family:cursive;">Mantenimiento de Empleados</h1>
-        <asp:Label ID="lbIdCedula" runat="server" Text="Cédula: "></asp:Label>
-        <asp:TextBox ID="txtcedula" runat="server" CssClass="form-control"></asp:TextBox>
-        <asp:Button ID="btnsBuscar" runat="server" Text="Buscar" CssClass="btn btn-primary" OnClick="btnsBuscar_Click" />
-    
+       
  </div>
    <br />
-    
-    <img id="img1" src="https://3.imimg.com/data3/HQ/KK/MY-8835125/5-250x250.png" runat="server"   class="img-responsive" />
-    <br />
-    <br />
-    <br />
-    
-    
-    
-   
-      <div class="form-horizontal "  style="margin-left:420px; margin-top:-350px; width: 319px; height: 465px;"   id="Empleadosmantenimiento" runat="server" visible="true">
-           
-   
+    <div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+    <div class="form-inline">
+             <asp:Label ID="lbIdCedula" runat="server" Text="Cédula: "></asp:Label>
+        <asp:TextBox ID="txtcedula" runat="server" CssClass="form-control"></asp:TextBox>
+        <asp:Button ID="btnsBuscar" runat="server" Text="Buscar" CssClass="btn btn-primary" OnClick="btnsBuscar_Click" />
+    </div>
+            <br />
+      <img id="img1" src="https://3.imimg.com/data3/HQ/KK/MY-8835125/5-250x250.png" runat="server"   class="img-responsive" />
+   </div>
+        <div class="col-sm-4" runat="server" visible="true" id="Empleadosmantenimiento">
+ 
     <asp:Label ID="Label2" runat="server"   Text="Nombre"></asp:Label>
     
         <asp:TextBox ID="txtNombre" enabled="false" CssClass="form-control " runat="server"></asp:TextBox>
-       
-
+       <asp:Label ID="Label3"  runat="server"   Text="Direccion"></asp:Label>
    
-
-   
-   
-    <asp:Label ID="Label3"  runat="server"   Text="Direccion"></asp:Label>
-   
-      <asp:TextBox ID="txtDireccion" enabled="false" Width="280" CssClass="form-control "    TextMode="MultiLine" runat="server"></asp:TextBox>
+      <asp:TextBox ID="txtDireccion" enabled="false"  CssClass="form-control "    TextMode="MultiLine" runat="server"></asp:TextBox>
           
         
          <asp:Label ID="Label4"  runat="server"    Text="Teléfono"></asp:Label>
@@ -111,7 +103,7 @@
         
         <asp:Label ID="Label7"    runat="server" Text="Fecha Nacimiento"></asp:Label>
    
-    <asp:TextBox ID="txtFechaNacimiento" enabled="false" ReadOnly="true" Width="280"  CssClass="form-control"  runat="server"></asp:TextBox>
+    <asp:TextBox ID="txtFechaNacimiento" enabled="false" ReadOnly="true"   CssClass="form-control"  runat="server"></asp:TextBox>
     
     
 
@@ -127,7 +119,7 @@
    
    
 
-    <br/>
+    
     <asp:Label ID="Label9" runat="server" Text="Rol"></asp:Label>
      
    
@@ -150,12 +142,50 @@
         </asp:DropDownList>--%>
              <asp:TextBox ID="txtGenero" Enabled="false" CssClass="form-control" ReadOnly="true" runat="server"></asp:TextBox>
 
-   
-     
-    <p  style="margin-left:360px; margin-top:-450px; "> 
-    <asp:Label ID="Label13"  runat="server" Text="Empleado:"></asp:Label>    
+
+        </div>
+        <div class="col-sm-4" id="frmImg" visible="true" runat="server">
+
+        <asp:Label ID="Label13"  runat="server" Text="Empleado:"></asp:Label>    
         <asp:Image ID="imgEmple" Width="200px" Height="180px" runat="server" />
-   </p>
+   <br />
+       
+         <asp:Label ID="Label11"  runat="server" Text="Estado"></asp:Label>
+         <asp:CheckBox ID="Chk_estado"    runat="server" />
+   
+         
+   <asp:Label ID="Label12"  runat="server" Text="Cuenta Bloqueada:"></asp:Label>
+   
+       <asp:CheckBox ID="Chk_bloqueado"  runat="server" />
+
+        <script>
+           function adjuntarImagen()
+           {
+               document.getElementById('MainContent_fileUpload1').click();
+               document.getElementById('MainContent_txtImagen').readOnly = false;
+
+           }
+       </script>
+
+
+        
+        </div>
+   <div class="form-horizontal" id="botones" runat="server" >
+           
+            
+         
+          <asp:Button ID="btnRegresar" runat="server" Text="Regresar" CssClass="btn btn-primary"  OnClick="btnRegresar_Click" />
+         
+             <asp:Button ID="btnModificar" runat="server" Text="Modificar" CssClass="btn btn-warning"  OnClick="btnModificar_Click" />
+           
+          <asp:Button ID="btnEliminar"  runat="server" Text="Deshabilitar" CssClass="btn btn-danger" OnClick="btnEliminar_Click"  OnClientClick="Confirm()" />
+         
+        </div>
+    </div>
+    </div>
+       
+     
+   
        <div class="form-inline" style="margin-left:430px;">
 
        <%-- <asp:TextBox ID="txtImagen" Width="180" placeholder="Cambiar foto" runat="server" CssClass="form-control"></asp:TextBox>
@@ -168,45 +198,17 @@
 
        --%>
         </div>
-          <script>
-           function adjuntarImagen()
-           {
-               document.getElementById('MainContent_fileUpload1').click();
-               document.getElementById('MainContent_txtImagen').readOnly = false;
+          
+   
 
-           }
-       </script>
-         <p  style="margin-left:300px;   height: 28px; width: 76px;"> 
-               <asp:Label ID="Label11"  runat="server" Text="Estado"></asp:Label>
-   <asp:CheckBox ID="Chk_estado"    runat="server" />
-   </p>
+
+  
+  
        
 
-
-   <p style="margin-left:300px;" >  
-   <asp:Label ID="Label12"  runat="server" Text="Cuenta Bloqueada:"></asp:Label>
-   
-       <asp:CheckBox ID="Chk_bloqueado"  runat="server" />
-
-   </p>
-       
-
-    </div>
-   
     
-       
 
-     <div class="form-horizontal" style="margin-top:-15px; margin-left:720px; width: 347px;">
-           
-            
-         
-          <asp:Button ID="btnRegresar" runat="server" Text="Regresar" CssClass="btn btn-primary"  OnClick="btnRegresar_Click" />
-         
-             <asp:Button ID="btnModificar" runat="server" Text="Modificar" CssClass="btn btn-warning"  OnClick="btnModificar_Click" />
-           
-          <asp:Button ID="btnEliminar"  runat="server" Text="Deshabilitar" CssClass="btn btn-danger" OnClick="btnEliminar_Click"  OnClientClick="Confirm()" />
-         
-        </div>
+     
         
    
 

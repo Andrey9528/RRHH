@@ -78,6 +78,7 @@ namespace RRHH.UI
                     
                     imgEmple.ImageUrl = emple.Imagen;
                     Empleadosmantenimiento.Visible = true;
+                    frmImg.Visible = true;
                     txtcedula.ReadOnly = true;
                     mensaje.Visible = false;
                     mensajeError.Visible = false;
@@ -154,6 +155,7 @@ namespace RRHH.UI
 
                     Singleton.OpEmpleados.ActualizarEmpleados(emple);
                     Empleadosmantenimiento.Visible = false;
+                    frmImg.Visible = false;
                     mensajeinfo.Visible = false;
                     mensaje.Visible = false;
                     mensajeError.Visible = false;
@@ -196,6 +198,7 @@ namespace RRHH.UI
 
                     Singleton.OpEmpleados.ActualizarEmpleados(emple);
                     Empleadosmantenimiento.Visible = false;
+                    frmImg.Visible = false;
                     mensajeinfo.Visible = false;
                     mensaje.Visible = false;
                     mensajeError.Visible = false;
@@ -235,6 +238,7 @@ namespace RRHH.UI
 
                     Singleton.OpEmpleados.ActualizarEmpleados(emple);
                     Empleadosmantenimiento.Visible = false;
+                    frmImg.Visible = false;
                     mensajeinfo.Visible = false;
                     mensaje.Visible = false;
                     mensajeError.Visible = false;
@@ -274,6 +278,7 @@ namespace RRHH.UI
 
                     Singleton.OpEmpleados.ActualizarEmpleados(emple);
                     Empleadosmantenimiento.Visible = false;
+                    frmImg.Visible = false;
                     mensajeinfo.Visible = false;
                     mensaje.Visible = false;
                     mensajeError.Visible = false;
@@ -328,7 +333,7 @@ namespace RRHH.UI
                         Imagen = EmpleadoGlobal.Imagen,
                         //  Genero = DDLgenero.SelectedItem.ToString(),
                         Genero = txtGenero.Text,
-                        Password = EmpleadoGlobal.Password,
+                        Password = Login.EmpleadoGlobal.Password,
                         IntentosFallidos=Convert.ToInt32(EmpleadoGlobal.IntentosFallidos),
                         DiasVacaciones = EmpleadoGlobal.DiasVacaciones,
                         DiasAntesCaducidad = EmpleadoGlobal.DiasAntesCaducidad,
@@ -336,7 +341,7 @@ namespace RRHH.UI
                     };
                     Singleton.OpEmpleados.ActualizarEmpleados(emple);
                     Empleadosmantenimiento.Visible = false;
-                    Empleadosmantenimiento.Visible = false;
+                    frmImg.Visible = false;
                     mensaje.Visible = false;
                     mensajawarning.Visible = false;
                     mensajeError.Visible = false;

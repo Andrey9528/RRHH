@@ -147,7 +147,7 @@ namespace RRHH.UI
         {
             Session["ROL"] = Login.EmpleadoGlobal.IdRol;
 
-            Response.Redirect("AdminView.aspx?ROL=" + Login.EmpleadoGlobal.IdRol);
+           Response.Redirect("AdminView.aspx?ROL=" + Login.EmpleadoGlobal.IdRol);
 
         }
     }

@@ -292,6 +292,15 @@ namespace RRHH.UI {
         protected global::System.Web.UI.WebControls.TextBox txtGenero;
         
         /// <summary>
+        /// frmImg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl frmImg;
+        
+        /// <summary>
         /// Label13 control.
         /// </summary>
         /// <remarks>
@@ -344,6 +353,15 @@ namespace RRHH.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox Chk_bloqueado;
+        
+        /// <summary>
+        /// botones control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl botones;
         
         /// <summary>
         /// btnRegresar control.

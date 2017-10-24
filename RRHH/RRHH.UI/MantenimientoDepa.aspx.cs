@@ -15,10 +15,13 @@ namespace RRHH.UI
         {
             Gv_datos.DataSource = Singleton.opdepartamento.ListarDepartamentos();
             Gv_datos.DataBind();
+           
             if (!IsPostBack)
             {
                 DDLdepa.DataSource = Singleton.opdepartamento.ListarDepartamentos().Select(x => x.Nombre).ToList();
                 DDLdepa.DataBind();
+                
+            
             }
         }
 
@@ -34,6 +37,7 @@ namespace RRHH.UI
                     Chk_estado.Visible = true;
                     Chk_estado.Enabled = true;
                     DDLdepa.Enabled = false;
+                    btnactualizar.Enabled = true;
                     mantenimientoDepa.Visible = true;
                     txtcorreojefe.Text = depa.EmailJefeDpto.ToString();
                     txtnombre.Text = depa.NombreJefe.ToString();
@@ -60,6 +64,8 @@ namespace RRHH.UI
         {
             try
             {
+                string confirmValueNo = Request.Form["confirm_value"];
+
                 if (Chk_estado.Checked)
                 {
 
@@ -71,8 +77,8 @@ namespace RRHH.UI
                         Nombre = DDLdepa.SelectedItem.ToString(),
                         NombreJefe = txtnombre.Text,
                         EmailJefeDpto = txtcorreojefe.Text,
-                        Estado=true
-                    
+                        Estado = true
+
 
 
                     };
@@ -80,19 +86,34 @@ namespace RRHH.UI
                     Gv_datos.DataSource = Singleton.opdepartamento.ListarDepartamentos();
                     Gv_datos.DataBind();
                     mensaje.Visible = false;
+                    Chk_estado.Enabled = false;
+                    txtcorreojefe.Text = string.Empty;
+                    txtnombre.Text = string.Empty;
+                    btnactualizar.Enabled = false;
+                  
                     mensajeinfo.Visible = false;
                     mensajeError.Visible = false;
                     mensajawarning.Visible = true;
                     textomensajewarning.InnerHtml = "Actualizado";
                     Chk_estado.Checked = false;
-                    mantenimientoDepa.Visible = false;
+                  
                     DDLdepa.Enabled = true;
-                    Chk_estado.Enabled = false;
+
                 }
-                else 
+                else if (Chk_estado.Checked && confirmValueNo=="No" )
+                {
+                    mensajawarning.Visible = false;
+                    mensajeError.Visible = false;
+                    mensajeinfo.Visible = false;
+                    mensaje.Visible = false;
+                    this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Operacion cancelada')", true);
+
+                }
+                else
                 {
 
                     string confirmValue = Request.Form["confirm_value"];
+
                     int id_depa = Singleton.opdepartamento.BuscarDepartamentosPorNombre(DDLdepa.Text).IdDepartamento;
                     departamento depa2 = new departamento();
                     depa2 = Singleton.opdepartamento.BuscarDepartamentos(id_depa);
@@ -103,8 +124,8 @@ namespace RRHH.UI
                             IdDepartamento = depa2.IdDepartamento,
                             Nombre = depa2.Nombre,
                             EmailJefeDpto = depa2.EmailJefeDpto,
-                            NombreJefe=depa2.NombreJefe,
-                            Estado =false
+                            NombreJefe = depa2.NombreJefe,
+                            Estado = false
 
                         };
                         Singleton.opdepartamento.ActualizarDepartamentos(depa);
@@ -113,12 +134,16 @@ namespace RRHH.UI
                         mensajeinfo.Visible = true;
                         mensajeError.Visible = false;
                         textomensajeinfo.InnerHtml = "Departamento borrado";
-                        mantenimientoDepa.Visible = false;
+                       
+                        txtcorreojefe.Text = string.Empty;
+                        txtnombre.Text = string.Empty;
+                        btnactualizar.Enabled = false;
                         Chk_estado.Checked = false;
                         DDLdepa.Enabled = true;
                         Chk_estado.Enabled = false;
 
                     }
+
 
                 }
 

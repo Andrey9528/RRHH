@@ -73,15 +73,14 @@
           
          <li class="active"><a  href="#">Menú</a></li>
            
-        <li><a  href="#">Perfil</a></li>
-           <li><a  href="#">Actualizar Perfil</a></li>
-        <li><a href="#">Lista de empleados</a></li>
-        <li><a  href="#">Lista de Incapacidades</a></li>
-          <li><a  href="#">Ver solicitudes</a></li>
-            <li><a  href="#">Cambio de  contraseña</a></li>
-          <li><a  href="#">Cerrar seccion</a></li>
-          <li><a  href="#">Salir</a></li>
-
+        <li><a data-target="#Miperfil" data-toggle="modal" href="#">Perfil</a></li>
+           <li><a  href="ModificarDatosVistaEmpleado.aspx">Actualizar Perfil</a></li>
+        <li><a href="ListarEmpleados.aspx">Lista de empleados</a></li>
+        <li><a  href="ListaIncapacidades.aspx">Lista de Incapacidades</a></li>
+          <li><a  href="mantenimientoVaca.aspx">Ver solicitudes</a></li>
+            <li><a  data-target="#cambiojefe" data-toggle="modal"  href="#">Cambio de  contraseña</a></li>
+          <li><a   href="Login.aspx">Cerrar sesión</a></li>
+          
                </ul>
     </div>
   </div>
@@ -93,7 +92,7 @@
       <h2 style="text-align:center;">
           <asp:Image ID="imgPerfil2" Width="100" Height="100" runat="server" /></h2>
       <ul class="nav nav-pills nav-stacked">
-         <li class="active"><a  href="VistaJefe.aspx">Menú</a></li>
+         <li class="active"><a  href="#">Menú</a></li>
            
         <li><a data-target="#Miperfil" data-toggle="modal" href="#">Perfil</a></li>
            <li><a   href="ModificarDatosVistaEmpleado.aspx">Actualizar Perfil</a></li>

@@ -194,14 +194,16 @@
         </div>
          </div>
 
-
-     <div  style="margin-top:-3px;">
+   
+        
+            
+ <div  style="margin-top:-3px;" >
  <img class="img-responsive img-rounded "  width="144" height="236"  src="Images/^88D82C5E5CC0B0B42C7F3BB75E1910BA0497497AC6B7AF664E^pimgpsh_fullsize_distr.jpg"/>
    
      </div>
-   
-    
-       <nav   style="margin-top:-40px;   border-radius:10px; background-color:#04acec; color:white;"   class="  navbar-inverse col-sm-10 col-sm-offset-2 ">
+           
+        
+   <nav   style="margin-top:-40px;   border-radius:10px; background-color:#04acec; color:white;"   class="  navbar-inverse col-sm-10 col-sm-offset-2 ">
   <div class="container-fluid"  >
         <div class="navbar-header">	
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -214,16 +216,17 @@
   
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active" style="margin-top:10px; color:white;">
+        <li class="active" >
             
 
-       <div style="color:white; "><asp:Button CssClass="btn btn-primary" ID="btnHome" runat="server" Text="Home"    OnClick="btnHome_Click" />
+       <div style="margin-top:16px;">
+           <asp:LinkButton ID="LnkHome" ForeColor="White" OnClick="LnkHome_Click" runat="server">Home</asp:LinkButton>
             </div>
             
 
         </li>
-
-           <li class="dropdown">
+                   
+          <li class="dropdown">
           
           <a class="dropdown-toggle" data-toggle="dropdown" href="#" style= "background-color:#04acec; font-size:14px; color:white; font-family:cursive;">Perfil <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -239,7 +242,8 @@
           
           <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="background-color:#04acec; font-size:14px; color:white; font-family:cursive;">Empleados <span class="caret"></span></a>
           <ul class="dropdown-menu">
-
+            <li>
+                <asp:LinkButton ID="LB_Agregar" OnClick="LB_Agregar_Click" runat="server">Agregar</asp:LinkButton></li>
             <li><a  href="RegistroEmpleado.aspx">Agregar</a></li>
             <li><a  href="mantenimientoEmpleados.aspx">Mantenimiento</a></li>
            
@@ -302,6 +306,13 @@
 </nav>
     
 
+           
+       
+   
+    
+   
+    
+    
    
     <script type="text/javascript"  >
         function popup()
