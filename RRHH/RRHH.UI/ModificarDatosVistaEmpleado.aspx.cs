@@ -83,6 +83,9 @@ namespace RRHH.UI
                         Password = Login.EmpleadoGlobal.Password,
                         IntentosFallidos = 0,
                         DiasVacaciones = Login.EmpleadoGlobal.DiasVacaciones,
+                        
+                        DiasAntesCaducidad = Login.EmpleadoGlobal.DiasAntesCaducidad,
+                        ContraseñaCaducada = Login.EmpleadoGlobal.ContraseñaCaducada,
                     };
                     Singleton.OpEmpleados.ActualizarEmpleados(emple);
                     Singleton.opAudiEmple.InsertarAuditoriasEmpleado(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, true, false, false, false, false, false, false, false, false, false);
@@ -113,6 +116,9 @@ namespace RRHH.UI
                         Password = Login.EmpleadoGlobal.Password,
                         IntentosFallidos = 0,
                         DiasVacaciones= Login.EmpleadoGlobal.DiasVacaciones,
+                      
+                        DiasAntesCaducidad = Login.EmpleadoGlobal.DiasAntesCaducidad,
+                        ContraseñaCaducada = Login.EmpleadoGlobal.ContraseñaCaducada,
                     };
                     Singleton.OpEmpleados.ActualizarEmpleados(emple2);
                     ActualizarEmpeladoGlobal();
