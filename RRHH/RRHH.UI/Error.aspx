@@ -13,7 +13,13 @@
 <body>
     <form id="form1" runat="server">
    
-      <div><h1>UPS</h1></div>  
+      <div>
+          <h1 style="text-align:center;">¡Parece que quieres ingresar de modo inseguro!</h1>
+
+         
+              <asp:Button  CssClass="btn btn-warning " OnClick="btnregresarLogin_Click" ID="btnregresarLogin" runat="server" Text="Regresar al login" />
+    
+               </div>  
     </form>
 </body>
 </html>

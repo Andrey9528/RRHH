@@ -52,7 +52,8 @@ namespace RRHH.UI
                         mensajeError.Visible = false;
                         mensajeinfo.Visible = true;
                         mensajawarning.Visible = false;
-                        mensajeinfo.InnerHtml = "Recuerda cambiar tu contraseña al menos una vez cada tres meses\nLa contraseña actual caduca en " + Login.EmpleadoGlobal.DiasAntesCaducidad + " dias";
+                        mensajeinfo.InnerHtml= "Recuerda cambiar tu contraseña al menos una vez cada tres meses\nLa contraseña actual caduca en " + Login.EmpleadoGlobal.DiasAntesCaducidad + " dias";
+                       
                     }
                 }
                 else
@@ -250,6 +251,7 @@ namespace RRHH.UI
                             Estado = true,
                             DiasAntesCaducidad = 90,
                             ContraseñaCaducada = false,
+                            DiasVacaciones=Login.EmpleadoGlobal.DiasVacaciones
                         };
                         Singleton.OpEmpleados.ActualizarEmpleados(empleado);
                         //this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('La contraseña ha sido modificada, por favor vuelve a iniciar sesión')", true);

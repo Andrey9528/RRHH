@@ -123,11 +123,12 @@ namespace RRHH.UI
                             Estado = true,
                             DiasAntesCaducidad = 90,
                             ContraseñaCaducada = false,
+                            DiasVacaciones=Login.EmpleadoGlobal.DiasVacaciones,
                         };
                         Singleton.OpEmpleados.ActualizarEmpleados(empleado);
                         //this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('La contraseña ha sido modificada, por favor vuelve a iniciar sesión')", true);
 
-                        Response.Redirect("Login.aspx");
+                        Response.Redirect("Log  in.aspx");
                     }
                     else
                     {
