@@ -50,7 +50,7 @@ namespace RRHH.UI
             }
             return false;
         }
-        public bool ValidarRangoFechasVacaciones(string fechainicio, string fechafinal)
+        public bool ValidarRangoFechasVacaciones(string  fechainicio, string  fechafinal)
         {
             try
             {
