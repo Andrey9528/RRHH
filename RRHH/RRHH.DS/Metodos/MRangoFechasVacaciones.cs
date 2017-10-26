@@ -20,10 +20,15 @@ namespace RRHH.DS.Metodos
             _db = _conexion.Open();
         }
 
-        List<RangoFechasVacaciones> IRangoFechasVacaciones.RangoFechasVacaciones(string Cedula)
+        public List<RangoFechasVacaciones> ValidarRango (string Cedula, DateTime FechaInicio, int IdSolicitud)
         {
-            return _db.SqlList<RangoFechasVacaciones>("exec RangoFechasVacaciones "+ Cedula);
+            return _db.SqlList<RangoFechasVacaciones>("exec InsertarVacaciones " + Cedula +" , "+ FechaInicio +" , "+ IdSolicitud);
         }
+
+        //List<RangoFechasVacaciones> IRangoFechasVacaciones.RangoFechasVacaciones(string Cedula)
+        //{
+        //    return _db.SqlList<RangoFechasVacaciones>("exec RangoFechasVacaciones "+ Cedula);
+        //}
 
      
     }
