@@ -15,7 +15,9 @@ namespace RRHH.UI
     {
         public static int dias;
         public static string nombrearchivo;
-        public static int IdSolicitudVacaciones; /// 
+        public static int count; // desmadre
+        public static int IdSolicitudVacaciones; ///
+        List<DateTime> fechas = new List<DateTime>(); //desmadre
         //DateTime FechaMinima = Convert.ToDateTime(Singleton.OpRangoFechas.RangoFechasVacaciones(Login.EmpleadoGlobal.Cedula).Select(x => x.FechaInicioMenor)); //
         //DateTime FechaMaxima = Convert.ToDateTime(Singleton.OpRangoFechas.RangoFechasVacaciones(Login.EmpleadoGlobal.Cedula).Select(x => x.FechaInicioMayor)); //
         protected void Page_Load(object sender, EventArgs e)
@@ -68,49 +70,100 @@ namespace RRHH.UI
 
         }
 
-        public bool ValidarRangoFechas(string fecha)
+        public bool ValidarRangoFechas(string fechainicio,string fechafinal)
         {
-            var FechaMinima = Singleton.OpRangoFechas.RangoFechasVacaciones(Login.EmpleadoGlobal.Cedula).Select(x => x.FechaInicioMenor);
-            var FechaMaxima = Singleton.OpRangoFechas.RangoFechasVacaciones(Login.EmpleadoGlobal.Cedula).Select(x => x.FechaInicioMayor);
-
-            if ((Convert.ToDateTime(fecha) > (Convert.ToDateTime(FechaMinima)))) /*&& (Convert.ToDateTime(fecha) < FechaMaxima)*/
+            try
             {
+                var listaId = Singleton.opsolicitud.Listarsolicitudes().Where(x => x.Cedula == Login.EmpleadoGlobal.Cedula).ToList();
+                foreach (var IdSolicitud in listaId)
+                {
+
+                    if (Convert.ToDateTime(fechainicio) >= Convert.ToDateTime(IdSolicitud.FechaInicio) && Convert.ToDateTime(fechainicio) <= Convert.ToDateTime(IdSolicitud.FechaFinal)
+                        || Convert.ToDateTime(fechafinal) >= Convert.ToDateTime(IdSolicitud.FechaInicio) && Convert.ToDateTime(fechafinal) <= Convert.ToDateTime(IdSolicitud.FechaFinal))
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
                 return false;
             }
-            else
+            catch (Exception)
             {
-                return true;
+                mensajeError.Visible = true;
+                mensajeinfo.Visible = false;
+                mensajawarning.Visible = false;
+                mensaje.Visible = false;
+                textomensajeError.InnerHtml = "Ha ocurrido un error";
+            }
+            return false;
+        }
+
+        //desmadre
+        public static int DiasRestantes(DateTime startDate, DateTime endDate, Boolean excludeWeekends, List<DateTime> excludeDates)
+        {
+             count = 0;
+            for (DateTime index = startDate; index < endDate; index = index.AddDays(1))
+            {
+                if (excludeWeekends && index.DayOfWeek != DayOfWeek.Sunday)
+                {
+                    bool excluded = false; ;
+                    for (int i = 0; i < excludeDates.Count; i++)
+                    {
+                        if (index.Date.CompareTo(excludeDates[i].Date) == 0)
+                        {
+                            excluded = true;
+                            break;
+                        }
+                    }
+
+                    if (!excluded)
+                    {
+                        count++;
+                    }
+                }
             }
 
-            //fecha > Singleton.opsolicitud.BuscarFechaMenorInicio(Login.EmpleadoGlobal.Cedula,true).ToString() && (txtfechadeincio.Text).ToString() < Singleton.opsolicitud.BuscarFechaMayorInicio().ToString())
+            return count;
         }
+
+        //desmadre
 
         protected void btnvaca_Click(object sender, EventArgs e)
         {
             try
             {
-
-
                 if (ValidacionDias(txtfechafinal.Text, txtfechadeincio.Text))
                 {
                     if (Login.EmpleadoGlobal.DiasVacaciones >= dias)
                     {
-                        //if (ValidarRangoFechas(txtfechadeincio.Text))
-                        //{
-                        //    mensajeinfo.Visible = false;
-                        //    mensajeError.Visible = true;
-                        //    mensaje.Visible = false;
-                        //    mensajeError.InnerHtml = "Ya existe una solitud previa para el rango de fechas seleccionado";
-                        //}
-                        //else
-                        //{
+                        if (ValidarRangoFechas(txtfechadeincio.Text,txtfechafinal.Text))
+                        {
+                            mensajeinfo.Visible = false;
+                            mensajeError.Visible = true;
+                            mensaje.Visible = false;
+                            mensajeError.InnerHtml = "Ya existe una solitud previa para el rango de fechas seleccionado";
+                        }
+                        else
+                        {
+                        //    fechas.Add(new DateTime(2017, 01, 01));
+                        //    fechas.Add(new DateTime(2017, 11, 04));
+                        //    fechas.Add(new DateTime(2017, 13, 04));
+                        //    fechas.Add(new DateTime(2017, 14, 04));
+                        //    fechas.Add(new DateTime(2017, 05, 01));
+                        //    fechas.Add(new DateTime(2017, 07, 25));
+                        //    fechas.Add(new DateTime(2017, 08, 15));
+                        //    fechas.Add(new DateTime(2017, 12, 25));
+
+                            DiasRestantes(Convert.ToDateTime(txtfechadeincio.Text), Convert.ToDateTime(txtfechafinal.Text), true,fechas ); // desmadre
                             var vacaciones = new SolicitudVacaciones()
                             {
-
                                 FechaFinal = Convert.ToDateTime(txtfechafinal.Text),
                                 FechaInicio = Convert.ToDateTime(txtfechadeincio.Text),
                                 Cedula = Login.EmpleadoGlobal.Cedula,
-                                TotalDias = dias,
+                                TotalDias = count,
                                 Condicion = null,
                             };
 
@@ -139,7 +192,8 @@ namespace RRHH.UI
                             mensajeError.Visible = false;
                             mensaje.Visible = false;
                             textomensajeinfo.InnerHtml = "Tu solicitud ha sido enviada";
-                        //}
+                            //}
+                        }
                     }
                     else
                     {
@@ -230,10 +284,6 @@ namespace RRHH.UI
                     if (PasswordPolicy.FormatoContraseña(txtNuevaContraseña.Text))
 
                     {
-
-
-
-
                         Empleado empleado = new Empleado()
                         {
                             Cedula = Login.EmpleadoGlobal.Cedula,
@@ -289,10 +339,6 @@ namespace RRHH.UI
                 cliente.Credentials = new NetworkCredential("dollars.chat.room@hotmail.com", "fidelitasw2");
                 MailMessage msj = new MailMessage("dollars.chat.room@hotmail.com", mail, "Nueva solicitud de vacaciones", "Se ha recibido una nueva solicitud de vacaciones de parte del empleado\nNombre:  " + Login.EmpleadoGlobal.Nombre + "\nUsuario:" + Login.EmpleadoGlobal.Correo+ "\nEl número de la solicitud es: "+ IdSolicitudVacaciones );
                 cliente.Send(msj);
-
-              
-
-
             }
         }
 
@@ -306,7 +352,7 @@ namespace RRHH.UI
             {
                 TimeSpan diferencia = Convert.ToDateTime(fechaFinal) - Convert.ToDateTime(fechadeInicio);
                 dias = Convert.ToInt32(diferencia.TotalDays);
-                if (dias > 0)
+                if (dias >= 1)
                 {
                     return true;
                 }

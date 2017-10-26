@@ -45,6 +45,11 @@ namespace RRHH.DS.Metodos
             return (_db.Select<SolicitudVacaciones>().Where(x => x.Cedula == cedula)).ToList();
         }
 
+        public List<SolicitudVacaciones> BuscarsolicitudRangos(int IdSolicitud)
+        {
+            return (_db.Select<SolicitudVacaciones>().Where(x => x.IdSolicitud == IdSolicitud)).ToList();
+        }
+
         public void EliminarSolicitud(int idsolicitud)
         {
             _db.Delete<SolicitudVacaciones>(x => x.IdSolicitud == idsolicitud);
