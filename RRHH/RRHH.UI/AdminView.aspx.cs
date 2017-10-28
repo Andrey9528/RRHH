@@ -16,6 +16,7 @@ namespace RRHH.UI
             try
             {
                 Session["ROL"] =Login.EmpleadoGlobal.IdRol;
+                string AdminCorreo = Session["AdminCorreo"].ToString();
                 if (Request.QueryString["ROL"] != null)
                 {
 
@@ -46,7 +47,7 @@ namespace RRHH.UI
             }
             catch
             {
-
+                Response.Redirect("Login.aspx?men=1");
             }
 
             }
@@ -199,6 +200,12 @@ namespace RRHH.UI
 
             Response.Redirect("AdminView.aspx?ROL=" + Login.EmpleadoGlobal.IdRol);
 
+        }
+
+        protected void LKB_AdminSession_Click(object sender, EventArgs e)
+        {
+            Session.Remove("AdminCorreo");
+            Response.Redirect("Login.aspx");
         }
 
         //protected void ChkVerContraseña_CheckedChanged(object sender, EventArgs e)

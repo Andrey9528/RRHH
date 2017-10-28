@@ -24,8 +24,14 @@ namespace RRHH.UI
         public static string Correo;
         protected void Page_Load(object sender, EventArgs e)
         {
-            //btnRegistrar.Attributes.Add("onclick", "window.open('popup.aspx','','height=300,width=300');return false");
-
+            if (Request.Params["men"] != null)
+            {
+                string men = Request.Params["men"];
+                if (men == "1")
+                {
+                    lblmensaje.Text = "Debes iniciar sesion";
+                }
+            }
         }
 
         private void ValidarVacios()
@@ -109,6 +115,7 @@ namespace RRHH.UI
                                     };
                                     Singleton.OpEmpleados.ActualizarEmpleados(emple);
                                     Singleton.opAudiEmple.InsertarAuditoriasEmpleado(EmpleadoGlobal.Nombre, EmpleadoGlobal.Cedula, false, false, false, false, false, false, false, false, false, true, false);
+                                    Session["emple"] = emple.Correo;
                                     Response.Redirect("WebForm1.aspx?ROL="+EmpleadoGlobal.IdRol);
                                 }
                                 else if (EmpleadoGlobal.IdRol == 2 && EmpleadoGlobal.Bloqueado == false && EmpleadoGlobal.ContraseñaCaducada == false)
@@ -139,6 +146,7 @@ namespace RRHH.UI
                                     };
                                     Singleton.OpEmpleados.ActualizarEmpleados(emple);
                                     Singleton.opAudiJefe.InsertarAuditoriasJefe(EmpleadoGlobal.Nombre, EmpleadoGlobal.Cedula, false, false, false, false, false, false, false, false, true, false);
+                                    Session["jefeCorreo"] = emple.Correo;
                                     Response.Redirect("VistaJefe.aspx?ROL="+EmpleadoGlobal.IdRol);
 
                                 }
@@ -169,6 +177,7 @@ namespace RRHH.UI
                                         ContraseñaCaducada = false,
 
                                     };
+                                    Session["AdminCorreo"] = emple.Correo;
                                     Singleton.OpEmpleados.ActualizarEmpleados(emple);
                                     Singleton.opaudi.InsertarAuditoriasAdmin(EmpleadoGlobal.Nombre, EmpleadoGlobal.Cedula, true, false, false, false, false, false, false, false, false, false, false, false, false, false);
                                     Response.Redirect("AdminView.aspx?ROL="+EmpleadoGlobal.IdRol);

@@ -58,22 +58,27 @@
                                           
                                            <div class="btn-group"><asp:Button ID="btnRegistrar" data-target="#olvide" data-toggle="modal"   runat="server" Text="Olvidé contraseña"   CssClass="btn btn-primary" OnClick="btnRegistrar_Click" />  </div>    
                                          
-                                            
+                                        
+                                          
                                       </div>
+                                     
+                                     
                                   </div>
                               </div>
 
                         </div>
-                       
+                                
                         </div>
-                       
+                        
                           
                     </div>
+                       
+                </div> 
                     
-                </div>
             </div>
         </div>
-
+ <asp:Label ID="lblmensaje" runat="server" ></asp:Label>
+            
     <div class="container">
           <div class="row">
               <div class="col-xs-12">

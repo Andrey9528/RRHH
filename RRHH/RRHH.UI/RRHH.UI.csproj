@@ -49,13 +49,13 @@
     </Reference>
     <Reference Include="itextsharp, Version=5.5.10.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Documents\Analisis3\Librerias\Librerias para el proyecto\itextsharp.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\Proyecto Analisis\Librerias para el proyecto\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="itextsharp.licensekey">
       <HintPath>..\..\..\..\..\Documents\Programacion 5 CONEJO\pdf\itextsharp.licensekey.dll</HintPath>
     </Reference>
     <Reference Include="itextsharp.pdfa">
-      <HintPath>..\..\..\..\..\Documents\Analisis3\Librerias\Librerias para el proyecto\itextsharp.pdfa.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\Proyecto Analisis\Librerias para el proyecto\itextsharp.pdfa.dll</HintPath>
     </Reference>
     <Reference Include="itextsharp.xtra">
       <HintPath>..\..\..\..\..\Documents\Programacion 5 CONEJO\pdf\itextsharp.xtra.dll</HintPath>
@@ -94,19 +94,19 @@
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="ServiceStack.Common">
-      <HintPath>..\..\..\..\..\Documents\Analisis3\Librerias\Librerias para el proyecto\ServiceStack.Common.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\Proyecto Analisis\Librerias para el proyecto\ServiceStack.Common.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.Interfaces">
-      <HintPath>..\..\..\..\..\Documents\Analisis3\Librerias\Librerias para el proyecto\ServiceStack.Interfaces.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\Proyecto Analisis\Librerias para el proyecto\ServiceStack.Interfaces.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.OrmLite">
-      <HintPath>..\..\..\..\..\Documents\Analisis3\Librerias\Librerias para el proyecto\ServiceStack.OrmLite.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\Proyecto Analisis\Librerias para el proyecto\ServiceStack.OrmLite.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.OrmLite.SqlServer">
-      <HintPath>..\..\..\..\..\Documents\Analisis3\Librerias\Librerias para el proyecto\ServiceStack.OrmLite.SqlServer.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\Proyecto Analisis\Librerias para el proyecto\ServiceStack.OrmLite.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.Text">
-      <HintPath>..\..\..\..\..\Documents\Analisis3\Librerias\Librerias para el proyecto\ServiceStack.Text.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\Proyecto Analisis\Librerias para el proyecto\ServiceStack.Text.dll</HintPath>
     </Reference>
     <Reference Include="Spire.DataExport, Version=3.5.10.2040, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
       <HintPath>..\packages\Spire.DataExport.3.5.10\lib\net40\Spire.DataExport.dll</HintPath>
@@ -279,6 +279,10 @@
     <Content Include="ListarEmpleados.aspx" />
     <Content Include="ListarDepartamentos.aspx" />
     <Content Include="ModificarDatosVistaEmpleado.aspx" />
+    <Content Include="Videos\Empleado\CambioContrase_a.mp4" />
+    <Content Include="Videos\Empleado\IncapacidadesEmpleado.mp4" />
+    <Content Include="Videos\Empleado\Perfil.mp4" />
+    <Content Include="Videos\Empleado\VacacionesEmpleado.mp4" />
     <Content Include="Videos\mov_bbb.mp4" />
     <Content Include="Videos\RegistroIncapacidadEditado.mp4" />
     <Content Include="VistaJefe.aspx" />

@@ -144,6 +144,7 @@ namespace RRHH.UI
                         Password = EmpleadoGlobal2.Password,
                         IntentosFallidos = Convert.ToInt32(EmpleadoGlobal2.IntentosFallidos),
                         DiasVacaciones = EmpleadoGlobal2.DiasVacaciones-soli2.TotalDias,
+                        DiasAntesCaducidad=EmpleadoGlobal2.DiasAntesCaducidad
                     };
                     Singleton.OpEmpleados.ActualizarEmpleados(emple);
 
