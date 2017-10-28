@@ -286,7 +286,7 @@
           <a class="dropdown-toggle"  style="background-color:#04acec; font-size:14px;  color:white; font-family:cursive;" data-toggle="dropdown" href="#">Administración<span class="caret"></span></a>
           <ul  class="dropdown-menu">
             <li><a data-target="#cambio" data-toggle="modal"  href="#">Cambio de contraseña</a></li>
-            <li><a  href="Login.aspx">Cerrar sesión</a></li>
+            <li><asp:LinkButton ID="LKB_AdminSession" OnClick="LKB_AdminSession_Click" runat="server">Cerrar sesión</asp:LinkButton></li>
             
           </ul>
        

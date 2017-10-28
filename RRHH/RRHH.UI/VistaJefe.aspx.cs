@@ -14,6 +14,7 @@ namespace RRHH.UI
         {
             try
             {
+                string correoLogin = Session["jefeCorreo"].ToString();
                 Session["ROL"] = Login.EmpleadoGlobal.IdRol;
                 if (Request.QueryString["ROL"] != null)
                 {
@@ -45,7 +46,7 @@ namespace RRHH.UI
             }
             catch 
             {
-
+                Response.Redirect("Login.aspx?men=1");
                 
             }
         }
@@ -129,6 +130,12 @@ namespace RRHH.UI
         protected void btnSalirJefe_Click(object sender, EventArgs e)
         {
 
+        }
+
+        protected void LKB_JefeSesion_Click(object sender, EventArgs e)
+        {
+            Session.Remove("JefeCorreo");
+            Response.Redirect("Login.aspx");
         }
     }
 }

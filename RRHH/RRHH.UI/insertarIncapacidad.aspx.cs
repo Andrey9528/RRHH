@@ -119,14 +119,14 @@ namespace RRHH.UI
                         mensajeinfo.Visible = false;
                         mensajeError.Visible = true;
                         mensaje.Visible = false;
-                        mensajeError.InnerHtml = "Existe una solicitud de vacaciones en el rango de fechas seleccionado";
+                        textoMensajeError.InnerHtml = "Existe una solicitud de vacaciones en el rango de fechas seleccionado";
                     }
-                    if  (ValidarRangoFechasIncapacidades(txtfechainicio.Text, txtfechafinal.Text))
+                   else if  (ValidarRangoFechasIncapacidades(txtfechainicio.Text, txtfechafinal.Text))
                     {
                         mensajeinfo.Visible = false;
                         mensajeError.Visible = true;
                         mensaje.Visible = false;
-                        mensajeError.InnerHtml = "Existe una incapacidad registrada en el rango de fechas seleccionado";
+                        textoMensajeError.InnerHtml = "Existe una incapacidad registrada en el rango de fechas seleccionado";
                     }
                     else
                     {

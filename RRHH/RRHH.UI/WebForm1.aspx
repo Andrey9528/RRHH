@@ -103,9 +103,10 @@
           <a class="dropdown-toggle"  style="background-color:#04acec; font-size:14px;  color:white; font-family:cursive;" data-toggle="dropdown" href="#">Administración<span class="caret"></span></a>
           <ul  class="dropdown-menu">
             <li><a data-target="#cambioEmpleado" data-toggle="modal"  href="#">Cambio de contraseña</a></li>
-            <li><a  href="Login.aspx">Cerrar sesión</a></li>
-            
-          </ul>
+             <li> 
+                 <asp:LinkButton OnClick="LbSesion_Click" ID="LbSesion" runat="server">Cerrar sesión</asp:LinkButton>
+         </li>
+                  </ul>
        
         </li>
 

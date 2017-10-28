@@ -24,7 +24,8 @@ namespace RRHH.UI
         {
             try
             {
-               
+
+                string correo = Session["emple"].ToString();  
                 Session["ROL"] = Login.EmpleadoGlobal.IdRol;
                 if (Request.QueryString["ROL"] != null)
                 {
@@ -65,6 +66,7 @@ namespace RRHH.UI
                 }
             catch
             {
+                Response.Redirect("Login.aspx?men=1");
 
             }
 
@@ -144,7 +146,7 @@ namespace RRHH.UI
                             mensajeinfo.Visible = false;
                             mensajeError.Visible = true;
                             mensaje.Visible = false;
-                            mensajeError.InnerHtml = "Ya existe una solitud previa para el rango de fechas seleccionado";
+                            textomensajeError.InnerHtml = "Ya existe una solitud previa para el rango de fechas seleccionado";
                         }
                         else
                         {
@@ -368,5 +370,10 @@ namespace RRHH.UI
             }
         }
 
+        protected void LbSesion_Click(object sender, EventArgs e)
+        {
+            Session.Remove("emple");
+            Response.Redirect("Login.aspx");
+        }
     }
 }

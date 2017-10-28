@@ -100,7 +100,7 @@
         <li><a  href="ListaIncapacidades.aspx">Lista de Incapacidades</a></li>
           <li><a   href="mantenimientoVaca.aspx">Ver solicitudes</a></li>
             <li><a data-target="#cambiojefe" data-toggle="modal"  href="#">Cambio de  contraseña</a></li>
-          <li><a  href="Login.aspx">Cerrar sesión</a></li>
+          <li><asp:LinkButton ID="LKB_JefeSesion" OnClick="LKB_JefeSesion_Click" runat="server">Cerrar sesión</asp:LinkButton></li>
           <li><a   href="#">Ayuda</a></li>
      
       </ul><br/>
@@ -245,10 +245,10 @@ body {font-family: Verdana, sans-serif;}
   <li>21</li>
   <li>22</li>
   <li>23</li>
-  <li> <span class="active">24</span></li>
+  <li>24</li>
   <li>25</li>
   <li>26</li>
-  <li>27</li>
+  <li><span class="active">27</span></li>
   <li>28</li>
   <li>29</li>
   <li>30</li>

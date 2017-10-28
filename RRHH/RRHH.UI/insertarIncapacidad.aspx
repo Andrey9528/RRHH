@@ -20,12 +20,12 @@
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times</a>
              <strong id="textoMensaje" runat="server"></strong>
         </div>
-        <div class="aler alert-danger" visible="false" id="mensajeError" runat="server">
+        <div class="alert alert-danger" visible="false" id="mensajeError" runat="server">
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times</a>
             <strong id="textoMensajeError" runat="server"></strong>
 
         </div>
-      <div class="aler alert-warning" visible="false" id="mensajawarning" runat="server">
+      <div class="alert alert-warning" visible="false" id="mensajawarning" runat="server">
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times</a>
             <strong id="textomensajewarning" runat="server"></strong>
 
@@ -123,9 +123,9 @@
     
 
     <div class="form-inline col-sm-offset-5">
-     <asp:Button ID="btnRegresar" runat="server" Text="Regresar" CssClass="btn btn-primary" OnClick="btnRegresar_Click"  />
-   
+    
     <asp:Button ID="btninsertar" runat="server" Text="Insertar" CssClass="btn btn-success" OnClick="btninsertar_Click"  />
+    <asp:Button ID="btnRegresar" runat="server" Text="Regresar" CssClass="btn btn-primary" OnClick="btnRegresar_Click"  />
    
 
 
