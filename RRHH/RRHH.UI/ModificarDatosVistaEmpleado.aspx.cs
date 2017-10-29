@@ -120,16 +120,56 @@ namespace RRHH.UI
                         DiasAntesCaducidad = Login.EmpleadoGlobal.DiasAntesCaducidad,
                         ContraseñaCaducada = Login.EmpleadoGlobal.ContraseñaCaducada,
                     };
-                    Singleton.OpEmpleados.ActualizarEmpleados(emple2);
-                    ActualizarEmpeladoGlobal();
-                    Empleadosmantenimiento.Visible = false;
-                    formularioImg.Visible = false;
-                    Botones.Visible = true;
-                    mensajeinfo.Visible = false;
-                    mensaje.Visible = true;
-                    mensajeError.Visible = false;
-                    mensajawarning.Visible = false;
-                    textoMensaje.InnerHtml = "Los datos han sido actualizados correctamente";
+                    if (Login.EmpleadoGlobal.IdRol == 1)
+                    {
+                        Singleton.OpEmpleados.ActualizarEmpleados(emple2);
+                        ActualizarEmpeladoGlobal();
+                        Singleton.opAudiEmple.InsertarAuditoriasEmpleado(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, true, false, false, false, false, false, false, false, false, false);
+
+                        Empleadosmantenimiento.Visible = false;
+                        formularioImg.Visible = false;
+                        Botones.Visible = true;
+                        mensajeinfo.Visible = false;
+                        mensaje.Visible = true;
+                        mensajeError.Visible = false;
+                        mensajawarning.Visible = false;
+                        textoMensaje.InnerHtml = "Los datos han sido actualizados correctamente";
+
+                    }
+                    else if (Login.EmpleadoGlobal.IdRol == 2)
+                    {
+                        Singleton.OpEmpleados.ActualizarEmpleados(emple2);
+                        ActualizarEmpeladoGlobal();
+                        Singleton.opAudiJefe.InsertarAuditoriasJefe(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, true, false, false, false, false, false, false, false, false, false);
+
+
+                        Empleadosmantenimiento.Visible = false;
+                        formularioImg.Visible = false;
+                        Botones.Visible = true;
+                        mensajeinfo.Visible = false;
+                        mensaje.Visible = true;
+                        mensajeError.Visible = false;
+                        mensajawarning.Visible = false;
+                        textoMensaje.InnerHtml = "Los datos han sido actualizados correctamente";
+
+                    }
+                    else
+                    {
+                        Singleton.OpEmpleados.ActualizarEmpleados(emple2);
+                        ActualizarEmpeladoGlobal();
+                        Singleton.opAudiJefe.InsertarAuditoriasJefe(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, true, false, false, false, false, false, false, false, false);
+
+
+                        Empleadosmantenimiento.Visible = false;
+                        formularioImg.Visible = false;
+                        Botones.Visible = true;
+                        mensajeinfo.Visible = false;
+                        mensaje.Visible = true;
+                        mensajeError.Visible = false;
+                        mensajawarning.Visible = false;
+                        textoMensaje.InnerHtml = "Los datos han sido actualizados correctamente";
+
+                    }
                 }
 
                

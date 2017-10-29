@@ -16,7 +16,15 @@ namespace RRHH.UI
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            try
+            {
 
+            }
+            catch
+            {
+                Response.Redirect("Login.aspx?men=1");
+                
+            }
         }
 
         public bool ValidarRangoFechasIncapacidades(string fechainicio, string fechafinal)

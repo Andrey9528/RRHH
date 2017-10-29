@@ -9,6 +9,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>Empleado</title>
      <link href="https://www.javatpoint.com/fullformpages/images/Medical.png" rel="shortcut icon" type="image/x-icon" />
+
 <%--<script type="text/javascript">
      
         function Alerta() {
@@ -97,7 +98,8 @@
           </ul>
         </li>
 
-        <li><a style="color:white; font-size:14px; " href="Ayuda.aspx">Ayuda</a></li>
+        
+          <li style="font-family:cursive;"><asp:LinkButton OnClick="LKB_Ayuda_Click" ForeColor="White"    ID="LKB_Ayuda" runat="server">Ayuda</asp:LinkButton></li>
            <li class="dropdown">
           
           <a class="dropdown-toggle"  style="background-color:#04acec; font-size:14px;  color:white; font-family:cursive;" data-toggle="dropdown" href="#">Administración<span class="caret"></span></a>
@@ -249,7 +251,13 @@
 
 
 
-
+        
+     <script type="text/javascript"  >
+        function popupCerrarPerfil()
+        {
+            $('#MiPerfil').modal('hide');
+        }
+    </script>
 
      <div class="container"  >
   
@@ -284,13 +292,14 @@
                 </p>
         </div>
         <div class="modal-footer">
-          <button  type="button" class="btn btn-warning" data-dismiss="modal">Cerrar</button>
-<%--           <div style="margin-top:-30px;"><asp:Button ID="btnsalir" CssClass="btn btn-danger" runat="server" Text="Salir"  OnClick="btnsalir_Click" />--%>
+          <%--<button  type="button" class="btn btn-warning" data-dismiss="modal">Cerrar</button>--%> 
+           <div ><asp:Button ID="btnsalir" CssClass="btn btn-warning" runat="server" Text="Salir"  OnClick="btnsalir_Click" />
         </div>
             </div>
       </div>
     </div>
   </div>
+         </div>
 <%--</div>--%>
 
 
@@ -361,7 +370,7 @@
                                      <asp:Button ID= "btnConfirmarEmpleado" runat="server" Text="Confirmar" CssClass="btn btn-warning" OnClick="btnConfirmarEmpleado_Click" /> </p>
                                  <br/> <br/>
                                  <asp:Label ID="Label2" runat="server" Text="Nueva contraseña"></asp:Label>
-                                 <asp:TextBox ID="txtNuevaContraseña" Enabled="false" TextMode="Password" CssClass="form-control"  runat="server" placeholder="Nueva contraseña"></asp:TextBox>
+                                 <asp:TextBox ID="txtNuevaContraseña" Enabled="false" TextMode="Password" CssClass="form-control"  runat="server" placeholder="@Ejemplo123"></asp:TextBox>
 <%--                                 <asp:CheckBox ID="ChkVerContraseña" OnCheckedChanged="ChkVerContraseña_CheckedChanged" runat="server" />--%>
                                  <asp:Label ID="Label3" runat="server"  Text="Confirmar contraseña"></asp:Label>
                                  <asp:TextBox ID="txtNuevaContraseñaConfirmar" Enabled="false" TextMode="Password" CssClass="form-control" runat="server" placeholder="Confirmar contraseña" ></asp:TextBox>

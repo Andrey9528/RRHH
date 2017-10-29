@@ -274,6 +274,7 @@
     <Content Include="Images\^3D0DC1289D3BDF88217B01A82B7D97BC5426586684389B6CE5^pimgpsh_fullsize_distr.jpg" />
     <Content Include="Images\^88D82C5E5CC0B0B42C7F3BB75E1910BA0497497AC6B7AF664E^pimgpsh_fullsize_distr.jpg" />
     <Content Include="Images\^BAB9AE299E8BA8FD8EB5E52078106B4C4357E19194980363CD^pimgpsh_fullsize_distr.png" />
+    <Content Include="JefeAyuda.aspx" />
     <Content Include="ListaExpedientes.aspx" />
     <Content Include="ListaIncapacidades.aspx" />
     <Content Include="ListarEmpleados.aspx" />
@@ -283,6 +284,11 @@
     <Content Include="Videos\Empleado\IncapacidadesEmpleado.mp4" />
     <Content Include="Videos\Empleado\Perfil.mp4" />
     <Content Include="Videos\Empleado\VacacionesEmpleado.mp4" />
+    <Content Include="Videos\Jefe\AproVacaciones.mp4" />
+    <Content Include="Videos\Jefe\CambioContraseñaJefe.mp4" />
+    <Content Include="Videos\Jefe\JefeListarEmpleados.mp4" />
+    <Content Include="Videos\Jefe\PerfilJefe.mp4" />
+    <Content Include="Videos\Jefe\VacacionesJefe.mp4" />
     <Content Include="Videos\mov_bbb.mp4" />
     <Content Include="Videos\RegistroIncapacidadEditado.mp4" />
     <Content Include="VistaJefe.aspx" />
@@ -573,6 +579,13 @@
     </Compile>
     <Compile Include="InsertarSolicitudVacaciones.aspx.designer.cs">
       <DependentUpon>InsertarSolicitudVacaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="JefeAyuda.aspx.cs">
+      <DependentUpon>JefeAyuda.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JefeAyuda.aspx.designer.cs">
+      <DependentUpon>JefeAyuda.aspx</DependentUpon>
     </Compile>
     <Compile Include="JefeView.aspx.cs">
       <DependentUpon>JefeView.aspx</DependentUpon>

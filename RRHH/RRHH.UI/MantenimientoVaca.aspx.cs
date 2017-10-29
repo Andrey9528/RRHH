@@ -17,7 +17,13 @@ namespace RRHH.UI
         public static SolicitudVacaciones vaca = new SolicitudVacaciones();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            try
+            {
+            }
+            catch
+            {
+                
+            }
         }
 
         protected void btnBuscar_Click(object sender, EventArgs e)
@@ -170,6 +176,8 @@ namespace RRHH.UI
                     Thread hilo = new Thread(delegado);
                     textoMensaje.InnerHtml = "Solicitud aprobada";
                     hilo.Start();
+                    Singleton.opAudiJefe.InsertarAuditoriasJefe(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, false, false, false, true, false, false, false, false, false);
+
                     //codigo bueno
                     //textoMensaje.InnerHtml = "Solicitud aprobada";
 
@@ -211,7 +219,8 @@ namespace RRHH.UI
                     textoMensajeError.InnerHtml = "Solicitud denegada";
                     Email.Notificacion("soporte.biblioteca@hotmail.com", "soporte123.", correo, "Estado de solicitud de vacaciones", "se ha denegado su solicitud  de vacaciones para el empleado \nNombre: " + nombre + "\nUsuario: " + correo);
 
-                   
+                    Singleton.opAudiJefe.InsertarAuditoriasJefe(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, false, false, false, true, false, false, false, false, false);
+
 
 
                 }

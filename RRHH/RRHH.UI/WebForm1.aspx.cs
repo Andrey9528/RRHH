@@ -240,13 +240,13 @@ namespace RRHH.UI
             try
             {
                 Singleton.opAudiEmple.InsertarAuditoriasEmpleado(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, true, false, false, false, false, false, false, false, false, false, false);
-                ClientScript.RegisterStartupScript(GetType(), "Modal", "CerrarPopup();", true);
+                ClientScript.RegisterStartupScript(GetType(), "Modal", "popupCerrarPerfil();", true);
 
             }
             catch (Exception)
             {
 
-                throw;
+                
             }
         }
 
@@ -373,7 +373,17 @@ namespace RRHH.UI
         protected void LbSesion_Click(object sender, EventArgs e)
         {
             Session.Remove("emple");
+            Singleton.opAudiEmple.InsertarAuditoriasEmpleado(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, false, false, false, false, false, false, false, true, false, false);
+
             Response.Redirect("Login.aspx");
+        }
+
+        protected void LKB_Ayuda_Click(object sender, EventArgs e)
+        {
+            Singleton.opAudiEmple.InsertarAuditoriasEmpleado(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, false, false, false, false, false, true,false, false, false, false);
+
+
+            Response.Redirect("Ayuda.aspx");
         }
     }
 }
