@@ -79,6 +79,7 @@ namespace RRHH.UI
                         Condicion = vaca.Condicion,
                     };
                     Singleton.opsolicitud.ActualizarSolicitud(vacaciones);
+                    Singleton.opaudi.InsertarAuditoriasAdmin(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, false, false, false, false, false, false, true, false, false, false, false, false, false);
                     mensaje.Visible = false;
                     mensajeError.Visible = false;
                     mensajeinfo.Visible = false;

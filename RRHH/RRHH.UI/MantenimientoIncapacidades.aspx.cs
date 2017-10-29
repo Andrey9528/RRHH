@@ -199,6 +199,8 @@ namespace RRHH.UI
                             CantidadDias = dias,
                         };
                         Singleton.opIncapacidad.ActualizarIncapacidad(inca);
+                        Singleton.opaudi.InsertarAuditoriasAdmin(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, false, false, false, false, false, true, false, false, false, false, false, false, false);
+
                         mensaje.Visible = false;
                         mensajeinfo.Visible = false;
                         mensajeError.Visible = false;
@@ -229,6 +231,8 @@ namespace RRHH.UI
                             CantidadDias = dias,
                         };
                         Singleton.opIncapacidad.ActualizarIncapacidad(inca);
+                        Singleton.opaudi.InsertarAuditoriasAdmin(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, false, false, false, false, false, true, false, false, false, false, false, false, false);
+
                         mensaje.Visible = false;
                         mensajeinfo.Visible = true;
                         mensajeError.Visible = false;

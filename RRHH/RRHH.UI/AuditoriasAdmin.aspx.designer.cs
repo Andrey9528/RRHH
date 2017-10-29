@@ -10,7 +10,7 @@
 namespace RRHH.UI {
     
     
-    public partial class AyudaAdmin {
+    public partial class AuditoriasAdmin {
         
         /// <summary>
         /// form1 control.
@@ -22,58 +22,22 @@ namespace RRHH.UI {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// btnReportar control.
+        /// lblAudi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnReportar;
+        protected global::System.Web.UI.WebControls.Label lblAudi;
         
         /// <summary>
-        /// LKB_Reporte control.
+        /// DDLAudi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LKB_Reporte;
-        
-        /// <summary>
-        /// LKB_Reporte2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LKB_Reporte2;
-        
-        /// <summary>
-        /// LKB_Reporte3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LKB_Reporte3;
-        
-        /// <summary>
-        /// LKB_Reporte4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LKB_Reporte4;
-        
-        /// <summary>
-        /// LKB_Reporte5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LKB_Reporte5;
+        protected global::System.Web.UI.WebControls.DropDownList DDLAudi;
         
         /// <summary>
         /// btnRegresar control.
@@ -83,5 +47,23 @@ namespace RRHH.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnRegresar;
+        
+        /// <summary>
+        /// lblMensaje control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMensaje;
+        
+        /// <summary>
+        /// Gv_datos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView Gv_datos;
     }
 }

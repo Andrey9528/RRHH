@@ -83,6 +83,8 @@ namespace RRHH.UI
 
                     };
                     Singleton.opdepartamento.ActualizarDepartamentos(depa);
+                    Singleton.opaudi.InsertarAuditoriasAdmin(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, false, false, false, false, false, false, false, false, true, false, false, false, false);
+
                     Gv_datos.DataSource = Singleton.opdepartamento.ListarDepartamentos();
                     Gv_datos.DataBind();
                     mensaje.Visible = false;

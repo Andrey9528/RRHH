@@ -53,7 +53,7 @@ namespace RRHH.UI
             try
 
             {
- List<Empleado> listar = Singleton.OpEmpleados.ListarEmpleados();
+        List<Empleado> listar = Singleton.OpEmpleados.ListarEmpleados();
             var listaEmple = listar.Select(x => new {x.Cedula, x.Nombre, x.Direccion, x.Telefono, x.Correo, x.EstadoCivil, x.Genero, x.FechaNacimiento, x.Estado,x.Imagen });
 
             if (DDLActivos.Text == "Activo" && EmpleaoGlobal.Estado==true )

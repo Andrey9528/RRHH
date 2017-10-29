@@ -199,6 +199,7 @@ namespace RRHH.UI
                                 }
                                 else
                                 {
+                                    Singleton.opaudi.InsertarAuditoriasAdmin(EmpleadoGlobal.Nombre, EmpleadoGlobal.Cedula, false, true, false, false, false, false, false, false, false, false, false, false, false, false);
 
                                 }
 
@@ -242,7 +243,7 @@ namespace RRHH.UI
                                     mensaje.Visible = false;
                                     mensajeError.Visible = true;
                                     mensajeinfo.Visible = false;
-                                    textomensajeinfo.InnerHtml = "La cuenta se encuentra bloqueada por exceso de intentos fallidos";
+                                    textoMensajeError.InnerHtml = "La cuenta se encuentra bloqueada por exceso de intentos fallidos";
                                     txtcontra.Text = string.Empty;
                                     txtcorreo.Text = string.Empty;
                                     EmpleadoBloqueo = Singleton.OpEmpleados.BuscarEmpleadoCorreo(Correo);
