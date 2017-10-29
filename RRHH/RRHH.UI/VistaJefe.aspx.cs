@@ -104,8 +104,10 @@ namespace RRHH.UI
                         };
                         Singleton.OpEmpleados.ActualizarEmpleados(empleado);
                         //this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('La contraseña ha sido modificada, por favor vuelve a iniciar sesión')", true);
+                        Singleton.opAudiJefe.InsertarAuditoriasJefe(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, false, false, false, false, false, true, false, false, false);
 
                         Response.Redirect("Login.aspx");
+                       
                     }
                     else
                     {
@@ -135,7 +137,25 @@ namespace RRHH.UI
         protected void LKB_JefeSesion_Click(object sender, EventArgs e)
         {
             Session.Remove("JefeCorreo");
+            Singleton.opAudiJefe.InsertarAuditoriasJefe(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, false, false, false, false, false, false, true, false, false);
+
             Response.Redirect("Login.aspx");
+        }
+
+        protected void btnCerarPopup_Click(object sender, EventArgs e)
+        {
+            ClientScript.RegisterStartupScript(GetType(), "Modal", "popupCerrarPerfil();", true);
+
+            Singleton.opAudiJefe.InsertarAuditoriasJefe(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, true, false, false, false, false, false, false, false, false, false);
+
+        }
+
+        protected void LKB_AyudaJefe_Click(object sender, EventArgs e)
+        {
+            Singleton.opAudiJefe.InsertarAuditoriasJefe(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, false, false, false, false, true, false, false, false, false);
+
+            Response.Redirect("JefeAyuda.aspx");
+
         }
     }
 }

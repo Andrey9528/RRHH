@@ -100,8 +100,10 @@
         <li><a  href="ListaIncapacidades.aspx">Lista de Incapacidades</a></li>
           <li><a   href="mantenimientoVaca.aspx">Ver solicitudes</a></li>
             <li><a data-target="#cambiojefe" data-toggle="modal"  href="#">Cambio de  contraseña</a></li>
-          <li><asp:LinkButton ID="LKB_JefeSesion" OnClick="LKB_JefeSesion_Click" runat="server">Cerrar sesión</asp:LinkButton></li>
-          <li><a   href="#">Ayuda</a></li>
+          <li>
+              <asp:LinkButton ID="LKB_AyudaJefe" OnClick="LKB_AyudaJefe_Click" runat="server">Ayuda</asp:LinkButton></li>
+           <li><asp:LinkButton ID="LKB_JefeSesion" OnClick="LKB_JefeSesion_Click" runat="server">Cerrar sesión</asp:LinkButton></li>
+         
      
       </ul><br/>
     </div>
@@ -248,8 +250,8 @@ body {font-family: Verdana, sans-serif;}
   <li>24</li>
   <li>25</li>
   <li>26</li>
-  <li><span class="active">27</span></li>
-  <li>28</li>
+  <li>27</li>
+  <li><span class="active">28</span></li>
   <li>29</li>
   <li>30</li>
   <li>31</li>
@@ -339,7 +341,7 @@ body {font-family: Verdana, sans-serif;}
                                  <p style=" margin-top:5px;"> <asp:Button ID= "btnConfirmarJefe"   runat ="server" Text="Confirmar" CssClass="btn btn-warning" OnClick="btnConfirmarJefe_Click" /> </p>
                                  <br/> <br/>
                                  <asp:Label ID="Label2" runat="server" Text="Nueva contraseña"></asp:Label>
-                                 <asp:TextBox ID="txtNuevaContraseña" Enabled="false" TextMode="Password" CssClass="form-control"  runat="server" placeholder="Nueva contraseña"></asp:TextBox>
+                                 <asp:TextBox ID="txtNuevaContraseña" Enabled="false" TextMode="Password" CssClass="form-control"  runat="server" placeholder="@Ejemplo123"></asp:TextBox>
                                 <%--<asp:CheckBox ID="ChkVerContraseña" OnCheckedChanged="ChkVerContraseña_CheckedChanged" runat="server" />--%>
                                  <asp:Label ID="Label3" runat="server"  Text="Confirmar contraseña"></asp:Label>
                                  <asp:TextBox ID="txtNuevaContraseñaConfirmar" Enabled="false" TextMode="Password" CssClass="form-control" runat="server" placeholder="Confirmar contraseña" ></asp:TextBox>
@@ -366,6 +368,12 @@ body {font-family: Verdana, sans-serif;}
         function popup()
         {
             $('#cambiojefe').modal('show');
+        }
+    </script>
+        <script type="text/javascript"  >
+        function popupCerrarPerfil()
+        {
+            $('#MiPerfil').modal('hide');
         }
     </script>
 
@@ -408,7 +416,8 @@ body {font-family: Verdana, sans-serif;}
 
         </div>
         <div class="modal-footer">
-          <button style="" type="button" class="btn btn-warning" data-dismiss="modal">Cerrar</button>
+            
+            <asp:Button ID="btnCerarPopup" runat="server" Text="Cerrar" OnClick="btnCerarPopup_Click" CssClass="btn btn-warning" />
         </div>
       </div>
     </div>

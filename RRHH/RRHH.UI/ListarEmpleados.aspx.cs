@@ -64,17 +64,21 @@ namespace RRHH.UI
                 mensajeError.Visible = false;
                 GV_personas.DataSource = listaEmple.Where(x => x.Estado == true);
                GV_personas.DataBind();
-            }
-            else if (DDLActivos.Text == "Inactivo" && EmpleaoGlobal.Estado==false)    
+               Singleton.opAudiJefe.InsertarAuditoriasJefe(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, false, true, false, false, false, false, false, false, false);
+
+                }
+                else if (DDLActivos.Text == "Inactivo" && EmpleaoGlobal.Estado==false)    
             {
 
                 //lv_datos.DataSource = listaEmple.Where(x => x.Estado == false);
                 //lv_datos.DataBind();
                 mensajeError.Visible = false;
                 GV_personas.DataSource = listaEmple.Where(x => x.Estado == false);
-               GV_personas.DataBind();
+                GV_personas.DataBind();
+                Singleton.opAudiJefe.InsertarAuditoriasJefe(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, false, true, false, false, false, false, false, false, false);
 
-            }
+
+                }
 
             }
 

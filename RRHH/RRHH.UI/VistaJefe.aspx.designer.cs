@@ -103,6 +103,15 @@ namespace RRHH.UI {
         protected global::System.Web.UI.WebControls.Image imgPerfil2;
         
         /// <summary>
+        /// LKB_AyudaJefe control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LKB_AyudaJefe;
+        
+        /// <summary>
         /// LKB_JefeSesion control.
         /// </summary>
         /// <remarks>
@@ -272,5 +281,14 @@ namespace RRHH.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image imgPerfil;
+        
+        /// <summary>
+        /// btnCerarPopup control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCerarPopup;
     }
 }

@@ -194,6 +194,7 @@ namespace RRHH.UI
                                 }
                                 else if (EmpleadoGlobal.IdRol == 2)
                                 {
+                                    Singleton.opAudiJefe.InsertarAuditoriasJefe(EmpleadoGlobal.Nombre, EmpleadoGlobal.Cedula, false, false, false, false, false, false, false, false, false, true);
 
                                 }
                                 else
