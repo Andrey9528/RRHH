@@ -128,8 +128,8 @@ namespace RRHH.UI
                         };
                         Singleton.OpEmpleados.ActualizarEmpleados(empleado);
                         //this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('La contraseña ha sido modificada, por favor vuelve a iniciar sesión')", true);
-
-                        Response.Redirect("Log  in.aspx");
+                        Singleton.opaudi.InsertarAuditoriasAdmin(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, false, false, false, false, false, false, false, false, false, false, false, true, false);
+                        Response.Redirect("Login.aspx");
                     }
                     else
                     {
@@ -170,6 +170,8 @@ namespace RRHH.UI
                     Estado = true
                 };
                 Singleton.opdepartamento.InsertarDepartamentos(depart);
+                Singleton.opaudi.InsertarAuditoriasAdmin(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, false, false, false, false, false, false, false, true, false, false, false, false, false);
+
                 mensaje.Visible = true;
                 mensajawarning.Visible = false;
                 mensajeError.Visible = false;
@@ -196,16 +198,71 @@ namespace RRHH.UI
 
         protected void LnkHome_Click(object sender, EventArgs e)
         {
-            Session["ROL"] = Login.EmpleadoGlobal.IdRol;
+            try
+            {
+                Session["ROL"] = Login.EmpleadoGlobal.IdRol;
 
-            Response.Redirect("AdminView.aspx?ROL=" + Login.EmpleadoGlobal.IdRol);
-
+                Response.Redirect("AdminView.aspx?ROL=" + Login.EmpleadoGlobal.IdRol);
+            }
+            catch
+            {
+            }
         }
 
         protected void LKB_AdminSession_Click(object sender, EventArgs e)
         {
-            Session.Remove("AdminCorreo");
-            Response.Redirect("Login.aspx");
+            try
+            {
+                Singleton.opaudi.InsertarAuditoriasAdmin(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, false, false, false, false, false, false, false, false, false, false, false, false, true);
+
+                Session.Remove("AdminCorreo");
+                Response.Redirect("Login.aspx");
+            }
+            catch
+            {
+
+            }
+        }
+
+        protected void btnCerrarPopup_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Singleton.opaudi.InsertarAuditoriasAdmin(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, false, true, false, false, false, false, false, false, false, false, false, false, false);
+
+                ClientScript.RegisterStartupScript(GetType(), "Modal", "popupCerrarPerfil();", true);
+            }
+            catch
+            {
+
+            }
+        }
+
+        protected void LKB_AyudaAdmin_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Singleton.opaudi.InsertarAuditoriasAdmin(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, false, false, false, false, false, false, false, false, false, true, false, false, false);
+
+                Response.Redirect("AyudaAdmin.aspx");
+            }
+            catch
+            {
+
+            }
+        }
+
+        protected void LKB_Auditorias_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                
+                Response.Redirect("AuditoriasAdmin.aspx");
+            }
+            catch
+            {
+
+            }
         }
 
         //protected void ChkVerContraseña_CheckedChanged(object sender, EventArgs e)

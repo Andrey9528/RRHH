@@ -27,7 +27,7 @@ namespace RRHH.DS.Metodos
 
         public List<ControlAuditoriasJefe> ListarAuditoriasJefe()
         {
-            throw new NotImplementedException();
+            return _db.Select<ControlAuditoriasJefe>();
         }
     }
 }

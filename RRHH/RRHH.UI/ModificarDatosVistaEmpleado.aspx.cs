@@ -157,7 +157,7 @@ namespace RRHH.UI
                     {
                         Singleton.OpEmpleados.ActualizarEmpleados(emple2);
                         ActualizarEmpeladoGlobal();
-                        Singleton.opAudiJefe.InsertarAuditoriasJefe(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, true, false, false, false, false, false, false, false, false);
+                        Singleton.opaudi.InsertarAuditoriasAdmin(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, false, false, true, false, false, false, false, false, false, false, false, false, false);
 
 
                         Empleadosmantenimiento.Visible = false;

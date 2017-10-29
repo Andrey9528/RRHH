@@ -280,11 +280,14 @@
             
           </ul>
         </li>
-        <li><a style="color:white; font-size:14px; " href="#">Ayuda</a></li>
+        <li style="font-family:cursive ">
+            <asp:LinkButton ForeColor="White" ID="LKB_AyudaAdmin" OnClick="LKB_AyudaAdmin_Click" runat="server">Ayuda</asp:LinkButton></li>
         <li class="dropdown">
           
           <a class="dropdown-toggle"  style="background-color:#04acec; font-size:14px;  color:white; font-family:cursive;" data-toggle="dropdown" href="#">Administración<span class="caret"></span></a>
           <ul  class="dropdown-menu">
+              <li>
+                  <asp:LinkButton ID="LKB_Auditorias" OnClick="LKB_Auditorias_Click" runat="server">Auditorias</asp:LinkButton></li>
             <li><a data-target="#cambio" data-toggle="modal"  href="#">Cambio de contraseña</a></li>
             <li><asp:LinkButton ID="LKB_AdminSession" OnClick="LKB_AdminSession_Click" runat="server">Cerrar sesión</asp:LinkButton></li>
             
@@ -408,7 +411,12 @@
   </div>
         </div>
 
-   
+    <script type="text/javascript"  >
+        function popupCerrarPerfil()
+        {
+            $('#MiPerfil').modal('hide');
+        }
+    </script>
         <div class="container"  >
   
   <div class="modal fade" data-keyboard="false" data-backdrop="static" id="Miperfil" role="dialog">
@@ -446,8 +454,8 @@
 
 
         </div>
-        <div class="modal-footer">
-          <button style="margin-top:-30px;" type="button" class="btn btn-warning" data-dismiss="modal">Cerrar</button>
+        <div  style="margin-top:-30px;" class="modal-footer">
+            <asp:Button ID="btnCerrarPopup" OnClick="btnCerrarPopup_Click"  CssClass="btn btn-danger"  runat="server" Text="Cerrar" />
         </div>
       </div>
     </div>

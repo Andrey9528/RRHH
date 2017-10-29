@@ -94,6 +94,24 @@ namespace RRHH.UI {
         protected global::System.Web.UI.WebControls.LinkButton LnkHome;
         
         /// <summary>
+        /// LKB_AyudaAdmin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LKB_AyudaAdmin;
+        
+        /// <summary>
+        /// LKB_Auditorias control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LKB_Auditorias;
+        
+        /// <summary>
         /// LKB_AdminSession control.
         /// </summary>
         /// <remarks>
@@ -335,5 +353,14 @@ namespace RRHH.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image imgPerfil;
+        
+        /// <summary>
+        /// btnCerrarPopup control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCerrarPopup;
     }
 }

@@ -91,6 +91,7 @@ namespace RRHH.UI
                     MailMessage mensajeC = new MailMessage("soporte.biblioteca@hotmail.com", txtCorreo.Text, "Creación de cuenta", "Se ha creado una nueva cuenta para tu usuario" + txtCorreo.Text + "con la contraseña: " + contrasena + "por motivos de seguridad, te recomendamos cambiar la contraseña una vez que ingreses");
 
                     cliente.Send(mensajeC);
+                    Singleton.opaudi.InsertarAuditoriasAdmin(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, false, false, false, true, false, false, false, false, false, false, false, false, false);
                     txtCedula.Text = string.Empty;
                     txtNombre.Text = string.Empty;
                     txtDireccion.Text = string.Empty;

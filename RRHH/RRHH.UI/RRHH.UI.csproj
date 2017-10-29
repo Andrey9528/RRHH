@@ -245,6 +245,7 @@
     <Content Include="adminVacaciones.aspx" />
     <Content Include="AdminVacas.aspx" />
     <Content Include="AdminView.aspx" />
+    <Content Include="AuditoriasAdmin.aspx" />
     <Content Include="Ayuda.aspx" />
     <Content Include="AyudaAdmin.aspx" />
     <Content Include="ConsultaIncapacidades.aspx" />
@@ -491,6 +492,13 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="AuditoriasAdmin.aspx.cs">
+      <DependentUpon>AuditoriasAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AuditoriasAdmin.aspx.designer.cs">
+      <DependentUpon>AuditoriasAdmin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Ayuda.aspx.cs">
       <DependentUpon>Ayuda.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

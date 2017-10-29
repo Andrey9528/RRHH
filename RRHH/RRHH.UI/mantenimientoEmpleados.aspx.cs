@@ -154,6 +154,7 @@ namespace RRHH.UI
 
 
                     Singleton.OpEmpleados.ActualizarEmpleados(emple);
+                    Singleton.opaudi.InsertarAuditoriasAdmin(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, false, false, false, false, true, false, false, false, false, false, false, false, false);
                     Empleadosmantenimiento.Visible = false;
                     frmImg.Visible = false;
                     mensajeinfo.Visible = false;
@@ -197,6 +198,8 @@ namespace RRHH.UI
 
 
                     Singleton.OpEmpleados.ActualizarEmpleados(emple);
+                    Singleton.opaudi.InsertarAuditoriasAdmin(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, false, false, false, false, true, false, false, false, false, false, false, false, false);
+
                     Empleadosmantenimiento.Visible = false;
                     frmImg.Visible = false;
                     mensajeinfo.Visible = false;
@@ -237,6 +240,8 @@ namespace RRHH.UI
 
 
                     Singleton.OpEmpleados.ActualizarEmpleados(emple);
+                    Singleton.opaudi.InsertarAuditoriasAdmin(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, false, false, false, false, true, false, false, false, false, false, false, false, false);
+
                     Empleadosmantenimiento.Visible = false;
                     frmImg.Visible = false;
                     mensajeinfo.Visible = false;
@@ -278,6 +283,8 @@ namespace RRHH.UI
 
                     Singleton.OpEmpleados.ActualizarEmpleados(emple);
                     Empleadosmantenimiento.Visible = false;
+                    Singleton.opaudi.InsertarAuditoriasAdmin(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, false, false, false, false, true, false, false, false, false, false, false, false, false);
+
                     frmImg.Visible = false;
                     mensajeinfo.Visible = false;
                     mensaje.Visible = false;
@@ -333,7 +340,7 @@ namespace RRHH.UI
                         Imagen = EmpleadoGlobal.Imagen,
                         //  Genero = DDLgenero.SelectedItem.ToString(),
                         Genero = txtGenero.Text,
-                        Password = Login.EmpleadoGlobal.Password,
+                        Password = EmpleadoGlobal.Password,
                         IntentosFallidos=Convert.ToInt32(EmpleadoGlobal.IntentosFallidos),
                         DiasVacaciones = EmpleadoGlobal.DiasVacaciones,
                         DiasAntesCaducidad = EmpleadoGlobal.DiasAntesCaducidad,
@@ -367,10 +374,9 @@ namespace RRHH.UI
                 }
 
             }
-            catch 
+            catch
             {
-
-                
+              
             }     
 
         }

@@ -12,7 +12,7 @@ namespace RRHH.DATA
 
         public string Cedula { get; set; }
 
-       
+        public DateTime Fecha { get; set; }
 
         public bool LoginExitoso { get; set; }
 

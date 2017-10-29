@@ -28,7 +28,7 @@ namespace RRHH.DS.Metodos
 
         public List<ControlAuditoriasEmpleado> ListarAuditoriasEmpleado()
         {
-            throw new NotImplementedException();
+          return  _db.Select<ControlAuditoriasEmpleado>();
         }
     }
 }

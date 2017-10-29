@@ -13,5 +13,21 @@ namespace RRHH.UI
         {
 
         }
+
+        protected void btnRegresar_Click(object sender, EventArgs e)
+        {
+            Session["ROL"] = Login.EmpleadoGlobal.IdRol;
+
+            Response.Redirect("AdminView.aspx?ROL=" + Login.EmpleadoGlobal.IdRol);
+
+        }
+
+        protected void btnReportar_Click(object sender, EventArgs e)
+        {
+            Response.ContentType = "Application/pdf";
+            Response.AppendHeader("Content-Disposition", "attachment; filename=help.pdf");
+            Response.TransmitFile(Server.MapPath("~/TutorialesPDF/Seashore piano technic.pdf"));
+            Response.End();
+        }
     }
 }
