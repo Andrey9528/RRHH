@@ -49,6 +49,7 @@ namespace RRHH.UI
                     lblcorreo2.Text = "Correo: " + Login.EmpleadoGlobal.Correo;
                     lbldirreccion2.Text = "Dirección:" + Login.EmpleadoGlobal.Direccion;
                     lblGenero2.Text = "Genero:" + Login.EmpleadoGlobal.Genero;
+                    lblSaldoVaca.Text = "Saldo de vacaciones:" + Login.EmpleadoGlobal.DiasVacaciones;
                     if (Login.EmpleadoGlobal.DiasAntesCaducidad < 3)
                     {
                         mensaje.Visible = false;

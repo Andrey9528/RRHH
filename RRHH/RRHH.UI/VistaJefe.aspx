@@ -251,9 +251,9 @@ body {font-family: Verdana, sans-serif;}
   <li>25</li>
   <li>26</li>
   <li>27</li>
-  <li><span class="active">28</span></li>
+  <li>28</li>
   <li>29</li>
-  <li>30</li>
+  <li><span class="active">30</span></li>
   <li>31</li>
 </ul>
 

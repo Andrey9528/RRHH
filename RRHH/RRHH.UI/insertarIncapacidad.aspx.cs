@@ -165,7 +165,7 @@ namespace RRHH.UI
                         };
                         Singleton.opIncapacidad.InsertarIncapacidad(inca);
                         Singleton.opAudiEmple.InsertarAuditoriasEmpleado(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, false, true, false, false, false, false, false, false, false, false);
-
+                        LimpiarCampos();
                         mensaje.Visible = true;
                         mensajeError.Visible = false;
                         mensajeinfo.Visible = false;
@@ -235,6 +235,15 @@ namespace RRHH.UI
 
             Response.Redirect("WebForm1.aspx?ROL=" + Login.EmpleadoGlobal.IdRol);
 
+        }
+        public void LimpiarCampos()
+        {
+            txtfechainicio.Text = string.Empty;
+            txtfechafinal.Text = string.Empty;
+            txtfechaemision.Text = string.Empty;
+            txtdescripcion.Text = string.Empty;
+            txtcentroemisor.Text = string.Empty;
+            txtnombredoc.Text = string.Empty;
         }
     }
 }
