@@ -67,7 +67,7 @@
   <asp:Label ID="Label4" runat="server" Text="Tipo de incapacidad:"></asp:Label>
     <asp:DropDownList ID="DDLTipo"  CssClass="form-control" runat="server">
         <asp:ListItem>Enfermedad</asp:ListItem>
-        <asp:ListItem>Accidente laboral</asp:ListItem>
+        <asp:ListItem>Accidente </asp:ListItem>
         <asp:ListItem Selected="True">Indefinido</asp:ListItem>
       </asp:DropDownList>
    

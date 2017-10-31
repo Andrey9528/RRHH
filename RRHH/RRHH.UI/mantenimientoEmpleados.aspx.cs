@@ -383,15 +383,15 @@ namespace RRHH.UI
 
         protected void Chk_estado_CheckedChanged(object sender, EventArgs e)
         {
-            if (Chk_estado.Checked)
-            {
-                btnEliminar.Enabled = false;
+            //if (Chk_estado.Checked)
+            //{
+            //    btnEliminar.Enabled = false;
 
-            }
-            else
-            {
-                btnEliminar.Enabled = true;
-            }
+            //}
+            //else
+            //{
+            //    btnEliminar.Enabled = true;
+            //}
         }
 
         protected void btnRegresar_Click(object sender, EventArgs e)

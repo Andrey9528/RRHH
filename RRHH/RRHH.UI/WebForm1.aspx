@@ -326,6 +326,9 @@
     <asp:Label ID="Label5" runat="server" Text="Fecha Final:"></asp:Label>
     <asp:TextBox ID="txtfechafinal"  TextMode="Date" CssClass="form-control" runat="server" ></asp:TextBox>
         
+
+            <br />
+            <asp:Label ID="lblSaldoVaca" runat="server" ></asp:Label>
         </div>
         <div class="modal-footer">
             

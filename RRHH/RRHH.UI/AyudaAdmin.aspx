@@ -45,7 +45,7 @@ video {
       <div class="panel panel-primary">
         <div class="panel-heading">Ver perfil y modificar</div>
         <div class="panel-body">
-            <video width="400" controls="controls"><source src="#" type="video/mp4"/></video>
+            <video width="400" controls="controls"><source src="Videos/Admin/PerfilAdmin.mp4" type="video/mp4"/></video>
 
         </div>
         <div class="panel-footer"><asp:Button ID="btnReportar"  OnClick="btnReportar_Click" CssClass="btn btn-link" runat="server" Text="Descargar tutorial" /> </div>
@@ -55,7 +55,7 @@ video {
       <div class="panel panel-primary">
         <div class="panel-heading">Cambio de Contraseña</div>
         <div class="panel-body">
-          <video width="400" controls="controls"><source src="#" type="video/mp4"/></video>
+          <video width="400" controls="controls"><source src="Videos/Admin/CambioContraseñaAdmin.mp4" type="video/mp4"/></video>
     
         </div>
         <div class="panel-footer">
@@ -64,10 +64,10 @@ video {
     </div>
     <div class="col-sm-4"> 
       <div class="panel panel-primary">
-        <div class="panel-heading">Gestión de Vacaciones</div>
+        <div class="panel-heading">Mantenimiento de vacaciones</div>
         <div class="panel-body">
             
-          <video width="400" controls="controls"><source  src="#" type="video/mp4"/></video>
+          <video width="400" controls="controls"><source  src="Videos/Admin/VacacionesAdmin.mp4" type="video/mp4"/></video>
 
         </div>
         <div class="panel-footer"><asp:LinkButton ID="LKB_Reporte2" runat="server">Descargar Tutorial</asp:LinkButton></div>
@@ -80,18 +80,18 @@ video {
   <div class="row">
     <div class="col-sm-4">
       <div class="panel panel-primary">
-        <div class="panel-heading">Lista de empleados</div>
+        <div class="panel-heading">Mantenimiento de incapacidades</div>
         <div class="panel-body">
-          <video width="400" controls="controls"><source src="#" type="video/mp4"/></video>
+          <video width="400" controls="controls"><source src="Videos/Admin/IncapacidadesAdmin.mp4" type="video/mp4"/></video>
     
         </div>
         <div class="panel-footer"><asp:LinkButton ID="LKB_Reporte3" runat="server">Descarga Tutorial </asp:LinkButton></div></div>
     </div>
     <div class="col-sm-4"> 
       <div class="panel panel-primary">
-        <div class="panel-heading">Lista de Incapacidades</div>
+        <div class="panel-heading">Mantenimiento de  departamentos</div>
         <div class="panel-body">
-          <video width="400" controls="controls"><source src="#" type="video/mp4"/></video>
+          <video width="400" controls="controls"><source src="Videos/Admin/DepartamentoAdmin.mp4" type="video/mp4"/></video>
     
         </div>
         <div class="panel-footer"><asp:LinkButton ID="LKB_Reporte4" runat="server">Descarga Tutorial</asp:LinkButton></div>
@@ -99,12 +99,43 @@ video {
     </div>
     <div class="col-sm-4"> 
       <div class="panel panel-primary">
+        <div class="panel-heading">Auditorias</div>
+        <div class="panel-body">
+          <video width="400" controls="controls"><source src="Videos/Admin/Auditoria.mp4" type="video/mp4"/></video>
+    
+        </div>
+        <div class="panel-footer"><asp:LinkButton ID="LKB_Reporte5" runat="server">Descarga Tutorial</asp:LinkButton></div>
+      </div>
+    </div>
+
+      <div class="col-sm-4"> 
+      <div class="panel panel-primary">
+        <div class="panel-heading">Mantenimiento de empleados</div>
+        <div class="panel-body">
+          <video width="400" controls="controls"><source src="Videos/Admin/EmpleadosAdmin.mp4" type="video/mp4"/></video>
+    
+        </div>
+        <div class="panel-footer"><asp:LinkButton ID="LinkButton1" runat="server">Descarga Tutorial</asp:LinkButton></div>
+      </div>
+    </div>
+       <div class="col-sm-4"> 
+      <div class="panel panel-primary">
+        <div class="panel-heading">Registro de empleados</div>
+        <div class="panel-body">
+          <video width="400" controls="controls"><source src="Videos/Admin/EmpleadosAdmin.mp4" type="video/mp4"/></video>
+    
+        </div>
+        <div class="panel-footer"><asp:LinkButton ID="LinkButton2" runat="server">Descarga Tutorial</asp:LinkButton></div>
+      </div>
+    </div>
+       <div class="col-sm-4"> 
+      <div class="panel panel-primary">
         <div class="panel-heading">Vista General</div>
         <div class="panel-body">
           <video width="400" controls="controls"><source src="#" type="video/mp4"/></video>
     
         </div>
-        <div class="panel-footer"><asp:LinkButton ID="LKB_Reporte5" runat="server">Descarga Tutorial</asp:LinkButton></div>
+        <div class="panel-footer"><asp:LinkButton ID="LinkButton3" runat="server">Descarga Tutorial</asp:LinkButton></div>
       </div>
     </div>
   </div>

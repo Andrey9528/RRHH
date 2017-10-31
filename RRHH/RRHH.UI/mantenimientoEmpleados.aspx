@@ -178,8 +178,8 @@
          
              <asp:Button ID="btnModificar" runat="server" Text="Modificar" CssClass="btn btn-warning"  OnClick="btnModificar_Click" />
            
-          <asp:Button ID="btnEliminar"  runat="server" Text="Deshabilitar" CssClass="btn btn-danger" OnClick="btnEliminar_Click"  OnClientClick="Confirm()" />
-         
+         <%-- <asp:Button ID="btnEliminar"  runat="server" Text="Deshabilitar" CssClass="btn btn-danger" OnClick="btnEliminar_Click"  OnClientClick="Confirm()" />
+         --%>
         </div>
     </div>
     </div>
