@@ -132,7 +132,7 @@ video {
       <div class="panel panel-primary">
         <div class="panel-heading">Vista General</div>
         <div class="panel-body">
-          <video width="400" controls="controls"><source src="#" type="video/mp4"/></video>
+          <video width="400" controls="controls"><source src="Videos/Admin/GeneralAdmin.mp4" type="video/mp4"/></video>
     
         </div>
         <div class="panel-footer"><asp:LinkButton ID="LinkButton3" runat="server">Descarga Tutorial</asp:LinkButton></div>
