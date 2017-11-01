@@ -12,6 +12,8 @@ namespace RRHH.UI
     {
         public static int dias;
         List<DateTime> fechas = new List<DateTime>(); //desmadre
+        List<DateTime> fechasVacaciones = new List<DateTime>(); //desmadre
+
         public static int count; // desmadre
 
         protected void Page_Load(object sender, EventArgs e)
@@ -90,6 +92,40 @@ namespace RRHH.UI
             return false;
         }
 
+        //// en teria en este se suman los dias de vacaciones cuando alguien se incapacita
+        // public bool ValidarRangoFechas(string fechainicio,string fechafinal)
+        //{
+        //    try
+        //    {
+        //        var listaId = Singleton.opsolicitud.Listarsolicitudes().Where(x => x.Cedula == Login.EmpleadoGlobal.Cedula).ToList();
+        //        foreach (var IdSolicitud in listaId)
+        //        {
+
+        //            if (Convert.ToDateTime(fechainicio) >= Convert.ToDateTime(IdSolicitud.FechaInicio) && Convert.ToDateTime(fechainicio) <= Convert.ToDateTime(IdSolicitud.FechaFinal)
+        //                || Convert.ToDateTime(fechafinal) >= Convert.ToDateTime(IdSolicitud.FechaInicio) && Convert.ToDateTime(fechafinal) <= Convert.ToDateTime(IdSolicitud.FechaFinal))
+        //            {
+        //                return true;
+        //            }
+        //            else
+        //            {
+        //                return false;
+        //            }
+        //        }
+        //        return false;
+        //    }
+        //    catch (Exception)
+        //    {
+        //        mensajeError.Visible = true;
+        //        mensajeinfo.Visible = false;
+        //        mensajawarning.Visible = false;
+        //        mensaje.Visible = false;
+        //        textomensajeError.InnerHtml = "Ha ocurrido un error";
+        //    }
+        //    return false;
+        //}
+
+       //
+
         public static int DiasRestantes(DateTime startDate, DateTime endDate, Boolean excludeWeekends, List<DateTime> excludeDates)
         {
             count = 0;
@@ -138,17 +174,9 @@ namespace RRHH.UI
                     }
                     else
                     {
-                        //fechas.Add(new DateTime(2017, 01, 01));
-                        //fechas.Add(new DateTime(2017, 11, 04));
-                        //fechas.Add(new DateTime(2017, 13, 04));
-                        //fechas.Add(new DateTime(2017, 14, 04));
-                        //fechas.Add(new DateTime(2017, 05, 01));
-                        //fechas.Add(new DateTime(2017, 07, 25));
-                        //fechas.Add(new DateTime(2017, 08, 15));
-                        //fechas.Add(new DateTime(2017, 12, 25));
-
-
-                        DiasRestantes(Convert.ToDateTime(txtfechainicio.Text), Convert.ToDateTime(txtfechafinal.Text), true, fechas); // desmadre
+                        //fechasVacaciones = Singleton.opsolicitud.BuscarsolicitudPorId(Login.EmpleadoGlobal.Cedula).Where(x => x.Condicion == true).ToList().Select(x => x.FechaInicio && x.FechaFinal);
+                        fechas = Singleton.OpFeriados.ListarFeriados().Select(x => x.Fecha).ToList();
+                        DiasRestantes(Convert.ToDateTime(txtfechainicio.Text), Convert.ToDateTime(txtfechafinal.Text), true, fechas);
                         Incapacidad inca = new Incapacidad()
                         {
                             Cedula = Login.EmpleadoGlobal.Cedula,

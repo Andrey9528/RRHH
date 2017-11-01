@@ -31,19 +31,19 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ServiceStack.Common">
-      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\Proyecto Analisis\Librerias para el proyecto\ServiceStack.Common.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Analisis3\Librerias\Librerias para el proyecto\ServiceStack.Common.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.Interfaces">
-      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\Proyecto Analisis\Librerias para el proyecto\ServiceStack.Interfaces.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Analisis3\Librerias\Librerias para el proyecto\ServiceStack.Interfaces.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.OrmLite">
-      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\Proyecto Analisis\Librerias para el proyecto\ServiceStack.OrmLite.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Analisis3\Librerias\Librerias para el proyecto\ServiceStack.OrmLite.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.OrmLite.SqlServer">
-      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\Proyecto Analisis\Librerias para el proyecto\ServiceStack.OrmLite.SqlServer.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Analisis3\Librerias\Librerias para el proyecto\ServiceStack.OrmLite.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.Text">
-      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\Proyecto Analisis\Librerias para el proyecto\ServiceStack.Text.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Analisis3\Librerias\Librerias para el proyecto\ServiceStack.Text.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -71,12 +71,14 @@
     <Compile Include="Interfaces\IRangoFechasVacaciones.cs" />
     <Compile Include="Interfaces\IRoles.cs" />
     <Compile Include="Interfaces\ISolicitudVacaciones.cs" />
+    <Compile Include="Interfaces\IFeriados.cs" />
     <Compile Include="Metodos\MControlAuditoriasAdmin.cs" />
     <Compile Include="Metodos\MControlAuditoriasEmpleado.cs" />
     <Compile Include="Metodos\MControlAuditoriasJefe.cs" />
     <Compile Include="Metodos\MControlErrores.cs" />
     <Compile Include="Metodos\MDepartamento.cs" />
     <Compile Include="Metodos\MEmpleado.cs" />
+    <Compile Include="Metodos\MFeriados.cs" />
     <Compile Include="Metodos\MIncapacidad.cs" />
     <Compile Include="Metodos\MNotificacionCorreoJefe.cs" />
     <Compile Include="Metodos\MRangoFechasVacaciones.cs" />
