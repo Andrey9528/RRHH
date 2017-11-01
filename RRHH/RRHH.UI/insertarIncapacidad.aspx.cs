@@ -165,7 +165,7 @@ namespace RRHH.UI
                         mensaje.Visible = false;
                         textoMensajeError.InnerHtml = "Existe una solicitud de vacaciones en el rango de fechas seleccionado";
                     }
-                   else if  (ValidarRangoFechasIncapacidades(txtfechainicio.Text, txtfechafinal.Text))
+                   else if  (ValidarRangoFechasIncapacidades(txtfechainicio.Text,  txtfechafinal.Text))
                     {
                         mensajeinfo.Visible = false;
                         mensajeError.Visible = true;
