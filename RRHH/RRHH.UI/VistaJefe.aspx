@@ -56,7 +56,7 @@
         }
   </style>
 
-    <nav class="navbar navbar-inverse visible-xs">
+    <nav class="navbar navbar-inverse visible-xs" style="margin-top:-20px;">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -78,6 +78,10 @@
         <li><a href="ListarEmpleados.aspx">Lista de empleados</a></li>
         <li><a  href="ListaIncapacidades.aspx">Lista de Incapacidades</a></li>
           <li><a  href="mantenimientoVaca.aspx">Ver solicitudes</a></li>
+          <li><a href="#" data-toggle="modal"  data-target="#vaca">Solicitud de vacaciones</a></li>
+            <li><a href="ConsultaVacacionesJefe.aspx">Consulta de vacaciones</a></li>
+            <li><a href="insertarIncapacidad.aspx">Registrar incapacidad</a></li>
+           <li><a href="ConsultaIncaJefe.aspx">Consulta de incapacacidad</a></li>
             <li><a  data-target="#cambiojefe" data-toggle="modal"  href="#">Cambio de  contraseña</a></li>
           <li><a   href="Login.aspx">Cerrar sesión</a></li>
           
@@ -88,7 +92,7 @@
       
 <div class="container-fluid">
   <div class="row content">
-    <div class="col-sm-3 sidenav hidden-xs">
+    <div class="col-sm-3 sidenav hidden-xs" style="margin-top:-29px;">
       <h2 style="text-align:center;">
           <asp:Image ID="imgPerfil2" Width="100" Height="100" runat="server" /></h2>
       <ul class="nav nav-pills nav-stacked">
@@ -99,9 +103,12 @@
         <li><a   href="ListarEmpleados.aspx">Lista de empleados</a></li>
         <li><a  href="ListaIncapacidades.aspx">Lista de Incapacidades</a></li>
           <li><a   href="mantenimientoVaca.aspx">Ver solicitudes</a></li>
+           <li><a href="#" data-toggle="modal"  data-target="#vaca">Solicitud de vacaciones</a></li>
+            <li><a href="ConsultaVacacionesJefe.aspx">Consulta de vacaciones</a></li>
+            <li><a href="insertarIncapacidad.aspx">Registrar incapacidad</a></li>
+           <li><a href="ConsultaIncaJefe.aspx">Consulta de incapacacidad</a></li>
             <li><a data-target="#cambiojefe" data-toggle="modal"  href="#">Cambio de  contraseña</a></li>
-          <li>
-              <asp:LinkButton ID="LKB_AyudaJefe" OnClick="LKB_AyudaJefe_Click" runat="server">Ayuda</asp:LinkButton></li>
+          <li><asp:LinkButton ID="LKB_AyudaJefe" OnClick="LKB_AyudaJefe_Click" runat="server">Ayuda</asp:LinkButton></li>
            <li><asp:LinkButton ID="LKB_JefeSesion" OnClick="LKB_JefeSesion_Click" runat="server">Cerrar sesión</asp:LinkButton></li>
          
      
@@ -423,6 +430,47 @@ body {font-family: Verdana, sans-serif;}
     </div>
   </div>
 </div>
+
+
+
+         <div class="container">
+  
+ 
+  <div class="modal fade" id="vaca" role="dialog">
+       
+    <div class="modal-dialog modal-sm">
+       
+      <div class="modal-content">
+          
+        <div class="modal-header">
+          
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Solicitud de vacaciones</h4>
+        </div>
+        <div class="modal-body">
+          
+    <asp:Label ID="Label7" runat="server" Text="Fecha de Inicio:"></asp:Label>
+    <asp:TextBox ID="txtfechadeincio"  TextMode="Date" CssClass="form-control" runat="server"></asp:TextBox>
+
+
+    <asp:Label ID="Label8" runat="server" Text="Fecha Final:"></asp:Label>
+    <asp:TextBox ID="txtfechafinal"  TextMode="Date" CssClass="form-control" runat="server" ></asp:TextBox>
+        
+
+            <br />
+            <asp:Label ID="lblSaldoVaca" runat="server" ></asp:Label>
+        </div>
+        <div class="modal-footer">
+            
+          <asp:Button ID="btnvaca" runat="server" Text="Insertar" CssClass="btn btn-success" OnClick="btnvaca_Click"  />
+            
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+        </div>
 
 
     

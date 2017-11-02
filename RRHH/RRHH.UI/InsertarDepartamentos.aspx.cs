@@ -23,7 +23,7 @@ namespace RRHH.UI
             {
                 var depart = new departamento()
                 {
-                   
+
                     Nombre = txtnombre.Text,
                 };
                 Singleton.opdepartamento.InsertarDepartamentos(depart);
@@ -31,10 +31,16 @@ namespace RRHH.UI
                 textoMensaje.InnerHtml = "Departamento agregado";
 
             }
-            catch (Exception )
+            catch (Exception)
             {
                 throw;
             }
+
+
+        }
+        public void limpiarCampos()
+        {
+
         }
     }
 }

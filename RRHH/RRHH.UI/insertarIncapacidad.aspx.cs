@@ -191,14 +191,42 @@ namespace RRHH.UI
                             Estado = true,
 
                         };
-                        Singleton.opIncapacidad.InsertarIncapacidad(inca);
-                        Singleton.opAudiEmple.InsertarAuditoriasEmpleado(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, false, true, false, false, false, false, false, false, false, false);
-                        LimpiarCampos();
-                        mensaje.Visible = true;
-                        mensajeError.Visible = false;
-                        mensajeinfo.Visible = false;
-                        mensajawarning.Visible = false;
-                        textoMensaje.InnerHtml = "Incapacidad generada";
+                        if (Login.EmpleadoGlobal.IdRol == 1)
+                        {
+                            Singleton.opIncapacidad.InsertarIncapacidad(inca);
+                            Singleton.opAudiEmple.InsertarAuditoriasEmpleado(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, false, true, false, false, false, false, false, false, false, false);
+                            LimpiarCampos();
+                            mensaje.Visible = true;
+                            mensajeError.Visible = false;
+                            mensajeinfo.Visible = false;
+                            mensajawarning.Visible = false;
+                            textoMensaje.InnerHtml = "Incapacidad generada";
+
+                        }
+                        else if (Login.EmpleadoGlobal.IdRol == 2)
+                        {
+                            Singleton.opIncapacidad.InsertarIncapacidad(inca);
+                            LimpiarCampos();
+                            mensaje.Visible = true;
+                            mensajeError.Visible = false;
+                            mensajeinfo.Visible = false;
+                            mensajawarning.Visible = false;
+                            textoMensaje.InnerHtml = "Incapacidad generada ";
+
+                        }
+                        else
+                        {
+                            Singleton.opIncapacidad.InsertarIncapacidad(inca);
+                            LimpiarCampos();
+                            mensaje.Visible = true;
+                            mensajeError.Visible = false;
+                            mensajeinfo.Visible = false;
+                            mensajawarning.Visible = false;
+                            textoMensaje.InnerHtml = "Incapacidad generada ";
+
+
+                        }
+
                     }
                 }
                 //else if(string.IsNullOrEmpty(txtfechainicio.Text)&& string.IsNullOrEmpty(txtfechafinal.Text) && string.IsNullOrEmpty(txtdescripcion.Text)&& string.IsNullOrEmpty(txtfechaemision.Text)&& string.IsNullOrEmpty(txtcentroemisor.Text)&& string.IsNullOrEmpty(txtnombredoc.Text))
@@ -259,10 +287,27 @@ namespace RRHH.UI
 
         protected void btnRegresar_Click(object sender, EventArgs e)
         {
-            Session["ROL"] = Login.EmpleadoGlobal.IdRol;
 
-            Response.Redirect("WebForm1.aspx?ROL=" + Login.EmpleadoGlobal.IdRol);
+            if (Login.EmpleadoGlobal.IdRol == 1)
+            {
+                Session["ROL"] = Login.EmpleadoGlobal.IdRol;
 
+                Response.Redirect("WebForm1.aspx?ROL=" + Login.EmpleadoGlobal.IdRol);
+            }
+            else if (Login.EmpleadoGlobal.IdRol == 2)
+            {
+                Session["ROL"] = Login.EmpleadoGlobal.IdRol;
+
+                Response.Redirect("VistaJefe.aspx?ROL=" + Login.EmpleadoGlobal.IdRol);
+
+            }
+            else
+            {
+                Session["ROL"] = Login.EmpleadoGlobal.IdRol;
+
+                Response.Redirect("AdminView.aspx?ROL=" + Login.EmpleadoGlobal.IdRol);
+
+            }
         }
         public void LimpiarCampos()
         {

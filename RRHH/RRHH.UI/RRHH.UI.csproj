@@ -49,13 +49,13 @@
     </Reference>
     <Reference Include="itextsharp, Version=5.5.10.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Documents\Analisis3\Librerias\Librerias para el proyecto\itextsharp.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\Proyecto Analisis\Librerias para el proyecto\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="itextsharp.licensekey">
       <HintPath>..\..\..\..\..\Documents\Programacion 5 CONEJO\pdf\itextsharp.licensekey.dll</HintPath>
     </Reference>
     <Reference Include="itextsharp.pdfa">
-      <HintPath>..\..\..\..\..\Documents\Analisis3\Librerias\Librerias para el proyecto\itextsharp.pdfa.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\Proyecto Analisis\Librerias para el proyecto\itextsharp.pdfa.dll</HintPath>
     </Reference>
     <Reference Include="itextsharp.xtra">
       <HintPath>..\..\..\..\..\Documents\Programacion 5 CONEJO\pdf\itextsharp.xtra.dll</HintPath>
@@ -94,19 +94,19 @@
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="ServiceStack.Common">
-      <HintPath>..\..\..\..\..\Documents\Analisis3\Librerias\Librerias para el proyecto\ServiceStack.Common.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\Proyecto Analisis\Librerias para el proyecto\ServiceStack.Common.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.Interfaces">
-      <HintPath>..\..\..\..\..\Documents\Analisis3\Librerias\Librerias para el proyecto\ServiceStack.Interfaces.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\Proyecto Analisis\Librerias para el proyecto\ServiceStack.Interfaces.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.OrmLite">
-      <HintPath>..\..\..\..\..\Documents\Analisis3\Librerias\Librerias para el proyecto\ServiceStack.OrmLite.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\Proyecto Analisis\Librerias para el proyecto\ServiceStack.OrmLite.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.OrmLite.SqlServer">
-      <HintPath>..\..\..\..\..\Documents\Analisis3\Librerias\Librerias para el proyecto\ServiceStack.OrmLite.SqlServer.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\Proyecto Analisis\Librerias para el proyecto\ServiceStack.OrmLite.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.Text">
-      <HintPath>..\..\..\..\..\Documents\Analisis3\Librerias\Librerias para el proyecto\ServiceStack.Text.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\Proyecto Analisis\Librerias para el proyecto\ServiceStack.Text.dll</HintPath>
     </Reference>
     <Reference Include="Spire.DataExport, Version=3.5.10.2040, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
       <HintPath>..\packages\Spire.DataExport.3.5.10\lib\net40\Spire.DataExport.dll</HintPath>
@@ -248,8 +248,12 @@
     <Content Include="AuditoriasAdmin.aspx" />
     <Content Include="Ayuda.aspx" />
     <Content Include="AyudaAdmin.aspx" />
+    <Content Include="ConsultaIncaJefe.aspx" />
     <Content Include="ConsultaIncapacidades.aspx" />
+    <Content Include="ConsultaIncapacidadesAdmin.aspx" />
     <Content Include="consultaVacaciones.aspx" />
+    <Content Include="ConsultaVacacionesAdmin.aspx" />
+    <Content Include="ConsultaVacacionesJefe.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -523,6 +527,13 @@
     <Compile Include="AyudaAdmin.aspx.designer.cs">
       <DependentUpon>AyudaAdmin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ConsultaIncaJefe.aspx.cs">
+      <DependentUpon>ConsultaIncaJefe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultaIncaJefe.aspx.designer.cs">
+      <DependentUpon>ConsultaIncaJefe.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ConsultaIncapacidades.aspx.cs">
       <DependentUpon>ConsultaIncapacidades.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -530,12 +541,33 @@
     <Compile Include="ConsultaIncapacidades.aspx.designer.cs">
       <DependentUpon>ConsultaIncapacidades.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ConsultaIncapacidadesAdmin.aspx.cs">
+      <DependentUpon>ConsultaIncapacidadesAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultaIncapacidadesAdmin.aspx.designer.cs">
+      <DependentUpon>ConsultaIncapacidadesAdmin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="consultaVacaciones.aspx.cs">
       <DependentUpon>consultaVacaciones.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="consultaVacaciones.aspx.designer.cs">
       <DependentUpon>consultaVacaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaVacacionesAdmin.aspx.cs">
+      <DependentUpon>ConsultaVacacionesAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultaVacacionesAdmin.aspx.designer.cs">
+      <DependentUpon>ConsultaVacacionesAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaVacacionesJefe.aspx.cs">
+      <DependentUpon>ConsultaVacacionesJefe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultaVacacionesJefe.aspx.designer.cs">
+      <DependentUpon>ConsultaVacacionesJefe.aspx</DependentUpon>
     </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>

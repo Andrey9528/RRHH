@@ -11,24 +11,13 @@ using iTextSharp.text.pdf;
 using System.IO;
 using iTextSharp.text.html.simpleparser;
 
-
 namespace RRHH.UI
 {
-    public partial class consultaVacaciones : System.Web.UI.Page
+    public partial class ConsultaVacacionesAdmin : System.Web.UI.Page
     {
-      //public static int valor = 0;
-        
         public static int dias;
         protected void Page_Load(object sender, EventArgs e)
         {
-            // gvdatos.DataSource = Singleton.opsolicitud.Listarsolicitudes().Where(x=> x.Cedula ==Login.EmpleadoGlobal.Cedula);
-            // gvdatos.DataBind();
-            // txtfechainicio.Enabled = false;
-            // DDLcondicion.Enabled = false;
-            // txtfechafinal.Enabled = false;
-            //// btnbuscar.Enabled = false;
-            // mensajeinfo.Visible = false;
-            // mensajeError.Visible = false;
             if (!IsPostBack)
             {
                 lblAprobadas.Visible = false;
@@ -58,12 +47,11 @@ namespace RRHH.UI
                 DDLcondicion.Enabled = true;
             }
         }
-
         public bool ValidacionDias(DateTime fechaFinal, DateTime fechadeInicio)
         {
             try
             {
-                 TimeSpan diferencia = fechaFinal - fechadeInicio;
+                TimeSpan diferencia = fechaFinal - fechadeInicio;
                 dias = Convert.ToInt32(diferencia.TotalDays);
                 if (dias > 0)
                 {
@@ -78,36 +66,119 @@ namespace RRHH.UI
             {
 
                 throw;
-            }    
+            }
+        }
+
+
+        protected void RB_personalizada_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                VerControlesConsulta();
+                txtfechafinal.Enabled = true;
+                txtfechainicio.Enabled = true;
+            }
+            catch
+            {
+
+            }
+
+        }
+        private void VerControlesConsulta()
+        {
+            try
+            {
+                if (RB_busquedageneral.Checked)
+                {
+                    txtfechainicio.Enabled = false;
+                    DDLcondicion.Enabled = false;
+                    txtfechafinal.Enabled = false;
+                    btnbuscar.Enabled = false;
+                    mensajeinfo.Visible = false;
+                    mensajeError.Visible = false;
+
+                }
+                else if (RB_personalizada.Checked)
+                {
+                    txtfechainicio.Enabled = true;
+                    DDLcondicion.Enabled = true;
+                    txtfechafinal.Enabled = true;
+                    btnbuscar.Enabled = true;
+                    mensajeinfo.Visible = false;
+                    mensajeError.Visible = false;
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        protected void RB_personalizada_Init(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void RB_busquedageneral_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                VerControlesConsulta();
+                gvdatos.DataSource = Singleton.opsolicitud.Listarsolicitudes().Where(x => x.Cedula == Login.EmpleadoGlobal.Cedula);
+                gvdatos.DataBind();
+                txtfechafinal.Enabled = false;
+                txtfechainicio.Enabled = false;
+                txtfechafinal.Text = string.Empty;
+                txtfechainicio.Text = string.Empty;
+            }
+            catch
+            {
+
+            }
+        }
+
+        protected void DDLcondicion_TextChanged(object sender, EventArgs e)
+        {
+            if (DDLcondicion.Text == "Aprobado")
+            {
+                txtfechafinal.Enabled = true;
+                txtfechainicio.Enabled = true;
+            }
+            else
+            {
+                txtfechafinal.Enabled = true;
+                txtfechainicio.Enabled = true;
+            }
         }
 
         protected void btnbuscar_Click(object sender, EventArgs e)
         {
             try
             {
-                if ((!string.IsNullOrEmpty(txtfechafinal.Text))&&(!string.IsNullOrEmpty(txtfechainicio.Text)))
+                if ((!string.IsNullOrEmpty(txtfechafinal.Text)) && (!string.IsNullOrEmpty(txtfechainicio.Text)))
                 {
-                    if (ValidacionDias(Convert.ToDateTime(txtfechafinal.Text),Convert.ToDateTime(txtfechainicio.Text)))
+                    if (ValidacionDias(Convert.ToDateTime(txtfechafinal.Text), Convert.ToDateTime(txtfechainicio.Text)))
                     {
-                        Singleton.opAudiEmple.InsertarAuditoriasEmpleado(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, false, false, false, false, true, false, false, false, false, false);
 
                         if (DDLcondicion.Text == "Aceptado")
                         {
-                             lblAprobadas.Visible = true;
+                            lblAprobadas.Visible = true;
                             lblDenegadas.Visible = false;
                             lblPendientes.Visible = false;
                             lblGeneral.Visible = false;
 
-                            DateTime inicio = Convert.ToDateTime  (txtfechainicio.Text);
-                        DateTime final = Convert.ToDateTime(txtfechafinal.Text);
-                        gvdatos.DataSource = Singleton.opsolicitud.ListarVacaciones(inicio, final, Login.EmpleadoGlobal.Cedula, true);//Singleton.opsolicitud.BuscarsolicitudPorId(y).Where(x => x.FechaFinal == Convert.ToDateTime(DDLAño.Text) && x.Cedula == y && x.Condicion == false);
-                        gvdatos.DataBind();
-                        txtfechafinal.Enabled = true;
-                        DDLcondicion.Enabled = true;
-                        txtfechainicio.Enabled = true;
-                        mensajeinfo.Visible = false;
-                        mensajeError.Visible = false;
-                            
+                            DateTime inicio = Convert.ToDateTime(txtfechainicio.Text);
+                            DateTime final = Convert.ToDateTime(txtfechafinal.Text);
+                            gvdatos.DataSource = Singleton.opsolicitud.ListarVacaciones(inicio, final, Login.EmpleadoGlobal.Cedula, true);//Singleton.opsolicitud.BuscarsolicitudPorId(y).Where(x => x.FechaFinal == Convert.ToDateTime(DDLAño.Text) && x.Cedula == y && x.Condicion == false);
+                            gvdatos.DataBind();
+                            txtfechafinal.Enabled = true;
+                            DDLcondicion.Enabled = true;
+                            txtfechainicio.Enabled = true;
+                            mensajeinfo.Visible = false;
+                            mensajeError.Visible = false;
+
                         }
                         else if (DDLcondicion.Text == "Pendientes")
                         {
@@ -118,7 +189,7 @@ namespace RRHH.UI
 
                             DateTime inicio = Convert.ToDateTime(txtfechainicio.Text);
                             DateTime final = Convert.ToDateTime(txtfechafinal.Text);
-                            gvdatos.DataSource = Singleton.opsolicitud.BuscarsolicitudPorId(Login.EmpleadoGlobal.Cedula).Where(x=> x.Condicion == null);//Singleton.opsolicitud.BuscarsolicitudPorId(y).Where(x => x.FechaFinal == Convert.ToDateTime(DDLAño.Text) && x.Cedula == y && x.Condicion == false);
+                            gvdatos.DataSource = Singleton.opsolicitud.BuscarsolicitudPorId(Login.EmpleadoGlobal.Cedula).Where(x => x.Condicion == null);//Singleton.opsolicitud.BuscarsolicitudPorId(y).Where(x => x.FechaFinal == Convert.ToDateTime(DDLAño.Text) && x.Cedula == y && x.Condicion == false);
                             gvdatos.DataBind();
                             txtfechafinal.Enabled = true;
                             DDLcondicion.Enabled = true;
@@ -128,21 +199,21 @@ namespace RRHH.UI
                         }
                         else if (DDLcondicion.Text == "Denegado")
                         {
-                        lblAprobadas.Visible = false;
-                        lblDenegadas.Visible = true;
-                        lblPendientes.Visible = false;
+                            lblAprobadas.Visible = false;
+                            lblDenegadas.Visible = true;
+                            lblPendientes.Visible = false;
                             lblGeneral.Visible = false;
 
                             DateTime inicio = Convert.ToDateTime(txtfechainicio.Text);
-                        DateTime final = Convert.ToDateTime(txtfechafinal.Text);
-                        gvdatos.DataSource = Singleton.opsolicitud.ListarVacaciones(inicio, final, Login.EmpleadoGlobal.Cedula, false);//Singleton.opsolicitud.BuscarsolicitudPorId(y).Where(x => x.FechaFinal == Convert.ToDateTime(DDLAño.Text) && x.Cedula == y && x.Condicion == false);
-                        gvdatos.DataBind();
-                        txtfechafinal.Enabled = true;
-                        DDLcondicion.Enabled = true;
-                        txtfechainicio.Enabled = true;
-                        mensajeinfo.Visible = false;
-                        mensajeError.Visible = false;
-                       }
+                            DateTime final = Convert.ToDateTime(txtfechafinal.Text);
+                            gvdatos.DataSource = Singleton.opsolicitud.ListarVacaciones(inicio, final, Login.EmpleadoGlobal.Cedula, false);//Singleton.opsolicitud.BuscarsolicitudPorId(y).Where(x => x.FechaFinal == Convert.ToDateTime(DDLAño.Text) && x.Cedula == y && x.Condicion == false);
+                            gvdatos.DataBind();
+                            txtfechafinal.Enabled = true;
+                            DDLcondicion.Enabled = true;
+                            txtfechainicio.Enabled = true;
+                            mensajeinfo.Visible = false;
+                            mensajeError.Visible = false;
+                        }
                     }
                     else
                     {
@@ -150,7 +221,7 @@ namespace RRHH.UI
                         mensajeError.Visible = false;
                         textomensajeinfo.InnerHtml = "El rango de fechas elegido no es valido";
                     }
-                   
+
                 }
                 else
                 {
@@ -159,20 +230,21 @@ namespace RRHH.UI
                     textoMensajeError.InnerHtml = "Debes elegir un rango de fechas valido";
                 }
 
-                
+
 
             }
             catch (Exception)
             {
 
-                
+                throw;
             }
-        }
+
+       
+    }
         public override void VerifyRenderingInServerForm(Control control)
         {
             /* Verifies that the control is rendered */
         }
-
         public void CargarPdf(GridView gvdatos)
         {
 
@@ -220,6 +292,7 @@ namespace RRHH.UI
             Response.End();
 
         }
+
         protected void btnexportar_Click(object sender, EventArgs e)
         {
             try
@@ -243,15 +316,15 @@ namespace RRHH.UI
                         btnbuscar.Enabled = true;
                     }
                     else
-                    { 
-                    gvdatos.DataSource = null;
-                    DateTime inicio = Convert.ToDateTime(txtfechainicio.Text);
-                    DateTime final = Convert.ToDateTime(txtfechafinal.Text);
-                    gvdatos.DataSource = Singleton.opsolicitud.ListarVacaciones(inicio, final, Login.EmpleadoGlobal.Cedula, false);//Singleton.opsolicitud.BuscarsolicitudPorId(y).Where(x => x.FechaFinal == Convert.ToDateTime(DDLAño.Text) && x.Cedula == y && x.Condicion == false);
-                    gvdatos.DataBind();
-                    CargarPdf(gvdatos);
-                    gvdatos.DataSource = null;
-                    btnbuscar.Enabled = true;
+                    {
+                        gvdatos.DataSource = null;
+                        DateTime inicio = Convert.ToDateTime(txtfechainicio.Text);
+                        DateTime final = Convert.ToDateTime(txtfechafinal.Text);
+                        gvdatos.DataSource = Singleton.opsolicitud.ListarVacaciones(inicio, final, Login.EmpleadoGlobal.Cedula, false);//Singleton.opsolicitud.BuscarsolicitudPorId(y).Where(x => x.FechaFinal == Convert.ToDateTime(DDLAño.Text) && x.Cedula == y && x.Condicion == false);
+                        gvdatos.DataBind();
+                        CargarPdf(gvdatos);
+                        gvdatos.DataSource = null;
+                        btnbuscar.Enabled = true;
                     }
                 }
 
@@ -263,109 +336,19 @@ namespace RRHH.UI
                 mensajeinfo.Visible = false;
                 textoMensajeError.InnerHtml = "Ha ocurrido un error";
             }
-
-        }
-        //private void CargarAños()
-        //{
-        //    try
-        //    {
-        //        string y = "116130806";
-        //        List<SolicitudVacaciones> AñosPrueba = Singleton.opsolicitud.BuscarsolicitudPorId(y);
-        //        foreach (var x in AñosPrueba)
-        //        {
-        //            var fecha = (AñosPrueba[valor].FechaFinal.Year).ToString();
-        //            DDLAño.Items.Add(fecha);
-        //            DDLAño.DataBind();
-        //            valor = valor + 1;
-        //        }
-
-        //    }
-        //    catch (Exception)
-        //    {
-        //        throw;
-        //    }
-        //}
-       
-        protected void DDLAño_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        protected void RB_personalizada_CheckedChanged(object sender, EventArgs e)
-        {
-            VerControlesConsulta();
-            txtfechafinal.Enabled = true;
-            txtfechainicio.Enabled = true;
-        }
-
-        private void VerControlesConsulta()
-        {
-            try
-            {
-                if (RB_busquedageneral.Checked )
-                {
-                    txtfechainicio.Enabled = false;
-                    DDLcondicion.Enabled = false;
-                    txtfechafinal.Enabled = false;
-                    btnbuscar.Enabled = false;
-                    mensajeinfo.Visible = false;
-                    mensajeError.Visible = false;
-
-                }
-                else if (RB_personalizada.Checked)
-                {
-                    txtfechainicio.Enabled = true;
-                    DDLcondicion.Enabled = true;
-                    txtfechafinal.Enabled = true;
-                    btnbuscar.Enabled = true;
-                    mensajeinfo.Visible = false;
-                    mensajeError.Visible = false;
-                }
-
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-
-        protected void RB_busquedageneral_CheckedChanged(object sender, EventArgs e)
-        {
-            VerControlesConsulta();
-            gvdatos.DataSource = Singleton.opsolicitud.Listarsolicitudes().Where(x => x.Cedula == Login.EmpleadoGlobal.Cedula);
-            gvdatos.DataBind();
-            txtfechafinal.Enabled = false;
-            txtfechainicio.Enabled = false;
-            txtfechafinal.Text = string.Empty;
-            txtfechainicio.Text = string.Empty;
-        }
-
-        protected void btnreportar_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void DDLcondicion_TextChanged(object sender, EventArgs e)
-        {
-            if (DDLcondicion.Text == "Aprobado")
-            {
-                txtfechafinal.Enabled = true;
-                txtfechainicio.Enabled = true;
-            }
-            else
-            {
-                txtfechafinal.Enabled = true;
-                txtfechainicio.Enabled = true;
-            }
         }
 
         protected void btnRegresar_Click(object sender, EventArgs e)
         {
-            Session["ROL"] = Login.EmpleadoGlobal.IdRol;
+            try
+            {
+                Session["ROL"] = Login.EmpleadoGlobal.IdRol;
 
-            Response.Redirect("WebForm1.aspx?ROL=" + Login.EmpleadoGlobal.IdRol);
-
+                Response.Redirect("AdminView.aspx?ROL=" + Login.EmpleadoGlobal.IdRol);
+            }
+            catch
+            {
+            }
         }
     }
 }

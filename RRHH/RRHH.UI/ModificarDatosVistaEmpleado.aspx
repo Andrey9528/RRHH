@@ -87,13 +87,13 @@
   <asp:Label ID="Label9"   runat="server" Text="Rol"></asp:Label>
       
    
-  <asp:DropDownList ID="ddlRol"  class = "form-control" runat="server">
+  <asp:DropDownList ID="ddlRol"  class= "form-control" runat="server">
       <asp:ListItem>Empleado</asp:ListItem>
       <asp:ListItem>Jefe</asp:ListItem>
       <asp:ListItem>Admin</asp:ListItem>
-      <asp:ListItem></asp:ListItem>
+      
         </asp:DropDownList>
-  
+  <br />
 
         <asp:Label ID="Label1"  runat="server" Text="Genero"></asp:Label>
    <asp:DropDownList ID="DDLgenero"    CssClass="form-control" runat="server">
