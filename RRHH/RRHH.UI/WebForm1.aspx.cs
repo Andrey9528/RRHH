@@ -104,7 +104,6 @@ namespace RRHH.UI
             return false;
         }
 
-        //desmadre
         public static int DiasRestantes(DateTime startDate, DateTime endDate, Boolean excludeWeekends, List<DateTime> excludeDates)
         {
              count = 0;
@@ -132,7 +131,7 @@ namespace RRHH.UI
             return count;
         }
 
-        //desmadre
+  
 
         protected void btnvaca_Click(object sender, EventArgs e)
         {
@@ -151,15 +150,7 @@ namespace RRHH.UI
                         }
                         else
                         {
-                        //    fechas.Add(new DateTime(2017, 01, 01));
-                        //    fechas.Add(new DateTime(2017, 11, 04));
-                        //    fechas.Add(new DateTime(2017, 13, 04));
-                        //    fechas.Add(new DateTime(2017, 14, 04));
-                        //    fechas.Add(new DateTime(2017, 05, 01));
-                        //    fechas.Add(new DateTime(2017, 07, 25));
-                        //    fechas.Add(new DateTime(2017, 08, 15));
-                        //    fechas.Add(new DateTime(2017, 12, 25));
-
+                            fechas = Singleton.OpFeriados.ListarFeriados().Select(x => x.Fecha).ToList();
                             DiasRestantes(Convert.ToDateTime(txtfechadeincio.Text), Convert.ToDateTime(txtfechafinal.Text), true,fechas ); // desmadre
                             var vacaciones = new SolicitudVacaciones()
                             {

@@ -55,6 +55,7 @@
        <asp:DropDownList ID="DDLcondicion" CssClass="form-control" Width="180" runat="server" OnTextChanged="DDLcondicion_TextChanged" AutoPostBack="True">
           <asp:ListItem>Aceptado</asp:ListItem>
           <asp:ListItem>Denegado</asp:ListItem>
+          <asp:ListItem>Pendientes</asp:ListItem>
           <asp:ListItem></asp:ListItem>
           </asp:DropDownList>
           
@@ -74,6 +75,10 @@
 
   </div>
     <br /><br />
+         <asp:Label ID="lblPendientes" runat="server" style="text-align:center; font-family:cursive;" Text="Solicitudes pendientes de aprobación"></asp:Label>
+         <asp:Label ID="lblAprobadas" runat="server" style="text-align:center; font-family:cursive;" Text="Solicitudes aprobadas"></asp:Label>
+         <asp:Label ID="lblDenegadas" runat="server" style="text-align:center; font-family:cursive;" Text="Solicitudes denegadas"></asp:Label>
+         <asp:Label ID="lblGeneral" runat="server" style="text-align:center; font-family:cursive;" Text="Mis solicitudes"></asp:Label>
 
     <div class="table-responsive" >
         <%-- AutoGenerateColumns = False  --%>
@@ -95,7 +100,7 @@
                 <asp:BoundField  DataField = "FechaInicio" runat="server" HeaderText = "Inicio" />
                 <asp:BoundField  DataField = "FechaFinal" runat="server" HeaderText = "Final" />
                 <asp:BoundField  DataField = "TotalDias" runat="server" HeaderText = "Cantidad de días" />
-                <asp:BoundField  DataField = "Condicion" runat="server" HeaderText = "Condición" />
+<%--                <asp:BoundField  DataField = "Condicion" runat="server" HeaderText = "Condición" />--%>
              </Columns>   
                  </asp:GridView>
     </div>

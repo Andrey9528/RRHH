@@ -31,6 +31,11 @@ namespace RRHH.UI
             // mensajeError.Visible = false;
             if (!IsPostBack)
             {
+                lblAprobadas.Visible = false;
+                lblDenegadas.Visible = false;
+                lblPendientes.Visible = false;
+                lblGeneral.Visible = true;
+
                 gvdatos.DataSource = Singleton.opsolicitud.Listarsolicitudes().Where(x => x.Cedula == Login.EmpleadoGlobal.Cedula);
                 gvdatos.DataBind();
                 txtfechafinal.Enabled = false;
@@ -40,6 +45,11 @@ namespace RRHH.UI
             }
             else
             {
+                lblAprobadas.Visible = false;
+                lblDenegadas.Visible = false;
+                lblPendientes.Visible = false;
+                lblGeneral.Visible = true;
+
                 gvdatos.DataSource = Singleton.opsolicitud.Listarsolicitudes().Where(x => x.Cedula == Login.EmpleadoGlobal.Cedula);
                 gvdatos.DataBind();
                 txtfechafinal.Enabled = false;
@@ -83,7 +93,12 @@ namespace RRHH.UI
 
                         if (DDLcondicion.Text == "Aceptado")
                         {
-                        DateTime inicio = Convert.ToDateTime  (txtfechainicio.Text);
+                             lblAprobadas.Visible = true;
+                            lblDenegadas.Visible = false;
+                            lblPendientes.Visible = false;
+                            lblGeneral.Visible = false;
+
+                            DateTime inicio = Convert.ToDateTime  (txtfechainicio.Text);
                         DateTime final = Convert.ToDateTime(txtfechafinal.Text);
                         gvdatos.DataSource = Singleton.opsolicitud.ListarVacaciones(inicio, final, Login.EmpleadoGlobal.Cedula, true);//Singleton.opsolicitud.BuscarsolicitudPorId(y).Where(x => x.FechaFinal == Convert.ToDateTime(DDLAño.Text) && x.Cedula == y && x.Condicion == false);
                         gvdatos.DataBind();
@@ -94,9 +109,31 @@ namespace RRHH.UI
                         mensajeError.Visible = false;
                             
                         }
+                        else if (DDLcondicion.Text == "Pendientes")
+                        {
+                            lblAprobadas.Visible = false;
+                            lblDenegadas.Visible = false;
+                            lblPendientes.Visible = true;
+                            lblGeneral.Visible = false;
+
+                            DateTime inicio = Convert.ToDateTime(txtfechainicio.Text);
+                            DateTime final = Convert.ToDateTime(txtfechafinal.Text);
+                            gvdatos.DataSource = Singleton.opsolicitud.BuscarsolicitudPorId(Login.EmpleadoGlobal.Cedula).Where(x=> x.Condicion == null);//Singleton.opsolicitud.BuscarsolicitudPorId(y).Where(x => x.FechaFinal == Convert.ToDateTime(DDLAño.Text) && x.Cedula == y && x.Condicion == false);
+                            gvdatos.DataBind();
+                            txtfechafinal.Enabled = true;
+                            DDLcondicion.Enabled = true;
+                            txtfechainicio.Enabled = true;
+                            mensajeinfo.Visible = false;
+                            mensajeError.Visible = false;
+                        }
                         else if (DDLcondicion.Text == "Denegado")
                         {
-                        DateTime inicio = Convert.ToDateTime(txtfechainicio.Text);
+                        lblAprobadas.Visible = false;
+                        lblDenegadas.Visible = true;
+                        lblPendientes.Visible = false;
+                            lblGeneral.Visible = false;
+
+                            DateTime inicio = Convert.ToDateTime(txtfechainicio.Text);
                         DateTime final = Convert.ToDateTime(txtfechafinal.Text);
                         gvdatos.DataSource = Singleton.opsolicitud.ListarVacaciones(inicio, final, Login.EmpleadoGlobal.Cedula, false);//Singleton.opsolicitud.BuscarsolicitudPorId(y).Where(x => x.FechaFinal == Convert.ToDateTime(DDLAño.Text) && x.Cedula == y && x.Condicion == false);
                         gvdatos.DataBind();
