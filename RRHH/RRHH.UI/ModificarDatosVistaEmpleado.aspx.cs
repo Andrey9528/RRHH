@@ -14,6 +14,8 @@ namespace RRHH.UI
         protected void Page_Load(object sender, EventArgs e)
         {
             CargarPerfil();
+
+            ddlRol.Enabled = false;
         }
 
         public void CargarPerfil()

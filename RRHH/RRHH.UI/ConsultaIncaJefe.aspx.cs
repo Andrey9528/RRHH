@@ -4,28 +4,21 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.IO;
-using System.Drawing;
-//using System.Diagnostics;
 using iTextSharp.text.html.simpleparser;
-//using iTextSharp.tool.xml;
-
-
-
 
 namespace RRHH.UI
 {
-    public partial class ConsultaIncapacidades : System.Web.UI.Page
+    public partial class ConsultaIncaJefe : System.Web.UI.Page
     {
         public static int dias;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                gvdatos.DataSource = Singleton.opIncapacidad.ListarIncapacidades().Where(x => x.Cedula ==  Login.EmpleadoGlobal.Cedula);
+                gvdatos.DataSource = Singleton.opIncapacidad.ListarIncapacidades().Where(x => x.Cedula == Login.EmpleadoGlobal.Cedula);
                 gvdatos.DataBind();
                 txtfechafinal.Enabled = false;
                 txtfechainicio.Enabled = false;
@@ -39,32 +32,20 @@ namespace RRHH.UI
                 txtfechainicio.Enabled = false;
                 Btnbusca.Enabled = true;
             }
-                 
         }
-     
-
-
 
         protected void RB_personalizada_CheckedChanged(object sender, EventArgs e)
         {
-            try
-            {
-                VerControlesConsulta();
-                txtfechafinal.Enabled = true;
-                txtfechainicio.Enabled = true;
-            }
-            catch
-            {
-
-            }
-         
-
+            VerControlesConsulta();
+            txtfechafinal.Enabled = true;
+            txtfechainicio.Enabled = true;
         }
 
         protected void RB_busquedageneral_CheckedChanged(object sender, EventArgs e)
         {
             try
             {
+
                 VerControlesConsulta();
                 gvdatos.DataSource = Singleton.opIncapacidad.ListarIncapacidades().Where(x => x.Cedula == Login.EmpleadoGlobal.Cedula);
                 gvdatos.DataBind();
@@ -75,8 +56,8 @@ namespace RRHH.UI
             }
             catch
             {
-            }
 
+            }
         }
 
         protected void Btnbusca_Click(object sender, EventArgs e)
@@ -87,18 +68,17 @@ namespace RRHH.UI
                 {
                     if (ValidacionDias(Convert.ToDateTime(txtfechafinal.Text), Convert.ToDateTime(txtfechainicio.Text)))
                     {
-                        
-                        
-                            DateTime inicio = Convert.ToDateTime(txtfechainicio.Text);
-                            DateTime final = Convert.ToDateTime(txtfechafinal.Text);
-                            gvdatos.DataSource = Singleton.opIncapacidad.ListarIncapacidades2(inicio, final, Login.EmpleadoGlobal.Cedula);//Singleton.opsolicitud.BuscarsolicitudPorId(y).Where(x => x.FechaFinal == Convert.ToDateTime(DDLAño.Text) && x.Cedula == y && x.Condicion == false);
-                            gvdatos.DataBind();
-                            btnexportar.Enabled = true;
-                            txtfechafinal.Enabled = true;
-                            txtfechainicio.Enabled = true;
-                            mensajeinfo.Visible = false;
-                            mensajeError.Visible = false;
-                        Singleton.opAudiEmple.InsertarAuditoriasEmpleado(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, false, false, true, false, false, false, false, false, false, false);
+
+
+                        DateTime inicio = Convert.ToDateTime(txtfechainicio.Text);
+                        DateTime final = Convert.ToDateTime(txtfechafinal.Text);
+                        gvdatos.DataSource = Singleton.opIncapacidad.ListarIncapacidades2(inicio, final, Login.EmpleadoGlobal.Cedula);//Singleton.opsolicitud.BuscarsolicitudPorId(y).Where(x => x.FechaFinal == Convert.ToDateTime(DDLAño.Text) && x.Cedula == y && x.Condicion == false);
+                        gvdatos.DataBind();
+                        btnexportar.Enabled = true;
+                        txtfechafinal.Enabled = true;
+                        txtfechainicio.Enabled = true;
+                        mensajeinfo.Visible = false;
+                        mensajeError.Visible = false;
 
 
 
@@ -135,15 +115,16 @@ namespace RRHH.UI
             catch (Exception)
             {
 
-                
+
             }
+
         }
         public void CargarPdf(GridView gvdatos)
         {
- 
+
 
             //
-            
+
 
             //
             Response.ContentType = "application/pdf";
@@ -163,7 +144,7 @@ namespace RRHH.UI
             Document pdfDoc = new Document(PageSize.A2, 7f, 7f, 7f, 0f);
 
             //
-          
+
             //
             HTMLWorker htmlparser = new HTMLWorker(pdfDoc);
             PdfWriter.GetInstance(pdfDoc, Response.OutputStream);
@@ -185,6 +166,7 @@ namespace RRHH.UI
             Response.End();
 
         }
+
         protected void btnexportar_Click(object sender, EventArgs e)
         {
             try
@@ -203,8 +185,8 @@ namespace RRHH.UI
                     CargarPdf(gvdatos);
                     Btnbusca.Enabled = true;
                 }
-               
-                
+
+
             }
             catch (Exception)
             {
@@ -212,15 +194,23 @@ namespace RRHH.UI
                 mensajeinfo.Visible = false;
                 textoMensajeError.InnerHtml = "Ha ocurrido un error";
             }
+
         }
-        public override void VerifyRenderingInServerForm(Control control)
+
+        protected void btnregresar_Click(object sender, EventArgs e)
         {
-            /* Verifies that the control is rendered */
+            try
+            {
+                Session["ROL"] = Login.EmpleadoGlobal.IdRol;
+
+                Response.Redirect("VistaJefe.aspx?ROL=" + Login.EmpleadoGlobal.IdRol);
+            }
+            catch
+            {
+
+            }
         }
-        public void GeneratePDF_Click(object sender, EventArgs e)
-        {
-            
-        }
+
         private void VerControlesConsulta()
         {
             try
@@ -274,12 +264,5 @@ namespace RRHH.UI
             }
         }
 
-        protected void btnregresar_Click(object sender, EventArgs e)
-        {
-            Session["ROL"] = Login.EmpleadoGlobal.IdRol;
-
-            Response.Redirect("WebForm1.aspx?ROL=" + Login.EmpleadoGlobal.IdRol);
-
-        }
     }
 }

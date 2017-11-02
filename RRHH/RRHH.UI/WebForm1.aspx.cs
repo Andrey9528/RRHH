@@ -169,10 +169,12 @@ namespace RRHH.UI
                             mensajeError.Visible = false;
                             mensajeinfo.Visible = false;
                             mensajawarning.Visible = false;
+                            
                             //TimeSpan diferencia = Convert.ToDateTime(txtfechafinal.Text) - Convert.ToDateTime(txtfechadeincio.Text);
                             //var dias = diferencia.TotalDays;
                             //txttotaldias.Text = dias.ToString();
                             textoMensaje.InnerHtml = "Solicitud generada";
+                            limpiarCamposFechas();
                             //string mail = Singleton.opNotificacion.CorreoJefe(Login.EmpleadoGlobal.Cedula).Select(x => x.EmailJefeDpto).ToString();
                             //bueno   
                             //string mail = Singleton.opdepartamento.BuscarDepartamentos(Login.EmpleadoGlobal.IdDepartamento).EmailJefeDpto.ToString();
@@ -376,6 +378,12 @@ namespace RRHH.UI
 
 
             Response.Redirect("Ayuda.aspx");
+        }
+
+        public void limpiarCamposFechas()
+        {
+            txtfechadeincio.Text = string.Empty;
+            txtfechafinal.Text = string.Empty;
         }
     }
 }

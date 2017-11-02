@@ -258,7 +258,9 @@
           <a class="dropdown-toggle" data-toggle="dropdown" style="font-size:14px;  background-color:#04acec; color:white; font-family:cursive;" href="#">Incapacidades <span class="caret"></span></a>
           <ul class="dropdown-menu">
 
-            <li><a  href="MantenimientoIncapacidades.aspx">Mantenimiento</a></li>
+            <li><a href="insertarIncapacidad.aspx">Registrar incapacidades</a></li>
+              <li><a href="ConsultaIncapacidadesAdmin.aspx">Consulta de incapacidades</a></li>
+              <li><a  href="MantenimientoIncapacidades.aspx">Mantenimiento</a></li>
             
           </ul>
         </li>
@@ -266,7 +268,8 @@
           
           <a class="dropdown-toggle"  data-toggle="dropdown" style="font-size:14px;  background-color:#04acec; color:white;    font-family:cursive;" href="#">Vacaciones <span class="caret"></span></a>
           <ul class="dropdown-menu">
-
+            <li><a href="#" data-toggle="modal"  data-target="#vaca">Solicitud de vacaciones</a></li>
+            <li><a href="ConsultaVacacionesAdmin.aspx">Consulta de vacaciones</a></li>
             <li><a  href="adminVacas.aspx">Mantenimiento</a></li>
             
           </ul>
@@ -548,6 +551,48 @@
             <footer style="">
                 <p>&copy; <%: DateTime.Now.Year %>  RRHH</p>
             </footer>
+
+
+
+      <div class="container">
+  
+ 
+  <div class="modal fade" id="vaca" role="dialog">
+       
+    <div class="modal-dialog modal-sm">
+       
+      <div class="modal-content">
+          
+        <div class="modal-header">
+          
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Solicitud de vacaciones</h4>
+        </div>
+        <div class="modal-body">
+          
+    <asp:Label ID="Label7" runat="server" Text="Fecha de Inicio:"></asp:Label>
+    <asp:TextBox ID="txtfechadeincio"  TextMode="Date" CssClass="form-control" runat="server"></asp:TextBox>
+
+
+    <asp:Label ID="Label8" runat="server" Text="Fecha Final:"></asp:Label>
+    <asp:TextBox ID="txtfechafinal"  TextMode="Date" CssClass="form-control" runat="server" ></asp:TextBox>
+        
+
+            <br />
+            <asp:Label ID="lblSaldoVaca" runat="server" ></asp:Label>
+        </div>
+        <div class="modal-footer">
+            
+          <asp:Button ID="btnvaca" runat="server" Text="Insertar" CssClass="btn btn-success" OnClick="btnvaca_Click"  />
+            
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+        </div>
+
 
  
 </asp:Content>
