@@ -267,13 +267,11 @@ namespace RRHH.UI
             {
                 List<Incapacidad> listaIncapacidades = Singleton.opIncapacidad.ListarIncapacidades();
                 var lista = listaIncapacidades.FirstOrDefault(x => x.IdIncapacidad == Convert.ToInt32(DDLid_incapacidad.Text));
-                //var lista = Singleton.opIncapacidad.BuscarIncapacidad(Convert.ToInt32(DDLid_incapacidad.Text));
                 if (lista != null)
                 {
                     txtfechainicio.Text = lista.Fecha_Inicio.ToString();
                     txtfechafinalizacion.Text = lista.Fecha_finalizacion.ToString();
                     DDLtipoenfermedad.SelectedValue = lista.TipoIncapacidad;
-                    //DDLtipoenfermedad.DataBind();
                     txtdescripcion.Text = lista.Descripcion.ToString();
                     txtfechaemision.Text = lista.FechaEmision.ToString();
                     txtcentroemisor.Text = lista.CentroEmisor.ToString();
