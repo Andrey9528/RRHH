@@ -15,11 +15,11 @@ namespace RRHH.UI
     {
         public static int dias;
         public static string nombrearchivo;
-        public static int count; // desmadre
-        public static int IdSolicitudVacaciones; ///
-        List<DateTime> fechas = new List<DateTime>(); //desmadre
-        //DateTime FechaMinima = Convert.ToDateTime(Singleton.OpRangoFechas.RangoFechasVacaciones(Login.EmpleadoGlobal.Cedula).Select(x => x.FechaInicioMenor)); //
-        //DateTime FechaMaxima = Convert.ToDateTime(Singleton.OpRangoFechas.RangoFechasVacaciones(Login.EmpleadoGlobal.Cedula).Select(x => x.FechaInicioMayor)); //
+        public static int count;
+        //public static int DiasIncapacidadEnVacaciones;
+        public static int IdSolicitudVacaciones; 
+        List<DateTime> fechas = new List<DateTime>(); 
+       
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -77,21 +77,22 @@ namespace RRHH.UI
         {
             try
             {
-                var listaId = Singleton.opsolicitud.Listarsolicitudes().Where(x => x.Cedula == Login.EmpleadoGlobal.Cedula).ToList();
+                bool estado = true;
+                var listaId = Singleton.opsolicitud.Listarsolicitudes().Where(x => x.Cedula == Login.EmpleadoGlobal.Cedula && x.Condicion == true).ToList();
                 foreach (var IdSolicitud in listaId)
                 {
-
+                    
                     if (Convert.ToDateTime(fechainicio) >= Convert.ToDateTime(IdSolicitud.FechaInicio) && Convert.ToDateTime(fechainicio) <= Convert.ToDateTime(IdSolicitud.FechaFinal)
                         || Convert.ToDateTime(fechafinal) >= Convert.ToDateTime(IdSolicitud.FechaInicio) && Convert.ToDateTime(fechafinal) <= Convert.ToDateTime(IdSolicitud.FechaFinal))
                     {
-                        return true;
+                        estado = true;
                     }
                     else
                     {
-                        return false;
+                        estado = false;
                     }
                 }
-                return false;
+                return estado;
             }
             catch (Exception)
             {
@@ -131,8 +132,6 @@ namespace RRHH.UI
             return count;
         }
 
-  
-
         protected void btnvaca_Click(object sender, EventArgs e)
         {
             try
@@ -141,23 +140,31 @@ namespace RRHH.UI
                 {
                     if (Login.EmpleadoGlobal.DiasVacaciones >= dias)
                     {
-                        if (ValidarRangoFechas(txtfechadeincio.Text,txtfechafinal.Text))
+                        if (ValidarRangoFechas(txtfechadeincio.Text, txtfechafinal.Text))
                         {
                             mensajeinfo.Visible = false;
                             mensajeError.Visible = true;
                             mensaje.Visible = false;
                             textomensajeError.InnerHtml = "Ya existe una solitud previa para el rango de fechas seleccionado";
                         }
+                        else if (VacacionesIncapacitado(Convert.ToDateTime(txtfechafinal.Text),Convert.ToDateTime(txtfechadeincio.Text)))
+                        {
+                            mensajeinfo.Visible = false;
+                            mensajeError.Visible = true;
+                            mensaje.Visible = false;
+                            textomensajeError.InnerHtml = "El usuario actual se encuentra incapacitado, la solicitud no puede completarse";
+                        }
                         else
                         {
                             fechas = Singleton.OpFeriados.ListarFeriados().Select(x => x.Fecha).ToList();
-                            DiasRestantes(Convert.ToDateTime(txtfechadeincio.Text), Convert.ToDateTime(txtfechafinal.Text), true,fechas ); // desmadre
+                            DiasRestantes(Convert.ToDateTime(txtfechadeincio.Text), Convert.ToDateTime(txtfechafinal.Text), true, fechas);
+                            //IncapacidadEnVacaciones(Convert.ToDateTime(txtfechadeincio.Text), Convert.ToDateTime(txtfechafinal.Text)); // desmadre
                             var vacaciones = new SolicitudVacaciones()
                             {
                                 FechaFinal = Convert.ToDateTime(txtfechafinal.Text),
                                 FechaInicio = Convert.ToDateTime(txtfechadeincio.Text),
                                 Cedula = Login.EmpleadoGlobal.Cedula,
-                                TotalDias = count,
+                                TotalDias = count + 1,
                                 Condicion = null,
                             };
 
@@ -169,17 +176,8 @@ namespace RRHH.UI
                             mensajeError.Visible = false;
                             mensajeinfo.Visible = false;
                             mensajawarning.Visible = false;
-                            
-                            //TimeSpan diferencia = Convert.ToDateTime(txtfechafinal.Text) - Convert.ToDateTime(txtfechadeincio.Text);
-                            //var dias = diferencia.TotalDays;
-                            //txttotaldias.Text = dias.ToString();
                             textoMensaje.InnerHtml = "Solicitud generada";
                             limpiarCamposFechas();
-                            //string mail = Singleton.opNotificacion.CorreoJefe(Login.EmpleadoGlobal.Cedula).Select(x => x.EmailJefeDpto).ToString();
-                            //bueno   
-                            //string mail = Singleton.opdepartamento.BuscarDepartamentos(Login.EmpleadoGlobal.IdDepartamento).EmailJefeDpto.ToString();
-                            //Email.Notificacion("dollars.chat.room@hotmail.com", "fidelitasw2", mail, "Nueva solicitud de vacaciones", "se ha recibido una nueva solicitud de vacaciones de parte del empleado\nNombre:" + Login.EmpleadoGlobal.Nombre + "\nUsuario:" + Login.EmpleadoGlobal.Correo);
-                            //termina bueno
 
                             ThreadStart delegado = new ThreadStart(EnvioCorreo);
                             Thread hilo = new Thread(delegado);
@@ -239,8 +237,7 @@ namespace RRHH.UI
             }
             catch (Exception)
             {
-
-                
+                throw;  
             }
         }
 
@@ -254,21 +251,16 @@ namespace RRHH.UI
                     txtNuevaContraseñaConfirmar.Enabled = true;
                     btnCambiarEmpleado.Enabled = true;
                     ClientScript.RegisterStartupScript(GetType(), "Modal", "popup();", true);
-
-
                 }
                 else
                 {
 
                 }
-
             }
             catch (Exception)
             {
-
                 throw;
             }
-
         }
 
         protected void btnCambiarEmpleado_Click(object sender, EventArgs e)
@@ -346,6 +338,7 @@ namespace RRHH.UI
         {
             try
             {
+              
                 TimeSpan diferencia = Convert.ToDateTime(fechaFinal) - Convert.ToDateTime(fechadeInicio);
                 dias = Convert.ToInt32(diferencia.TotalDays);
                 if (dias >= 1)
@@ -359,10 +352,34 @@ namespace RRHH.UI
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
+
+        public bool VacacionesIncapacitado(DateTime fechaFinal, DateTime fechadeInicio) // desmadre
+        {
+            try
+            {
+                bool estado = true;
+                var ListaIncapacidades = Singleton.opIncapacidad.ListarIncapacidades().Where(x => x.Cedula == Login.EmpleadoGlobal.Cedula).ToList();
+            foreach (var item in ListaIncapacidades)
+            {
+                if (DateTime.Today == Convert.ToDateTime(item.Fecha_Inicio) || DateTime.Today <= Convert.ToDateTime(item.Fecha_finalizacion))      
+                {
+                    estado = true;
+                }
+                else
+                {
+                    estado = false;
+                }
+            }
+                return estado;
+            }
+            catch (Exception)
+            {
+                throw;
+            }    
+        } // desmadre
 
         protected void LbSesion_Click(object sender, EventArgs e)
         {
