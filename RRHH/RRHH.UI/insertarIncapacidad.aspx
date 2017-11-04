@@ -5,7 +5,7 @@
  <style>
        body 
         {
-            background-image: url("http://1070noticias.com.mx/wp-content/uploads/2016/07/fondos-de-pantalla-blancos-para-descargar.jpg");
+            background-image:  url("http://1070noticias.com.mx/wp-content/uploads/2016/07/fondos-de-pantalla-blancos-para-descargar.jpg");
             background-attachment:fixed;
             background-size:100vw 100vh ;
             
