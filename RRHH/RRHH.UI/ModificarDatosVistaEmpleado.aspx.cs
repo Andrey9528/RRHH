@@ -15,7 +15,7 @@ namespace RRHH.UI
         {
             CargarPerfil();
 
-            ddlRol.Enabled = false;
+          
         }
 
         public void CargarPerfil()
@@ -31,16 +31,19 @@ namespace RRHH.UI
                     txtCorreo.Text = Login.EmpleadoGlobal.Correo;
                     DddlEstadoCivil.Text = Login.EmpleadoGlobal.EstadoCivil;
                     txtFechaNacimiento.Text = Login.EmpleadoGlobal.FechaNacimiento.ToString();
-                    ddlDepartamento.Text = Singleton.opdepartamento.BuscarDepartamentos(Login.EmpleadoGlobal.IdDepartamento).Nombre;
-                    ddlRol.Text = Singleton.oproles.BuscarRoles(Login.EmpleadoGlobal.IdRol).Nombre;
+                    //ddlDepartamento.Text = Singleton.opdepartamento.BuscarDepartamentos(Login.EmpleadoGlobal.IdDepartamento).Nombre;
+                    txtrol.Text = Singleton.oproles.BuscarRoles(Login.EmpleadoGlobal.IdRol).Nombre;
+                    //ddlRol.Text = Singleton.oproles.BuscarRoles(Login.EmpleadoGlobal.IdRol).Nombre;
                     imgEmple.ImageUrl = Login.EmpleadoGlobal.Imagen;
+                    txtdepa.Text = Singleton.opdepartamento.BuscarDepartamentos(Login.EmpleadoGlobal.IdDepartamento).Nombre;
                 }
             }
 
             catch (Exception)
             {
 
-                throw;
+                mensajawarning.Visible = true;
+                textoMensajeError.InnerHtml = "ha ocurrido un error";
             }
         }
 
@@ -54,9 +57,9 @@ namespace RRHH.UI
             try
             {
                
-               var DepartamentoGlobal = Singleton.opdepartamento.BuscarDepartamentosPorNombre(ddlDepartamento.Text);
+               var DepartamentoGlobal = Singleton.opdepartamento.BuscarDepartamentosPorNombre(txtdepa.Text);
                var IdDepartamento = DepartamentoGlobal.IdDepartamento.ToString();
-               var RolGlobal = Singleton.oproles.BuscarRolesPorNombre(ddlRol.Text);
+               var RolGlobal = Singleton.oproles.BuscarRolesPorNombre(txtrol.Text);
                var IdRol = RolGlobal.IdRol.ToString();
                 //string nombreArchivo = Path.GetFileName(fileUpload1.FileName);
                 //fileUpload1.SaveAs(Server.MapPath("~/Empleados/" + nombreArchivo));

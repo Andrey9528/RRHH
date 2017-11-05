@@ -94,6 +94,8 @@ namespace RRHH.UI
                     txtNuevaContraseña.Enabled = true;
                     txtNuevaContraseñaConfirmar.Enabled = true;
                     btnCambiar.Enabled = true;
+                    txtContraseñaActual.Enabled = false;
+                    btnConfirmar.Enabled = false;
                     ClientScript.RegisterStartupScript(GetType(), "Modal", "popup();", true);
 
                 }
@@ -102,7 +104,7 @@ namespace RRHH.UI
             catch (Exception)
             {
 
-                throw;
+               
             }
            
         }
@@ -144,20 +146,19 @@ namespace RRHH.UI
                     {
                         this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('La contraseña debe contener al menos:/n un carácter , una letra mayúscula,una letra minúscula y un numero')", true);
 
-                        //ClientScript.RegisterStartupScript(GetType(), "Modal", "popup();", true);
-
+                       
                     }
                 }
               
                 else
                 {
-                    //this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Las contraseñas no son iguales')", true);
+                    this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Las contraseñas no son iguales')", true);
                 }
             }
             catch (Exception)
             {
 
-                throw;
+                
             }
         }
 
@@ -195,7 +196,7 @@ namespace RRHH.UI
             }
             catch (Exception)
             {
-                throw;
+                
             }
         }
         public void limpiarCamposDepa()
@@ -395,6 +396,8 @@ namespace RRHH.UI
                                 Cedula = Login.EmpleadoGlobal.Cedula,
                                 TotalDias = count,
                                 Condicion = null,
+                                NombreEmpleado=Login.EmpleadoGlobal.Nombre
+
                             };
 
                             Singleton.opsolicitud.InsertarSolicitud(vacaciones);
@@ -475,6 +478,18 @@ namespace RRHH.UI
                 MailMessage msj = new MailMessage("dollars.chat.room@hotmail.com", mail, "Nueva solicitud de vacaciones", "Se ha recibido una nueva solicitud de vacaciones de parte del empleado\nNombre:  " + Login.EmpleadoGlobal.Nombre + "\nUsuario:" + Login.EmpleadoGlobal.Correo + "\nEl número de la solicitud es: " + IdSolicitudVacaciones);
                 cliente.Send(msj);
             }
+        }
+
+        protected void btnCerrar_Click(object sender, EventArgs e)
+        {
+            limpiarCamposFechas(); 
+          
+
+        }
+
+        protected void btnSalirpopupDepa_Click(object sender, EventArgs e)
+        {
+            limpiarCamposDepa();
         }
 
         //protected void ChkVerContraseña_CheckedChanged(object sender, EventArgs e)

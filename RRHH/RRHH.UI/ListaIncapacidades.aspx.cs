@@ -35,7 +35,7 @@ namespace RRHH.UI
                 {
                     mensajeError.Visible = false;
                    
-                    GV_inca.DataSource = Singleton.opIncapacidad.ListarIncapacidades().Where(X => X.Estado == true);
+                    GV_inca.DataSource = Singleton.opIncapacidad.ListarIncapacidades().Where (X => X.Estado == true );
                     GV_inca.DataBind();
                     Singleton.opAudiJefe.InsertarAuditoriasJefe(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, false, false, true, false, false, false, false, false, false);
 

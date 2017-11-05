@@ -37,49 +37,55 @@ namespace RRHH.UI
             int contador = 0;
             var listaId = Singleton.opsolicitud.Listarsolicitudes().Where(x => x.Cedula == Login.EmpleadoGlobal.Cedula && x.Condicion == true).ToList();
             var Feriados = Singleton.OpFeriados.ListarFeriados().Select(x => x.Fecha).ToList();
-            foreach (var item in listaId)
-            {
-                contador = 0;
-                diferencia = item.FechaFinal - item.FechaInicio;
+           
+                foreach (var item in listaId)
                 {
-                    if ((FechaInicio >= item.FechaInicio) && (FechaInicio <= item.FechaFinal)
-                        || (item.FechaFinal) >= item.FechaInicio && FechaFinal <= item.FechaFinal)
+                    contador = 0;
+                    diferencia = item.FechaFinal - item.FechaInicio;
                     {
-                        do
+                        if ((FechaInicio >= item.FechaInicio) && (FechaInicio <= item.FechaFinal)
+                            || (item.FechaFinal) >= item.FechaInicio && FechaFinal <= item.FechaFinal)
                         {
-                            foreach (var Fecha in Feriados)
-                            {
 
-                               if (Fecha.Date == FechaInicio) 
+                            do
+                            {
+                                foreach (var Fecha in Feriados)
+                                {
+
+                                    if (Fecha.Date == FechaInicio)
+                                    {
+                                        contador = contador + 1;
+                                    }
+                                }
+
+                                if (FechaInicio.DayOfWeek == DayOfWeek.Sunday)
                                 {
                                     contador = contador + 1;
                                 }
-                            }
 
-                           if (FechaInicio.DayOfWeek == DayOfWeek.Sunday)
-                           {
-                                contador = contador + 1;
-                           }
+                                else
+                                {
+                                    DiasIncapacidadEnVacaciones = (DiasIncapacidadEnVacaciones + 1);
+                                    //FechaInicio = FechaInicio.AddDays(1);
+                                    DiasIncapacidadEnVacaciones = DiasIncapacidadEnVacaciones - contador;
+                                    contador = 0;
+                                }
+                               FechaInicio = FechaInicio.AddDays(1);
 
-                           else
-                           {
-                                DiasIncapacidadEnVacaciones = (DiasIncapacidadEnVacaciones + 1);
-                                FechaInicio = FechaInicio.AddDays(1);
-                                DiasIncapacidadEnVacaciones = DiasIncapacidadEnVacaciones - contador;
-                                contador = 0;
-                            }
 
                         } while (FechaInicio < FechaFinal);
 
+                        }
                     }
                 }
-            }
+            
+           
         }// desmadre
         public bool ValidarRangoFechasIncapacidades(string fechainicio, string fechafinal)
         {
             try
             {
-                bool estado = true; // desmadre
+                //bool estado = true; // desmadre
                 var listaId = Singleton.opIncapacidad.ListarIncapacidades().Where(x => x.Cedula == Login.EmpleadoGlobal.Cedula).ToList();
                 foreach (var IdSolicitud in listaId)
                 {
@@ -87,14 +93,17 @@ namespace RRHH.UI
                     if (Convert.ToDateTime(fechainicio) >= Convert.ToDateTime(IdSolicitud.Fecha_Inicio) && Convert.ToDateTime(fechainicio) <= Convert.ToDateTime(IdSolicitud.Fecha_finalizacion)
                         || Convert.ToDateTime(fechafinal) >= Convert.ToDateTime(IdSolicitud.Fecha_Inicio) && Convert.ToDateTime(fechafinal) <= Convert.ToDateTime(IdSolicitud.Fecha_finalizacion))
                     {
-                        estado = true;
+                        //estado = true;
+                        return true;
                     }
                     else
                     {
-                        estado = false;
+                        //estado = false;
+                        return false;
                     }
                 }
-                return estado;
+                //return estado;
+                return false;
             }
             catch (Exception)
             {
@@ -105,7 +114,7 @@ namespace RRHH.UI
                 textoMensajeError.InnerHtml = "Ha ocurrido un error";
                 //textomensajeError.InnerHtml = "Ha ocurrido un error";
             }
-            return true;
+            return false;
         }
         //public bool ValidarRangoFechasVacaciones(string  fechainicio, string  fechafinal)
         //{
@@ -230,6 +239,7 @@ namespace RRHH.UI
                             CentroEmisor = txtcentroemisor.Text,
                             NombreDoctor = txtnombredoc.Text,
                             Estado = true,
+                            NombreEmpleado = Login.EmpleadoGlobal.Nombre
                         };
 
                         Empleado emple = new Empleado() // desmadre

@@ -220,13 +220,13 @@ namespace RRHH.UI {
         protected global::System.Web.UI.WebControls.Label Label8;
         
         /// <summary>
-        /// ddlDepartamento control.
+        /// txtdepa control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlDepartamento;
+        protected global::System.Web.UI.WebControls.TextBox txtdepa;
         
         /// <summary>
         /// Label9 control.
@@ -238,13 +238,13 @@ namespace RRHH.UI {
         protected global::System.Web.UI.WebControls.Label Label9;
         
         /// <summary>
-        /// ddlRol control.
+        /// txtrol control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlRol;
+        protected global::System.Web.UI.WebControls.TextBox txtrol;
         
         /// <summary>
         /// Label1 control.
@@ -290,15 +290,6 @@ namespace RRHH.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image imgEmple;
-        
-        /// <summary>
-        /// txtImagen control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtImagen;
         
         /// <summary>
         /// fileUpload1 control.

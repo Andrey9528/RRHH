@@ -27,5 +27,6 @@ namespace RRHH.DATA
         public string CentroEmisor { get; set; }
         [Alias("Doctor")]
         public string NombreDoctor { get; set; }
+        public string NombreEmpleado { get; set; }
     }
 }

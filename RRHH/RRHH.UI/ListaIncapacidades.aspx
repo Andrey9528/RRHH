@@ -55,7 +55,8 @@
             <SortedAscendingHeaderStyle BackColor="#246B61" />
             <SortedDescendingCellStyle BackColor="#D4DFE1" />
             <SortedDescendingHeaderStyle BackColor="#15524A" />
-            <Columns runat="server" >         
+            <Columns runat="server" >
+                <asp:BoundField  DataField = "NombreEmpleado" runat="server" HeaderText = "Nombre del empleado" />         
                 <asp:BoundField  DataField = "IdIncapacidad" runat="server" HeaderText = "N. Incapacidad" />
                 <asp:BoundField  DataField = "Cedula" runat="server" HeaderText = "Cédula" />
                 <asp:BoundField  DataField = "Fecha_Inicio" runat="server" HeaderText = "Inicio" />
@@ -66,7 +67,8 @@
                 <asp:BoundField  DataField = "FechaEmision" runat="server" HeaderText = "Fecha de Emisión" />
                 <asp:BoundField  DataField = "CentroEmisor" runat="server" HeaderText = "Emisor" />
                 <asp:BoundField  DataField = "NombreDoctor" runat="server" HeaderText = "Doctor" />
-                <asp:BoundField  DataField = "Estado" runat="server" HeaderText = "Estado" />
+                <%--<asp:BoundField  DataField = "Estado" runat="server" HeaderText = "Estado" />--%>
+
     
              </Columns>
         </asp:GridView>
