@@ -72,7 +72,8 @@
         <SortedAscendingHeaderStyle BackColor="#6D95E1" />
         <SortedDescendingCellStyle BackColor="#E9EBEF" />
         <SortedDescendingHeaderStyle BackColor="#4870BE" />
-        <Columns runat="server" >         
+        <Columns runat="server" >  
+             <asp:BoundField  DataField = "NombreEmpleado" runat="server" HeaderText = "Nombre Empleado" />       
                 <asp:BoundField  DataField = "idIncapacidad" runat="server" HeaderText = "N. Incapacidad" />
                 <asp:BoundField  DataField = "Cedula" runat="server" HeaderText = "Cédula" />
                 <asp:BoundField  DataField = "Fecha_Inicio" runat="server" HeaderText = "Inicio" />

@@ -31,5 +31,7 @@ namespace RRHH.DATA
         public string NombreDoctor { get; set; }
 
         public bool Estado { get; set; }
+
+        public string NombreEmpleado { get; set; }
     }
 }

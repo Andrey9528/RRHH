@@ -70,8 +70,14 @@ namespace RRHH.UI
                     txtNuevaContraseña.Enabled = true;
                     txtNuevaContraseñaConfirmar.Enabled = true;
                     btnCambiarJefe.Enabled = true;
+                    txtContraseñaActualJefe.Enabled = false;
+                    btnConfirmarJefe.Enabled = false;
                     ClientScript.RegisterStartupScript(GetType(), "Modal", "popup();", true);
 
+
+                }
+                else
+                {
 
                 }
 
@@ -79,7 +85,7 @@ namespace RRHH.UI
             catch (Exception)
             {
 
-                throw;
+                
             }
 
         }
@@ -122,6 +128,7 @@ namespace RRHH.UI
                     else
                     {
                         this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('La contraseña debe contener al menos:/n un carácter , una letra mayúscula,una letra minúscula y un numero')", true);
+                        
 
                         //ClientScript.RegisterStartupScript(GetType(), "Modal", "popup();", true);
 
@@ -129,13 +136,14 @@ namespace RRHH.UI
                 }
                 else
                 {
-                    //this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Las contraseñas no son iguales')", true);
+                   this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Las contraseñas no son iguales')", true);
+                    
                 }
             }
             catch (Exception)
             {
 
-                throw;
+               
             }
         }
 
@@ -294,6 +302,8 @@ namespace RRHH.UI
                                 Cedula = Login.EmpleadoGlobal.Cedula,
                                 TotalDias = count,
                                 Condicion = null,
+                                NombreEmpleado = Login.EmpleadoGlobal.Nombre
+
                             };
 
                             Singleton.opsolicitud.InsertarSolicitud(vacaciones);

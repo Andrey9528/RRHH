@@ -22,5 +22,7 @@ namespace RRHH.DATA
 
         public bool? Condicion { get; set; }
 
+        public string NombreEmpleado { get; set; }
+
     }
 }

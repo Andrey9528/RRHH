@@ -67,7 +67,8 @@ namespace RRHH.UI
                     //ddlRol.SelectedValue = rol;
                     //ddlDepartamento.SelectedValue = depar;
                     //DDLgenero.SelectedValue = emple.Genero;
-                    txtRol.Text = rol;
+                    //txtRol.Text = rol;
+                    ddlRol.Text = rol;
                     txtDepartamento.Text = depar;
                     txtGenero.Text = emple.Genero;
                     Chk_bloqueado.Checked = (bool)emple.Bloqueado;
@@ -120,7 +121,7 @@ namespace RRHH.UI
                 bool bloqueoOrigen = EmpleadoGlobal.Bloqueado;
                 //RolGlobal = Singleton.oproles.BuscarRolesPorNombre(ddlRol.Text);
                 //RolGlobal = Singleton.oproles.BuscarRolesPorNombre(ddlRol.Text);
-                RolGlobal = Singleton.oproles.BuscarRolesPorNombre(txtRol.Text);
+                RolGlobal = Singleton.oproles.BuscarRolesPorNombre(ddlRol.Text);
                 var IdRol = RolGlobal.IdRol.ToString();
                 //string nombrearchivo = Path.GetFileName(fileUpload1.FileName);
                //fileUpload1.SaveAs(Server.MapPath("~/Empleados/" + nombrearchivo));
@@ -322,7 +323,7 @@ namespace RRHH.UI
                     var IdDepartamento = DepartamentoGlobal.IdDepartamento.ToString();
                     //RolGlobal = Singleton.oproles.BuscarRolesPorNombre(ddlRol.Text);
                     // RolGlobal = Singleton.oproles.BuscarRolesPorNombre(ddlRol.Text);
-                    RolGlobal = Singleton.oproles.BuscarRolesPorNombre(txtRol.Text);
+                    RolGlobal = Singleton.oproles.BuscarRolesPorNombre(ddlRol.Text);
                     var IdRol = RolGlobal.IdRol.ToString();
                     Empleado emple = new Empleado()
                     {

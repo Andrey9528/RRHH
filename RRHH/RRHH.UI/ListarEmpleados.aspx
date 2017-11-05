@@ -47,7 +47,7 @@
           
      </div>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:BD_RRHHConnectionString3 %>" SelectCommand="SELECT [Cedula], [Nombre], [Direccion], [Telefono], [Correo], [EstadoCivil], [FechaNacimiento], [Estado], [Genero], [Imagen] FROM [Empleado]"></asp:SqlDataSource>
-
+    <br /><br />
     <div class="table-responsive">
         <asp:GridView ID="GV_personas" CssClass="table table-bordered " AutoGenerateColumns = False runat="server" CellPadding="4" ForeColor="#333333" GridLines="None">
             <AlternatingRowStyle BackColor="White" />
@@ -60,7 +60,7 @@
                 <asp:BoundField DataField = "EstadoCivil" runat="server" HeaderText = "Estado Civil" />
                 <asp:BoundField DataField = "Genero" runat="server" HeaderText = "Genero" />
                 <asp:BoundField DataField = "FechaNacimiento" runat="server" HeaderText = "Fecha de Nacimiento" />
-                <asp:BoundField DataField = "Estado" runat="server" HeaderText = "Estado" />
+              <%--  <asp:BoundField DataField = "Estado" runat="server" HeaderText = "Estado" />--%>
                 <asp:ImageField HeaderText="Imagen" runat="server"  DataImageUrlField="Imagen" 
             ControlStyle-Width="100">
 <ControlStyle Width="100px"></ControlStyle>

@@ -47,7 +47,7 @@
             <div class="col-sm-4" runat="server" id="Empleadosmantenimiento">
 
 <asp:Label ID="Label2" runat="server"   Text="Nombre"></asp:Label>
-     <asp:TextBox ID="txtNombre" CssClass="form-control " runat="server"></asp:TextBox>
+     <asp:TextBox ID="txtNombre" ReadOnly="true" CssClass="form-control " runat="server"></asp:TextBox>
        
  <asp:Label ID="Label3"  runat="server"   Text="Direccion"></asp:Label>
    
@@ -77,26 +77,29 @@
    
                 <asp:Label ID="Label8"     runat="server" Text="Departamento"></asp:Label>
      
-   <asp:DropDownList ID="ddlDepartamento"   class = "form-control" runat="server">
+                <asp:TextBox ID="txtdepa" ReadOnly="true" CssClass="form-control" runat="server"></asp:TextBox>
+                
+                
+                 <%-- <asp:DropDownList ID="ddlDepartamento"    class = "form-control" runat="server">
        <asp:ListItem>Programacion</asp:ListItem>
        <asp:ListItem>Vacunas</asp:ListItem>
        <asp:ListItem>Medicamentos</asp:ListItem>
        
-        </asp:DropDownList>
+        </asp:DropDownList>--%>
        
-  <asp:Label ID="Label9"   runat="server" Text="Rol"></asp:Label>
-      
-   
-  <asp:DropDownList ID="ddlRol"  class= "form-control" runat="server">
+  <asp:Label ID="Label9"   Enabled="false" runat="server" Text="Rol"></asp:Label>
+  <asp:TextBox ID="txtrol" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox> 
+  
+               <%-- <asp:DropDownList ID="ddlRol"  class= "form-control" runat="server">
       <asp:ListItem>Empleado</asp:ListItem>
       <asp:ListItem>Jefe</asp:ListItem>
       <asp:ListItem>Admin</asp:ListItem>
       
-        </asp:DropDownList>
-  <br />
+        </asp:DropDownList>--%>
+ 
 
-        <asp:Label ID="Label1"  runat="server" Text="Genero"></asp:Label>
-   <asp:DropDownList ID="DDLgenero"    CssClass="form-control" runat="server">
+        <asp:Label ID="Label1" Visible="false"  runat="server" Text="Genero"></asp:Label>
+   <asp:DropDownList ID="DDLgenero"  Visible="false"   CssClass="form-control" runat="server">
        <asp:ListItem>Masculino</asp:ListItem>
        <asp:ListItem>Femenino</asp:ListItem>
        <asp:ListItem>Sin Establecer</asp:ListItem>
@@ -112,7 +115,7 @@
            
                   <div class="form-inline col-sm-offset-2" >
 
-        <asp:TextBox ID="txtImagen" Width="180" placeholder="Cambiar foto" runat="server" CssClass="form-control"></asp:TextBox>
+        
          <asp:FileUpload ID="fileUpload1" accept="image/*" runat="server" />
         <input type="button" id="btnnAdjuntar" runat="server" value="adjuntar" class="btn btn-success" onclick="adjuntarImagen()" /> 
        

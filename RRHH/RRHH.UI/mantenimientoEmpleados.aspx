@@ -123,13 +123,13 @@
     <asp:Label ID="Label9" runat="server" Text="Rol"></asp:Label>
      
    
- <%-- <asp:DropDownList ID="ddlRol"  enabled="false" Width="280" class = "form-control" runat="server">
+  <asp:DropDownList ID="ddlRol"   class = "form-control" runat="server">
       <asp:ListItem>Empleado</asp:ListItem>
       <asp:ListItem>Jefe</asp:ListItem>
       <asp:ListItem>Admin</asp:ListItem>
-      <asp:ListItem></asp:ListItem>
-        </asp:DropDownList>--%>
-          <asp:TextBox ID="txtRol" Enabled="false" CssClass="form-control" ReadOnly="true" runat="server"></asp:TextBox>
+      
+        </asp:DropDownList>
+         <%-- <asp:TextBox ID="txtRol" Enabled="false" CssClass="form-control" ReadOnly="true" runat="server"></asp:TextBox>--%>
 
   
    

@@ -77,22 +77,28 @@ namespace RRHH.UI
         {
             try
             {
-                bool estado = true;
+                //bool estado = true;
                 var listaId = Singleton.opsolicitud.Listarsolicitudes().Where(x => x.Cedula == Login.EmpleadoGlobal.Cedula && x.Condicion == true).ToList();
-                foreach (var IdSolicitud in listaId)
-                {
-                    
-                    if (Convert.ToDateTime(fechainicio) >= Convert.ToDateTime(IdSolicitud.FechaInicio) && Convert.ToDateTime(fechainicio) <= Convert.ToDateTime(IdSolicitud.FechaFinal)
-                        || Convert.ToDateTime(fechafinal) >= Convert.ToDateTime(IdSolicitud.FechaInicio) && Convert.ToDateTime(fechafinal) <= Convert.ToDateTime(IdSolicitud.FechaFinal))
+               
+                    foreach (var IdSolicitud in listaId)
                     {
-                        estado = true;
+
+                        if (Convert.ToDateTime(fechainicio) >= Convert.ToDateTime(IdSolicitud.FechaInicio) && Convert.ToDateTime(fechainicio) <= Convert.ToDateTime(IdSolicitud.FechaFinal)
+                            || Convert.ToDateTime(fechafinal) >= Convert.ToDateTime(IdSolicitud.FechaInicio) && Convert.ToDateTime(fechafinal) <= Convert.ToDateTime(IdSolicitud.FechaFinal))
+                        {
+                        //estado = true;
+                        return  true;
+                        }
+                        else
+                        {
+                        //estado = false;
+                        return false;
+                        }
                     }
-                    else
-                    {
-                        estado = false;
-                    }
-                }
-                return estado;
+                //return estado;
+                return false;
+                
+                
             }
             catch (Exception)
             {
@@ -166,6 +172,8 @@ namespace RRHH.UI
                                 Cedula = Login.EmpleadoGlobal.Cedula,
                                 TotalDias = count + 1,
                                 Condicion = null,
+                                NombreEmpleado = Login.EmpleadoGlobal.Nombre
+
                             };
 
                             Singleton.opsolicitud.InsertarSolicitud(vacaciones);
@@ -250,6 +258,8 @@ namespace RRHH.UI
                     txtNuevaContraseña.Enabled = true;
                     txtNuevaContraseñaConfirmar.Enabled = true;
                     btnCambiarEmpleado.Enabled = true;
+                    txtContraseñaActualEmpleado.Enabled = false;
+                    btnConfirmarEmpleado.Enabled = false;
                     ClientScript.RegisterStartupScript(GetType(), "Modal", "popup();", true);
                 }
                 else
@@ -259,7 +269,7 @@ namespace RRHH.UI
             }
             catch (Exception)
             {
-                throw;
+                
             }
         }
 
@@ -307,13 +317,13 @@ namespace RRHH.UI
                 }
                 else
                 {
-                    //this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Las contraseñas no son iguales')", true);
+                   this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Las contraseñas no son iguales')", true);
                 }
             }
             catch (Exception)
             {
 
-                throw;
+                
             }
 
         }
@@ -360,20 +370,23 @@ namespace RRHH.UI
         {
             try
             {
-                bool estado = true;
+                 //bool estado = true;
                 var ListaIncapacidades = Singleton.opIncapacidad.ListarIncapacidades().Where(x => x.Cedula == Login.EmpleadoGlobal.Cedula).ToList();
             foreach (var item in ListaIncapacidades)
             {
                 if (DateTime.Today == Convert.ToDateTime(item.Fecha_Inicio) || DateTime.Today <= Convert.ToDateTime(item.Fecha_finalizacion))      
                 {
-                    estado = true;
+                        //estado = true;
+                        return true;
                 }
                 else
                 {
-                    estado = false;
+                        //esstado = false;
+                        return false;
                 }
             }
-                return estado;
+                //return estado;
+                return false;
             }
             catch (Exception)
             {

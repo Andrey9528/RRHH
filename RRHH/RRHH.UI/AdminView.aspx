@@ -406,8 +406,8 @@
         <div class="modal-footer">
           <asp:Button ID="btndepa" runat="server" Text="Insertar" CssClass="btn btn-success"  OnClick="btndepa_Click" />
 
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-        
+<%--          <button type="button" onclick="<%limpiarCamposDepa(); %>" class="btn btn-danger" data-dismiss="modal">Cerrar</button>--%>
+            <asp:Button ID="btnSalirpopupDepa" runat="server" CssClass="btn btn-danger" Text="Cerrar" OnClick="btnSalirpopupDepa_Click" />
         </div>
       </div>
     </div>
@@ -557,7 +557,7 @@
       <div class="container">
   
  
-  <div class="modal fade" id="vaca" role="dialog">
+  <div class="modal fade" data-keyboard="false" data-backdrop="static" id="vaca" role="dialog">
        
     <div class="modal-dialog modal-sm">
        
@@ -585,7 +585,9 @@
             
           <asp:Button ID="btnvaca" runat="server" Text="Insertar" CssClass="btn btn-success" OnClick="btnvaca_Click"  />
             
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+          <%--<button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+         --%>
+            <asp:Button ID="btnCerrar" runat="server" CssClass="btn btn-danger" OnClick="btnCerrar_Click" Text="Cerrar" />
         
         </div>
       </div>

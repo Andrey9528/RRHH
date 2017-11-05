@@ -15,7 +15,7 @@
 <body>
 
     <form id="form1" runat="server">
-         <div class="form-group">
+         <%--<div class="form-group">
          <div class="alert alert-danger" visible="false"  id="mensajeError" runat="server">
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times</a>
              <strong id="textomensajeError" runat="server"></strong>
@@ -33,7 +33,7 @@
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times</a>
              <strong id="textomensajeinfo" runat="server"></strong>
         </div>
-          </div>
+          </div>--%>
   <style>
     /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
     .row.content {height: 550px}
@@ -92,7 +92,7 @@
       
 <div class="container-fluid">
   <div class="row content">
-    <div class="col-sm-3 sidenav hidden-xs" style="margin-top:-29px;">
+    <div class="col-sm-3 sidenav hidden-xs" style="margin-top:-19px;">
       <h2 style="text-align:center;">
           <asp:Image ID="imgPerfil2" Width="100" Height="100" runat="server" /></h2>
       <ul class="nav nav-pills nav-stacked">
@@ -117,6 +117,26 @@
     <br/>
     
     <div class=" col-sm-9">
+
+         <div class="form-group">
+         <div class="alert alert-danger" visible="false"  id="mensajeError" runat="server">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times</a>
+             <strong id="textomensajeError" runat="server"></strong>
+        </div>
+        <div class="alert alert-success" visible="false"  id="mensaje" runat="server">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times</a>
+             <strong id="textoMensaje" runat="server"></strong>
+        </div>
+           <div class="alert alert-warning" visible="false" id="mensajawarning" runat="server">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times</a>
+            <strong id="textomensajewarning" runat="server"></strong>
+
+        </div>
+      <div class="alert alert-info" visible="false"  id="mensajeinfo" runat="server">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times</a>
+             <strong id="textomensajeinfo" runat="server"></strong>
+        </div>
+          </div>
       <div   style="background-image:url(Images/^3D0DC1289D3BDF88217B01A82B7D97BC5426586684389B6CE5^pimgpsh_fullsize_distr.jpg); background-size:100vw 100vh;"  class="well ">
         <h4 style="color:black; font-size:30px; font-family:cursive; text-align:center;" >Gestión de Empleados</h4>
         <p style="color:black; text-align:center;">RRHH</p>
@@ -214,20 +234,20 @@ body {font-family: Verdana, sans-serif;}
     <li class="prev">&#10094;</li>
     <li class="next">&#10095;</li>
     <li>
-      Octubre<br/>
+      Noviembre<br/>
       <span style="font-size:18px">2017</span>
     </li>
   </ul>
 </div>
 
 <ul class="weekdays">
-  <li>Domingo</li>
-  <li>Lunes</li>
-  <li>Martes </li>
-  <li>Miercoles</li>
+  <li>Miércoles</li>
   <li>Jueves</li>
-  <li>Viernes</li>
+  <li>Viernes </li>
   <li>Sábado</li>
+  <li>Domingo </li>
+  <li>Lunes</li>
+  <li>Martes</li>
 </ul>
 
 <ul class="days">  
@@ -235,7 +255,7 @@ body {font-family: Verdana, sans-serif;}
   <li>2</li>
   <li>3</li>
   <li>4</li>
-  <li>5</li>
+  <li> <span class="active">5</span></li>
   <li>6</li>
   <li>7</li>
   <li>8</li>
@@ -260,8 +280,8 @@ body {font-family: Verdana, sans-serif;}
   <li>27</li>
   <li>28</li>
   <li>29</li>
-  <li><span class="active">30</span></li>
-  <li>31</li>
+  <li>30</li>
+  
 </ul>
 
     <%--  <div class="row">

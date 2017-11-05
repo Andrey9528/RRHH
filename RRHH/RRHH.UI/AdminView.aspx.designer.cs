@@ -265,6 +265,15 @@ namespace RRHH.UI {
         protected global::System.Web.UI.WebControls.Button btndepa;
         
         /// <summary>
+        /// btnSalirpopupDepa control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSalirpopupDepa;
+        
+        /// <summary>
         /// lblnombre control.
         /// </summary>
         /// <remarks>
@@ -416,5 +425,14 @@ namespace RRHH.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnvaca;
+        
+        /// <summary>
+        /// btnCerrar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCerrar;
     }
 }
