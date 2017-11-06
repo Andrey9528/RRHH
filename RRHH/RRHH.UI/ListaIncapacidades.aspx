@@ -1,6 +1,24 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ListaIncapacidades.aspx.cs" Inherits="RRHH.UI.ListaIncapacidades" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <div class="form-group">
+         <div class="alert alert-danger" visible="false"  id="Div1" runat="server">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times</a>
+             <strong id="Strong1" runat="server"></strong>
+        </div>
+        <div class="alert alert-success" visible="false"  id="mensaje" runat="server">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times</a>
+             <strong id="textoMensaje" runat="server"></strong>
+        </div>
+           <div class="alert alert-warning" visible="false" id="mensajawarning" runat="server">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times</a>
+            <strong id="textomensajewarning" runat="server"></strong>
 
+        </div>
+      <div class="alert alert-info" visible="false"  id="mensajeinfo" runat="server">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times</a>
+             <strong id="textomensajeinfo" runat="server"></strong>
+        </div>
+        </div>
     <style >
         body 
         {

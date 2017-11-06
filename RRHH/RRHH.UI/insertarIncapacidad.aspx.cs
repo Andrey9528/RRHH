@@ -8,12 +8,13 @@ using RRHH.DATA;
 
 namespace RRHH.UI
 {
-    public partial class insertarIncapacidad : System.Web.UI.Page
+    public partial class insertarIncapacidad :  System.Web.UI.Page
     {
         public static int dias;
         List<DateTime> fechas = new List<DateTime>(); //desmadre
         List<DateTime> fechasVacaciones = new List<DateTime>(); //desmadre
         public static int DiasIncapacidadEnVacaciones;
+        public static bool estado;
 
 
         public static int count; // desmadre
@@ -33,77 +34,59 @@ namespace RRHH.UI
 
         public void IncapacidadEnVacaciones(DateTime FechaInicio, DateTime FechaFinal) // desmadre
         {
-            TimeSpan diferencia;
-            int contador = 0;
-            var listaId = Singleton.opsolicitud.Listarsolicitudes().Where(x => x.Cedula == Login.EmpleadoGlobal.Cedula && x.Condicion == true).ToList();
-            var Feriados = Singleton.OpFeriados.ListarFeriados().Select(x => x.Fecha).ToList();
-           
-                foreach (var item in listaId)
+            try
+            {
+                TimeSpan diferencia;
+                int contador = 0;
+                var listaId = Singleton.opsolicitud.Listarsolicitudes().Where(x => x.Cedula == Login.EmpleadoGlobal.Cedula && x.Condicion == true).ToList();
+                var Feriados = Singleton.OpFeriados.ListarFeriados().Select(x => x.Fecha).ToList();
+                if (listaId.Count == 0)
                 {
                     contador = 0;
-                    diferencia = item.FechaFinal - item.FechaInicio;
+                    DiasIncapacidadEnVacaciones = DiasIncapacidadEnVacaciones - contador;
+                }
+                else
+                {
+                    foreach (var item in listaId)
                     {
-                        if ((FechaInicio >= item.FechaInicio) && (FechaInicio <= item.FechaFinal)
-                            || (item.FechaFinal) >= item.FechaInicio && FechaFinal <= item.FechaFinal)
+                        contador = 0;
+                        diferencia = item.FechaFinal - item.FechaInicio;
                         {
-
-                            do
+                            if ((FechaInicio >= item.FechaInicio) && (FechaInicio <= item.FechaFinal)
+                                || (item.FechaFinal) >= item.FechaInicio && FechaFinal <= item.FechaFinal)
                             {
-                                foreach (var Fecha in Feriados)
-                                {
 
-                                    if (Fecha.Date == FechaInicio)
+                                do
+                                {
+                                    foreach (var Fecha in Feriados)
+                                    {
+
+                                        if (Fecha.Date == FechaInicio)
+                                        {
+                                            contador = contador + 1;
+                                        }
+                                    }
+
+                                    if (FechaInicio.DayOfWeek == DayOfWeek.Sunday)
                                     {
                                         contador = contador + 1;
                                     }
-                                }
 
-                                if (FechaInicio.DayOfWeek == DayOfWeek.Sunday)
-                                {
-                                    contador = contador + 1;
-                                }
-
-                                else
-                                {
-                                    DiasIncapacidadEnVacaciones = (DiasIncapacidadEnVacaciones + 1);
-                                    //FechaInicio = FechaInicio.AddDays(1);
-                                    DiasIncapacidadEnVacaciones = DiasIncapacidadEnVacaciones - contador;
-                                    contador = 0;
-                                }
-                               FechaInicio = FechaInicio.AddDays(1);
+                                    else
+                                    {
+                                        DiasIncapacidadEnVacaciones = (DiasIncapacidadEnVacaciones + 1);
+                                        DiasIncapacidadEnVacaciones = DiasIncapacidadEnVacaciones - contador;
+                                        contador = 0;
+                                    }
+                                    FechaInicio = FechaInicio.AddDays(1);
 
 
-                        } while (FechaInicio < FechaFinal);
+                                } while (FechaInicio < FechaFinal);
 
+                            }
                         }
                     }
                 }
-            
-           
-        }// desmadre
-        public bool ValidarRangoFechasIncapacidades(string fechainicio, string fechafinal)
-        {
-            try
-            {
-                //bool estado = true; // desmadre
-                var listaId = Singleton.opIncapacidad.ListarIncapacidades().Where(x => x.Cedula == Login.EmpleadoGlobal.Cedula).ToList();
-                foreach (var IdSolicitud in listaId)
-                {
-
-                    if (Convert.ToDateTime(fechainicio) >= Convert.ToDateTime(IdSolicitud.Fecha_Inicio) && Convert.ToDateTime(fechainicio) <= Convert.ToDateTime(IdSolicitud.Fecha_finalizacion)
-                        || Convert.ToDateTime(fechafinal) >= Convert.ToDateTime(IdSolicitud.Fecha_Inicio) && Convert.ToDateTime(fechafinal) <= Convert.ToDateTime(IdSolicitud.Fecha_finalizacion))
-                    {
-                        //estado = true;
-                        return true;
-                    }
-                    else
-                    {
-                        //estado = false;
-                        return false;
-                    }
-                }
-                //return estado;
-                return false;
             }
             catch (Exception)
             {
@@ -112,9 +95,47 @@ namespace RRHH.UI
                 mensajawarning.Visible = false;
                 mensaje.Visible = false;
                 textoMensajeError.InnerHtml = "Ha ocurrido un error";
-                //textomensajeError.InnerHtml = "Ha ocurrido un error";
             }
-            return false;
+        }
+        public bool ValidarRangoFechasIncapacidades(string fechainicio, string fechafinal)
+        {
+            try
+            {
+                var listaId = Singleton.opIncapacidad.ListarIncapacidades().Where(x => x.Cedula == Login.EmpleadoGlobal.Cedula).ToList();
+                if (listaId.Count == 0)
+                {
+                    estado = false;
+                }
+                else
+                {
+                    foreach (var IdSolicitud in listaId)
+                    {
+
+                        if (Convert.ToDateTime(fechainicio) >= Convert.ToDateTime(IdSolicitud.Fecha_Inicio) && Convert.ToDateTime(fechainicio) <= Convert.ToDateTime(IdSolicitud.Fecha_finalizacion)
+                            || Convert.ToDateTime(fechafinal) >= Convert.ToDateTime(IdSolicitud.Fecha_Inicio) && Convert.ToDateTime(fechafinal) <= Convert.ToDateTime(IdSolicitud.Fecha_finalizacion))
+                        {
+                            estado = true;
+
+                        }
+                        else
+                        {
+                            estado = false;
+
+                        }
+                    }
+                    return estado;
+
+                }
+            }
+            catch (Exception)
+            {
+                mensajeError.Visible = true;
+                mensajeinfo.Visible = false;
+                mensajawarning.Visible = false;
+                mensaje.Visible = false;
+                textoMensajeError.InnerHtml = "Ha ocurrido un error";
+            }
+            return estado;
         }
         //public bool ValidarRangoFechasVacaciones(string  fechainicio, string  fechafinal)
         //{
@@ -184,29 +205,37 @@ namespace RRHH.UI
 
         public static int DiasRestantes(DateTime startDate, DateTime endDate, Boolean excludeWeekends, List<DateTime> excludeDates)
         {
-            count = 0;
-            for (DateTime index = startDate; index < endDate; index = index.AddDays(1))
+            try
             {
-                if (excludeWeekends && index.DayOfWeek != DayOfWeek.Sunday)
+                count = 0;
+                for (DateTime index = startDate; index < endDate; index = index.AddDays(1))
                 {
-                    bool excluded = false;
-                    for (int i = 0; i < excludeDates.Count; i++)
+                    if (excludeWeekends && index.DayOfWeek != DayOfWeek.Sunday)
                     {
-                        if (index.Date.CompareTo(excludeDates[i].Date) == 0)
+                        bool excluded = false;
+                        for (int i = 0; i < excludeDates.Count; i++)
                         {
-                            excluded = true;
-                            break;
+                            if (index.Date.CompareTo(excludeDates[i].Date) == 0)
+                            {
+                                excluded = true;
+                                break;
+                            }
+                        }
+
+                        if (!excluded)
+                        {
+                            count++;
                         }
                     }
-
-                    if (!excluded)
-                    {
-                        count++;
-                    }
                 }
-            }
 
-            return count;
+              
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+              return count;
         }
         protected void btninsertar_Click(object sender, EventArgs e)
         {
@@ -259,10 +288,13 @@ namespace RRHH.UI
                             Genero = Login.EmpleadoGlobal.Genero,
                             Password = Login.EmpleadoGlobal.Password,
                             IntentosFallidos = Login.EmpleadoGlobal.IntentosFallidos,
-                            DiasVacaciones = Login.EmpleadoGlobal.DiasVacaciones + DiasIncapacidadEnVacaciones,
+                            DiasVacaciones = Login.EmpleadoGlobal.DiasVacaciones + DiasIncapacidadEnVacaciones+1,
                             DiasAntesCaducidad = Login.EmpleadoGlobal.DiasAntesCaducidad,
                             ContraseñaCaducada = false,
-                        }; //desmadre
+                        };
+                        DiasIncapacidadEnVacaciones = 0;
+                        count = 0;
+                        dias = 0;
 
                         if (Login.EmpleadoGlobal.IdRol == 1)
                         {
@@ -343,25 +375,30 @@ namespace RRHH.UI
                 dias = Convert.ToInt32(diferencia.TotalDays);
                 if (dias > 0)
                 {
-                    return true;
+                    estado = true;
                 }
                
 
                 else
                 {
-                    return false;
+                    estado = false;
                 }
             }
             catch (Exception)
             {
-
-                throw;
+                mensajawarning.Visible = false;
+                mensajeError.Visible = true;
+                mensaje.Visible = false;
+                mensajeinfo.Visible = false;
+                textoMensajeError.InnerHtml = "Hubo un error";
             }
+            return estado;
         }
 
         protected void btnRegresar_Click(object sender, EventArgs e)
         {
-
+            try
+            {
             if (Login.EmpleadoGlobal.IdRol == 1)
             {
                 Session["ROL"] = Login.EmpleadoGlobal.IdRol;
@@ -382,6 +419,17 @@ namespace RRHH.UI
                 Response.Redirect("AdminView.aspx?ROL=" + Login.EmpleadoGlobal.IdRol);
 
             }
+            }
+            catch (Exception)
+            {
+                mensajawarning.Visible = false;
+                mensajeError.Visible = true;
+                mensaje.Visible = false;
+                mensajeinfo.Visible = false;
+                textoMensajeError.InnerHtml = "Hubo un error";
+            }
+
+           
         }
         public void LimpiarCampos()
         {
