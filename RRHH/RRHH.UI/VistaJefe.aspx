@@ -255,8 +255,8 @@ body {font-family: Verdana, sans-serif;}
   <li>2</li>
   <li>3</li>
   <li>4</li>
-  <li> <span class="active">5</span></li>
-  <li>6</li>
+  <li>5</li>
+  <li><span class="active">6</span></li>
   <li>7</li>
   <li>8</li>
   <li>9</li>

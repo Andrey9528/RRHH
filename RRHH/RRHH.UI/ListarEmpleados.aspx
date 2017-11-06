@@ -43,7 +43,7 @@
       <asp:Button ID="btnregresar" runat="server" CssClass="btn btn-success" OnClick="btnregresar_Click" Text="Regresar"/>
      
          
-      <asp:Button ID="btnPDF" runat="server" CssClass="btn btn-danger" OnClick="btnPDF_Click" Text="PDF"/>
+      <asp:Button ID="btnPDF" Visible="false" runat="server" CssClass="btn btn-danger" OnClick="btnPDF_Click" Text="PDF"/>
           
      </div>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:BD_RRHHConnectionString3 %>" SelectCommand="SELECT [Cedula], [Nombre], [Direccion], [Telefono], [Correo], [EstadoCivil], [FechaNacimiento], [Estado], [Genero], [Imagen] FROM [Empleado]"></asp:SqlDataSource>

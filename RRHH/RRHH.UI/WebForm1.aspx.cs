@@ -164,6 +164,7 @@ namespace RRHH.UI
                             mensajeError.Visible = true;
                             mensaje.Visible = false;
                             textomensajeError.InnerHtml = "Ya existe una solitud previa para el rango de fechas seleccionado";
+                            limpiarCamposFechas();
                         }
                         else if (VacacionesIncapacitado(Convert.ToDateTime(txtfechafinal.Text),Convert.ToDateTime(txtfechadeincio.Text)))
                         {
@@ -171,6 +172,7 @@ namespace RRHH.UI
                             mensajeError.Visible = true;
                             mensaje.Visible = false;
                             textomensajeError.InnerHtml = "El usuario actual se encuentra incapacitado, la solicitud no puede completarse";
+                            limpiarCamposFechas();
                         }
                         else
                         {
@@ -217,6 +219,7 @@ namespace RRHH.UI
                         mensaje.Visible = false;
                         textomensajeError.InnerHtml = "La cantidad de dias solicitados excede la cantidad de dias disponibles";
                         txtfechafinal.Focus();
+                        limpiarCamposFechas();
                     }
                }
 
@@ -228,6 +231,7 @@ namespace RRHH.UI
                     mensaje.Visible = false;
                     textomensajeError.InnerHtml = "Cantidad de dias incorrecta";
                     txtfechafinal.Focus();
+                    limpiarCamposFechas();
                 }
 
 
