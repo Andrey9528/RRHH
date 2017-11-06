@@ -15,6 +15,8 @@ namespace RRHH.UI
         {
             Gv_datos.DataSource = Singleton.opdepartamento.ListarDepartamentos();
             Gv_datos.DataBind();
+            txtnombre.Enabled = false;
+            txtcorreojefe.Enabled = false;
            
             if (!IsPostBack)
             {
@@ -33,6 +35,8 @@ namespace RRHH.UI
                 var depa = lista.FirstOrDefault(x => x.Nombre == DDLdepa.Text);
                 if (depa != null)
                 {
+                    txtnombre.Enabled = true;
+                    txtcorreojefe.Enabled = true;
                     lblActivo.Visible = true;
                     Chk_estado.Visible = true;
                     Chk_estado.Enabled = true;

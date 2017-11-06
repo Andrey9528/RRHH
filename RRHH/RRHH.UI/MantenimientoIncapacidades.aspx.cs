@@ -14,7 +14,38 @@ namespace RRHH.UI
         public static Incapacidad Inca = new Incapacidad();
         protected void Page_Load(object sender, EventArgs e)
         {
+            DeshabilitarCampos();
+        }
 
+
+
+        public void DeshabilitarCampos()
+        {
+            txtfechainicio.Enabled = false;
+            txtfechaemision.Enabled = false;
+            DDLid_incapacidad.Enabled = false;
+            txtfechafinalizacion.Enabled = false;
+            txtdescripcion.Enabled = false;
+            Chk_estado.Enabled = false;
+            txtdoctor.Enabled = false;
+            txtcentroemisor.Enabled = false;
+            btnModificar.Enabled = false;
+            btnBuscarIncapacidad.Enabled = false;
+            DDLtipoenfermedad.Enabled = false;
+            
+        }
+        public void habilitarCampos()
+        {
+            txtfechainicio.Enabled = true;
+            txtfechaemision.Enabled = true;
+            DDLtipoenfermedad.Enabled = true;
+            txtfechafinalizacion.Enabled = true;
+            txtdescripcion.Enabled = true;
+            Chk_estado.Enabled = true;
+            txtdoctor.Enabled = true;
+            txtcentroemisor.Enabled = true;
+            btnModificar.Enabled = true;
+            
         }
 
         protected void btnsBuscar_Click(object sender, EventArgs e)
@@ -43,8 +74,10 @@ namespace RRHH.UI
 
                 if (Inca != null)
                 {
-                    //
-                    grVacaciones.DataSource = Singleton.opIncapacidad.ListarIncapacidades().Where(x=> x.Cedula == txtcedula.Text);
+                   btnBuscarIncapacidad.Enabled = true;
+                        DDLid_incapacidad.Enabled = true;
+                        //
+                        grVacaciones.DataSource = Singleton.opIncapacidad.ListarIncapacidades().Where(x=> x.Cedula == txtcedula.Text);
                     grVacaciones.DataBind();
                     mantenimientoInca.Visible = true;
                     //DDLid_incapacidad.DataSource = Singleton.opIncapacidad.ListarIncapacidades().Select(x => x.IdIncapacidad);
@@ -197,6 +230,7 @@ namespace RRHH.UI
                             Estado = true,
                             NombreDoctor = txtdoctor.Text,
                             CantidadDias = dias,
+                            NombreEmpleado = lista.NombreEmpleado
                         };
                         Singleton.opIncapacidad.ActualizarIncapacidad(inca);
                         Singleton.opaudi.InsertarAuditoriasAdmin(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, false, false, false, false, false, true, false, false, false, false, false, false, false);
@@ -229,6 +263,8 @@ namespace RRHH.UI
                             Estado = false,
                             NombreDoctor = txtdoctor.Text,
                             CantidadDias = dias,
+                            NombreEmpleado=lista.NombreEmpleado
+                            
                         };
                         Singleton.opIncapacidad.ActualizarIncapacidad(inca);
                         Singleton.opaudi.InsertarAuditoriasAdmin(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, false, false, false, false, false, true, false, false, false, false, false, false, false);
@@ -269,6 +305,7 @@ namespace RRHH.UI
                 var lista = listaIncapacidades.FirstOrDefault(x => x.IdIncapacidad == Convert.ToInt32(DDLid_incapacidad.Text));
                 if (lista != null)
                 {
+                    habilitarCampos();
                     txtfechainicio.Text = lista.Fecha_Inicio.ToString();
                     txtfechafinalizacion.Text = lista.Fecha_finalizacion.ToString();
                     DDLtipoenfermedad.SelectedValue = lista.TipoIncapacidad;
@@ -292,7 +329,7 @@ namespace RRHH.UI
             catch (Exception)
             {
 
-                throw;
+                
             }
         }
         public void limpiar()

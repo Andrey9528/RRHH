@@ -194,7 +194,7 @@
         
             <asp:DropDownList ID="DDLtipoenfermedad" CssClass="form-control" runat="server">
                 <asp:ListItem>Enfermedad</asp:ListItem>
-                <asp:ListItem>Maternidad</asp:ListItem>
+                <asp:ListItem>Accidente </asp:ListItem>
                 <asp:ListItem Selected="True">Sin establecer</asp:ListItem>
             </asp:DropDownList> 
 

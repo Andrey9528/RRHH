@@ -16,6 +16,8 @@ namespace RRHH.UI
         {
             Gv_datos.DataSource = Singleton.opsolicitud.Listarsolicitudes();
             Gv_datos.DataBind();
+            txtfechafinal.Enabled = false;
+            txtfechaincio.Enabled = false;
             if (!IsPostBack)
             {
                 DDLidsoli.DataSource = Singleton.opsolicitud.Listarsolicitudes().Select(x => x.IdSolicitud).ToList();
@@ -32,7 +34,8 @@ namespace RRHH.UI
             if (vaca != null)
             {
 
-
+                txtfechafinal.Enabled = true;
+                txtfechaincio.Enabled = true;
                 txtfechaincio.Text = vaca.FechaInicio.ToString();
                 txtfechafinal.Text = vaca.FechaFinal.ToString();
                 mensajeError.Visible = false;
@@ -77,6 +80,7 @@ namespace RRHH.UI
                         Cedula = vaca.Cedula,
                         TotalDias = dias,
                         Condicion = vaca.Condicion,
+                        NombreEmpleado=vaca.NombreEmpleado
                     };
                     Singleton.opsolicitud.ActualizarSolicitud(vacaciones);
                     Singleton.opaudi.InsertarAuditoriasAdmin(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, false, false, false, false, false, false, true, false, false, false, false, false, false);

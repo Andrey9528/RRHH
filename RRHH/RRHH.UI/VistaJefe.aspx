@@ -456,7 +456,7 @@ body {font-family: Verdana, sans-serif;}
          <div class="container">
   
  
-  <div class="modal fade" id="vaca" role="dialog">
+  <div class="modal fade" data-keyboard="false" data-backdrop="static" id="vaca" role="dialog">
        
     <div class="modal-dialog modal-sm">
        
@@ -483,9 +483,8 @@ body {font-family: Verdana, sans-serif;}
         <div class="modal-footer">
             
           <asp:Button ID="btnvaca" runat="server" Text="Insertar" CssClass="btn btn-success" OnClick="btnvaca_Click"  />
-            
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-        
+            <asp:Button ID="btnCerrarPopupVaca" OnClick="btnCerrarPopupVaca_Click" CssClass="btn btn-danger" runat="server" Text="Cerrar" /> 
+         
         </div>
       </div>
     </div>

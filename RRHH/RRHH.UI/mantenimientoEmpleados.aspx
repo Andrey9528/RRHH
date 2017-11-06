@@ -109,14 +109,10 @@
 
                 <asp:Label ID="Label8"     runat="server" Text="Departamento"></asp:Label>
      
-  <%-- <asp:DropDownList ID="ddlDepartamento" enabled="false" ReadOnly="true" Width="280" class = "form-control" runat="server">
-       <asp:ListItem>Programacion</asp:ListItem>
-       <asp:ListItem>Vacunas</asp:ListItem>
-       <asp:ListItem>Medicamentos</asp:ListItem>
-       <asp:ListItem></asp:ListItem>
-        </asp:DropDownList>--%>
-                   <asp:TextBox ID="txtDepartamento" Enabled="false" CssClass="form-control" ReadOnly="true" runat="server"></asp:TextBox>
-   
+   <asp:DropDownList ID="ddlDepartamento"  class = "form-control" runat="server">
+       
+        </asp:DropDownList>
+                   
    
 
     

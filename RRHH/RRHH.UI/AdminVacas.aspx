@@ -33,6 +33,10 @@
              <strong id="textomensajeinfo" runat="server"></strong>
         </div>
 </div>   
+
+
+    <h1 style="text-align:center; font-family:cursive;">Mantenimiento de Vacaciones</h1>
+    <br />
      <div class="container col-sm-offset-1">
     <div class="form-inline">
    

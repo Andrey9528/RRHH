@@ -415,5 +415,10 @@ namespace RRHH.UI
             txtfechadeincio.Text = string.Empty;
             txtfechafinal.Text = string.Empty;
         }
+
+        protected void CerrarPopupVaca_Click(object sender, EventArgs e)
+        {
+            limpiarCamposFechas();
+        }
     }
 }

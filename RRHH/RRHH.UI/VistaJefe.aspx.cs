@@ -372,5 +372,10 @@ namespace RRHH.UI
             }
 
         }
+
+        protected void btnCerrarPopupVaca_Click(object sender, EventArgs e)
+        {
+            limpiarCamposFechas();
+        }
     }
 }
