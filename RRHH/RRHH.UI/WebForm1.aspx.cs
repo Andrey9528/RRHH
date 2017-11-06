@@ -16,6 +16,7 @@ namespace RRHH.UI
         public static int dias;
         public static string nombrearchivo;
         public static int count;
+       public static bool estado; // desmadre
         //public static int DiasIncapacidadEnVacaciones;
         public static int IdSolicitudVacaciones; 
         List<DateTime> fechas = new List<DateTime>(); 
@@ -78,27 +79,28 @@ namespace RRHH.UI
             try
             {
                 //bool estado = true;
-                var listaId = Singleton.opsolicitud.Listarsolicitudes().Where(x => x.Cedula == Login.EmpleadoGlobal.Cedula && x.Condicion == true).ToList();
-               
+                var listaId = Singleton.opsolicitud.Listarsolicitudes().Where(x => x.Cedula == Login.EmpleadoGlobal.Cedula).ToList();
+                if (listaId.Count == 0)
+                {
+                    return false;
+                }
+                else
+                {
                     foreach (var IdSolicitud in listaId)
                     {
 
                         if (Convert.ToDateTime(fechainicio) >= Convert.ToDateTime(IdSolicitud.FechaInicio) && Convert.ToDateTime(fechainicio) <= Convert.ToDateTime(IdSolicitud.FechaFinal)
                             || Convert.ToDateTime(fechafinal) >= Convert.ToDateTime(IdSolicitud.FechaInicio) && Convert.ToDateTime(fechafinal) <= Convert.ToDateTime(IdSolicitud.FechaFinal))
                         {
-                        //estado = true;
-                        return  true;
+                            estado = true;     
                         }
                         else
                         {
-                        //estado = false;
-                        return false;
+                            estado = false;
                         }
                     }
-                //return estado;
-                return false;
-                
-                
+                    return estado;
+                }  
             }
             catch (Exception)
             {
@@ -108,7 +110,7 @@ namespace RRHH.UI
                 mensaje.Visible = false;
                 textomensajeError.InnerHtml = "Ha ocurrido un error";
             }
-            return false;
+            return estado; 
         }
 
         public static int DiasRestantes(DateTime startDate, DateTime endDate, Boolean excludeWeekends, List<DateTime> excludeDates)
@@ -142,7 +144,17 @@ namespace RRHH.UI
         {
             try
             {
-                if (ValidacionDias(txtfechafinal.Text, txtfechadeincio.Text))
+                if (string.IsNullOrEmpty(txtfechadeincio.Text) || string.IsNullOrEmpty(txtfechafinal.Text))
+                {
+
+                    mensaje.Visible = false;
+                    mensajeError.Visible = true;
+                    mensajeinfo.Visible = false;
+                    textomensajeError.InnerHtml = "Debes ingresar un rango de fechas";
+                    txtfechafinal.Text = string.Empty;
+                    txtfechadeincio.Text = string.Empty;
+                }
+                else if (ValidacionDias(txtfechafinal.Text, txtfechadeincio.Text))
                 {
                     if (Login.EmpleadoGlobal.DiasVacaciones >= dias)
                     {
@@ -170,7 +182,7 @@ namespace RRHH.UI
                                 FechaFinal = Convert.ToDateTime(txtfechafinal.Text),
                                 FechaInicio = Convert.ToDateTime(txtfechadeincio.Text),
                                 Cedula = Login.EmpleadoGlobal.Cedula,
-                                TotalDias = count + 1,
+                                TotalDias = count,
                                 Condicion = null,
                                 NombreEmpleado = Login.EmpleadoGlobal.Nombre
 
@@ -245,7 +257,11 @@ namespace RRHH.UI
             }
             catch (Exception)
             {
-                throw;  
+                mensajawarning.Visible = false;
+                mensajeinfo.Visible = false;
+                mensaje.Visible = false;
+                mensajeError.Visible = true;
+                textomensajeError.InnerHtml = "Hubo un error";
             }
         }
 
@@ -262,14 +278,15 @@ namespace RRHH.UI
                     btnConfirmarEmpleado.Enabled = false;
                     ClientScript.RegisterStartupScript(GetType(), "Modal", "popup();", true);
                 }
-                else
-                {
-
-                }
+              
             }
             catch (Exception)
             {
-                
+                mensajawarning.Visible = false;
+                mensajeinfo.Visible = false;
+                mensaje.Visible = false;
+                mensajeError.Visible = true;
+                textomensajeError.InnerHtml = "Hubo un error";
             }
         }
 
@@ -322,8 +339,12 @@ namespace RRHH.UI
             }
             catch (Exception)
             {
+                mensajawarning.Visible = false;
+                mensajeinfo.Visible = false;
+                mensaje.Visible = false;
+                mensajeError.Visible = true;
+                textomensajeError.InnerHtml = "Hubo un error";
 
-                
             }
 
         }
@@ -353,45 +374,60 @@ namespace RRHH.UI
                 dias = Convert.ToInt32(diferencia.TotalDays);
                 if (dias >= 1)
                 {
-                    return true;
+                    estado = true;
                 }
                 else
                 {
-                    return false;
+                    estado = false;
                 }
             }
             catch (Exception)
             {
-                throw;
+                mensajawarning.Visible = false;
+                mensajeinfo.Visible = false;
+                mensaje.Visible = false;
+                mensajeError.Visible = true;
+                textomensajeError.InnerHtml = "Hubo un error";
             }
+            return estado;
         }
 
         public bool VacacionesIncapacitado(DateTime fechaFinal, DateTime fechadeInicio) // desmadre
         {
+           
             try
             {
-                 //bool estado = true;
+                
                 var ListaIncapacidades = Singleton.opIncapacidad.ListarIncapacidades().Where(x => x.Cedula == Login.EmpleadoGlobal.Cedula).ToList();
-            foreach (var item in ListaIncapacidades)
-            {
-                if (DateTime.Today == Convert.ToDateTime(item.Fecha_Inicio) || DateTime.Today <= Convert.ToDateTime(item.Fecha_finalizacion))      
+                if (ListaIncapacidades.Count == 0)
                 {
-                        //estado = true;
-                        return true;
+                    return false;
                 }
                 else
                 {
-                        //esstado = false;
-                        return false;
+                    foreach (var item in ListaIncapacidades)
+                    {
+                        if (DateTime.Today == Convert.ToDateTime(item.Fecha_Inicio) || DateTime.Today <= Convert.ToDateTime(item.Fecha_finalizacion))
+                        {
+                            estado = true;
+                        }
+                        else
+                        {
+                            estado = false;
+                        }
+                    }
                 }
-            }
-                //return estado;
-                return false;
+            
             }
             catch (Exception)
             {
-                throw;
-            }    
+                mensajawarning.Visible = false;
+                mensajeinfo.Visible = false;
+                mensaje.Visible = false;
+                mensajeError.Visible = true;
+                textomensajeError.InnerHtml = "Hubo un error";
+            }
+            return estado;  
         } // desmadre
 
         protected void LbSesion_Click(object sender, EventArgs e)
