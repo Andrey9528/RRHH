@@ -152,8 +152,8 @@
                 <asp:BoundField  DataField = "Nombre" runat="server" HeaderText = "Nombre" />
                 <asp:BoundField  DataField = "EmailjefeDpto" runat="server" HeaderText = "Email" />
                 <asp:BoundField  DataField = "NombreJefe" runat="server" HeaderText = "Jefe" />
-                <asp:BoundField  DataField = "Estado" runat="server" HeaderText = "Estado" />
-           
+               <%-- <asp:BoundField  DataField = "Estado" runat="server" HeaderText = "Estado" />
+           --%>
                   </Columns>
 
         </asp:GridView>

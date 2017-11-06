@@ -126,6 +126,7 @@ namespace RRHH.UI
                         FechaFinal = soli2.FechaFinal,
                         TotalDias = soli2.TotalDias,
                         Condicion = true,
+                        NombreEmpleado=soli2.NombreEmpleado
                     };
                     Singleton.opsolicitud.ActualizarSolicitud(soli);
 
@@ -209,7 +210,9 @@ namespace RRHH.UI
                         FechaInicio = soli2.FechaInicio,
                         FechaFinal = soli2.FechaFinal,
                         TotalDias = soli2.TotalDias,
-                        Condicion = false
+                        Condicion = false,
+                        NombreEmpleado=soli2.NombreEmpleado
+                        
                     };
                     Singleton.opsolicitud.ActualizarSolicitud(soli);
                     mensaje.Visible = false;

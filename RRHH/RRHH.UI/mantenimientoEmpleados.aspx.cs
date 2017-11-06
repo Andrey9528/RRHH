@@ -17,8 +17,8 @@ namespace RRHH.UI
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            
+
+            ddlRol.Enabled = false;
            
         }
 
@@ -52,7 +52,9 @@ namespace RRHH.UI
                 var fecha = emple.FechaNacimiento.ToString();
                 if (emple != null)
                 {
-                   
+                    ddlDepartamento.DataSource = Singleton.opdepartamento.ListarDepartamentos().Select(x => x.Nombre).ToList();
+                    ddlDepartamento.DataBind();
+                    ddlRol.Enabled = true;
                     txtNombre.Text = emple.Nombre;
                     txtDireccion.Text = emple.Direccion;
                     txtTelefono.Text = emple.Telefono;
@@ -69,7 +71,8 @@ namespace RRHH.UI
                     //DDLgenero.SelectedValue = emple.Genero;
                     //txtRol.Text = rol;
                     ddlRol.Text = rol;
-                    txtDepartamento.Text = depar;
+                    
+                    ddlDepartamento.Text = depar;
                     txtGenero.Text = emple.Genero;
                     Chk_bloqueado.Checked = (bool)emple.Bloqueado;
                     //ddlRol.DataSource = depar.ToList() ;
@@ -114,7 +117,7 @@ namespace RRHH.UI
             {
                 // DepartamentoGlobal = Singleton.opdepartamento.BuscarDepartamentosPorNombre(ddlDepartamento.Text);
                 //DepartamentoGlobal = Singleton.opdepartamento.BuscarDepartamentosPorNombre(ddlDepartamento.Text);
-                DepartamentoGlobal = Singleton.opdepartamento.BuscarDepartamentosPorNombre(txtDepartamento.Text);
+                DepartamentoGlobal = Singleton.opdepartamento.BuscarDepartamentosPorNombre(ddlDepartamento.Text);
 
                 var IdDepartamento = DepartamentoGlobal.IdDepartamento.ToString();
                 EmpleadoGlobal = Singleton.OpEmpleados.BuscarEmpleados(txtcedula.Text); // DESMADRE DE MARCOS
