@@ -15,6 +15,7 @@ namespace RRHH.UI
     {
         public static int dias;
         public static int count;
+        public static bool estado;
         public static int IdSolicitudVacaciones;
         List<DateTime> fechas = new List<DateTime>();
         public static Empleado EmpleadoGlobal = new Empleado();
@@ -374,7 +375,17 @@ namespace RRHH.UI
         {
             try
             {
-                if (ValidacionDias(txtfechafinal.Text, txtfechadeincio.Text))
+                if (string.IsNullOrEmpty(txtfechadeincio.Text) || string.IsNullOrEmpty(txtfechafinal.Text))
+                {
+
+                    mensaje.Visible = false;
+                    mensajeError.Visible = true;
+                    mensajeinfo.Visible = false;
+                    textoMensajeError.InnerHtml = "Debes ingresar un rango de fechas";
+                    txtfechafinal.Text = string.Empty;
+                    txtfechadeincio.Text = string.Empty;
+                }
+                else if (ValidacionDias(txtfechafinal.Text, txtfechadeincio.Text))
                 {
                     if (Login.EmpleadoGlobal.DiasVacaciones >= dias)
                     {
@@ -383,12 +394,22 @@ namespace RRHH.UI
                             mensajeinfo.Visible = false;
                             mensajeError.Visible = true;
                             mensaje.Visible = false;
-                             textoMensajeError.InnerHtml = "Ya existe una solitud previa para el rango de fechas seleccionado";
+                            textoMensajeError.InnerHtml = "Ya existe una solitud previa para el rango de fechas seleccionado";
+                            limpiarCamposFechas();
+                        }
+                        else if (VacacionesIncapacitado(Convert.ToDateTime(txtfechafinal.Text), Convert.ToDateTime(txtfechadeincio.Text)))
+                        {
+                            mensajeinfo.Visible = false;
+                            mensajeError.Visible = true;
+                            mensaje.Visible = false;
+                            textoMensajeError.InnerHtml = "El usuario actual se encuentra incapacitado, la solicitud no puede completarse";
+                            limpiarCamposFechas();
                         }
                         else
                         {
                             fechas = Singleton.OpFeriados.ListarFeriados().Select(x => x.Fecha).ToList();
-                            DiasRestantes(Convert.ToDateTime(txtfechadeincio.Text), Convert.ToDateTime(txtfechafinal.Text), true, fechas); // desmadre
+                            DiasRestantes(Convert.ToDateTime(txtfechadeincio.Text), Convert.ToDateTime(txtfechafinal.Text), true, fechas);
+                            //IncapacidadEnVacaciones(Convert.ToDateTime(txtfechadeincio.Text), Convert.ToDateTime(txtfechafinal.Text)); // desmadre
                             var vacaciones = new SolicitudVacaciones()
                             {
                                 FechaFinal = Convert.ToDateTime(txtfechafinal.Text),
@@ -396,29 +417,20 @@ namespace RRHH.UI
                                 Cedula = Login.EmpleadoGlobal.Cedula,
                                 TotalDias = count,
                                 Condicion = null,
-                                NombreEmpleado=Login.EmpleadoGlobal.Nombre
+                                NombreEmpleado = Login.EmpleadoGlobal.Nombre
 
                             };
 
                             Singleton.opsolicitud.InsertarSolicitud(vacaciones);
                             IdSolicitudVacaciones = Singleton.opsolicitud.Listarsolicitudes().Where(x => x.Cedula == Login.EmpleadoGlobal.Cedula).Select(x => x.IdSolicitud).LastOrDefault();
-                           
+                            Singleton.opAudiEmple.InsertarAuditoriasEmpleado(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, false, false, false, true, false, false, false, false, false, false);
 
                             mensaje.Visible = true;
                             mensajeError.Visible = false;
                             mensajeinfo.Visible = false;
                             mensajawarning.Visible = false;
-
-                            //TimeSpan diferencia = Convert.ToDateTime(txtfechafinal.Text) - Convert.ToDateTime(txtfechadeincio.Text);
-                            //var dias = diferencia.TotalDays;
-                            //txttotaldias.Text = dias.ToString();
                             textoMensaje.InnerHtml = "Solicitud generada";
                             limpiarCamposFechas();
-                            //string mail = Singleton.opNotificacion.CorreoJefe(Login.EmpleadoGlobal.Cedula).Select(x => x.EmailJefeDpto).ToString();
-                            //bueno   
-                            //string mail = Singleton.opdepartamento.BuscarDepartamentos(Login.EmpleadoGlobal.IdDepartamento).EmailJefeDpto.ToString();
-                            //Email.Notificacion("dollars.chat.room@hotmail.com", "fidelitasw2", mail, "Nueva solicitud de vacaciones", "se ha recibido una nueva solicitud de vacaciones de parte del empleado\nNombre:" + Login.EmpleadoGlobal.Nombre + "\nUsuario:" + Login.EmpleadoGlobal.Correo);
-                            //termina bueno
 
                             ThreadStart delegado = new ThreadStart(EnvioCorreo);
                             Thread hilo = new Thread(delegado);
@@ -438,6 +450,7 @@ namespace RRHH.UI
                         mensaje.Visible = false;
                         textoMensajeError.InnerHtml = "La cantidad de dias solicitados excede la cantidad de dias disponibles";
                         txtfechafinal.Focus();
+                        limpiarCamposFechas();
                     }
                 }
 
@@ -449,6 +462,7 @@ namespace RRHH.UI
                     mensaje.Visible = false;
                     textoMensajeError.InnerHtml = "Cantidad de dias incorrecta";
                     txtfechafinal.Focus();
+                    limpiarCamposFechas();
                 }
 
 
@@ -464,7 +478,6 @@ namespace RRHH.UI
                 mensajeError.Visible = true;
                 textoMensajeError.InnerHtml = "Hubo un error";
             }
-
 
         }
 
@@ -509,5 +522,47 @@ namespace RRHH.UI
         //        throw;
         //    }
         //}
+
+        public bool VacacionesIncapacitado(DateTime fechaFinal, DateTime fechadeInicio) // desmadre
+        {
+
+            try
+            {
+
+                var ListaIncapacidades = Singleton.opIncapacidad.ListarIncapacidades().Where(x => x.Cedula == Login.EmpleadoGlobal.Cedula).ToList();
+                if (ListaIncapacidades.Count == 0)
+                {
+                    return false;
+                }
+                else
+                {
+                    foreach (var item in ListaIncapacidades)
+                    {
+                        if (DateTime.Today == Convert.ToDateTime(item.Fecha_Inicio) || DateTime.Today <= Convert.ToDateTime(item.Fecha_finalizacion))
+                        {
+                            estado = true;
+                        }
+                        else
+                        {
+                            estado = false;
+                        }
+                    }
+                }
+
+            }
+            catch (Exception)
+            {
+                mensajawarning.Visible = false;
+                mensajeinfo.Visible = false;
+                mensaje.Visible = false;
+                mensajeError.Visible = true;
+                textoMensajeError.InnerHtml = "Hubo un error";
+            }
+            return estado;
+        } // desmadre
+
     }
+
+
+
 }
