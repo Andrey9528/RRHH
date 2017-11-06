@@ -8,7 +8,7 @@ using RRHH.DATA;
 
 namespace RRHH.UI
 {
-    public partial class insertarIncapacidad : System.Web.UI.Page
+    public partial class insertarIncapacidad :  System.Web.UI.Page
     {
         public static int dias;
         List<DateTime> fechas = new List<DateTime>(); //desmadre
