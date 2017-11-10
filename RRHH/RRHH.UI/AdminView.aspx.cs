@@ -30,7 +30,7 @@ namespace RRHH.UI
 
                     lblnombre.Text = "Nombre: " + Login.EmpleadoGlobal.Nombre;
                     lblCedula.Text = "Cédula:" + Login.EmpleadoGlobal.Cedula;
-                    lblDirreccion.Text = "Dirreccion:" + Login.EmpleadoGlobal.Direccion;
+                    lblDirreccion.Text = "Direccion:" + Login.EmpleadoGlobal.Direccion;
                     lblTelefono.Text = "Telefono: " + Login.EmpleadoGlobal.Telefono;
                     lblCorreo.Text = "Correo: " + Login.EmpleadoGlobal.Correo;
                     lblestadocivil.Text = "Estado Civil: " + Login.EmpleadoGlobal.EstadoCivil;

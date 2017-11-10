@@ -117,8 +117,8 @@
 
         
          <asp:FileUpload ID="fileUpload1" accept="image/*" runat="server" />
-        <input type="button" id="btnnAdjuntar" runat="server" value="adjuntar" class="btn btn-success" onclick="adjuntarImagen()" /> 
-       
+        <%--<input type="button" id="btnnAdjuntar" runat="server" value="adjuntar" class="btn btn-success" onclick="adjuntarImagen()" /> 
+       --%>
        
         </div>
           <script>
