@@ -13,7 +13,29 @@ namespace RRHH.UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            CargarPerfil();
+
+            try
+            {
+                
+                string correo = Session["emple"].ToString();
+                correo = Login.EmpleadoGlobal.Correo;
+                if (correo != null)
+                {
+
+
+                    CargarPerfil();
+                }
+                else
+                {
+                Response.Redirect("Login.aspx?men=1");
+                }
+            }
+            catch
+            {
+                Response.Redirect("Login.aspx?men=1");
+            }
+           
+           
 
           
         }
@@ -63,8 +85,9 @@ namespace RRHH.UI
                var IdRol = RolGlobal.IdRol.ToString();
                 //string nombreArchivo = Path.GetFileName(fileUpload1.FileName);
                 //fileUpload1.SaveAs(Server.MapPath("~/Empleados/" + nombreArchivo));
+                var img = fileUpload1.FileName;
 
-                if (Login.EmpleadoGlobal.Imagen!=imgEmple.ImageUrl)
+                if (fileUpload1.HasFile)
                 {
                     string nombrearchivo = Path.GetFileName(fileUpload1.FileName);
                     fileUpload1.SaveAs(Server.MapPath("~/Empleados/" + nombrearchivo));
@@ -88,21 +111,66 @@ namespace RRHH.UI
                         Password = Login.EmpleadoGlobal.Password,
                         IntentosFallidos = 0,
                         DiasVacaciones = Login.EmpleadoGlobal.DiasVacaciones,
-                        
+
                         DiasAntesCaducidad = Login.EmpleadoGlobal.DiasAntesCaducidad,
                         ContraseñaCaducada = Login.EmpleadoGlobal.ContraseñaCaducada,
                     };
-                    Singleton.OpEmpleados.ActualizarEmpleados(emple);
-                    Singleton.opAudiEmple.InsertarAuditoriasEmpleado(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, true, false, false, false, false, false, false, false, false, false);
-                    Empleadosmantenimiento.Visible = false;
-                    mensajeinfo.Visible = false;
-                    mensaje.Visible = true;
-                    mensajeError.Visible = false;
-                    mensajawarning.Visible = false;
-                    textoMensaje.InnerHtml = "Los datos han sido actualizados";
+                    if (Login.EmpleadoGlobal.IdRol == 1)
+                    {
+                        Singleton.OpEmpleados.ActualizarEmpleados(emple);
+                        ActualizarEmpeladoGlobal();
+                        Singleton.opAudiEmple.InsertarAuditoriasEmpleado(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, true, false, false, false, false, false, false, false, false, false);
+
+                        Empleadosmantenimiento.Visible = false;
+                        formularioImg.Visible = false;
+                        Botones.Visible = true;
+                        mensajeinfo.Visible = false;
+                        mensaje.Visible = true;
+                        mensajeError.Visible = false;
+                        mensajawarning.Visible = false;
+                        textoMensaje.InnerHtml = "Los datos han sido actualizados correctamente";
+
+                    }
+                    else if (Login.EmpleadoGlobal.IdRol == 2)
+                    {
+                        Singleton.OpEmpleados.ActualizarEmpleados(emple);
+                        ActualizarEmpeladoGlobal();
+                        Singleton.opAudiJefe.InsertarAuditoriasJefe(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, true, false, false, false, false, false, false, false, false, false);
+
+
+                        Empleadosmantenimiento.Visible = false;
+                        formularioImg.Visible = false;
+                        Botones.Visible = true;
+                        mensajeinfo.Visible = false;
+                        mensaje.Visible = true;
+                        mensajeError.Visible = false;
+                        mensajawarning.Visible = false;
+                        textoMensaje.InnerHtml = "Los datos han sido actualizados correctamente";
+
+                    }
+                    else
+                    {
+                        Singleton.OpEmpleados.ActualizarEmpleados(emple);
+                        ActualizarEmpeladoGlobal();
+                        Singleton.opaudi.InsertarAuditoriasAdmin(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, false, false, true, false, false, false, false, false, false, false, false, false, false);
+
+
+                        Empleadosmantenimiento.Visible = false;
+                        formularioImg.Visible = false;
+                        Botones.Visible = true;
+                        mensajeinfo.Visible = false;
+                        mensaje.Visible = true;
+                        mensajeError.Visible = false;
+                        mensajawarning.Visible = false;
+                        textoMensaje.InnerHtml = "Los datos han sido actualizados correctamente";
+
+                    }
                 }
-                else 
+
+
+                else
                 {
+
                     Empleado emple2 = new Empleado()
                     {
                         Cedula = Login.EmpleadoGlobal.Cedula,
@@ -120,8 +188,8 @@ namespace RRHH.UI
                         Genero = DDLgenero.Text.ToString(),
                         Password = Login.EmpleadoGlobal.Password,
                         IntentosFallidos = 0,
-                        DiasVacaciones= Login.EmpleadoGlobal.DiasVacaciones,
-                      
+                        DiasVacaciones = Login.EmpleadoGlobal.DiasVacaciones,
+
                         DiasAntesCaducidad = Login.EmpleadoGlobal.DiasAntesCaducidad,
                         ContraseñaCaducada = Login.EmpleadoGlobal.ContraseñaCaducada,
                     };
@@ -175,9 +243,9 @@ namespace RRHH.UI
                         textoMensaje.InnerHtml = "Los datos han sido actualizados correctamente";
 
                     }
-                }
-
-               
+                }    
+                   
+                    
             }
             catch (Exception)
             {
@@ -215,7 +283,7 @@ namespace RRHH.UI
             catch (Exception)
             {
 
-                throw;
+                
             }
         }
     }
