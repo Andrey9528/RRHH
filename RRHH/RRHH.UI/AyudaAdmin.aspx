@@ -45,8 +45,10 @@ video {
       <div class="panel panel-primary">
         <div class="panel-heading">Ver perfil y modificar</div>
         <div class="panel-body">
-            <video width="400" controls="controls"><source src="Videos/Admin/PerfilAdmin.mp4" type="video/mp4"/></video>
-
+           <div class="video-container"> 
+              <iframe width="230"  src="https://www.youtube.com/embed/xQkkOssVd1A" frameborder="0" gesture="media" allowfullscreen></iframe>
+           
+           </div>
         </div>
         <div class="panel-footer"><asp:Button ID="btnReportar"  OnClick="btnReportar_Click" CssClass="btn btn-link" runat="server" Text="Descargar tutorial" /> </div>
       </div>
@@ -55,8 +57,8 @@ video {
       <div class="panel panel-primary">
         <div class="panel-heading">Cambio de Contraseña</div>
         <div class="panel-body">
-          <video width="400" controls="controls"><source src="Videos/Admin/CambioContraseñaAdmin.mp4" type="video/mp4"/></video>
-    
+        <div class="video-container">  <iframe width="230"  src="https://www.youtube.com/embed/LZ_NLKKrV4c" frameborder="0" gesture="media" allowfullscreen></iframe>
+        </div>
         </div>
         <div class="panel-footer">
             <asp:LinkButton ID="LKB_Reporte" runat="server">Descargar Tutorial</asp:LinkButton></div>
@@ -67,8 +69,9 @@ video {
         <div class="panel-heading">Mantenimiento de vacaciones</div>
         <div class="panel-body">
             
-          <video width="400" controls="controls"><source  src="Videos/Admin/VacacionesAdmin.mp4" type="video/mp4"/></video>
-
+<div class="video-container"> 
+             <iframe width="230"  src="https://www.youtube.com/embed/4rpfZS2ciIg" frameborder="0" gesture="media" allowfullscreen></iframe>
+    </div>
         </div>
         <div class="panel-footer"><asp:LinkButton ID="LKB_Reporte2" runat="server">Descargar Tutorial</asp:LinkButton></div>
       </div>
@@ -82,8 +85,9 @@ video {
       <div class="panel panel-primary">
         <div class="panel-heading">Mantenimiento de incapacidades</div>
         <div class="panel-body">
-          <video width="400" controls="controls"><source src="Videos/Admin/IncapacidadesAdmin.mp4" type="video/mp4"/></video>
-    
+        <div class="video-container">
+             <iframe width="230" src="https://www.youtube.com/embed/fQRv83gR5jU" frameborder="0" gesture="media" allowfullscreen></iframe>
+        </div>
         </div>
         <div class="panel-footer"><asp:LinkButton ID="LKB_Reporte3" runat="server">Descarga Tutorial </asp:LinkButton></div></div>
     </div>
@@ -91,9 +95,9 @@ video {
       <div class="panel panel-primary">
         <div class="panel-heading">Mantenimiento de  departamentos</div>
         <div class="panel-body">
-          <video width="400" controls="controls"><source src="Videos/Admin/DepartamentoAdmin.mp4" type="video/mp4"/></video>
-    
-        </div>
+        <div class="video-container"><iframe width="230" src="https://www.youtube.com/embed/iaG2QPdoT3Q" frameborder="0" gesture="media" allowfullscreen></iframe>
+       </div>
+             </div>
         <div class="panel-footer"><asp:LinkButton ID="LKB_Reporte4" runat="server">Descarga Tutorial</asp:LinkButton></div>
       </div>
     </div>
@@ -101,8 +105,9 @@ video {
       <div class="panel panel-primary">
         <div class="panel-heading">Auditorias</div>
         <div class="panel-body">
-          <video width="400" controls="controls"><source src="Videos/Admin/Auditoria.mp4" type="video/mp4"/></video>
-    
+         <div class="video-container">
+             <iframe width="230" src="https://www.youtube.com/embed/4nNX9kHZRFw" frameborder="0" gesture="media" allowfullscreen></iframe>
+         </div>
         </div>
         <div class="panel-footer"><asp:LinkButton ID="LKB_Reporte5" runat="server">Descarga Tutorial</asp:LinkButton></div>
       </div>
@@ -112,8 +117,9 @@ video {
       <div class="panel panel-primary">
         <div class="panel-heading">Mantenimiento de empleados</div>
         <div class="panel-body">
-          <video width="400" controls="controls"><source src="Videos/Admin/EmpleadosAdmin.mp4" type="video/mp4"/></video>
-    
+          <div class="video-container">
+              <iframe width="230" src="https://www.youtube.com/embed/UknD3AwodKU" frameborder="0" gesture="media" allowfullscreen></iframe>
+          </div>
         </div>
         <div class="panel-footer"><asp:LinkButton ID="LinkButton1" runat="server">Descarga Tutorial</asp:LinkButton></div>
       </div>
@@ -122,8 +128,9 @@ video {
       <div class="panel panel-primary">
         <div class="panel-heading">Registro de empleados</div>
         <div class="panel-body">
-          <video width="400" controls="controls"><source src="Videos/Admin/EmpleadosAdmin.mp4" type="video/mp4"/></video>
-    
+          <div class="video-container">
+              <iframe width="230"  src="https://www.youtube.com/embed/UknD3AwodKU" frameborder="0" gesture="media" allowfullscreen></iframe>
+          </div>
         </div>
         <div class="panel-footer"><asp:LinkButton ID="LinkButton2" runat="server">Descarga Tutorial</asp:LinkButton></div>
       </div>
@@ -132,8 +139,9 @@ video {
       <div class="panel panel-primary">
         <div class="panel-heading">Vista General</div>
         <div class="panel-body">
-          <video width="400" controls="controls"><source src="Videos/Admin/GeneralAdmin.mp4" type="video/mp4"/></video>
-    
+         <div class="video-container">
+             <iframe width="230" src="https://www.youtube.com/embed/6xcWyY6YjYc" frameborder="0" gesture="media" allowfullscreen></iframe>
+         </div>
         </div>
         <div class="panel-footer"><asp:LinkButton ID="LinkButton3" runat="server">Descarga Tutorial</asp:LinkButton></div>
       </div>
@@ -145,5 +153,22 @@ video {
        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Button CssClass="btn btn-primary" ID="btnRegresar" OnClick="btnRegresar_Click"  runat="server" Text="Regresar" />
 
     </form>
+     <style>
+        .video-container {
+	position:relative;
+	padding-bottom:56.25%;
+	padding-top:30px;
+	height:0;
+	overflow:hidden;
+}
+
+.video-container iframe, .video-container object, .video-container embed {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+}
+    </style>
 </body>
 </html>
