@@ -12,6 +12,24 @@
 
 </head>
 <body>
+
+    <style>
+        .video-container {
+	position:relative;
+	padding-bottom:56.25%;
+	padding-top:30px;
+	height:0;
+	overflow:hidden;
+}
+
+.video-container iframe, .video-container object, .video-container embed {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+}
+    </style>
     <style>
 video {
     width: 100%;
@@ -41,8 +59,9 @@ video {
       <div class="panel panel-primary">
         <div class="panel-heading">Ver perfil y modificar</div>
         <div class="panel-body">
-            <video width="400" controls="controls"><source src="Videos/Jefe/PerfilJefe.mp4" type="video/mp4"/></video>
-
+           <div class="video-container">
+               <iframe width="230" src="https://www.youtube.com/embed/TBZ12TpsHaU" frameborder="0" gesture="media" allowfullscreen></iframe>
+           </div>
         </div>
         <div class="panel-footer"><asp:Button ID="btnReportar"  OnClick="btnReportar_Click" CssClass="btn btn-link" runat="server" Text="Descargar tutorial" /> </div>
       </div>
@@ -51,8 +70,9 @@ video {
       <div class="panel panel-primary">
         <div class="panel-heading">Cambio de Contraseña</div>
         <div class="panel-body">
-          <video width="400" controls="controls"><source src="Videos/Jefe/CambioContraseñaJefe.mp4" type="video/mp4"/></video>
-    
+         <div class="video-container">
+             <iframe width="230" src="https://www.youtube.com/embed/e-aaJcam64E" frameborder="0" gesture="media" allowfullscreen></iframe>
+         </div>
         </div>
         <div class="panel-footer">
             <asp:LinkButton ID="LKB_Reporte" runat="server">Descargar Tutorial</asp:LinkButton></div>
@@ -63,8 +83,9 @@ video {
         <div class="panel-heading">Gestión de Vacaciones</div>
         <div class="panel-body">
             
-          <video width="400" controls="controls"><source  src="Videos/Jefe/AproVacaciones.mp4" type="video/mp4"/></video>
-
+        <div class="video-container">
+            <iframe width="230" src="https://www.youtube.com/embed/gW_of6SQHAc" frameborder="0" gesture="media" allowfullscreen></iframe>
+        </div>       
         </div>
         <div class="panel-footer"><asp:LinkButton ID="LKB_Reporte2" runat="server">Descargar Tutorial</asp:LinkButton></div>
       </div>
@@ -78,8 +99,9 @@ video {
       <div class="panel panel-primary">
         <div class="panel-heading">Lista de empleados</div>
         <div class="panel-body">
-          <video width="400" controls="controls"><source src="Videos/Jefe/JefeListarEmpleados.mp4" type="video/mp4"/></video>
-    
+         <div class="video-container">
+             <iframe width="230" src="https://www.youtube.com/embed/A_g2JmuCW7k" frameborder="0" gesture="media" allowfullscreen></iframe>
+         </div>
         </div>
         <div class="panel-footer"><asp:LinkButton ID="LKB_Reporte3" runat="server">Descarga Tutorial </asp:LinkButton></div></div>
     </div>
@@ -87,8 +109,9 @@ video {
       <div class="panel panel-primary">
         <div class="panel-heading">Lista de Incapacidades</div>
         <div class="panel-body">
-          <video width="400" controls="controls"><source src="Videos/Jefe/VacacionesJefe.mp4" type="video/mp4"/></video>
-    
+          <div class="video-container">
+              <iframe width="230" src="https://www.youtube.com/embed/0H43Uis8leE" frameborder="0" gesture="media" allowfullscreen></iframe>
+          </div>
         </div>
         <div class="panel-footer"><asp:LinkButton ID="LKB_Reporte4" runat="server">Descarga Tutorial</asp:LinkButton></div>
       </div>
@@ -97,8 +120,9 @@ video {
       <div class="panel panel-primary">
         <div class="panel-heading">Vista General</div>
         <div class="panel-body">
-          <video width="400" controls="controls"><source src="Videos/Jefe/JefeGeneral.mp4" type="video/mp4"/></video>
-    
+         <div class=" video-container">
+             <iframe width="230"  src="https://www.youtube.com/embed/3JxNjOc0BXw" frameborder="0" gesture="media" allowfullscreen></iframe>
+         </div>
         </div>
         <div class="panel-footer"><asp:LinkButton ID="LKB_Reporte5" runat="server">Descarga Tutorial</asp:LinkButton></div>
       </div>

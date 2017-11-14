@@ -34,8 +34,8 @@ video {
       <div class="panel panel-primary">
         <div class="panel-heading">Ver perfil y modificar</div>
         <div class="panel-body">
-            <video width="400" controls><source src="Videos/Empleado/Perfil.mp4" type="video/mp4"></video>
-
+           <div class="video-container"><iframe width="230"  src="https://www.youtube.com/embed/Xr3Zp54woI4" frameborder="0" gesture="media" allowfullscreen></iframe>
+               </div>
         </div>
         <div class="panel-footer"><asp:Button ID="btnReportar" OnClick="btnReportar_Click" CssClass="btn btn-link" runat="server" Text="Descargar tutorial" /> </div>
       </div>
@@ -44,9 +44,9 @@ video {
       <div class="panel panel-danger">
         <div class="panel-heading">Gestión de incapacidades</div>
         <div class="panel-body">
-          <video width="400" controls><source src="Videos/Empleado/IncapacidadesEmpleado.mp4" type="video/mp4"></video>
-    
+         <div class="video-container"> <iframe width="230"  src="https://www.youtube.com/embed/68z0i8oejRk" frameborder="0" gesture="media" allowfullscreen></iframe>
         </div>
+         </div>
         <div class="panel-footer">
             <asp:LinkButton ID="LKB_Reporte" runat="server">Descargar Tutorial</asp:LinkButton></div>
       </div>
@@ -56,12 +56,14 @@ video {
         <div class="panel-heading">Gestión de Vacaciones</div>
         <div class="panel-body">
             
-          <video width="400" controls><source  src="Videos/Empleado/VacacionesEmpleado.mp4" type="video/mp4"></video>
-
+          <div class="video-container"><iframe width="230" src="https://www.youtube.com/embed/wlqKvR6fbHs" frameborder="0" gesture="media" allowfullscreen></iframe>
         </div>
+          </div>
         <div class="panel-footer"><asp:LinkButton ID="LKB_Reporte2" runat="server">Descargar Tutorial</asp:LinkButton></div>
       </div>
     </div>
+
+     
   </div>
 </div><br>
 
@@ -71,8 +73,10 @@ video {
       <div class="panel panel-primary">
         <div class="panel-heading">Cambio de contraseña</div>
         <div class="panel-body">
-          <video width="400" controls><source src="Videos/Empleado/CambioContrase_a.mp4" type="video/mp4"></video>
-    
+          <div class="video-container">  <iframe width="230"  src="https://www.youtube.com/embed/wd0QNhPys68" frameborder="0" gesture="media" allowfullscreen></iframe>
+
+        </div>
+          
         </div>
         <div class="panel-footer"><asp:LinkButton ID="LKB_Reporte3" runat="server">Descarga Tutorial </asp:LinkButton></div></div>
     </div>
@@ -90,15 +94,41 @@ video {
       <div class="panel panel-primary">
         <div class="panel-heading">Vista General</div>
         <div class="panel-body">
-          <video width="400" controls><source src="Videos/Empleado/EmpleadoGeneral.mp4" type="video/mp4"></video>
-    
+        <div class="video-container"> <iframe width="230" src="https://www.youtube.com/embed/nFgXzZGOqQY" frameborder="0" gesture="media" allowfullscreen></iframe>
+        </div>
         </div>
         <div class="panel-footer"><asp:LinkButton ID="LKB_Reporte5" runat="server">Descarga Tutorial</asp:LinkButton></div>
       </div>
     </div>
+
+        
+
+
+
+       
+
+       
   </div>
 </div>
     &nbsp;&nbsp;&nbsp;<asp:Button ID="btnRegresar" CssClass="btn btn-primary" OnClick="btnRegresar_Click" runat="server" Text="Regresar" />
      
 
+
+    <style>
+        .video-container {
+	position:relative;
+	padding-bottom:56.25%;
+	padding-top:30px;
+	height:0;
+	overflow:hidden;
+}
+
+.video-container iframe, .video-container object, .video-container embed {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+}
+    </style>
 </asp:Content>
