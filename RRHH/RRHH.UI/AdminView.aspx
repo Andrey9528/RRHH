@@ -298,7 +298,7 @@
        
         </li>
            <li>
-               <a href="Login.aspx"><span class="glyphicon glyphicon-log-out"></span></a>
+               <a href="#"><span class="glyphicon glyphicon-log-out"></span></a>
 
            </li>
       

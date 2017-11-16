@@ -376,20 +376,30 @@ namespace RRHH.UI
         }
         private void EnvioCorreo()
         {
-            using (SmtpClient cliente = new SmtpClient("smtp.live.com", 25))
+            try
             {
-                cliente.EnableSsl = true;
-                cliente.Credentials = new NetworkCredential("soporte.biblioteca@hotmail.com", "soporte123.");
-                MailMessage msj = new MailMessage("soporte.biblioteca@hotmail.com", txtemail.Text, "Restauración de contraseña", "Has recibido una nueva contraseña:  " + contrasena + ":" + "Para tu usuario: " + txtemail.Text);
-                cliente.Send(msj);
 
-                mensajeinfo.Visible = true;
-                mensajeError.Visible = false;
-                mensaje.Visible = false;
-                textomensajeinfo.InnerHtml = "Correo enviado";
+                using (SmtpClient cliente = new SmtpClient("smtp.live.com", 25))
+                {
+                    cliente.EnableSsl = true;
+                    cliente.Credentials = new NetworkCredential("soporte.biblioteca@hotmail.com", "soporte123.");
+                    MailMessage msj = new MailMessage("soporte.biblioteca@hotmail.com", txtemail.Text, "Restauración de contraseña", "Has recibido una nueva contraseña:  " + contrasena + ":" + "Para tu usuario: " + txtemail.Text);
+                    cliente.Send(msj);
 
+                    mensajeinfo.Visible = true;
+                    mensajeError.Visible = false;
+                    mensaje.Visible = false;
+                    textomensajeinfo.InnerHtml = "Correo enviado";
+
+
+                }
+            }
+            catch
+            {
 
             }
+            
+                        
         }
         private void CodigoPin()
         {

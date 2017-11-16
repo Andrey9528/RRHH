@@ -48,7 +48,7 @@ video {
         </div>
          </div>
         <div class="panel-footer">
-            <asp:LinkButton ID="LKB_Reporte" runat="server">Descargar Tutorial</asp:LinkButton></div>
+            <asp:LinkButton ID="LKB_ReporteInca" OnClick="LKB_ReporteInca_Click" runat="server">Descargar Tutorial</asp:LinkButton></div>
       </div>
     </div>
     <div class="col-sm-4"> 
@@ -59,7 +59,7 @@ video {
           <div class="video-container"><iframe width="230" src="https://www.youtube.com/embed/wlqKvR6fbHs" frameborder="0" gesture="media" allowfullscreen></iframe>
         </div>
           </div>
-        <div class="panel-footer"><asp:LinkButton ID="LKB_Reporte2" runat="server">Descargar Tutorial</asp:LinkButton></div>
+        <div class="panel-footer"><asp:LinkButton ID="LKB_ReporteVaca" OnClick="LKB_ReporteVaca_Click" runat="server">Descargar Tutorial</asp:LinkButton></div>
       </div>
     </div>
 
@@ -78,16 +78,17 @@ video {
         </div>
           
         </div>
-        <div class="panel-footer"><asp:LinkButton ID="LKB_Reporte3" runat="server">Descarga Tutorial </asp:LinkButton></div></div>
+        <div class="panel-footer"><asp:LinkButton ID="LKB_ReporteContrasena" OnClick="LKB_ReporteContrasena_Click" runat="server">Descarga Tutorial </asp:LinkButton></div></div>
     </div>
     <div class="col-sm-4"> 
       <div class="panel panel-primary">
         <div class="panel-heading">Olvidé Contraseña</div>
         <div class="panel-body">
-          <video width="400" controls><source src="Videos/RegistroIncapacidadEditado.mp4" type="video/mp4"></video>
-    
+            <div class="video-container">
+        <iframe width="230"src="https://www.youtube.com/embed/xRQfR1xiUtM" frameborder="0" gesture="media" allowfullscreen></iframe>
         </div>
-        <div class="panel-footer"><asp:LinkButton ID="LKB_Reporte4" runat="server">Descarga Tutorial</asp:LinkButton></div>
+            </div>
+        <div class="panel-footer"><asp:LinkButton ID="LKB_ReporteOlvideContrasena" OnClick="LKB_ReporteOlvideContrasena_Click" runat="server">Descarga Tutorial</asp:LinkButton></div>
       </div>
     </div>
     <div class="col-sm-4"> 

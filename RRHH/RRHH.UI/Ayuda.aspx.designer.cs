@@ -22,40 +22,40 @@ namespace RRHH.UI {
         protected global::System.Web.UI.WebControls.Button btnReportar;
         
         /// <summary>
-        /// LKB_Reporte control.
+        /// LKB_ReporteInca control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LKB_Reporte;
+        protected global::System.Web.UI.WebControls.LinkButton LKB_ReporteInca;
         
         /// <summary>
-        /// LKB_Reporte2 control.
+        /// LKB_ReporteVaca control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LKB_Reporte2;
+        protected global::System.Web.UI.WebControls.LinkButton LKB_ReporteVaca;
         
         /// <summary>
-        /// LKB_Reporte3 control.
+        /// LKB_ReporteContrasena control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LKB_Reporte3;
+        protected global::System.Web.UI.WebControls.LinkButton LKB_ReporteContrasena;
         
         /// <summary>
-        /// LKB_Reporte4 control.
+        /// LKB_ReporteOlvideContrasena control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LKB_Reporte4;
+        protected global::System.Web.UI.WebControls.LinkButton LKB_ReporteOlvideContrasena;
         
         /// <summary>
         /// LKB_Reporte5 control.
