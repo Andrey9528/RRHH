@@ -16,10 +16,14 @@ namespace RRHH.UI
 
         protected void btnReportar_Click(object sender, EventArgs e)
         {
-            Response.ContentType = "Application/pdf";
-            Response.AppendHeader("Content-Disposition", "attachment; filename=help.pdf");
-            Response.TransmitFile(Server.MapPath("~/TutorialesPDF/Seashore piano technic.pdf"));
-            Response.End();
+            try
+            {
+                Response.ContentType = "Application/pdf";
+                Response.AppendHeader("Content-Disposition", "attachment; filename=help.pdf");
+                Response.TransmitFile(Server.MapPath("~/TutorialesPDF/Empleado/VerPerfilyModificar.pdf"));
+                Response.End();
+            }
+            catch { }
         }
 
         protected void btnRegresar_Click(object sender, EventArgs e)
@@ -27,6 +31,55 @@ namespace RRHH.UI
             Session["ROL"] = Login.EmpleadoGlobal.IdRol;
 
             Response.Redirect("WebForm1.aspx?ROL=" + Login.EmpleadoGlobal.IdRol);
+        }
+
+        protected void LKB_ReporteInca_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.ContentType = "Application/pdf";
+                Response.AppendHeader("Content-Disposition", "attachment; filename=help.pdf");
+                Response.TransmitFile(Server.MapPath("~/TutorialesPDF/Empleado/GestionDeIncapacidades.pdf"));
+                Response.End();
+            }
+            catch { }
+        }
+
+        protected void LKB_ReporteVaca_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.ContentType = "Application/pdf";
+                Response.AppendHeader("Content-Disposition", "attachment; filename=help.pdf");
+                Response.TransmitFile(Server.MapPath("~/TutorialesPDF/Empleado/GestionDeVacaciones.pdf"));
+                Response.End();
+            }
+            catch { }
+        }
+
+        protected void LKB_ReporteContrasena_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.ContentType = "Application/pdf";
+                Response.AppendHeader("Content-Disposition", "attachment; filename=help.pdf");
+                Response.TransmitFile(Server.MapPath("~/TutorialesPDF/Empleado/CambioContraseña.pdf"));
+                Response.End();
+            }
+            catch { }
+        }
+
+        protected void LKB_ReporteOlvideContrasena_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.ContentType = "Application/pdf";
+                Response.AppendHeader("Content-Disposition", "attachment; filename=help.pdf");
+                Response.TransmitFile(Server.MapPath("~/TutorialesPDF/Empleado/OlvideContraseña.pdf"));
+                Response.End();
+            }
+            catch { }
+
         }
     }
 }

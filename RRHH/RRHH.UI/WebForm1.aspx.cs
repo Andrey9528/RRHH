@@ -298,7 +298,12 @@ namespace RRHH.UI
         {
             try
             {
-                if (txtNuevaContraseña.Text == txtNuevaContraseñaConfirmar.Text)
+                if (Encriptacion.Decriptar(Login.EmpleadoGlobal.Password ,Encriptacion.Llave)==txtNuevaContraseña.Text)
+                {
+                    this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Las contraseñas no puede ser igual')", true);
+                }
+
+              else  if (txtNuevaContraseña.Text == txtNuevaContraseñaConfirmar.Text)
                 {
                     if (PasswordPolicy.FormatoContraseña(txtNuevaContraseña.Text))
 
@@ -320,13 +325,14 @@ namespace RRHH.UI
                             Estado = true,
                             DiasAntesCaducidad = 90,
                             ContraseñaCaducada = false,
-                            DiasVacaciones=Login.EmpleadoGlobal.DiasVacaciones
+                            DiasVacaciones = Login.EmpleadoGlobal.DiasVacaciones
                         };
                         Singleton.OpEmpleados.ActualizarEmpleados(empleado);
                         //this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('La contraseña ha sido modificada, por favor vuelve a iniciar sesión')", true);
                         Singleton.opAudiEmple.InsertarAuditoriasEmpleado(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, false, false, false, false, false, false, true, false, false, false);
 
                         Response.Redirect("Login.aspx");
+                        Session.Remove("emple");
                     }
                     else
                     {
@@ -336,9 +342,10 @@ namespace RRHH.UI
 
                     }
                 }
+                
                 else
                 {
-                   this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Las contraseñas no son iguales')", true);
+                    this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Las contraseñas no son iguales')", true);
                 }
             }
             catch (Exception)

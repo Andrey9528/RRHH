@@ -118,7 +118,7 @@
   
       <ul class="nav navbar-nav navbar-right">
          <li>
-               <a style="color:white;" href="Login.aspx"><span style="color:white;" class="glyphicon glyphicon-log-out "></span> Salir</a>
+               <a style="color:white;" href="#"><span style="color:white;" class="glyphicon glyphicon-log-out "></span> Salir</a>
            </li>
       </ul>
     </div>

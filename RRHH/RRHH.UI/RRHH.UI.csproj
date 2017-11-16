@@ -285,27 +285,6 @@
     <Content Include="ListarEmpleados.aspx" />
     <Content Include="ListarDepartamentos.aspx" />
     <Content Include="ModificarDatosVistaEmpleado.aspx" />
-    <Content Include="Videos\Admin\Auditoria.mp4" />
-    <Content Include="Videos\Admin\CambioContraseñaAdmin.mp4" />
-    <Content Include="Videos\Admin\DepartamentoAdmin.mp4" />
-    <Content Include="Videos\Admin\EmpleadosAdmin.mp4" />
-    <Content Include="Videos\Admin\GeneralAdmin.mp4" />
-    <Content Include="Videos\Admin\IncapacidadesAdmin.mp4" />
-    <Content Include="Videos\Admin\PerfilAdmin.mp4" />
-    <Content Include="Videos\Admin\VacacionesAdmin.mp4" />
-    <Content Include="Videos\Empleado\CambioContrase_a.mp4" />
-    <Content Include="Videos\Empleado\EmpleadoGeneral.mp4" />
-    <Content Include="Videos\Empleado\IncapacidadesEmpleado.mp4" />
-    <Content Include="Videos\Empleado\Perfil.mp4" />
-    <Content Include="Videos\Empleado\VacacionesEmpleado.mp4" />
-    <Content Include="Videos\Jefe\AproVacaciones.mp4" />
-    <Content Include="Videos\Jefe\CambioContraseñaJefe.mp4" />
-    <Content Include="Videos\Jefe\JefeGeneral.mp4" />
-    <Content Include="Videos\Jefe\JefeListarEmpleados.mp4" />
-    <Content Include="Videos\Jefe\PerfilJefe.mp4" />
-    <Content Include="Videos\Jefe\VacacionesJefe.mp4" />
-    <Content Include="Videos\mov_bbb.mp4" />
-    <Content Include="Videos\RegistroIncapacidadEditado.mp4" />
     <Content Include="VistaJefe.aspx" />
     <Content Include="WebForm1.aspx" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -360,7 +339,11 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Site.Mobile.Master" />
-    <Content Include="TutorialesPDF\Seashore piano technic.pdf" />
+    <Content Include="TutorialesPDF\Empleado\VerPerfilyModificar.pdf" />
+    <Content Include="TutorialesPDF\Empleado\CambioContraseña.pdf" />
+    <Content Include="TutorialesPDF\Empleado\GestionDeIncapacidades.pdf" />
+    <Content Include="TutorialesPDF\Empleado\GestionDeVacaciones.pdf" />
+    <Content Include="TutorialesPDF\Empleado\OlvideContraseña.pdf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
