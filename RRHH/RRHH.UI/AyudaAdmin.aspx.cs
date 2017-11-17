@@ -24,10 +24,87 @@ namespace RRHH.UI
 
         protected void btnReportar_Click(object sender, EventArgs e)
         {
-            Response.ContentType = "Application/pdf";
-            Response.AppendHeader("Content-Disposition", "attachment; filename=help.pdf");
-            Response.TransmitFile(Server.MapPath("~/TutorialesPDF/Seashore piano technic.pdf"));
-            Response.End();
+            try
+            {
+                Response.ContentType = "Application/pdf";
+                Response.AppendHeader("Content-Disposition", "attachment; filename=help.pdf");
+                Response.TransmitFile(Server.MapPath("~/TutorialesPDF/Admin/VerPerfilModificarAdmin.pdf"));
+                Response.End();
+            }
+            catch { }
+        }
+
+        protected void LKB_ReporteCambioContraseña_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.ContentType = "Application/pdf";
+                Response.AppendHeader("Content-Disposition", "attachment; filename=help.pdf");
+                Response.TransmitFile(Server.MapPath("~/TutorialesPDF/Admin/CambioContraseña.pdf"));
+                Response.End();
+            }
+            catch { }
+        }
+
+        protected void LKB_ReporteVaca_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.ContentType = "Application/pdf";
+                Response.AppendHeader("Content-Disposition", "attachment; filename=help.pdf");
+                Response.TransmitFile(Server.MapPath("~/TutorialesPDF/Admin/MantenimeintoVaca.pdf"));
+                Response.End();
+            }
+            catch { }
+        }
+
+        protected void LKB_ReporteInca_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.ContentType = "Application/pdf";
+                Response.AppendHeader("Content-Disposition", "attachment; filename=help.pdf");
+                Response.TransmitFile(Server.MapPath("~/TutorialesPDF/Admin/MantenimientoVaca.pdf"));
+                Response.End();
+            }
+            catch { }
+        }
+
+        protected void LKB_ReporteDepa_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.ContentType = "Application/pdf";
+                Response.AppendHeader("Content-Disposition", "attachment; filename=help.pdf");
+                Response.TransmitFile(Server.MapPath("~/TutorialesPDF/Admin/MantenimientoDepa.pdf"));
+                Response.End();
+            }
+            catch { }
+        }
+
+        protected void ReportemanteimientoEmple_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.ContentType = "Application/pdf";
+                Response.AppendHeader("Content-Disposition", "attachment; filename=help.pdf");
+                Response.TransmitFile(Server.MapPath("~/TutorialesPDF/Admin/MantenimientoEmple.pdf"));
+                Response.End();
+            }
+            catch { }
+            }
+
+
+        protected void LinkRegistroEmple_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.ContentType = "Application/pdf";
+                Response.AppendHeader("Content-Disposition", "attachment; filename=help.pdf");
+                Response.TransmitFile(Server.MapPath("~/TutorialesPDF/Admin/MantenimientoEmple.pdf"));
+                Response.End();
+            }
+            catch { }
         }
     }
 }

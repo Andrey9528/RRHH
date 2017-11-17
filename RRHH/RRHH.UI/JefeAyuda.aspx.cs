@@ -26,8 +26,65 @@ namespace RRHH.UI
         {
             Response.ContentType = "Application/pdf";
             Response.AppendHeader("Content-Disposition", "attachment; filename=help.pdf");
-            Response.TransmitFile(Server.MapPath("~/TutorialesPDF/Seashore piano technic.pdf"));
+            Response.TransmitFile(Server.MapPath("~/TutorialesPDF/Jefe/VerPerfilModificar.pdf"));
             Response.End();
+        }
+
+        protected void LKB_ReporteCambioContraseña_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.ContentType = "Application/pdf";
+                Response.AppendHeader("Content-Disposition", "attachment; filename=help.pdf");
+                Response.TransmitFile(Server.MapPath("~/TutorialesPDF/Jefe/CambioContraseña.pdf"));
+                Response.End();
+            }
+            catch
+            {
+            }
+        }
+
+        protected void GestionVaca_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.ContentType = "Application/pdf";
+                Response.AppendHeader("Content-Disposition", "attachment; filename=help.pdf");
+                Response.TransmitFile(Server.MapPath("~/TutorialesPDF/Jefe/AceptarDenegarVaca.pdf"));
+                Response.End();
+            }
+            catch
+            {
+            }
+        }
+
+        protected void ReportelistaEmple_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.ContentType = "Application/pdf";
+                Response.AppendHeader("Content-Disposition", "attachment; filename=help.pdf");
+                Response.TransmitFile(Server.MapPath("~/TutorialesPDF/Jefe/ListaEmpleados.pdf"));
+                Response.End();
+
+            } catch
+            {
+            }
+        }
+
+        protected void ReporteInca_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.ContentType = "Application/pdf";
+                Response.AppendHeader("Content-Disposition", "attachment; filename=help.pdf");
+                Response.TransmitFile(Server.MapPath("~/TutorialesPDF/Jefe/ListaEmpleados.pdf"));
+                Response.End();
+
+            }
+            catch
+            {
+            }
         }
     }
 }

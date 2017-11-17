@@ -75,7 +75,7 @@ video {
          </div>
         </div>
         <div class="panel-footer">
-            <asp:LinkButton ID="LKB_Reporte" runat="server">Descargar Tutorial</asp:LinkButton></div>
+            <asp:LinkButton ID="LKB_ReporteCambioContraseña" OnClick="LKB_ReporteCambioContraseña_Click" runat="server">Descargar Tutorial</asp:LinkButton></div>
       </div>
     </div>
     <div class="col-sm-4"> 
@@ -87,7 +87,7 @@ video {
             <iframe width="230" src="https://www.youtube.com/embed/gW_of6SQHAc" frameborder="0" gesture="media" allowfullscreen></iframe>
         </div>       
         </div>
-        <div class="panel-footer"><asp:LinkButton ID="LKB_Reporte2" runat="server">Descargar Tutorial</asp:LinkButton></div>
+        <div class="panel-footer"><asp:LinkButton ID="GestionVaca" OnClick="GestionVaca_Click" runat="server">Descargar Tutorial</asp:LinkButton></div>
       </div>
     </div>
   </div>
@@ -103,7 +103,7 @@ video {
              <iframe width="230" src="https://www.youtube.com/embed/A_g2JmuCW7k" frameborder="0" gesture="media" allowfullscreen></iframe>
          </div>
         </div>
-        <div class="panel-footer"><asp:LinkButton ID="LKB_Reporte3" runat="server">Descarga Tutorial </asp:LinkButton></div></div>
+        <div class="panel-footer"><asp:LinkButton ID="ReportelistaEmple" OnClick="ReportelistaEmple_Click" runat="server">Descarga Tutorial </asp:LinkButton></div></div>
     </div>
     <div class="col-sm-4"> 
       <div class="panel panel-primary">
@@ -113,7 +113,7 @@ video {
               <iframe width="230" src="https://www.youtube.com/embed/0H43Uis8leE" frameborder="0" gesture="media" allowfullscreen></iframe>
           </div>
         </div>
-        <div class="panel-footer"><asp:LinkButton ID="LKB_Reporte4" runat="server">Descarga Tutorial</asp:LinkButton></div>
+        <div class="panel-footer"><asp:LinkButton ID="ReporteInca" OnClick="ReporteInca_Click" runat="server">Descarga Tutorial</asp:LinkButton></div>
       </div>
     </div>
     <div class="col-sm-4"> 

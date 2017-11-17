@@ -31,40 +31,40 @@ namespace RRHH.UI {
         protected global::System.Web.UI.WebControls.Button btnReportar;
         
         /// <summary>
-        /// LKB_Reporte control.
+        /// LKB_ReporteCambioContraseña control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LKB_Reporte;
+        protected global::System.Web.UI.WebControls.LinkButton LKB_ReporteCambioContraseña;
         
         /// <summary>
-        /// LKB_Reporte2 control.
+        /// GestionVaca control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LKB_Reporte2;
+        protected global::System.Web.UI.WebControls.LinkButton GestionVaca;
         
         /// <summary>
-        /// LKB_Reporte3 control.
+        /// ReportelistaEmple control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LKB_Reporte3;
+        protected global::System.Web.UI.WebControls.LinkButton ReportelistaEmple;
         
         /// <summary>
-        /// LKB_Reporte4 control.
+        /// ReporteInca control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LKB_Reporte4;
+        protected global::System.Web.UI.WebControls.LinkButton ReporteInca;
         
         /// <summary>
         /// LKB_Reporte5 control.
