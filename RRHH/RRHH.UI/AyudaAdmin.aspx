@@ -61,7 +61,7 @@ video {
         </div>
         </div>
         <div class="panel-footer">
-            <asp:LinkButton ID="LKB_Reporte" runat="server">Descargar Tutorial</asp:LinkButton></div>
+            <asp:LinkButton ID="LKB_ReporteCambioContraseña"  OnClick="LKB_ReporteCambioContraseña_Click" runat="server">Descargar Tutorial</asp:LinkButton></div>
       </div>
     </div>
     <div class="col-sm-4"> 
@@ -73,7 +73,7 @@ video {
              <iframe width="230"  src="https://www.youtube.com/embed/4rpfZS2ciIg" frameborder="0" gesture="media" allowfullscreen></iframe>
     </div>
         </div>
-        <div class="panel-footer"><asp:LinkButton ID="LKB_Reporte2" runat="server">Descargar Tutorial</asp:LinkButton></div>
+        <div class="panel-footer"><asp:LinkButton ID="LKB_ReporteVaca" OnClick="LKB_ReporteVaca_Click" runat="server">Descargar Tutorial</asp:LinkButton></div>
       </div>
     </div>
   </div>
@@ -89,7 +89,7 @@ video {
              <iframe width="230" src="https://www.youtube.com/embed/fQRv83gR5jU" frameborder="0" gesture="media" allowfullscreen></iframe>
         </div>
         </div>
-        <div class="panel-footer"><asp:LinkButton ID="LKB_Reporte3" runat="server">Descarga Tutorial </asp:LinkButton></div></div>
+        <div class="panel-footer"><asp:LinkButton  ID="LKB_ReporteInca" OnClick="LKB_ReporteInca_Click" runat="server">Descarga Tutorial </asp:LinkButton></div></div>
     </div>
     <div class="col-sm-4"> 
       <div class="panel panel-primary">
@@ -98,7 +98,7 @@ video {
         <div class="video-container"><iframe width="230" src="https://www.youtube.com/embed/iaG2QPdoT3Q" frameborder="0" gesture="media" allowfullscreen></iframe>
        </div>
              </div>
-        <div class="panel-footer"><asp:LinkButton ID="LKB_Reporte4" runat="server">Descarga Tutorial</asp:LinkButton></div>
+        <div class="panel-footer"><asp:LinkButton ID="LKB_ReporteDepa" OnClick="LKB_ReporteDepa_Click" runat="server">Descarga Tutorial</asp:LinkButton></div>
       </div>
     </div>
     <div class="col-sm-4"> 
@@ -109,7 +109,7 @@ video {
              <iframe width="230" src="https://www.youtube.com/embed/4nNX9kHZRFw" frameborder="0" gesture="media" allowfullscreen></iframe>
          </div>
         </div>
-        <div class="panel-footer"><asp:LinkButton ID="LKB_Reporte5" runat="server">Descarga Tutorial</asp:LinkButton></div>
+        <div class="panel-footer"><asp:LinkButton ID="LKB_Reporte" runat="server">Descarga Tutorial</asp:LinkButton></div>
       </div>
     </div>
 
@@ -121,7 +121,7 @@ video {
               <iframe width="230" src="https://www.youtube.com/embed/UknD3AwodKU" frameborder="0" gesture="media" allowfullscreen></iframe>
           </div>
         </div>
-        <div class="panel-footer"><asp:LinkButton ID="LinkButton1" runat="server">Descarga Tutorial</asp:LinkButton></div>
+        <div class="panel-footer"><asp:LinkButton ID="ReportemanteimientoEmple"  OnClick="ReportemanteimientoEmple_Click" runat="server">Descarga Tutorial</asp:LinkButton></div>
       </div>
     </div>
        <div class="col-sm-4"> 
@@ -132,7 +132,7 @@ video {
               <iframe width="230"  src="https://www.youtube.com/embed/UknD3AwodKU" frameborder="0" gesture="media" allowfullscreen></iframe>
           </div>
         </div>
-        <div class="panel-footer"><asp:LinkButton ID="LinkButton2" runat="server">Descarga Tutorial</asp:LinkButton></div>
+        <div class="panel-footer"><asp:LinkButton  ID="LinkRegistroEmple" OnClick="LinkRegistroEmple_Click" runat="server">Descarga Tutorial</asp:LinkButton></div>
       </div>
     </div>
        <div class="col-sm-4"> 
@@ -143,7 +143,7 @@ video {
              <iframe width="230" src="https://www.youtube.com/embed/6xcWyY6YjYc" frameborder="0" gesture="media" allowfullscreen></iframe>
          </div>
         </div>
-        <div class="panel-footer"><asp:LinkButton ID="LinkButton3" runat="server">Descarga Tutorial</asp:LinkButton></div>
+        <div class="panel-footer"><asp:LinkButton ID="LinkButton3" runat="server"></asp:LinkButton></div>
       </div>
     </div>
   </div>

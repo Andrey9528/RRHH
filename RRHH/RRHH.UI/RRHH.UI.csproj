@@ -344,6 +344,16 @@
     <Content Include="TutorialesPDF\Empleado\GestionDeIncapacidades.pdf" />
     <Content Include="TutorialesPDF\Empleado\GestionDeVacaciones.pdf" />
     <Content Include="TutorialesPDF\Empleado\OlvideContraseña.pdf" />
+    <Content Include="TutorialesPDF\Admin\CambioContraseña.pdf" />
+    <Content Include="TutorialesPDF\Admin\MantenimientoDepa.pdf" />
+    <Content Include="TutorialesPDF\Admin\MantenimientoInca.pdf" />
+    <Content Include="TutorialesPDF\Admin\MantenimientoVaca.pdf" />
+    <Content Include="TutorialesPDF\Admin\VerPerfilModificarAdmin.pdf" />
+    <Content Include="TutorialesPDF\Jefe\AceptarDenegarVaca.pdf" />
+    <Content Include="TutorialesPDF\Jefe\CambioContraseña.pdf" />
+    <Content Include="TutorialesPDF\Jefe\ListaEmpleados.pdf" />
+    <Content Include="TutorialesPDF\Jefe\VerPerfilModificar.pdf" />
+    <Content Include="TutorialesPDF\Admin\MantenimientoEmple.pdf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
