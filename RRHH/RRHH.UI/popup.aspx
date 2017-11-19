@@ -12,8 +12,7 @@
 
 <br />
    
-    <img style="margin-top:-70px;" src="Images/WhatsApp Image 2017-09-04 at 8.05.30 AM.jpeg"  width="200" />
-    
+     <img style="margin-top:-30px;" src="Images/WhatsApp Image 2017-09-04 at 8.05.30 AM.jpeg"  width="200" />
     
     
     <hr style="font-size:22px; background-color:blue; "  />
@@ -34,14 +33,15 @@
     </div>
 
     
-   
-      
-           <%-- 
-            <img src="Images/pastillas.png"  style="  width:180px;" />
-  --%>
-       
-  <div class="container  col-sm-8 col-sm-offset-3  " style=" margin-top:0px; " >
-        <div id="loginbox" style="margin-top: 50px; "  class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+     
+    
+     
+    
+         
+              
+
+            <div class="container col-sm-8  col-sm-offset-3"  style="margin-top:20px;"  >
+        <div id="loginbox"   class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
             <div class="panel panel-info" >
                 <div class="panel-heading">
                     <div class="panel-title"  style="font-family:cursive;  text-align:center;" >Sistema de recursos humanos</div>
@@ -62,13 +62,11 @@
                                   </div>
                                   <div style="margin-top:10px;" class="form-group">
                                       <div class="col-sm-12">
-                                          <div class="form-inline" >
-                                              
-                                              <asp:Button ID="btnLogin" runat="server" Text="Login" CssClass="btn btn-primary"  />  
+                                          <asp:Button ID="btnLogin" runat="server" Text="Login" CssClass="btn btn-primary"  />  
                                           
-                                           <asp:Button ID="btnRegistrar" data-target="#olvide" data-toggle="modal"   runat="server" Text="Olvidé contraseña"   CssClass="btn btn-primary"  />  </div>    
+                                           <asp:Button ID="btnRegistrar" data-target="#olvide" data-toggle="modal"   runat="server" Text="Olvidé contraseña"   CssClass="btn btn-primary" />   
                                          
-                                        
+                                        </div>
                                           
                                       </div>
                                      
@@ -86,9 +84,13 @@
                 </div> 
                     
             </div>
-        </div> 
-  
+        
+      
+                 
+       
+<img src="Images/pastillas.png"  class="col-sm-offset-3" style="  margin-top:-300px; width:180px;" />
 
+   
    
    
  <asp:Label ID="lblmensaje" runat="server" ></asp:Label>

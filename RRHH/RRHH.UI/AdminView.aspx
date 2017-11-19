@@ -353,7 +353,7 @@
                                   
                                  <asp:Label ID="Label2" runat="server" Text="Nueva contraseña"></asp:Label>
                                  <asp:TextBox ID="txtNuevaContraseña" Enabled="false" TextMode="Password" CssClass="form-control"  runat="server" placeholder="@Ejemplo123"></asp:TextBox>
-<%--                                 <asp:CheckBox ID="ChkVerContraseña" OnCheckedChanged="ChkVerContraseña_CheckedChanged" runat="server" />--%>
+                                <%--<asp:CheckBox ID="ChkVerContraseña" AutoPostBack="true" OnCheckedChanged="ChkVerContraseña_CheckedChanged" runat="server" />--%>
                                  <asp:Label ID="Label3" runat="server"  Text="Confirmar contraseña"></asp:Label>
                                  <asp:TextBox ID="txtNuevaContraseñaConfirmar" Enabled="false" TextMode="Password" CssClass="form-control" runat="server" placeholder="Confirmar contraseña" ></asp:TextBox>
 <%--                                 <asp:CheckBox ID="ChkVerContraseña2" runat="server" />--%>

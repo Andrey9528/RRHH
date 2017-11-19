@@ -12,7 +12,7 @@
 <br />
    
     <img style="margin-top:-70px;" src="Images/WhatsApp Image 2017-09-04 at 8.05.30 AM.jpeg"  width="200" />
-    <hr style="font-size:22px; margin-left:-34px; width:1237px; height:-1px; background-color:blue; "  />
+    <hr style="font-size:22px; background-color:blue; "  />
 
     
     
@@ -30,10 +30,9 @@
     </div>
 
 
-    <img src="Images/pastillas.png"  style=" margin-left :300px;  margin-top:90px; width:180px;" />
-    
-    <div class="container" style="width:800px; margin-left:300px; margin-top:-300px; " >
-        <div id="loginbox" style="margin-top: 50px; "  class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+   
+    <div class="container col-sm-8  col-sm-offset-3" style="margin-top:20px; " >
+        <div id="loginbox"  class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
             <div class="panel panel-info" >
                 <div class="panel-heading">
                     <div class="panel-title"  style="font-family:cursive;  text-align:center;" >Sistema de recursos humanos</div>
@@ -76,9 +75,13 @@
                 </div> 
                     
             </div>
-        </div>
- <asp:Label ID="lblmensaje" runat="server" ></asp:Label>
-            
+        </div> 
+    
+    
+   <img src="Images/pastillas.png"  class="col-sm-offset-3" style="  margin-top:-300px; width:180px;" />
+ 
+ <div class="col-sm-offset-1"><asp:Label ID="lblmensaje" runat="server" ></asp:Label>
+      </div>      
     <div class="container">
           <div class="row">
               <div class="col-xs-12">
