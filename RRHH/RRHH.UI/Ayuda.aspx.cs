@@ -11,7 +11,16 @@ namespace RRHH.UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
+            try
+            {
+                string correo = Session["emple"].ToString();
+                Session["ROL"] = Login.EmpleadoGlobal.IdRol;
+            }
+            catch
+            {
+                Response.Redirect("Error.aspx");
+            }
         }
 
         protected void btnReportar_Click(object sender, EventArgs e)

@@ -18,33 +18,42 @@ namespace RRHH.UI
         public static int dias;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                lblAprobadas.Visible = false;
-                lblDenegadas.Visible = false;
-                lblPendientes.Visible = false;
-                lblGeneral.Visible = true;
 
-                gvdatos.DataSource = Singleton.opsolicitud.Listarsolicitudes().Where(x => x.Cedula == Login.EmpleadoGlobal.Cedula);
-                gvdatos.DataBind();
-                txtfechafinal.Enabled = false;
-                txtfechainicio.Enabled = false;
-                btnbuscar.Enabled = false;
-                DDLcondicion.Enabled = false;
+            try
+            {
+                
+                if (!IsPostBack)
+                {
+                    lblAprobadas.Visible = false;
+                    lblDenegadas.Visible = false;
+                    lblPendientes.Visible = false;
+                    lblGeneral.Visible = true;
+
+                    gvdatos.DataSource = Singleton.opsolicitud.Listarsolicitudes().Where(x => x.Cedula == Login.EmpleadoGlobal.Cedula);
+                    gvdatos.DataBind();
+                    txtfechafinal.Enabled = false;
+                    txtfechainicio.Enabled = false;
+                    btnbuscar.Enabled = false;
+                    DDLcondicion.Enabled = false;
+                }
+                else
+                {
+                    lblAprobadas.Visible = false;
+                    lblDenegadas.Visible = false;
+                    lblPendientes.Visible = false;
+                    lblGeneral.Visible = true;
+
+                    gvdatos.DataSource = Singleton.opsolicitud.Listarsolicitudes().Where(x => x.Cedula == Login.EmpleadoGlobal.Cedula);
+                    gvdatos.DataBind();
+                    txtfechafinal.Enabled = false;
+                    txtfechainicio.Enabled = false;
+                    btnbuscar.Enabled = true;
+                    DDLcondicion.Enabled = true;
+                }
             }
-            else
+            catch
             {
-                lblAprobadas.Visible = false;
-                lblDenegadas.Visible = false;
-                lblPendientes.Visible = false;
-                lblGeneral.Visible = true;
-
-                gvdatos.DataSource = Singleton.opsolicitud.Listarsolicitudes().Where(x => x.Cedula == Login.EmpleadoGlobal.Cedula);
-                gvdatos.DataBind();
-                txtfechafinal.Enabled = false;
-                txtfechainicio.Enabled = false;
-                btnbuscar.Enabled = true;
-                DDLcondicion.Enabled = true;
+                Response.Redirect("Error.aspx");
             }
         }
         public bool ValidacionDias(DateTime fechaFinal, DateTime fechadeInicio)

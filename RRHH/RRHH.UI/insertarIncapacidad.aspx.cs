@@ -23,11 +23,24 @@ namespace RRHH.UI
         {
             try
             {
+                if (Login.EmpleadoGlobal.IdRol == 1)
+                {
+                    string correo = Session["emple"].ToString();
+                    Session["ROL"] = Login.EmpleadoGlobal.IdRol;
+                }
+                else if (Login.EmpleadoGlobal.IdRol == 2)
+                {
+
+                }
+                else
+                {
+
+                }
 
             }
             catch
             {
-                Response.Redirect("Login.aspx?men=1");
+                Response.Redirect("Error.aspx");
                 
             }
         }
