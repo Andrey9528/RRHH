@@ -24,8 +24,9 @@ namespace RRHH.UI
         {
             try
             {
-                
-                    List<Empleado> listar = Singleton.OpEmpleados.ListarEmpleados();
+                string correoLogin = Session["jefeCorreo"].ToString();
+                Session["ROL"] = Login.EmpleadoGlobal.IdRol;
+                List<Empleado> listar = Singleton.OpEmpleados.ListarEmpleados();
                     var listaEmple = listar.Select(x => new {x.Cedula, x.Nombre, x.Direccion, x.Telefono, x.Correo, x.EstadoCivil, x.Genero, x.FechaNacimiento, x.Estado ,x.Imagen});
                    
                     //gv_datos.DataSource = listaEmple.Where(x => x.Estado == true);
@@ -43,8 +44,7 @@ namespace RRHH.UI
             catch (Exception)
             {
 
-                mensajeError.Visible = true;
-                textoMensajeError.InnerHtml = "Hubo un error";
+                Response.Redirect("Error.aspx");
             }
         }
 

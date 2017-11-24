@@ -83,7 +83,9 @@
             <li><a href="insertarIncapacidad.aspx">Registrar incapacidad</a></li>
            <li><a href="ConsultaIncaJefe.aspx">Consulta de incapacacidad</a></li>
             <li><a  data-target="#cambiojefe" data-toggle="modal"  href="#">Cambio de  contraseña</a></li>
-          <li><a   href="Login.aspx">Cerrar sesión</a></li>
+            <li><asp:LinkButton ID="LinkButton1" OnClick="LKB_AyudaJefe_Click" runat="server">Ayuda</asp:LinkButton></li>
+           <li><asp:LinkButton ID="LinkButton2" OnClick="LKB_JefeSesion_Click" runat="server">Cerrar sesión</asp:LinkButton></li>
+         
           
                </ul>
     </div>

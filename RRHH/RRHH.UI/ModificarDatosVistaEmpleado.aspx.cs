@@ -16,23 +16,33 @@ namespace RRHH.UI
 
             try
             {
-                
-                string correo = Session["emple"].ToString();
-                correo = Login.EmpleadoGlobal.Correo;
-                if (correo != null)
+                if (Login.EmpleadoGlobal.IdRol == 1)
                 {
+                    string correo = Session["emple"].ToString();
+                    correo = Login.EmpleadoGlobal.Correo;
 
+                    CargarPerfil();
+                }
+                else if (Login.EmpleadoGlobal.IdRol == 2)
+                {
+                    string correo = Session["jefeCorreo"].ToString();
+                    correo = Login.EmpleadoGlobal.Correo;
 
                     CargarPerfil();
                 }
                 else
                 {
-                Response.Redirect("Login.aspx?men=1");
+                    string correo = Session["AdminCorreo"].ToString();
+                    correo = Login.EmpleadoGlobal.Correo;
+
+                    CargarPerfil();
                 }
+                
+                
             }
             catch
             {
-                Response.Redirect("Login.aspx?men=1");
+                Response.Redirect("Error.aspx");
             }
            
            

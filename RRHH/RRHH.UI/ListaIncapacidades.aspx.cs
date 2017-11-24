@@ -14,14 +14,16 @@ namespace RRHH.UI
         protected void Page_Load(object sender, EventArgs e)
         {
             try {
-            GV_inca.DataSource = Singleton.opIncapacidad.ListarIncapacidades().Where(X=>X.Estado==true);
+
+                string correoLogin = Session["jefeCorreo"].ToString();
+                Session["ROL"] = Login.EmpleadoGlobal.IdRol;
+                GV_inca.DataSource = Singleton.opIncapacidad.ListarIncapacidades().Where(X=>X.Estado==true);
             GV_inca.DataBind();
 
             }
             catch
             {
-                mensajeError.Visible = true;
-                textoMensajeError.InnerHtml = "Hubo un error";
+                Response.Redirect("Error.aspx");
             }
            
         }
