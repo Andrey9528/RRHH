@@ -16,22 +16,33 @@ namespace RRHH.UI
         public static int dias;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            try
             {
-                gvdatos.DataSource = Singleton.opIncapacidad.ListarIncapacidades().Where(x => x.Cedula == Login.EmpleadoGlobal.Cedula);
-                gvdatos.DataBind();
-                txtfechafinal.Enabled = false;
-                txtfechainicio.Enabled = false;
-                Btnbusca.Enabled = false;
+
+                string correoLogin = Session["jefeCorreo"].ToString();
+                Session["ROL"] = Login.EmpleadoGlobal.IdRol;
+                if (!IsPostBack)
+                {
+                    gvdatos.DataSource = Singleton.opIncapacidad.ListarIncapacidades().Where(x => x.Cedula == Login.EmpleadoGlobal.Cedula);
+                    gvdatos.DataBind();
+                    txtfechafinal.Enabled = false;
+                    txtfechainicio.Enabled = false;
+                    Btnbusca.Enabled = false;
+                }
+                else
+                {
+                    gvdatos.DataSource = Singleton.opIncapacidad.ListarIncapacidades().Where(x => x.Cedula == Login.EmpleadoGlobal.Cedula);
+                    gvdatos.DataBind();
+                    txtfechafinal.Enabled = false;
+                    txtfechainicio.Enabled = false;
+                    Btnbusca.Enabled = true;
+                }
             }
-            else
+            catch
             {
-                gvdatos.DataSource = Singleton.opIncapacidad.ListarIncapacidades().Where(x => x.Cedula == Login.EmpleadoGlobal.Cedula);
-                gvdatos.DataBind();
-                txtfechafinal.Enabled = false;
-                txtfechainicio.Enabled = false;
-                Btnbusca.Enabled = true;
+                Response.Redirect("Error.aspx");
             }
+               
         }
 
         protected void RB_personalizada_CheckedChanged(object sender, EventArgs e)

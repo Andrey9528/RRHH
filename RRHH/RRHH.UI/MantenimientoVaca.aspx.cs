@@ -19,10 +19,13 @@ namespace RRHH.UI
         {
             try
             {
+
+                string correoLogin = Session["jefeCorreo"].ToString();
+                Session["ROL"] = Login.EmpleadoGlobal.IdRol;
             }
             catch
             {
-                
+                Response.Redirect("Error.aspx");
             }
         }
 

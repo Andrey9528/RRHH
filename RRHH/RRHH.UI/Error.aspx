@@ -9,10 +9,13 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
    <link href="https://www.javatpoint.com/fullformpages/images/Medical.png" rel="shortcut icon" type="image/x-icon" />
 
-     <style>
+     
+ <style>
        body 
         {
-            background-color:#ffffff;   
+            background-image:  url("http://1070noticias.com.mx/wp-content/uploads/2016/07/fondos-de-pantalla-blancos-para-descargar.jpg");
+            background-attachment:fixed;
+            background-size:100vw 100vh ;
             
 
 
@@ -36,7 +39,7 @@
 
         <br /><br />
         <center>
-            <img  class="img-responsive" src="Images/inseguridadInfomatica.jpg" width="500" height="300" />
+            <img  class="img-responsive  img-circle" src="Images/^88D82C5E5CC0B0B42C7F3BB75E1910BA0497497AC6B7AF664E^pimgpsh_fullsize_distr.jpg" width="500" height="300" />
     </center>
             </form>
 </body>

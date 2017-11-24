@@ -31,6 +31,8 @@ namespace RRHH.UI
                 else if (Login.EmpleadoGlobal.IdRol == 2)
                 {
 
+                    string correoLogin = Session["jefeCorreo"].ToString();
+                    Session["ROL"] = Login.EmpleadoGlobal.IdRol;
                 }
                 else
                 {
