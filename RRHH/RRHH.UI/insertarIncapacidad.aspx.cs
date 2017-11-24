@@ -36,6 +36,8 @@ namespace RRHH.UI
                 }
                 else
                 {
+                    Session["ROL"] = Login.EmpleadoGlobal.IdRol;
+                    string AdminCorreo = Session["AdminCorreo"].ToString();
 
                 }
 

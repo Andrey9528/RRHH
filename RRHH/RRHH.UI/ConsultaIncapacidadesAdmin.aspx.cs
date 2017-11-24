@@ -17,21 +17,30 @@ namespace RRHH.UI
         public static int dias;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            try
             {
-                gvdatos.DataSource = Singleton.opIncapacidad.ListarIncapacidades().Where(x => x.Cedula == Login.EmpleadoGlobal.Cedula);
-                gvdatos.DataBind();
-                txtfechafinal.Enabled = false;
-                txtfechainicio.Enabled = false;
-                Btnbusca.Enabled = false;
+                Session["ROL"] = Login.EmpleadoGlobal.IdRol;
+                string AdminCorreo = Session["AdminCorreo"].ToString();
+                if (!IsPostBack)
+                {
+                    gvdatos.DataSource = Singleton.opIncapacidad.ListarIncapacidades().Where(x => x.Cedula == Login.EmpleadoGlobal.Cedula);
+                    gvdatos.DataBind();
+                    txtfechafinal.Enabled = false;
+                    txtfechainicio.Enabled = false;
+                    Btnbusca.Enabled = false;
+                }
+                else
+                {
+                    gvdatos.DataSource = Singleton.opIncapacidad.ListarIncapacidades().Where(x => x.Cedula == Login.EmpleadoGlobal.Cedula);
+                    gvdatos.DataBind();
+                    txtfechafinal.Enabled = false;
+                    txtfechainicio.Enabled = false;
+                    Btnbusca.Enabled = true;
+                }
             }
-            else
+            catch
             {
-                gvdatos.DataSource = Singleton.opIncapacidad.ListarIncapacidades().Where(x => x.Cedula == Login.EmpleadoGlobal.Cedula);
-                gvdatos.DataBind();
-                txtfechafinal.Enabled = false;
-                txtfechainicio.Enabled = false;
-                Btnbusca.Enabled = true;
+                Response.Redirect("Error.aspx");
             }
         }
 

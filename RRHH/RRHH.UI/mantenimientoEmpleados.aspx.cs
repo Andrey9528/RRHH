@@ -17,8 +17,17 @@ namespace RRHH.UI
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            try
+            {
+                Session["ROL"] = Login.EmpleadoGlobal.IdRol;
+                string AdminCorreo = Session["AdminCorreo"].ToString();
 
-            ddlRol.Enabled = false;
+                ddlRol.Enabled = false;
+            }
+            catch
+            {
+                Response.Redirect("Error.aspx");
+            }
            
         }
 
