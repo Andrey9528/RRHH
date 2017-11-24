@@ -21,7 +21,9 @@ namespace RRHH.UI
 
             try
             {
-                
+                Session["ROL"] = Login.EmpleadoGlobal.IdRol;
+                string AdminCorreo = Session["AdminCorreo"].ToString();
+
                 if (!IsPostBack)
                 {
                     lblAprobadas.Visible = false;

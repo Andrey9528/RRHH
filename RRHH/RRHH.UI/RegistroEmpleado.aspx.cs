@@ -21,12 +21,23 @@ namespace RRHH.UI
         public static Roles RolGlobal = new Roles();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)//post back recargar la pagina con el dato que elegistes en ddl o textbox ,si recarga la pagina perdemos lo que elegimos por eso pone si es diferente a post back
+
+
+            try
             {
-                ddlRol.DataSource = Singleton.oproles.ListarRoles().Select(x => x.Nombre).ToList();
-                ddlRol.DataBind();
-                ddlDepartamento.DataSource = Singleton.opdepartamento.ListarDepartamentos().Select(x => x.Nombre).ToList();
-                ddlDepartamento.DataBind();
+                Session["ROL"] = Login.EmpleadoGlobal.IdRol;
+                string AdminCorreo = Session["AdminCorreo"].ToString();
+                if (!IsPostBack)//post back recargar la pagina con el dato que elegistes en ddl o textbox ,si recarga la pagina perdemos lo que elegimos por eso pone si es diferente a post back
+                {
+                    ddlRol.DataSource = Singleton.oproles.ListarRoles().Select(x => x.Nombre).ToList();
+                    ddlRol.DataBind();
+                    ddlDepartamento.DataSource = Singleton.opdepartamento.ListarDepartamentos().Select(x => x.Nombre).ToList();
+                    ddlDepartamento.DataBind();
+                }
+            }
+            catch
+            {
+                Response.Redirect("Error.aspx");
             }
 
 

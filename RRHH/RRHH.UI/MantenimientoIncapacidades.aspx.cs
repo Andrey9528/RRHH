@@ -14,7 +14,17 @@ namespace RRHH.UI
         public static Incapacidad Inca = new Incapacidad();
         protected void Page_Load(object sender, EventArgs e)
         {
-            DeshabilitarCampos();
+
+            try
+            {
+                Session["ROL"] = Login.EmpleadoGlobal.IdRol;
+                string AdminCorreo = Session["AdminCorreo"].ToString();
+                DeshabilitarCampos();
+            }
+            catch
+            {
+                Response.Redirect("Error.aspx");
+            }
         }
 
 

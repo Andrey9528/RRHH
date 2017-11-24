@@ -14,14 +14,15 @@ namespace RRHH.UI
         {
             try
             {
-
+                Session["ROL"] = Login.EmpleadoGlobal.IdRol;
+                string AdminCorreo = Session["AdminCorreo"].ToString();
                 lblMensaje.Text = "Historial de Empleados";
                 Gv_datos.DataSource = Singleton.opAudiEmple.ListarAuditoriasEmpleado();
                 Gv_datos.DataBind();
             }
             catch 
             {
-                 
+                Response.Redirect("Error.aspx"); 
                 
             }
         }

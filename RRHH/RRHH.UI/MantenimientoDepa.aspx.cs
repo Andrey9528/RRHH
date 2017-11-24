@@ -13,17 +13,27 @@ namespace RRHH.UI
         departamento departamentoGlobal = new departamento();
         protected void Page_Load(object sender, EventArgs e)
         {
-            Gv_datos.DataSource = Singleton.opdepartamento.ListarDepartamentos();
-            Gv_datos.DataBind();
-            txtnombre.Enabled = false;
-            txtcorreojefe.Enabled = false;
-           
-            if (!IsPostBack)
+            try
             {
-                DDLdepa.DataSource = Singleton.opdepartamento.ListarDepartamentos().Select(x => x.Nombre).ToList();
-                DDLdepa.DataBind();
-                
-            
+                Session["ROL"] = Login.EmpleadoGlobal.IdRol;
+                string AdminCorreo = Session["AdminCorreo"].ToString();
+                Gv_datos.DataSource = Singleton.opdepartamento.ListarDepartamentos();
+                Gv_datos.DataBind();
+              
+                txtnombre.Enabled = false;
+                txtcorreojefe.Enabled = false;
+
+                if (!IsPostBack)
+                {
+                    DDLdepa.DataSource = Singleton.opdepartamento.ListarDepartamentos().Select(x => x.Nombre).ToList();
+                    DDLdepa.DataBind();
+
+
+                }
+            }
+            catch
+            {
+                Response.Redirect("Error.aspx");
             }
         }
 

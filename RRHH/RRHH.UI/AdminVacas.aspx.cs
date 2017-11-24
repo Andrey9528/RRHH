@@ -14,14 +14,24 @@ namespace RRHH.UI
         SolicitudVacaciones soli = new SolicitudVacaciones();
         protected void Page_Load(object sender, EventArgs e)
         {
-            Gv_datos.DataSource = Singleton.opsolicitud.Listarsolicitudes();
-            Gv_datos.DataBind();
-            txtfechafinal.Enabled = false;
-            txtfechaincio.Enabled = false;
-            if (!IsPostBack)
+
+            try
             {
-                DDLidsoli.DataSource = Singleton.opsolicitud.Listarsolicitudes().Select(x => x.IdSolicitud).ToList();
-                DDLidsoli.DataBind();
+                Session["ROL"] = Login.EmpleadoGlobal.IdRol;
+                string AdminCorreo = Session["AdminCorreo"].ToString();
+                Gv_datos.DataSource = Singleton.opsolicitud.Listarsolicitudes();
+                Gv_datos.DataBind();
+                txtfechafinal.Enabled = false;
+                txtfechaincio.Enabled = false;
+                if (!IsPostBack)
+                {
+                    DDLidsoli.DataSource = Singleton.opsolicitud.Listarsolicitudes().Select(x => x.IdSolicitud).ToList();
+                    DDLidsoli.DataBind();
+                }
+            }
+            catch
+            {
+                Response.Redirect("Error.aspx");
             }
 
         }

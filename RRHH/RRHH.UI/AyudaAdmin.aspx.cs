@@ -11,7 +11,15 @@ namespace RRHH.UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            try
+            {
+                Session["ROL"] = Login.EmpleadoGlobal.IdRol;
+                string AdminCorreo = Session["AdminCorreo"].ToString();
+            }
+            catch
+            {
+                Response.Redirect("Error.aspx");
+            }
         }
 
         protected void btnRegresar_Click(object sender, EventArgs e)

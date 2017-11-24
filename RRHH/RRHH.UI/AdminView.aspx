@@ -258,7 +258,7 @@
           <a class="dropdown-toggle" data-toggle="dropdown" style="font-size:14px;  background-color:#04acec; color:white; font-family:cursive;" href="#">Incapacidades <span class="caret"></span></a>
           <ul class="dropdown-menu">
 
-            <li><a href="insertarIncapacidad.aspx">Registrar incapacidades</a></li>
+            <li><a href="insertarIncapacidad.aspx">Registrar incapacidad</a></li>
               <li><a href="ConsultaIncapacidadesAdmin.aspx">Consulta de incapacidades</a></li>
               <li><a  href="MantenimientoIncapacidades.aspx">Mantenimiento</a></li>
             

@@ -32,8 +32,8 @@ namespace RRHH.UI
                 }
                 else
                 {
-                    string correo = Session["AdminCorreo"].ToString();
-                    correo = Login.EmpleadoGlobal.Correo;
+                    Session["ROL"] = Login.EmpleadoGlobal.IdRol;
+                    string AdminCorreo = Session["AdminCorreo"].ToString();
 
                     CargarPerfil();
                 }
