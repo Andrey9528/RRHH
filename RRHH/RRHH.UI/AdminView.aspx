@@ -423,14 +423,18 @@
         <div class="container"  >
   
   <div class="modal fade" data-keyboard="false" data-backdrop="static" id="Miperfil" role="dialog">
-    <div class="modal-dialog modal-sm">
-      <div class="modal-content " style=" margin-top:130px; margin-left:35px; height:300px; width:500px;">
+    <div class="modal-dialog modal-sm" style="margin-top:110px;">
+      <div class="modal-content " style=" ">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Mi Perfil</h4>
         </div>
         <div class="modal-body">
-            <asp:Label ID="lblnombre" runat="server" Text="Nombre:"></asp:Label>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4">
+<asp:Label ID="lblnombre" runat="server" Text="Nombre:"></asp:Label>
             <br />
             <asp:Label ID="lblCedula" runat="server" Text="Cedula"></asp:Label>
             <br />
@@ -448,16 +452,26 @@
             <br />
              <asp:Label ID="lblRol" runat="server" Text="Rol:"></asp:Label>
             <br />
-            <p style="margin-left:280px; margin-top:-155px;"><asp:Image ID="imgPerfil" Width="170px" Height="120px" runat="server" />
-                </p>
+                    </div>
+                    <div class="col-sm-4">
+ <div ><asp:Image ID="imgPerfil" Width="170px" Height="120px" runat="server" />
+                </div>
 
+                    </div>
+                </div>
+            </div>
+            
+           
+             <footer class="col-sm-offset-8">
+               <p>&copy; <%: DateTime.Now.Month %>  Farmacias San Gabriel</p></footer>
+            
 
 
 
 
 
         </div>
-        <div  style="margin-top:-30px;" class="modal-footer">
+        <div  style="" class="modal-footer">
             <asp:Button ID="btnCerrarPopup" OnClick="btnCerrarPopup_Click"  CssClass="btn btn-danger"  runat="server" Text="Cerrar" />
         </div>
       </div>

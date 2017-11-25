@@ -409,14 +409,18 @@ body {font-family: Verdana, sans-serif;}
            <div class="container"  >
   
   <div class="modal fade" data-keyboard="false" data-backdrop="static" id="Miperfil" role="dialog">
-    <div class="modal-dialog modal-sm">
-      <div class="modal-content " style=" margin-top:130px; margin-left:35px; height:300px; width:500px;">
+    <div class="modal-dialog modal-md" style="margin-top:110px;">
+      <div class="modal-content " style="">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Mi Perfil</h4>
         </div>
         <div class="modal-body">
-            <asp:Label ID="lblnombre" runat="server" Text="Nombre:"></asp:Label>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4">
+<asp:Label ID="lblnombre" runat="server" Text="Nombre:"></asp:Label>
             <br />
             <asp:Label ID="lblCedula" runat="server" Text="Cedula"></asp:Label>
             <br />
@@ -432,13 +436,25 @@ body {font-family: Verdana, sans-serif;}
             <br />
              <asp:Label ID="lbldepa" runat="server" Text="Departamento:"></asp:Label>
          
-            
-            <p style="margin-left:280px; margin-top:-155px;">
+                    </div>
+                    <div class="col-sm-4">
+ <div  style="">
                 <asp:Image ID="imgPerfil" Width="150px" Height="120px" runat="server" />
                 
-            </p>
+            </div>
+                    </div>
+                </div>
+                <br />
+                
+            </div>
+            
+            
+           
 
-
+     <div class="col-sm-offset-8">
+         <p>&copy; <%: DateTime.Now.Month %>  Farmacias San Gabriel</p></footer>
+            
+                </div>
 
 
 
