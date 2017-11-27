@@ -141,6 +141,7 @@ namespace RRHH.UI
                         Singleton.OpEmpleados.ActualizarEmpleados(empleado);
                         //this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('La contraseña ha sido modificada, por favor vuelve a iniciar sesión')", true);
                         Singleton.opaudi.InsertarAuditoriasAdmin(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, false, false, false, false, false, false, false, false, false, false, false, true, false);
+                        Session.Remove("AdminCorreo");
                         Response.Redirect("Login.aspx");
                     }
                     else
