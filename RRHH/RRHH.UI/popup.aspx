@@ -5,30 +5,30 @@
     <a href="#" data-target="#Miperfil" data-toggle="modal">Prueba</a>
     <div class="container"> 
     <div class="modal fade" data-keyboard="false" data-backdrop="static" id="Miperfil" role="dialog">
-    <div class="modal-dialog col-sm-1 " style="  margin-top:110px;">
+    <div class="modal-dialog  " style="  margin-top:110px;">
       <div class="modal-content  " >
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Mi Perfil</h4>
         </div>
         <div class="modal-body">
-            <asp:Label ID="lblnombre" runat="server" Text="Nombre:"></asp:Label>
+            <asp:Label ID="lblnombre" runat="server" Text="Nombre:Andrey Saravia Bolivar"></asp:Label>
             <br />
-            <asp:Label ID="lblCedula" runat="server" Text="Cedula"></asp:Label>
+            <asp:Label ID="lblCedula" runat="server" Text="Cedula: 116130806"></asp:Label>
             <br />
-            <asp:Label ID="lblDirreccion" runat="server" Text="Dirrección:"></asp:Label>
+            <asp:Label ID="lblDirreccion" runat="server" Text="Dirrección:Desamparados"></asp:Label>
             <br />
-             <asp:Label ID="lblTelefono" runat="server" Text="Teléfono:"></asp:Label>
+             <asp:Label ID="lblTelefono" runat="server" Text="Teléfono: 89204370"></asp:Label>
             <br />
-             <asp:Label ID="lblCorreo" runat="server" Text="Correo:"></asp:Label>
+             <asp:Label ID="lblCorreo" runat="server" Text="Correo: andsarav@gmail.com"></asp:Label>
             <br />
-             <asp:Label ID="lblestadocivil" runat="server" Text="Estado Civil:"></asp:Label>
+             <asp:Label ID="lblestadocivil" runat="server" Text="Estado Civil: Casado"></asp:Label>
             <br />
-             <asp:Label ID="lblfechaNaci" runat="server" Text="Fecha de nacimiento:"></asp:Label>
+             <asp:Label ID="lblfechaNaci" runat="server" Text="Fecha de nacimiento: 2017-7-28"></asp:Label>
             <br />
-             <asp:Label ID="lbldepa" runat="server" Text="Departamento:"></asp:Label>
+             <asp:Label ID="lbldepa" runat="server" Text="Departamento: Medicamentos"></asp:Label>
             <br />
-             <asp:Label ID="lblRol" runat="server" Text="Rol:"></asp:Label>
+             <asp:Label ID="lblRol" runat="server" Text="Rol: Admin"></asp:Label>
             <br /><br />
             <div id="img-reponsive " style= " "><asp:Image ID="imgPerfil" Width="170px" Height="120px" runat="server" />
                 </div>

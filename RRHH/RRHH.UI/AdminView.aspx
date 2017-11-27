@@ -423,18 +423,17 @@
         <div class="container"  >
   
   <div class="modal fade" data-keyboard="false" data-backdrop="static" id="Miperfil" role="dialog">
-    <div class="modal-dialog modal-sm" style="margin-top:110px;">
-      <div class="modal-content " style=" ">
+    <div class="modal-dialog " style="margin-top:60px;">
+      <div class="modal-content " >
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Mi Perfil</h4>
         </div>
-        <div class="modal-body">
-
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-4">
-<asp:Label ID="lblnombre" runat="server" Text="Nombre:"></asp:Label>
+        <div class="modal-body" style=" ">
+            
+            
+                
+           <asp:Label ID="lblnombre" runat="server" Text="Nombre:"></asp:Label>
             <br />
             <asp:Label ID="lblCedula" runat="server" Text="Cedula"></asp:Label>
             <br />
@@ -451,15 +450,13 @@
              <asp:Label ID="lbldepa" runat="server" Text="Departamento:"></asp:Label>
             <br />
              <asp:Label ID="lblRol" runat="server" Text="Rol:"></asp:Label>
-            <br />
-                    </div>
-                    <div class="col-sm-4">
- <div ><asp:Image ID="imgPerfil" Width="170px" Height="120px" runat="server" />
-                </div>
+            <br /><br />
+                   
+      <asp:Image ID="imgPerfil" Width="170px" Height="120px" runat="server" />
+                
 
                     </div>
-                </div>
-            </div>
+              
             
            
              <footer class="col-sm-offset-8">
@@ -470,11 +467,11 @@
 
 
 
-        </div>
-        <div  style="" class="modal-footer">
+       
+        <div   class="modal-footer">
             <asp:Button ID="btnCerrarPopup" OnClick="btnCerrarPopup_Click"  CssClass="btn btn-danger"  runat="server" Text="Cerrar" />
         </div>
-      </div>
+       </div>
     </div>
   </div>
 </div>

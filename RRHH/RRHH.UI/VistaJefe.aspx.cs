@@ -122,9 +122,10 @@ namespace RRHH.UI
                         Singleton.OpEmpleados.ActualizarEmpleados(empleado);
                         //this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('La contraseña ha sido modificada, por favor vuelve a iniciar sesión')", true);
                         Singleton.opAudiJefe.InsertarAuditoriasJefe(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, false, false, false, false, false, true, false, false, false);
-
+                        Session.Remove("JefeCorreo");
                         Response.Redirect("Login.aspx");
                        
+
                     }
                     else
                     {
