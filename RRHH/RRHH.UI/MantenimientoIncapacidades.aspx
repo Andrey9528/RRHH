@@ -100,11 +100,11 @@
      <br />
    
 
-    <div class="form-inline" id="mantenimientoInca" runat="server" visible="true">
+    <div class="" id="mantenimientoInca" runat="server" visible="true">
 
 
    <asp:Label ID="Label2" runat="server" Text="Numero de incapacidad:"></asp:Label>
-   <asp:DropDownList ID="DDLid_incapacidad" CssClass="form-control"  runat="server"></asp:DropDownList>
+   <asp:DropDownList ID="DDLid_incapacidad" CssClass="form-control "  runat="server"></asp:DropDownList>
     <br />
         <asp:Button ID="btnBuscarIncapacidad" OnClick="btnBuscarIncapacidad_Click" CssClass="btn btn-success" runat="server" Text="Mostrar datos" />
         
@@ -115,7 +115,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-4">
-                    <div class="form-inline">
+                    <div class="">
  <asp:Label ID="Label1" runat="server" Text="Fecha Inicio:"></asp:Label>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:TextBox CssClass="form-control" ID="txtfechainicio" runat="server" ></asp:TextBox>
@@ -125,7 +125,7 @@
                 </div>
 
                  <div class="col-sm-4">
-                    <div class="form-inline">
+                    <div class="">
   <asp:Label ID="Label3"  runat="server" Text="Fecha de finalización:  "></asp:Label>
         
             <asp:TextBox CssClass="form-control" Width="147px" ID="txtfechafinalizacion" runat="server"></asp:TextBox>
@@ -136,7 +136,7 @@
 
 
                  <div class="col-sm-4">
-                    <div class="form-inline">
+                    <div class="">
  <asp:Label ID="Label5"  runat="server" Text="Nombre del doctor:  "></asp:Label>
         
             <asp:TextBox CssClass="form-control"  ID="txtdoctor" runat="server"></asp:TextBox>
@@ -150,7 +150,7 @@
         <div class="container">
             <div class="row">
                  <div class="col-sm-4">
-                     <div class="form-inline">
+                     <div class="">
 
  <asp:Label ID="Label4"  runat="server" Text="Fecha de emisión:  "></asp:Label>
         
@@ -160,7 +160,7 @@
                      </div>
                  </div>
                 <div class="col-sm-4">
-                     <div class="form-inline">
+                     <div class="">
    <asp:Label ID="Label8" runat="server" Text="Descripción:"></asp:Label>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
             
@@ -171,7 +171,7 @@
                      </div>
                  </div>
                 <div class="col-sm-4">
-                     <div class="form-inline">
+                     <div class="">
  <asp:Label ID="Label7" runat="server" Text="Centro emisor:"></asp:Label>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
              <asp:TextBox CssClass="form-control"  ID="txtcentroemisor" runat="server"></asp:TextBox>
@@ -187,7 +187,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-4">
-                    <div class="form-inline">
+                    <div class="">
 
    <asp:Label ID="Label6" runat="server" Text="Tipo"></asp:Label>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -203,7 +203,7 @@
                 </div>
 
                  <div class="col-sm-4">
-                    <div class="form-inline">
+                    <div class="">
  <asp:Label ID="Label9" runat="server" Text="Estado:"></asp:Label>
         
 
@@ -217,7 +217,7 @@
 
                 <div class="row">
                  <div class="col-sm-4">
-                    <div class="form-inline">
+                    <div class="">
    <asp:Button ID="btnRegresar" runat="server" Text="Regresar" CssClass="btn btn-primary"  OnClick="btnRegresar_Click"  />
             
             <asp:Button ID="btnModificar" runat="server" Text="Modificar" CssClass="btn btn-warning"  OnClick="btnModificar_Click" OnClientClick="Confirm()" />

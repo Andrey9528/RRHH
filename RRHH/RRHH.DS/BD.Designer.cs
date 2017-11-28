@@ -26,7 +26,8 @@ namespace RRHH.DS {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=BD_RRHH;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=rrhh4.database.windows.net;Initial Catalog=rrhh4;User ID=rrhhsangabri" +
+            "el;Password=@Ndrey1.")]
         public string Conexion {
             get {
                 return ((string)(this["Conexion"]));

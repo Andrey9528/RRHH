@@ -31,7 +31,7 @@
 
 
    
-    <div class="container col-sm-8  col-sm-offset-3" style="margin-top:20px; " >
+    <div class="container   col-sm-8  col-sm-offset-3" style="margin-top:20px; " >
         <div id="loginbox"  class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
             <div class="panel panel-info" >
                 <div class="panel-heading">
@@ -120,7 +120,7 @@
 
        <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %>  Farmacias San Gabriel</p>
+                <p>&copy; <%: DateTime.Now.Year %>  Farmacias San Gabriel </p>
             </footer>
 
 

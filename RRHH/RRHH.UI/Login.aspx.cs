@@ -288,7 +288,7 @@ namespace RRHH.UI
             }
             catch (Exception ex)
             {
-                throw;
+                
                 //mensaje.Visible = false;
                 //mensajeError.Visible = true;
                 //mensajeinfo.Visible = false;

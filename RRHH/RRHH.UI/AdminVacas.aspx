@@ -38,19 +38,27 @@
     <h1 style="text-align:center; font-family:cursive;">Mantenimiento de Vacaciones</h1>
     <br />
      <div class="container col-sm-offset-1">
-    <div class="form-inline">
-   
-     <asp:Label ID="Label2" runat="server" Text="Fecha de inicio:"></asp:Label>
+    <div class="row">
+   <div class="col-sm-4">
+<asp:Label ID="Label2" runat="server"  Text="Fecha de inicio:"></asp:Label>
     <asp:TextBox ID="txtfechaincio" CssClass="form-control" runat="server"></asp:TextBox>
    
-      
+   </div>
+        <div class="col-sm-4">
+   
     <asp:Label ID="Label1" runat="server" Text="Solicitud:"></asp:Label>
    <asp:DropDownList ID="DDLidsoli" CssClass="form-control"  runat="server"></asp:DropDownList> 
   
         
+        </div>
+     
+   <div class="col-sm-4">
+<asp:Label ID="Label3" runat="server"  Text="Fecha de finalización:"></asp:Label>
+   <asp:TextBox ID="txtfechafinal" CssClass="form-control " runat="server"></asp:TextBox>
+      
+   </div>
  
-   <asp:Label ID="Label3" runat="server" Text="Fecha de finalización:"></asp:Label>
-   <asp:TextBox ID="txtfechafinal" CssClass="form-control" runat="server"></asp:TextBox>
+     
          </div>  
         </div>
     <br />

@@ -100,7 +100,7 @@ namespace RRHH.UI
                 if (fileUpload1.HasFile)
                 {
                     string nombrearchivo = Path.GetFileName(fileUpload1.FileName);
-                    fileUpload1.SaveAs(Server.MapPath("~/Empleados/" + nombrearchivo));
+                    fileUpload1.SaveAs(Server.MapPath("~/Images/" + nombrearchivo));
                     Empleado emple = new Empleado()
                     {
 
@@ -115,7 +115,7 @@ namespace RRHH.UI
                         IdDepartamento = Convert.ToInt32(IdDepartamento),
                         IdRol = Convert.ToInt32(IdRol),
                         Estado = true,
-                        Imagen = "~/Empleados/" + nombrearchivo,
+                        Imagen = "~/Images/" + nombrearchivo,
                         Bloqueado = false,
                         Genero = DDLgenero.Text.ToString(),
                         Password = Login.EmpleadoGlobal.Password,
