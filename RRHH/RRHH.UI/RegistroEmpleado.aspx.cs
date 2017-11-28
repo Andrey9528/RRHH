@@ -60,7 +60,7 @@ namespace RRHH.UI
                     else
                     {
                     string nombrearchivo = Path.GetFileName(fileUpload1.FileName);
-                    fileUpload1.SaveAs(Server.MapPath("~/Empleados/" + nombrearchivo));
+                    fileUpload1.SaveAs(Server.MapPath("~/Images/" + nombrearchivo));
 
 
                     //frmLogin.AutorGlobal = Utilitarios.OpAutores.BuscarAutorNombre(CboAutor.Text);
@@ -85,7 +85,7 @@ namespace RRHH.UI
                             Bloqueado = false,
                             Password = Encriptacion.Encriptar(contrasena, Encriptacion.Llave),
                             Genero = DDLgenero.SelectedItem.ToString(),
-                            Imagen = "~/Empleados/" + nombrearchivo,
+                            Imagen = "~/Images/" + nombrearchivo,
                             DiasVacaciones = 0,
                             ContraseñaCaducada = false,
                             DiasAntesCaducidad = 90,

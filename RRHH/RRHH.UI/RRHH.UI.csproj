@@ -288,6 +288,8 @@
     <Content Include="ModificarDatosVistaEmpleado.aspx" />
     <Content Include="VistaJefe.aspx" />
     <Content Include="WebForm1.aspx" />
+    <None Include="Properties\PublishProfiles\rrhhsangabriel - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\rrhhsangabriel - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="InsertarDepartamentos.aspx" />
     <Content Include="insertarIncapacidad.aspx" />
