@@ -20,7 +20,7 @@ namespace RRHH.UI
         public static string contrasena;
         public static Empleado EmpleadoGlobal = new Empleado();
         public static Empleado EmpleadoBloqueo = new Empleado();
-
+        public static int Vacaciones;
         public static string Correo;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -47,6 +47,31 @@ namespace RRHH.UI
                 txtcorreo.Text = string.Empty;
             }
         }
+        public bool ValidacionCaducidadContraseña()
+        {
+            bool estado;
+            if (EmpleadoGlobal.FechaCaducidadContraseña > DateTime.Today)
+            {
+                estado = false;
+                EmpleadoGlobal.ContraseñaCaducada = estado;
+            }
+            else
+            {
+                estado = true;
+                EmpleadoGlobal.ContraseñaCaducada = estado;
+            }
+            return estado;
+        }
+
+        public void CalculoDiasVacaciones()
+        {
+            DateTime FechaIngresoEmpleado = Singleton.OpEmpleados.BuscarEmpleados(EmpleadoGlobal.Cedula).FechaIngreso;
+            var VacacionesSolcitadas = Singleton.opsolicitud.BuscarsolicitudPorId(EmpleadoGlobal.Cedula).Where(x => x.Condicion == true).Sum(x => x.TotalDias);
+            EmpleadoGlobal.DiasVacaciones = Convert.ToInt32(((DateTime.Today - FechaIngresoEmpleado).TotalDays / 30) - VacacionesSolcitadas);
+            //int Vacaciones = 12 * (FechaIngresoEmpleado.Year - DateTime.Today.Year) + FechaIngresoEmpleado.Month - DateTime.Today.Month;
+            //return Math.Abs(monthsApart);
+
+        }
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
@@ -61,7 +86,7 @@ namespace RRHH.UI
                     {
                         EmpleadoGlobal = Singleton.OpEmpleados.BuscarEmpleadoCorreo(txtcorreo.Text);
                         Correo = EmpleadoGlobal.Correo;
-
+                   
                         if (EmpleadoGlobal.Bloqueado)
                         {
                             mensaje.Visible = false;
@@ -71,8 +96,9 @@ namespace RRHH.UI
                             txtcontra.Text = string.Empty;
                             txtcorreo.Text = string.Empty;
                         }
-
-                        if (EmpleadoGlobal.ContraseñaCaducada)
+                      
+                        else
+                        if (ValidacionCaducidadContraseña())
                         {
                             mensaje.Visible = false;
                             mensajeinfo.Visible = false;
@@ -81,17 +107,30 @@ namespace RRHH.UI
                             txtcontra.Text = string.Empty;
                             txtcorreo.Text = string.Empty;
                         }
+                        else
+                        if (EmpleadoGlobal.SesionIniciada)
+                        {
+                            mensaje.Visible = false;
+                            mensajeinfo.Visible = false;
+                            mensajeError.Visible = true;
+                            textoMensajeError.InnerHtml = "Tienes un session abierta desde otro dispositivo";
+                            txtcontra.Text = string.Empty;
+                            txtcorreo.Text = string.Empty;
+                        }
 
                         else if (EmpleadoGlobal.IntentosFallidos <= 3)
                         {
+                            var data = Encriptacion.Encriptar(txtcontra.Text, Encriptacion.Llave);
                             if (EmpleadoGlobal.Password ==
-                                 Encriptacion.Encriptar(txtcontra.Text, Encriptacion.Llave) && EmpleadoGlobal.Bloqueado == false && EmpleadoGlobal.ContraseñaCaducada == false)
+                                 //Encriptacion.Encriptar(txtcontra.Text, Encriptacion.Llave) && EmpleadoGlobal.Bloqueado == false && EmpleadoGlobal.ContraseñaCaducada == false)
+                                 data && EmpleadoGlobal.Bloqueado == false && EmpleadoGlobal.ContraseñaCaducada == false)
+
                             {
                                 //Sigleton.OpAudistoria.InsertarEnLogin(PersonaGlobal.Cedula, PersonaGlobal.Nombre, PersonaGlobal.PrimerApellido);
                                 if (EmpleadoGlobal.IdRol == 1)
                                 {
                                     Session["ROL"] = EmpleadoGlobal.IdRol;
-
+                                    CalculoDiasVacaciones();
                                     Empleado emple = new Empleado()
                                     {
                                         Cedula = EmpleadoGlobal.Cedula,
@@ -112,6 +151,10 @@ namespace RRHH.UI
                                         DiasVacaciones = EmpleadoGlobal.DiasVacaciones,
                                         DiasAntesCaducidad = EmpleadoGlobal.DiasAntesCaducidad,
                                         ContraseñaCaducada = false,
+                                        FechaCaducidadContraseña = EmpleadoGlobal.FechaCaducidadContraseña,
+                                        FechaIngreso = EmpleadoGlobal.FechaIngreso,
+                                        SesionIniciada = true,
+
                                     };
                                     Singleton.OpEmpleados.ActualizarEmpleados(emple);
                                     Singleton.opAudiEmple.InsertarAuditoriasEmpleado(EmpleadoGlobal.Nombre, EmpleadoGlobal.Cedula, false, false, false, false, false, false, false, false, false, true, false);
@@ -121,7 +164,7 @@ namespace RRHH.UI
                                 else if (EmpleadoGlobal.IdRol == 2 && EmpleadoGlobal.Bloqueado == false && EmpleadoGlobal.ContraseñaCaducada == false)
                                 {
                                     Session["ROL"] = EmpleadoGlobal.IdRol;
-
+                                    CalculoDiasVacaciones();
                                     Empleado emple = new Empleado()
                                     {
                                         Cedula = EmpleadoGlobal.Cedula,
@@ -142,8 +185,11 @@ namespace RRHH.UI
                                         DiasVacaciones = EmpleadoGlobal.DiasVacaciones,
                                         DiasAntesCaducidad = EmpleadoGlobal.DiasAntesCaducidad,
                                         ContraseñaCaducada = false,
+                                        FechaCaducidadContraseña = EmpleadoGlobal.FechaCaducidadContraseña,
+                                        FechaIngreso = EmpleadoGlobal.FechaIngreso,
+                                        SesionIniciada = true,
 
-                                    };
+                            };
                                     Singleton.OpEmpleados.ActualizarEmpleados(emple);
                                     Singleton.opAudiJefe.InsertarAuditoriasJefe(EmpleadoGlobal.Nombre, EmpleadoGlobal.Cedula, false, false, false, false, false, false, false, false, true, false);
                                     Session["jefeCorreo"] = emple.Correo;
@@ -153,7 +199,7 @@ namespace RRHH.UI
                                 else if (EmpleadoGlobal.IdRol == 3 && EmpleadoGlobal.Bloqueado == false && EmpleadoGlobal.ContraseñaCaducada == false)
                                 {
                                     Session["ROL"] = EmpleadoGlobal.IdRol;
-                                    
+                                    CalculoDiasVacaciones();
                                     Empleado emple = new Empleado()
                                     {
                                        
@@ -175,8 +221,11 @@ namespace RRHH.UI
                                         DiasVacaciones = EmpleadoGlobal.DiasVacaciones,
                                         DiasAntesCaducidad = EmpleadoGlobal.DiasAntesCaducidad,
                                         ContraseñaCaducada = false,
+                                        FechaCaducidadContraseña = EmpleadoGlobal.FechaCaducidadContraseña,
+                                        FechaIngreso = EmpleadoGlobal.FechaIngreso,
+                                        SesionIniciada = true,
 
-                                    };
+                        };
                                     Session["AdminCorreo"] = emple.Correo;
                                     Singleton.OpEmpleados.ActualizarEmpleados(emple);
                                     Singleton.opaudi.InsertarAuditoriasAdmin(EmpleadoGlobal.Nombre, EmpleadoGlobal.Cedula, true, false, false, false, false, false, false, false, false, false, false, false, false, false);
@@ -212,6 +261,7 @@ namespace RRHH.UI
                                     textoMensajeError.InnerHtml = "Contraseña Incorrecta";
                                     txtcontra.Text = string.Empty;
                                     txtcorreo.Text = string.Empty;
+                                    CalculoDiasVacaciones();
                                     // Correo = txtcorreo.Text; // aqui se toma el correo para luego usarlo en el bloqueo de contraseña
                                     //Utilitarios.OpAuditoria.InsertarEnLoginFallido(PersonaGlobal.Cedula, PersonaGlobal.Nombre, PersonaGlobal.PrimerApellido);
                                     Empleado emple = new Empleado()
@@ -234,6 +284,10 @@ namespace RRHH.UI
                                         DiasVacaciones = EmpleadoGlobal.DiasVacaciones,
                                         DiasAntesCaducidad = EmpleadoGlobal.DiasAntesCaducidad,
                                         ContraseñaCaducada = false,
+                                        FechaCaducidadContraseña = EmpleadoGlobal.FechaCaducidadContraseña,
+                                        FechaIngreso = EmpleadoGlobal.FechaIngreso,
+                                        SesionIniciada = true,
+
 
                                     };
                                     Singleton.OpEmpleados.ActualizarEmpleados(emple);
@@ -246,6 +300,7 @@ namespace RRHH.UI
                                     textoMensajeError.InnerHtml = "La cuenta se encuentra bloqueada por exceso de intentos fallidos";
                                     txtcontra.Text = string.Empty;
                                     txtcorreo.Text = string.Empty;
+                                    CalculoDiasVacaciones();
                                     EmpleadoBloqueo = Singleton.OpEmpleados.BuscarEmpleadoCorreo(Correo);
                                     Empleado emple = new Empleado()
                                     {
@@ -267,6 +322,9 @@ namespace RRHH.UI
                                         DiasVacaciones = EmpleadoGlobal.DiasVacaciones,
                                         DiasAntesCaducidad = EmpleadoGlobal.DiasAntesCaducidad,
                                         ContraseñaCaducada = false,
+                                        FechaCaducidadContraseña = EmpleadoGlobal.FechaCaducidadContraseña,
+                                        FechaIngreso = EmpleadoGlobal.FechaIngreso,
+                                        SesionIniciada = true,
 
                                     };
                                     Singleton.OpEmpleados.ActualizarEmpleados(emple);
@@ -289,12 +347,10 @@ namespace RRHH.UI
             catch (Exception ex)
             {
                 
-                //mensaje.Visible = false;
-                //mensajeError.Visible = true;
-                //mensajeinfo.Visible = false;
-                //textoMensajeError.InnerHtml = "error";
-                //ImprimirMensajeError(ex.Message);
-                //Utilitarios.OpErrores.InsertarEnErrores(PersonaGlobal.Nombre, PersonaGlobal.Cedula, ex.ToString());
+                mensaje.Visible = false;
+                mensajeError.Visible = true;
+                mensajeinfo.Visible = false;
+                textoMensajeError.InnerHtml = "error";
             }
 
 
@@ -314,6 +370,7 @@ namespace RRHH.UI
                 {
                     EmpleadoGlobal = Singleton.OpEmpleados.BuscarEmpleadoCorreo(txtemail.Text);
                     CodigoPin();
+                    CalculoDiasVacaciones();
                     Empleado empleado = new Empleado()
                     {
                         Cedula = EmpleadoGlobal.Cedula,
@@ -332,6 +389,9 @@ namespace RRHH.UI
                         DiasVacaciones = EmpleadoGlobal.DiasVacaciones,
                         DiasAntesCaducidad = 90,
                         ContraseñaCaducada = false,
+                        FechaCaducidadContraseña = DateTime.Today.AddMonths(3),
+                        FechaIngreso = EmpleadoGlobal.FechaIngreso,
+                        SesionIniciada = false,
 
                     };
                     Singleton.OpEmpleados.ActualizarEmpleados(empleado);
@@ -369,8 +429,10 @@ namespace RRHH.UI
 
             catch (Exception ex)
             {
-                //ImprimirMensajeError(ex.Message);
-                //Utilitarios.OpErrores.InsertarEnErrores(PersonaGlobal.Nombre, PersonaGlobal.Cedula, ex.ToString());
+                mensaje.Visible = false;
+                mensajeError.Visible = true;
+                mensajeinfo.Visible = false;
+                textoMensajeError.InnerHtml = "error";
 
             }
         }
