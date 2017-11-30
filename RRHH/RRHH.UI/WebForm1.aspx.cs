@@ -39,7 +39,7 @@ namespace RRHH.UI
                     lblCedula.Text = "Cédula:" + Login.EmpleadoGlobal.Cedula;
                     lblDirreccion.Text = "Direccion:" + Login.EmpleadoGlobal.Direccion;
                     lblTelefono.Text = "Telefono: " + Login.EmpleadoGlobal.Telefono;
-                    lblCorreo.Text = "Correo: " + Login.EmpleadoGlobal.Correo;
+                    lblCorreo.Text = "Correo: " + Login.EmpleadoGlobal.Correo ;
                     lblestadocivil.Text = "Estado Civil: " + Login.EmpleadoGlobal.EstadoCivil;
                     lblfechaNaci.Text = "Fecha nacimiento: " + Login.EmpleadoGlobal.FechaNacimiento;
                     lbldepa.Text = "Departamento: " + Singleton.opdepartamento.BuscarDepartamentos(Login.EmpleadoGlobal.IdDepartamento).Nombre;
