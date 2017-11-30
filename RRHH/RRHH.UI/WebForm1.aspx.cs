@@ -17,7 +17,7 @@ namespace RRHH.UI
         public static string nombrearchivo;
         public static int count;
        public static bool estado; // desmadre
-        //public static int DiasIncapacidadEnVacaciones;
+        //public static int Vacaciones;
         public static int IdSolicitudVacaciones; 
         List<DateTime> fechas = new List<DateTime>(); 
        
@@ -25,7 +25,7 @@ namespace RRHH.UI
         {
             try
             {
-
+                //CalculoDiasVacaciones();
                 string correo = Session["emple"].ToString();  
                 Session["ROL"] = Login.EmpleadoGlobal.IdRol;
                 if (Request.QueryString["ROL"] != null)
@@ -39,7 +39,7 @@ namespace RRHH.UI
                     lblCedula.Text = "Cédula:" + Login.EmpleadoGlobal.Cedula;
                     lblDirreccion.Text = "Direccion:" + Login.EmpleadoGlobal.Direccion;
                     lblTelefono.Text = "Telefono: " + Login.EmpleadoGlobal.Telefono;
-                    lblCorreo.Text = "Correo: " + Login.EmpleadoGlobal.Correo;
+                    lblCorreo.Text = "Correo: " + Login.EmpleadoGlobal.Correo ;
                     lblestadocivil.Text = "Estado Civil: " + Login.EmpleadoGlobal.EstadoCivil;
                     lblfechaNaci.Text = "Fecha nacimiento: " + Login.EmpleadoGlobal.FechaNacimiento;
                     lbldepa.Text = "Departamento: " + Singleton.opdepartamento.BuscarDepartamentos(Login.EmpleadoGlobal.IdDepartamento).Nombre;
@@ -50,14 +50,17 @@ namespace RRHH.UI
                     lblcorreo2.Text = "Correo: " + Login.EmpleadoGlobal.Correo;
                     lbldirreccion2.Text = "Dirección:" + Login.EmpleadoGlobal.Direccion;
                     lblGenero2.Text = "Genero:" + Login.EmpleadoGlobal.Genero;
+                    //lblSaldoVaca.Text = "Saldo de vacaciones:" + Login.EmpleadoGlobal.DiasVacaciones;
+                    //lblSaldoVaca.Text = "Saldo de vacaciones:" + Vacaciones;
                     lblSaldoVaca.Text = "Saldo de vacaciones:" + Login.EmpleadoGlobal.DiasVacaciones;
-                    if (Login.EmpleadoGlobal.DiasAntesCaducidad < 3)
+                    //if (Login.EmpleadoGlobal.DiasAntesCaducidad < 3)
+                    if ((Login.EmpleadoGlobal.FechaCaducidadContraseña - DateTime.Today).TotalDays < 3)
                     {
                         mensaje.Visible = false;
                         mensajeError.Visible = false;
                         mensajeinfo.Visible = true;
                         mensajawarning.Visible = false;
-                        mensajeinfo.InnerHtml= "Recuerda cambiar tu contraseña al menos una vez cada tres meses\nLa contraseña actual caduca en " + Login.EmpleadoGlobal.DiasAntesCaducidad + " dias";
+                        mensajeinfo.InnerHtml= "Recuerda cambiar tu contraseña al menos una vez cada tres meses\nLa contraseña actual caduca el: " + Login.EmpleadoGlobal.FechaCaducidadContraseña.ToShortDateString();
                        
                     }
                 }
@@ -74,6 +77,15 @@ namespace RRHH.UI
 
         }
 
+        //public void CalculoDiasVacaciones()
+        //{
+        //    DateTime FechaIngresoEmpleado = Singleton.OpEmpleados.BuscarEmpleados(Login.EmpleadoGlobal.Cedula).FechaIngreso;
+        //    var VacacionesSolcitadas = Singleton.opsolicitud.BuscarsolicitudPorId(Login.EmpleadoGlobal.Cedula).Where(x => x.Condicion == true).Sum(x => x.TotalDias);
+        //    Vacaciones = Convert.ToInt32((( DateTime.Today - FechaIngresoEmpleado ).TotalDays/30)-VacacionesSolcitadas);
+        //    //int Vacaciones = 12 * (FechaIngresoEmpleado.Year - DateTime.Today.Year) + FechaIngresoEmpleado.Month - DateTime.Today.Month;
+        //    //return Math.Abs(monthsApart);
+
+        //}
         public bool ValidarRangoFechas(string fechainicio,string fechafinal)
         {
             try
@@ -257,6 +269,30 @@ namespace RRHH.UI
             {
                 Singleton.opAudiEmple.InsertarAuditoriasEmpleado(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, true, false, false, false, false, false, false, false, false, false, false);
                 ClientScript.RegisterStartupScript(GetType(), "Modal", "popupCerrarPerfil();", true);
+                Empleado empleado = new Empleado()
+                {
+                    Cedula = Login.EmpleadoGlobal.Cedula,
+                    Nombre = Login.EmpleadoGlobal.Nombre,
+                    Direccion = Login.EmpleadoGlobal.Direccion,
+                    Telefono = Login.EmpleadoGlobal.Telefono,
+                    Correo = Login.EmpleadoGlobal.Correo,
+                    EstadoCivil = Login.EmpleadoGlobal.EstadoCivil,
+                    Password = Login.EmpleadoGlobal.Password,
+                    FechaNacimiento = Login.EmpleadoGlobal.FechaNacimiento,
+                    IdDepartamento = Login.EmpleadoGlobal.IdDepartamento,
+                    IdRol = Login.EmpleadoGlobal.IdRol,
+                    Estado = true,
+                    Genero = Login.EmpleadoGlobal.Genero,
+                    Imagen = Login.EmpleadoGlobal.Imagen,
+                    DiasVacaciones = Login.EmpleadoGlobal.DiasVacaciones,
+                    DiasAntesCaducidad = 90,
+                    ContraseñaCaducada = false,
+                    FechaCaducidadContraseña = Login.EmpleadoGlobal.FechaCaducidadContraseña,
+                    FechaIngreso = Login.EmpleadoGlobal.FechaIngreso,
+                    SesionIniciada = false,
+
+                };
+                Singleton.OpEmpleados.ActualizarEmpleados(empleado);
 
             }
             catch (Exception)
@@ -325,7 +361,10 @@ namespace RRHH.UI
                             Estado = true,
                             DiasAntesCaducidad = 90,
                             ContraseñaCaducada = false,
-                            DiasVacaciones = Login.EmpleadoGlobal.DiasVacaciones
+                            DiasVacaciones = Login.EmpleadoGlobal.DiasVacaciones,
+                            FechaCaducidadContraseña = DateTime.Today.AddMonths(3),
+                            FechaIngreso = Login.EmpleadoGlobal.FechaIngreso,
+                            SesionIniciada = false,
                         };
                         Singleton.OpEmpleados.ActualizarEmpleados(empleado);
                         //this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('La contraseña ha sido modificada, por favor vuelve a iniciar sesión')", true);

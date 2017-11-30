@@ -36,12 +36,10 @@ namespace RRHH.DATA
         public int IntentosFallidos { get; set; }
         public string Imagen { get; set; }
         public int DiasVacaciones { get; set; }
-
         public bool ContraseñaCaducada { get; set; } 
-        public int DiasAntesCaducidad { get; set; } 
-
-
-
-
+        public int DiasAntesCaducidad { get; set; }
+        public bool SesionIniciada { get; set; }
+        public DateTime FechaCaducidadContraseña { get; set; }
+        public DateTime FechaIngreso { get; set; }
     }
 }
