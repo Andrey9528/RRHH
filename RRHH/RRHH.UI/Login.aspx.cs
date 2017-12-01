@@ -429,6 +429,7 @@ namespace RRHH.UI
 
             catch (Exception ex)
             {
+
                 mensaje.Visible = false;
                 mensajeError.Visible = true;
                 mensajeinfo.Visible = false;

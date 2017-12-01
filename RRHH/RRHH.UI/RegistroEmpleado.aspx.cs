@@ -89,6 +89,9 @@ namespace RRHH.UI
                             DiasVacaciones = 0,
                             ContraseñaCaducada = false,
                             DiasAntesCaducidad = 90,
+                            FechaCaducidadContraseña = DateTime.Today.AddMonths(3),
+                            SesionIniciada = false,
+                            FechaIngreso=DateTime.Today
 
 
                     };

@@ -137,6 +137,9 @@ namespace RRHH.UI
                             DiasAntesCaducidad = 90,
                             ContraseñaCaducada = false,
                             DiasVacaciones=Login.EmpleadoGlobal.DiasVacaciones,
+                            FechaCaducidadContraseña=Login.EmpleadoGlobal.FechaCaducidadContraseña,
+                            SesionIniciada=false,
+                            FechaIngreso=Login.EmpleadoGlobal.FechaIngreso
                         };
                         Singleton.OpEmpleados.ActualizarEmpleados(empleado);
                         //this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('La contraseña ha sido modificada, por favor vuelve a iniciar sesión')", true);
@@ -234,6 +237,32 @@ namespace RRHH.UI
         {
             try
             {
+
+                
+                Empleado empleado = new Empleado()
+                {
+                    Cedula = Login.EmpleadoGlobal.Cedula,
+                    Nombre =  Login.EmpleadoGlobal.Nombre,
+                    Direccion =Login.EmpleadoGlobal.Direccion,
+                    Telefono = Login.EmpleadoGlobal.Telefono,
+                    Correo = Login.EmpleadoGlobal.Correo,
+                    EstadoCivil = Login.EmpleadoGlobal.EstadoCivil,
+                    Password = Login.EmpleadoGlobal.Password,
+                    FechaNacimiento = Login.EmpleadoGlobal.FechaNacimiento,
+                    IdDepartamento = Login.EmpleadoGlobal.IdDepartamento,
+                    IdRol = Login.EmpleadoGlobal.IdRol,
+                    Estado = true,
+                    Genero = Login.EmpleadoGlobal.Genero,
+                    Imagen = Login.EmpleadoGlobal.Imagen,
+                    DiasVacaciones = Login.EmpleadoGlobal.DiasVacaciones,
+                    DiasAntesCaducidad = 90,
+                    ContraseñaCaducada = false,
+                    FechaCaducidadContraseña = Login.EmpleadoGlobal.FechaCaducidadContraseña,
+                    FechaIngreso = Login.EmpleadoGlobal.FechaIngreso,
+                    SesionIniciada = false,
+
+                };
+                Singleton.OpEmpleados.ActualizarEmpleados(empleado);
                 Singleton.opaudi.InsertarAuditoriasAdmin(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, false, false, false, false, false, false, false, false, false, false, false, false, true);
 
                 Session.Remove("AdminCorreo");
