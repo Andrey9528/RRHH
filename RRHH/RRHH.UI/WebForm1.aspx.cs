@@ -269,30 +269,7 @@ namespace RRHH.UI
             {
                 Singleton.opAudiEmple.InsertarAuditoriasEmpleado(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, true, false, false, false, false, false, false, false, false, false, false);
                 ClientScript.RegisterStartupScript(GetType(), "Modal", "popupCerrarPerfil();", true);
-                Empleado empleado = new Empleado()
-                {
-                    Cedula = Login.EmpleadoGlobal.Cedula,
-                    Nombre = Login.EmpleadoGlobal.Nombre,
-                    Direccion = Login.EmpleadoGlobal.Direccion,
-                    Telefono = Login.EmpleadoGlobal.Telefono,
-                    Correo = Login.EmpleadoGlobal.Correo,
-                    EstadoCivil = Login.EmpleadoGlobal.EstadoCivil,
-                    Password = Login.EmpleadoGlobal.Password,
-                    FechaNacimiento = Login.EmpleadoGlobal.FechaNacimiento,
-                    IdDepartamento = Login.EmpleadoGlobal.IdDepartamento,
-                    IdRol = Login.EmpleadoGlobal.IdRol,
-                    Estado = true,
-                    Genero = Login.EmpleadoGlobal.Genero,
-                    Imagen = Login.EmpleadoGlobal.Imagen,
-                    DiasVacaciones = Login.EmpleadoGlobal.DiasVacaciones,
-                    DiasAntesCaducidad = 90,
-                    ContraseñaCaducada = false,
-                    FechaCaducidadContraseña = Login.EmpleadoGlobal.FechaCaducidadContraseña,
-                    FechaIngreso = Login.EmpleadoGlobal.FechaIngreso,
-                    SesionIniciada = false,
-
-                };
-                Singleton.OpEmpleados.ActualizarEmpleados(empleado);
+                
 
             }
             catch (Exception)
@@ -503,7 +480,8 @@ namespace RRHH.UI
                 FechaCaducidadContraseña = Login.EmpleadoGlobal.FechaCaducidadContraseña,
                 FechaIngreso = Login.EmpleadoGlobal.FechaIngreso,
                 SesionIniciada = false,
-
+               Bloqueado=Login.EmpleadoGlobal.Bloqueado,
+               IntentosFallidos=Login.EmpleadoGlobal.IntentosFallidos
             };
             Singleton.OpEmpleados.ActualizarEmpleados(empleado);
             Session.Remove("emple");

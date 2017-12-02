@@ -157,7 +157,9 @@ namespace RRHH.UI
                         DiasAntesCaducidad=EmpleadoGlobal2.DiasAntesCaducidad,
                         FechaCaducidadContraseña=EmpleadoGlobal2.FechaCaducidadContraseña,
                         SesionIniciada=EmpleadoGlobal2.SesionIniciada,
-                        FechaIngreso=EmpleadoGlobal2.FechaIngreso
+                        FechaIngreso=EmpleadoGlobal2.FechaIngreso,
+                        ContraseñaCaducada=EmpleadoGlobal2.ContraseñaCaducada,
+                        
                     };
                     Singleton.OpEmpleados.ActualizarEmpleados(emple);
 

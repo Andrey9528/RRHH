@@ -236,20 +236,20 @@ body {font-family: Verdana, sans-serif;}
     <li class="prev">&#10094;</li>
     <li class="next">&#10095;</li>
     <li>
-      Noviembre<br/>
+      Diciembre<br/>
       <span style="font-size:18px">2017</span>
     </li>
   </ul>
 </div>
 
 <ul class="weekdays">
-  <li>Miércoles</li>
-  <li>Jueves</li>
-  <li>Viernes </li>
+  <li>Viernes</li>
   <li>Sábado</li>
   <li>Domingo </li>
   <li>Lunes</li>
-  <li>Martes</li>
+  <li>Martes </li>
+  <li>Miércoles</li>
+  <li>Jueves</li>
 </ul>
 
 <ul class="days">  
@@ -257,8 +257,8 @@ body {font-family: Verdana, sans-serif;}
   <li>2</li>
   <li>3</li>
   <li>4</li>
-  <li>5</li>
-  <li><span class="active">6</span></li>
+  <li><span class="active">5</span></li>
+  <li>6</li>
   <li>7</li>
   <li>8</li>
   <li>9</li>

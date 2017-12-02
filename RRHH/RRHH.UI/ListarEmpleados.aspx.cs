@@ -87,6 +87,7 @@ namespace RRHH.UI
 
                 mensajeError.Visible = true;
                 textoMensajeError.InnerHtml = "Hubo un error";
+                
             }
            
         }

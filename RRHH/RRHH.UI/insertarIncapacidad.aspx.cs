@@ -308,6 +308,9 @@ namespace RRHH.UI
                             DiasVacaciones = Login.EmpleadoGlobal.DiasVacaciones + DiasIncapacidadEnVacaciones+1,
                             DiasAntesCaducidad = Login.EmpleadoGlobal.DiasAntesCaducidad,
                             ContraseñaCaducada = false,
+                            FechaCaducidadContraseña=Login.EmpleadoGlobal.FechaCaducidadContraseña,
+                            FechaIngreso=Login.EmpleadoGlobal.FechaIngreso,
+                            SesionIniciada=Login.EmpleadoGlobal.SesionIniciada
                         };
                         DiasIncapacidadEnVacaciones = 0;
                         count = 0;
@@ -450,12 +453,25 @@ namespace RRHH.UI
         }
         public void LimpiarCampos()
         {
+            try
+            {
             txtfechainicio.Text = string.Empty;
             txtfechafinal.Text = string.Empty;
             txtfechaemision.Text = string.Empty;
             txtdescripcion.Text = string.Empty;
             txtcentroemisor.Text = string.Empty;
             txtnombredoc.Text = string.Empty;
+
+            }
+            catch
+            {
+                mensajeError.Visible = true;
+                mensajeinfo.Visible = false;
+                mensajawarning.Visible = false;
+                mensaje.Visible = false;
+                textoMensajeError.InnerHtml = "Ha ocurrido un error";
+            }
+            
         }
     }
 }

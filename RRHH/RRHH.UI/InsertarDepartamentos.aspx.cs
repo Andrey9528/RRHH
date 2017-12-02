@@ -33,7 +33,7 @@ namespace RRHH.UI
             }
             catch (Exception)
             {
-                throw;
+                
             }
 
 

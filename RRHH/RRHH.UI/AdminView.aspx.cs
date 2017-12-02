@@ -105,7 +105,11 @@ namespace RRHH.UI
             catch (Exception)
             {
 
-               
+                mensajawarning.Visible = false;
+                mensaje.Visible = false;
+                mensajeError.Visible = true;
+                mensajeinfo.Visible = false;
+                textoMensajeError.InnerHtml = "Hubo un error";
             }
            
         }
@@ -163,7 +167,12 @@ namespace RRHH.UI
             catch (Exception)
             {
 
-                
+                mensajawarning.Visible = false;
+                mensaje.Visible = false;
+                mensajeError.Visible = true;
+                mensajeinfo.Visible = false;
+                textoMensajeError.InnerHtml = "Hubo un error";
+
             }
         }
 
@@ -201,7 +210,12 @@ namespace RRHH.UI
             }
             catch (Exception)
             {
-                
+
+                mensajawarning.Visible = false;
+                mensaje.Visible = false;
+                mensajeError.Visible = true;
+                mensajeinfo.Visible = false;
+                textoMensajeError.InnerHtml = "Hubo un error";
             }
         }
         public void limpiarCamposDepa()
@@ -230,6 +244,12 @@ namespace RRHH.UI
             }
             catch
             {
+
+                mensajawarning.Visible = false;
+                mensaje.Visible = false;
+                mensajeError.Visible = true;
+                mensajeinfo.Visible = false;
+                textoMensajeError.InnerHtml = "Hubo un error";
             }
         }
 
@@ -271,6 +291,12 @@ namespace RRHH.UI
             catch
             {
 
+                mensajawarning.Visible = false;
+                mensaje.Visible = false;
+                mensajeError.Visible = true;
+                mensajeinfo.Visible = false;
+                textoMensajeError.InnerHtml = "Hubo un error";
+
             }
         }
 
@@ -285,6 +311,11 @@ namespace RRHH.UI
             catch
             {
 
+                mensajawarning.Visible = false;
+                mensaje.Visible = false;
+                mensajeError.Visible = true;
+                mensajeinfo.Visible = false;
+                textoMensajeError.InnerHtml = "Hubo un error";
             }
         }
 
@@ -299,6 +330,11 @@ namespace RRHH.UI
             catch
             {
 
+                mensajawarning.Visible = false;
+                mensaje.Visible = false;
+                mensajeError.Visible = true;
+                mensajeinfo.Visible = false;
+                textoMensajeError.InnerHtml = "Hubo un error";
             }
         }
 
@@ -311,6 +347,11 @@ namespace RRHH.UI
             }
             catch
             {
+                mensajawarning.Visible = false;
+                mensaje.Visible = false;
+                mensajeError.Visible = true;
+                mensajeinfo.Visible = false;
+                textoMensajeError.InnerHtml = "Hubo un error";
 
             }
         }

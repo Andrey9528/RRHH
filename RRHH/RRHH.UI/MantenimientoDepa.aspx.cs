@@ -69,7 +69,11 @@ namespace RRHH.UI
             }
             catch
             {
-
+                mensajawarning.Visible = false;
+                mensajeError.Visible = true;
+                mensaje.Visible = false;
+                mensajeinfo.Visible = false;
+                textoMensajeError.InnerHtml = "Hubo un error";
             }
         }
 
@@ -168,7 +172,11 @@ namespace RRHH.UI
             catch (Exception)
             {
 
-                throw;
+                mensajawarning.Visible = false;
+                mensajeError.Visible = true;
+                mensaje.Visible = false;
+                mensajeinfo.Visible = false;
+                textoMensajeError.InnerHtml = "Hubo un error";
             }
         }
 
@@ -204,17 +212,31 @@ namespace RRHH.UI
             catch (Exception)
             {
 
-                throw;
+                mensajawarning.Visible = false;
+                mensajeError.Visible = true;
+                mensaje.Visible = false;
+                mensajeinfo.Visible = false;
+                textoMensajeError.InnerHtml = "Hubo un error";
             }
 
         }
 
         protected void btnRegresar_Click(object sender, EventArgs e)
         {
-            Session["ROL"] = Login.EmpleadoGlobal.IdRol;
+            try
+            {
+                Session["ROL"] = Login.EmpleadoGlobal.IdRol;
 
-            Response.Redirect("AdminView.aspx?ROL=" + Login.EmpleadoGlobal.IdRol);
-
+                Response.Redirect("AdminView.aspx?ROL=" + Login.EmpleadoGlobal.IdRol);
+            }
+            catch
+            {
+                mensajawarning.Visible = false;
+                mensajeError.Visible = true;
+                mensaje.Visible = false;
+                mensajeinfo.Visible = false;
+                textoMensajeError.InnerHtml = "Hubo un error";
+            }
         }
     }
 }

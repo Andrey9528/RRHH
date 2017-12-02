@@ -124,6 +124,9 @@ namespace RRHH.UI
 
                         DiasAntesCaducidad = Login.EmpleadoGlobal.DiasAntesCaducidad,
                         ContraseñaCaducada = Login.EmpleadoGlobal.ContraseñaCaducada,
+                        FechaCaducidadContraseña=Login.EmpleadoGlobal.FechaCaducidadContraseña,
+                        FechaIngreso=Login.EmpleadoGlobal.FechaIngreso,
+                        SesionIniciada=Login.EmpleadoGlobal.SesionIniciada
                     };
                     if (Login.EmpleadoGlobal.IdRol == 1)
                     {
@@ -202,6 +205,9 @@ namespace RRHH.UI
 
                         DiasAntesCaducidad = Login.EmpleadoGlobal.DiasAntesCaducidad,
                         ContraseñaCaducada = Login.EmpleadoGlobal.ContraseñaCaducada,
+                        FechaCaducidadContraseña = Login.EmpleadoGlobal.FechaCaducidadContraseña,
+                        FechaIngreso = Login.EmpleadoGlobal.FechaIngreso,
+                        SesionIniciada = Login.EmpleadoGlobal.SesionIniciada
                     };
                     if (Login.EmpleadoGlobal.IdRol == 1)
                     {
@@ -259,8 +265,13 @@ namespace RRHH.UI
             }
             catch (Exception)
             {
+                mensajawarning.Visible = false;
+                mensajeinfo.Visible = false;
+                mensajeError.Visible = true;
+                textoMensajeError.InnerHtml = "Hubo un error";
+                mensaje.Visible = false;
 
-                throw;
+
             }
         }
 
@@ -292,6 +303,11 @@ namespace RRHH.UI
             }
             catch (Exception)
             {
+                mensajawarning.Visible = false;
+                mensajeinfo.Visible = false;
+                mensajeError.Visible = true;
+                textoMensajeError.InnerHtml = "Hubo un error";
+                mensaje.Visible = false;
 
                 
             }

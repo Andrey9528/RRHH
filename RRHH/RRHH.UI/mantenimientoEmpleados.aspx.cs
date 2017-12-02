@@ -163,6 +163,11 @@ namespace RRHH.UI
                         DiasVacaciones = EmpleadoGlobal.DiasVacaciones,
                         DiasAntesCaducidad = EmpleadoGlobal.DiasAntesCaducidad,
                         ContraseñaCaducada = false,
+                        FechaCaducidadContraseña=EmpleadoGlobal.FechaCaducidadContraseña,
+                        FechaIngreso=EmpleadoGlobal.FechaIngreso,
+                        SesionIniciada=EmpleadoGlobal.SesionIniciada
+                        
+                        
                     };
 
 
@@ -207,6 +212,9 @@ namespace RRHH.UI
                         DiasVacaciones = EmpleadoGlobal.DiasVacaciones,
                         DiasAntesCaducidad = EmpleadoGlobal.DiasAntesCaducidad,
                         ContraseñaCaducada = false,
+                        FechaIngreso= EmpleadoGlobal.FechaIngreso,
+                        FechaCaducidadContraseña=EmpleadoGlobal.FechaCaducidadContraseña,
+                        SesionIniciada=EmpleadoGlobal.SesionIniciada
                     };
 
 
@@ -249,6 +257,10 @@ namespace RRHH.UI
                         DiasVacaciones = EmpleadoGlobal.DiasVacaciones,
                         DiasAntesCaducidad = EmpleadoGlobal.DiasAntesCaducidad,
                         ContraseñaCaducada = false,
+                        FechaIngreso=EmpleadoGlobal.FechaIngreso,
+                        FechaCaducidadContraseña=EmpleadoGlobal.FechaCaducidadContraseña,
+                        SesionIniciada=EmpleadoGlobal.SesionIniciada
+                        
                     };
 
 
@@ -291,6 +303,10 @@ namespace RRHH.UI
                         DiasVacaciones = EmpleadoGlobal.DiasVacaciones,
                         DiasAntesCaducidad = EmpleadoGlobal.DiasAntesCaducidad,
                         ContraseñaCaducada = false,
+                        FechaIngreso = EmpleadoGlobal.FechaIngreso,
+                        FechaCaducidadContraseña = EmpleadoGlobal.FechaCaducidadContraseña,
+                        SesionIniciada = EmpleadoGlobal.SesionIniciada
+
                     };
 
 
@@ -358,6 +374,9 @@ namespace RRHH.UI
                         DiasVacaciones = EmpleadoGlobal.DiasVacaciones,
                         DiasAntesCaducidad = EmpleadoGlobal.DiasAntesCaducidad,
                         ContraseñaCaducada = false,
+                        FechaIngreso = EmpleadoGlobal.FechaIngreso,
+                        FechaCaducidadContraseña = EmpleadoGlobal.FechaCaducidadContraseña,
+                        SesionIniciada = EmpleadoGlobal.SesionIniciada
                     };
                     Singleton.OpEmpleados.ActualizarEmpleados(emple);
                     Empleadosmantenimiento.Visible = false;

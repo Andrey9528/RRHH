@@ -29,7 +29,7 @@ namespace RRHH.UI
             catch (Exception)
             {
 
-                throw;
+                
             }
 
         }
@@ -52,7 +52,7 @@ namespace RRHH.UI
             catch (Exception)
             {
 
-                throw;
+               
             }
         }
 
@@ -76,7 +76,15 @@ namespace RRHH.UI
                         IdRol = Login.EmpleadoGlobal.IdRol,
                         Genero=Login.EmpleadoGlobal.Genero,
                         Imagen=Login.EmpleadoGlobal.Imagen,
-                        Estado = true
+                        Estado = true,
+                        Bloqueado=Login.EmpleadoGlobal.Bloqueado,
+                        ContraseñaCaducada=Login.EmpleadoGlobal.ContraseñaCaducada,
+                        DiasAntesCaducidad=Login.EmpleadoGlobal.DiasAntesCaducidad,
+                        DiasVacaciones=Login.EmpleadoGlobal.DiasVacaciones,
+                        FechaCaducidadContraseña=Login.EmpleadoGlobal.FechaCaducidadContraseña,
+                        FechaIngreso=Login.EmpleadoGlobal.FechaIngreso,
+                        IntentosFallidos=Login.EmpleadoGlobal.IntentosFallidos,
+                        SesionIniciada=Login.EmpleadoGlobal.SesionIniciada,
                     };
                     Singleton.OpEmpleados.ActualizarEmpleados(empleado);
                     //this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('La contraseña ha sido modificada, por favor vuelve a iniciar sesión')", true);
@@ -91,7 +99,7 @@ namespace RRHH.UI
             catch (Exception)
             {
 
-                throw;
+                
             }
         }
 

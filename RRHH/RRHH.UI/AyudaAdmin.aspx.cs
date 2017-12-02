@@ -39,7 +39,9 @@ namespace RRHH.UI
                 Response.TransmitFile(Server.MapPath("~/TutorialesPDF/Admin/VerPerfilModificarAdmin.pdf"));
                 Response.End();
             }
-            catch { }
+            catch
+            {
+            }
         }
 
         protected void LKB_ReporteCambioContraseña_Click(object sender, EventArgs e)

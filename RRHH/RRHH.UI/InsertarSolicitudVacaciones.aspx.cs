@@ -57,7 +57,7 @@ namespace RRHH.UI
             }
             catch (Exception)
             {
-                throw;
+              
             }
         }
 
@@ -78,8 +78,7 @@ namespace RRHH.UI
             }
             catch (Exception)
             {
-
-                throw;
+                return false;
             }
         }
 

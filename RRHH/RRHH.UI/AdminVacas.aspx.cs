@@ -32,33 +32,49 @@ namespace RRHH.UI
             catch
             {
                 Response.Redirect("Error.aspx");
+               
             }
 
         }
 
         protected void btnbuscar_Click(object sender, EventArgs e)
         {
-            List<SolicitudVacaciones> lista = Singleton.opsolicitud.Listarsolicitudes();
-            var vaca = lista.FirstOrDefault(x => x.IdSolicitud == Convert.ToInt32(DDLidsoli.Text));
-
-            if (vaca != null)
+            try
             {
+                List<SolicitudVacaciones> lista = Singleton.opsolicitud.Listarsolicitudes();
+                var vaca = lista.FirstOrDefault(x => x.IdSolicitud == Convert.ToInt32(DDLidsoli.Text));
 
-                txtfechafinal.Enabled = true;
-                txtfechaincio.Enabled = true;
-                txtfechaincio.Text = vaca.FechaInicio.ToString();
-                txtfechafinal.Text = vaca.FechaFinal.ToString();
-                mensajeError.Visible = false;
-                mensajeinfo.Visible = false;
+                if (vaca != null)
+                {
+
+                    txtfechafinal.Enabled = true;
+                    txtfechaincio.Enabled = true;
+                    txtfechaincio.Text = vaca.FechaInicio.ToString();
+                    txtfechafinal.Text = vaca.FechaFinal.ToString();
+                    mensajeError.Visible = false;
+                    mensajeinfo.Visible = false;
+                    mensajawarning.Visible = false;
+                    mensaje.Visible = false;
+                }
+                else
+                {
+                    mensajawarning.Visible = false;
+                    mensaje.Visible = false;
+                    mensajeError.Visible = true;
+                    mensajeinfo.Visible = false;
+                    textoMensajeError.InnerHtml = "Hubo un error";
+                }
+
+            }
+            catch
+            {
                 mensajawarning.Visible = false;
                 mensaje.Visible = false;
+                mensajeError.Visible = true;
+                mensajeinfo.Visible = false;
+                textoMensajeError.InnerHtml = "Hubo un error";
             }
-            else
-            {
-
-            }
-
-
+           
         }
 
         protected void btnactualizar_Click(object sender, EventArgs e)
@@ -157,10 +173,20 @@ namespace RRHH.UI
 
         protected void btnRegresar_Click(object sender, EventArgs e)
         {
-            Session["ROL"] = Login.EmpleadoGlobal.IdRol;
+            try
+            {
+                Session["ROL"] = Login.EmpleadoGlobal.IdRol;
 
-            Response.Redirect("AdminView.aspx?ROL=" + Login.EmpleadoGlobal.IdRol);
-
+                Response.Redirect("AdminView.aspx?ROL=" + Login.EmpleadoGlobal.IdRol);
+            }
+            catch
+            {
+                mensajawarning.Visible = false;
+                mensaje.Visible = false;
+                mensajeError.Visible = true;
+                mensajeinfo.Visible = false;
+                textoMensajeError.InnerHtml = "Hubo un error";
+            }
         }
     }
 }
