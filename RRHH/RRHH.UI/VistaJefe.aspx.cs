@@ -40,7 +40,7 @@ namespace RRHH.UI
                     imgPerfil.ImageUrl = Login.EmpleadoGlobal.Imagen;
                     imgPerfil2.ImageUrl = Login.EmpleadoGlobal.Imagen;
                     lblSaldoVaca.Text = "Saldo de vacaciones:" + Login.EmpleadoGlobal.DiasVacaciones;
-
+                
                     if (Login.EmpleadoGlobal.DiasAntesCaducidad < 3)
                     {
                         mensaje.Visible = false;
@@ -49,16 +49,39 @@ namespace RRHH.UI
                         mensajawarning.Visible = false;
                         mensajeinfo.InnerHtml = "Recuerda cambiar tu contraseña al menos una vez cada tres meses\nLa contraseña actual caduca en " + Login.EmpleadoGlobal.DiasAntesCaducidad + " dias";
                     }
+                  
                 }
                 else
                 {
-                    Response.Redirect("Error.aspx");
+                   
+                    //Response.Redirect("Error.aspx");
                 }
             }
             catch 
             {
                 Response.Redirect("Login.aspx?men=1");
                 
+            }
+        }
+
+        public void CargarPerfil()
+        {
+            if (!IsPostBack)
+            {
+                lblnombre.Text = "Nombre: " + Login.EmpleadoGlobal.Nombre;
+                lblCedula.Text = "Cédula:" + Login.EmpleadoGlobal.Cedula;
+                lblDirreccion.Text = "Direccion:" + Login.EmpleadoGlobal.Direccion;
+                lblTelefono.Text = "Telefono: " + Login.EmpleadoGlobal.Telefono;
+                lblCorreo.Text = "Correo: " + Login.EmpleadoGlobal.Correo;
+                lblestadocivil.Text = "Estado Civil: " + Login.EmpleadoGlobal.EstadoCivil;
+                lblfechaNaci.Text = "Fecha nacimiento: " + Login.EmpleadoGlobal.FechaNacimiento;
+                lbldepa.Text = "Departamento: " + Singleton.opdepartamento.BuscarDepartamentos(Login.EmpleadoGlobal.IdDepartamento).Nombre;
+                //lblRol.Text = "Rol: " + Singleton.oproles.BuscarRoles(Login.EmpleadoGlobal.IdRol).Nombre;
+                imgPerfil.ImageUrl = Login.EmpleadoGlobal.Imagen;
+                imgPerfil2.ImageUrl = Login.EmpleadoGlobal.Imagen;
+                lblSaldoVaca.Text = "Saldo de vacaciones:" + Login.EmpleadoGlobal.DiasVacaciones;
+
+
             }
         }
 

@@ -29,6 +29,12 @@ namespace RRHH.UI
             }
         }
 
+        public void CargarPerfil()
+
+        {
+
+        }
+
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
             try

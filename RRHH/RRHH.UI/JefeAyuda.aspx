@@ -124,7 +124,7 @@ video {
              <iframe width="230"  src="https://www.youtube.com/embed/3JxNjOc0BXw" frameborder="0" gesture="media" allowfullscreen></iframe>
          </div>
         </div>
-        <div class="panel-footer"><asp:LinkButton ID="LKB_Reporte5" runat="server">Descarga Tutorial</asp:LinkButton></div>
+        <div class="panel-footer"></div>
       </div>
     </div>
   </div>
