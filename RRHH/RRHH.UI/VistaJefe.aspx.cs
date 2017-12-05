@@ -109,7 +109,11 @@ namespace RRHH.UI
             catch (Exception)
             {
 
-                
+                mensajeError.Visible = true;
+                mensajeinfo.Visible = false;
+                mensajawarning.Visible = false;
+                mensaje.Visible = false;
+                textomensajeError.InnerHtml = "Ha ocurrido un error";
             }
 
         }
@@ -143,7 +147,9 @@ namespace RRHH.UI
                             DiasVacaciones=Login.EmpleadoGlobal.DiasVacaciones,
                             SesionIniciada=false,
                             FechaCaducidadContraseña=Login.EmpleadoGlobal.FechaCaducidadContraseña,
-                            FechaIngreso=Login.EmpleadoGlobal.FechaIngreso
+                            FechaIngreso=Login.EmpleadoGlobal.FechaIngreso,
+                            Bloqueado =Login.EmpleadoGlobal.Bloqueado,
+                            IntentosFallidos=Login.EmpleadoGlobal.IntentosFallidos
                         };
                         Singleton.OpEmpleados.ActualizarEmpleados(empleado);
                         //this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('La contraseña ha sido modificada, por favor vuelve a iniciar sesión')", true);
@@ -171,7 +177,11 @@ namespace RRHH.UI
             catch (Exception)
             {
 
-               
+                mensajeError.Visible = true;
+                mensajeinfo.Visible = false;
+                mensajawarning.Visible = false;
+                mensaje.Visible = false;
+                textomensajeError.InnerHtml = "Ha ocurrido un error";
             }
         }
 
@@ -203,7 +213,8 @@ namespace RRHH.UI
                 FechaCaducidadContraseña = Login.EmpleadoGlobal.FechaCaducidadContraseña,
                 FechaIngreso = Login.EmpleadoGlobal.FechaIngreso,
                 SesionIniciada = false,
-
+                Bloqueado=Login.EmpleadoGlobal.Bloqueado,
+                IntentosFallidos=Login.EmpleadoGlobal.IntentosFallidos,
             };
             Singleton.OpEmpleados.ActualizarEmpleados(empleado);
             Session.Remove("JefeCorreo");
@@ -214,18 +225,38 @@ namespace RRHH.UI
 
         protected void btnCerarPopup_Click(object sender, EventArgs e)
         {
-            ClientScript.RegisterStartupScript(GetType(), "Modal", "popupCerrarPerfil();", true);
+            try
+            {
+                ClientScript.RegisterStartupScript(GetType(), "Modal", "popupCerrarPerfil();", true);
 
-            Singleton.opAudiJefe.InsertarAuditoriasJefe(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, true, false, false, false, false, false, false, false, false, false);
-
+                Singleton.opAudiJefe.InsertarAuditoriasJefe(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, true, false, false, false, false, false, false, false, false, false);
+            }
+            catch
+            {
+                mensajeError.Visible = true;
+                mensajeinfo.Visible = false;
+                mensajawarning.Visible = false;
+                mensaje.Visible = false;
+                textomensajeError.InnerHtml = "Ha ocurrido un error";
+            }
         }
 
         protected void LKB_AyudaJefe_Click(object sender, EventArgs e)
         {
-            Singleton.opAudiJefe.InsertarAuditoriasJefe(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, false, false, false, false, true, false, false, false, false);
+            try
+            {
+                Singleton.opAudiJefe.InsertarAuditoriasJefe(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, false, false, false, false, true, false, false, false, false);
 
-            Response.Redirect("JefeAyuda.aspx");
-
+                Response.Redirect("JefeAyuda.aspx");
+            }
+            catch
+            {
+                mensajeError.Visible = true;
+                mensajeinfo.Visible = false;
+                mensajawarning.Visible = false;
+                mensaje.Visible = false;
+                textomensajeError.InnerHtml = "Ha ocurrido un error";
+            }
         }
 
         public bool ValidacionDias(string fechaFinal, string fechadeInicio)

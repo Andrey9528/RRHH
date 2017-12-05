@@ -57,17 +57,29 @@ namespace RRHH.UI
             }
             catch 
             {
+                mensajeError.Visible = true;
 
-               
+
+                textomensajeError.InnerHtml = "Hubo un error";
             }
         }
 
         protected void btnRegresar_Click(object sender, EventArgs e)
         {
-            Session["ROL"] = Login.EmpleadoGlobal.IdRol;
 
-            Response.Redirect("AdminView.aspx?ROL=" + Login.EmpleadoGlobal.IdRol);
+            try
+            {
+                Session["ROL"] = Login.EmpleadoGlobal.IdRol;
 
+                Response.Redirect("AdminView.aspx?ROL=" + Login.EmpleadoGlobal.IdRol);
+            }
+            catch
+            {
+                mensajeError.Visible = true;
+
+
+                textomensajeError.InnerHtml = "Hubo un error";
+            }
         }
     }
 }

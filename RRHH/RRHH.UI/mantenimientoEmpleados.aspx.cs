@@ -163,6 +163,10 @@ namespace RRHH.UI
                         DiasVacaciones = EmpleadoGlobal.DiasVacaciones,
                         DiasAntesCaducidad = EmpleadoGlobal.DiasAntesCaducidad,
                         ContraseñaCaducada = false,
+                        FechaCaducidadContraseña=EmpleadoGlobal.FechaCaducidadContraseña,
+                        FechaIngreso=EmpleadoGlobal.FechaIngreso,
+                        SesionIniciada=EmpleadoGlobal.SesionIniciada
+
                     };
 
 
@@ -207,6 +211,10 @@ namespace RRHH.UI
                         DiasVacaciones = EmpleadoGlobal.DiasVacaciones,
                         DiasAntesCaducidad = EmpleadoGlobal.DiasAntesCaducidad,
                         ContraseñaCaducada = false,
+                        FechaCaducidadContraseña=EmpleadoGlobal.FechaCaducidadContraseña,
+                        FechaIngreso=EmpleadoGlobal.FechaIngreso,
+                        SesionIniciada=EmpleadoGlobal.SesionIniciada,
+                        
                     };
 
 
@@ -249,6 +257,9 @@ namespace RRHH.UI
                         DiasVacaciones = EmpleadoGlobal.DiasVacaciones,
                         DiasAntesCaducidad = EmpleadoGlobal.DiasAntesCaducidad,
                         ContraseñaCaducada = false,
+                        FechaCaducidadContraseña=EmpleadoGlobal.FechaCaducidadContraseña,
+                        FechaIngreso=EmpleadoGlobal.FechaIngreso,
+                        SesionIniciada=EmpleadoGlobal.SesionIniciada,
                     };
 
 
@@ -291,6 +302,9 @@ namespace RRHH.UI
                         DiasVacaciones = EmpleadoGlobal.DiasVacaciones,
                         DiasAntesCaducidad = EmpleadoGlobal.DiasAntesCaducidad,
                         ContraseñaCaducada = false,
+                        FechaCaducidadContraseña = EmpleadoGlobal.FechaCaducidadContraseña,
+                        FechaIngreso=EmpleadoGlobal.FechaIngreso,
+                        SesionIniciada=EmpleadoGlobal.SesionIniciada,
                     };
 
 
@@ -315,7 +329,11 @@ namespace RRHH.UI
             }
             catch
             {
-                
+                mensajeError.Visible = true;
+                mensajeinfo.Visible = false;
+
+                mensaje.Visible = false;
+                textoMensajeError.InnerHtml = "Ha ocurrido un error";
             }
 
         }
@@ -358,6 +376,9 @@ namespace RRHH.UI
                         DiasVacaciones = EmpleadoGlobal.DiasVacaciones,
                         DiasAntesCaducidad = EmpleadoGlobal.DiasAntesCaducidad,
                         ContraseñaCaducada = false,
+                        FechaCaducidadContraseña=EmpleadoGlobal.FechaCaducidadContraseña,
+                        FechaIngreso=EmpleadoGlobal.FechaIngreso,
+                        SesionIniciada=EmpleadoGlobal.SesionIniciada,
                     };
                     Singleton.OpEmpleados.ActualizarEmpleados(emple);
                     Empleadosmantenimiento.Visible = false;
@@ -389,7 +410,11 @@ namespace RRHH.UI
             }
             catch
             {
-              
+                mensajeError.Visible = true;
+                mensajeinfo.Visible = false;
+
+                mensaje.Visible = false;
+                textoMensajeError.InnerHtml = "Ha ocurrido un error";
             }     
 
         }
@@ -409,10 +434,20 @@ namespace RRHH.UI
 
         protected void btnRegresar_Click(object sender, EventArgs e)
         {
-            Session["ROL"] = Login.EmpleadoGlobal.IdRol;
+            try
+            {
+                Session["ROL"] = Login.EmpleadoGlobal.IdRol;
 
-            Response.Redirect("AdminView.aspx?ROL=" + Login.EmpleadoGlobal.IdRol);
+                Response.Redirect("AdminView.aspx?ROL=" + Login.EmpleadoGlobal.IdRol);
+            }
+            catch
+            {
+                mensajeError.Visible = true;
+                mensajeinfo.Visible = false;
 
+                mensaje.Visible = false;
+                textoMensajeError.InnerHtml = "Ha ocurrido un error";
+            }
         }
     }
 }

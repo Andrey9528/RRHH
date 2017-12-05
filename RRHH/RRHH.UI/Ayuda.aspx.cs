@@ -32,15 +32,31 @@ namespace RRHH.UI
                 Response.TransmitFile(Server.MapPath("~/TutorialesPDF/Empleado/VerPerfilyModificar.pdf"));
                 Response.End();
             }
-            catch { }
+            catch
+            {
+                mensajeError.Visible = true;
+
+
+                textomensajeError.InnerHtml = "Hubo un error";
+            }
         }
 
         protected void btnRegresar_Click(object sender, EventArgs e)
         {
-            Session["ROL"] = Login.EmpleadoGlobal.IdRol;
+            try
+            {
+                Session["ROL"] = Login.EmpleadoGlobal.IdRol;
 
-            Response.Redirect("WebForm1.aspx?ROL=" + Login.EmpleadoGlobal.IdRol);
-        }
+                Response.Redirect("WebForm1.aspx?ROL=" + Login.EmpleadoGlobal.IdRol);
+            }
+            catch
+            {
+                mensajeError.Visible = true;
+
+
+                textomensajeError.InnerHtml = "Hubo un error";
+            }
+            }
 
         protected void LKB_ReporteInca_Click(object sender, EventArgs e)
         {
@@ -51,7 +67,13 @@ namespace RRHH.UI
                 Response.TransmitFile(Server.MapPath("~/TutorialesPDF/Empleado/GestionDeIncapacidades.pdf"));
                 Response.End();
             }
-            catch { }
+            catch
+            {
+                mensajeError.Visible = true;
+
+
+                textomensajeError.InnerHtml = "Hubo un error";
+            }
         }
 
         protected void LKB_ReporteVaca_Click(object sender, EventArgs e)
@@ -63,7 +85,13 @@ namespace RRHH.UI
                 Response.TransmitFile(Server.MapPath("~/TutorialesPDF/Empleado/GestionDeVacaciones.pdf"));
                 Response.End();
             }
-            catch { }
+            catch
+            {
+                mensajeError.Visible = true;
+
+
+                textomensajeError.InnerHtml = "Hubo un error";
+            }
         }
 
         protected void LKB_ReporteContrasena_Click(object sender, EventArgs e)
@@ -75,7 +103,13 @@ namespace RRHH.UI
                 Response.TransmitFile(Server.MapPath("~/TutorialesPDF/Empleado/CambioContraseña.pdf"));
                 Response.End();
             }
-            catch { }
+            catch
+            {
+                mensajeError.Visible = true;
+
+
+                textomensajeError.InnerHtml = "Hubo un error";
+            }
         }
 
         protected void LKB_ReporteOlvideContrasena_Click(object sender, EventArgs e)
@@ -87,7 +121,13 @@ namespace RRHH.UI
                 Response.TransmitFile(Server.MapPath("~/TutorialesPDF/Empleado/OlvideContraseña.pdf"));
                 Response.End();
             }
-            catch { }
+            catch
+            {
+                mensajeError.Visible = true;
+
+
+                textomensajeError.InnerHtml = "Hubo un error";
+            }
 
         }
     }

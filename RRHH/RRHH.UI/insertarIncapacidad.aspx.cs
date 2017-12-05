@@ -251,8 +251,18 @@ namespace RRHH.UI
             catch (Exception)
             {
                 throw;
+                
             }
               return count;
+        }
+        public  void mensajes()
+        {
+              
+            mensajawarning.Visible = false;
+                mensajeError.Visible = true;
+                mensaje.Visible = false;
+                mensajeinfo.Visible = false;
+                textoMensajeError.InnerHtml = "Hubo un error";
         }
         protected void btninsertar_Click(object sender, EventArgs e)
         {
@@ -308,6 +318,10 @@ namespace RRHH.UI
                             DiasVacaciones = Login.EmpleadoGlobal.DiasVacaciones + DiasIncapacidadEnVacaciones+1,
                             DiasAntesCaducidad = Login.EmpleadoGlobal.DiasAntesCaducidad,
                             ContraseñaCaducada = false,
+                            FechaCaducidadContraseña=Login.EmpleadoGlobal.FechaCaducidadContraseña,
+                            FechaIngreso=Login.EmpleadoGlobal.FechaIngreso,
+                            SesionIniciada=Login.EmpleadoGlobal.SesionIniciada
+                            
                         };
                         DiasIncapacidadEnVacaciones = 0;
                         count = 0;
@@ -450,12 +464,23 @@ namespace RRHH.UI
         }
         public void LimpiarCampos()
         {
-            txtfechainicio.Text = string.Empty;
-            txtfechafinal.Text = string.Empty;
-            txtfechaemision.Text = string.Empty;
-            txtdescripcion.Text = string.Empty;
-            txtcentroemisor.Text = string.Empty;
-            txtnombredoc.Text = string.Empty;
+            try
+            {
+                txtfechainicio.Text = string.Empty;
+                txtfechafinal.Text = string.Empty;
+                txtfechaemision.Text = string.Empty;
+                txtdescripcion.Text = string.Empty;
+                txtcentroemisor.Text = string.Empty;
+                txtnombredoc.Text = string.Empty;
+            }
+            catch
+            {
+                mensajawarning.Visible = false;
+                mensajeError.Visible = true;
+                mensaje.Visible = false;
+                mensajeinfo.Visible = false;
+                textoMensajeError.InnerHtml = "Hubo un error";
+            }
         }
     }
 }

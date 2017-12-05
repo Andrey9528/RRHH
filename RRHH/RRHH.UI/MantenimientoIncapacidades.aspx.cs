@@ -31,31 +31,51 @@ namespace RRHH.UI
 
         public void DeshabilitarCampos()
         {
-            txtfechainicio.Enabled = false;
-            txtfechaemision.Enabled = false;
-            DDLid_incapacidad.Enabled = false;
-            txtfechafinalizacion.Enabled = false;
-            txtdescripcion.Enabled = false;
-            Chk_estado.Enabled = false;
-            txtdoctor.Enabled = false;
-            txtcentroemisor.Enabled = false;
-            btnModificar.Enabled = false;
-            btnBuscarIncapacidad.Enabled = false;
-            DDLtipoenfermedad.Enabled = false;
-            
+            try
+            {
+                txtfechainicio.Enabled = false;
+                txtfechaemision.Enabled = false;
+                DDLid_incapacidad.Enabled = false;
+                txtfechafinalizacion.Enabled = false;
+                txtdescripcion.Enabled = false;
+                Chk_estado.Enabled = false;
+                txtdoctor.Enabled = false;
+                txtcentroemisor.Enabled = false;
+                btnModificar.Enabled = false;
+                btnBuscarIncapacidad.Enabled = false;
+                DDLtipoenfermedad.Enabled = false;
+            }
+            catch
+            {
+                mensajeError.Visible = true;
+                mensajeinfo.Visible = false;
+
+                mensaje.Visible = false;
+                textoMensajeError.InnerHtml = "Ha ocurrido un error";
+            }
         }
         public void habilitarCampos()
         {
-            txtfechainicio.Enabled = true;
-            txtfechaemision.Enabled = true;
-            DDLtipoenfermedad.Enabled = true;
-            txtfechafinalizacion.Enabled = true;
-            txtdescripcion.Enabled = true;
-            Chk_estado.Enabled = true;
-            txtdoctor.Enabled = true;
-            txtcentroemisor.Enabled = true;
-            btnModificar.Enabled = true;
-            
+            try
+            {
+                txtfechainicio.Enabled = true;
+                txtfechaemision.Enabled = true;
+                DDLtipoenfermedad.Enabled = true;
+                txtfechafinalizacion.Enabled = true;
+                txtdescripcion.Enabled = true;
+                Chk_estado.Enabled = true;
+                txtdoctor.Enabled = true;
+                txtcentroemisor.Enabled = true;
+                btnModificar.Enabled = true;
+            }
+            catch
+            {
+                mensajeError.Visible = true;
+                mensajeinfo.Visible = false;
+
+                mensaje.Visible = false;
+                textoMensajeError.InnerHtml = "Ha ocurrido un error";
+            }
         }
 
         protected void btnsBuscar_Click(object sender, EventArgs e)
@@ -338,21 +358,36 @@ namespace RRHH.UI
             }
             catch (Exception)
             {
+                mensajeError.Visible = true;
+                mensajeinfo.Visible = false;
 
-                
+                mensaje.Visible = false;
+                textoMensajeError.InnerHtml = "Ha ocurrido un error";
+
             }
         }
         public void limpiar()
         {
-            txtfechainicio.Text = string.Empty;
-            txtfechafinalizacion.Text = string.Empty;
-            txtfechaemision.Text = string.Empty;
-            txtdoctor.Text = string.Empty;
-            txtcentroemisor.Text = string.Empty;
-            txtdescripcion.Text= string.Empty;
-            Chk_estado.Checked = false;
-            txtcedula.Text = string.Empty;
-          
+            try
+            {
+                txtfechainicio.Text = string.Empty;
+                txtfechafinalizacion.Text = string.Empty;
+                txtfechaemision.Text = string.Empty;
+                txtdoctor.Text = string.Empty;
+                txtcentroemisor.Text = string.Empty;
+                txtdescripcion.Text = string.Empty;
+                Chk_estado.Checked = false;
+                txtcedula.Text = string.Empty;
+            }
+            catch
+            {
+
+                mensajeError.Visible = true;
+                mensajeinfo.Visible = false;
+
+                mensaje.Visible = false;
+                textoMensajeError.InnerHtml = "Ha ocurrido un error";
+            }
 
 
 
@@ -360,10 +395,20 @@ namespace RRHH.UI
 
         protected void btnRegresar_Click(object sender, EventArgs e)
         {
-            Session["ROL"] = Login.EmpleadoGlobal.IdRol;
+            try
+            {
+                Session["ROL"] = Login.EmpleadoGlobal.IdRol;
 
-            Response.Redirect("AdminView.aspx?ROL=" + Login.EmpleadoGlobal.IdRol);
+                Response.Redirect("AdminView.aspx?ROL=" + Login.EmpleadoGlobal.IdRol);
+            }
+            catch
+            {
+                mensajeError.Visible = true;
+                mensajeinfo.Visible = false;
 
+                mensaje.Visible = false;
+                textoMensajeError.InnerHtml = "Ha ocurrido un error";
+            }
         }
     }
 }

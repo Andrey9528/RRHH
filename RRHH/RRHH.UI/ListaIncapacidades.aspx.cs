@@ -55,17 +55,30 @@ namespace RRHH.UI
             catch
             {
                 mensajeError.Visible = true;
-                textoMensajeError.InnerHtml = "Hubo un error";
+                mensajeinfo.Visible = false;
+                mensaje.Visible = false;
+                mensajawarning.Visible = false;
+                textoMensajeError.InnerHtml = "Ha ocurrido un error";
 
             }
         }
 
         protected void btnRegresar_Click(object sender, EventArgs e)
         {
-            Session["ROL"] = Login.EmpleadoGlobal.IdRol;
+            try
+            {
+                Session["ROL"] = Login.EmpleadoGlobal.IdRol;
 
-            Response.Redirect("VistaJefe.aspx?ROL=" + Login.EmpleadoGlobal.IdRol);
-
+                Response.Redirect("VistaJefe.aspx?ROL=" + Login.EmpleadoGlobal.IdRol);
+            }
+            catch
+            {
+                mensajeError.Visible = true;
+                mensajeinfo.Visible = false;
+                mensaje.Visible = false;
+                mensajawarning.Visible = false;
+                textoMensajeError.InnerHtml = "Ha ocurrido un error";
+            }
         }
     }
 }
