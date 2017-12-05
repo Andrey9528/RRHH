@@ -143,7 +143,7 @@ video {
              <iframe width="230" src="https://www.youtube.com/embed/6xcWyY6YjYc" frameborder="0" gesture="media" allowfullscreen></iframe>
          </div>
         </div>
-        <div class="panel-footer"><asp:LinkButton ID="LinkButton3" runat="server"></asp:LinkButton></div>
+        <div class="panel-footer"></div>
       </div>
     </div>
   </div>

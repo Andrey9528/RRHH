@@ -89,10 +89,8 @@
                <div class="form-inline">
                   <asp:Label ID="Label10" runat="server"   Text="Imagen"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       
-            <asp:TextBox ID="txtImagen" placeholder="imagen" runat="server" CssClass="form-control"></asp:TextBox>
-        
-                   <input type="button" id="btnnAdjuntar" runat="server" value="adjuntar" class="btn btn-success" onclick="adjuntarImagen()" /> 
-     <br />
+         
+                        <br />
                      <asp:FileUpload ID="fileUpload1" accept="image/*"  runat="server" />
 
                </div>

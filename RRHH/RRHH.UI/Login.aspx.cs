@@ -108,12 +108,12 @@ namespace RRHH.UI
                             txtcorreo.Text = string.Empty;
                         }
                         else
-                        if (EmpleadoGlobal.SesionIniciada)
+                        if (EmpleadoGlobal.SesionIniciada )
                         {
                             mensaje.Visible = false;
                             mensajeinfo.Visible = false;
                             mensajeError.Visible = true;
-                            textoMensajeError.InnerHtml = "Tienes un session abierta desde otro dispositivo";
+                            textoMensajeError.InnerHtml = "Tienes un sesión abierta desde otro dispositivo";
                             txtcontra.Text = string.Empty;
                             txtcorreo.Text = string.Empty;
                         }

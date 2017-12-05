@@ -298,7 +298,8 @@
        
         </li>
            <li>
-               <a href="#"><span class="glyphicon glyphicon-log-out"></span></a>
+              
+
 
            </li>
       
@@ -460,7 +461,7 @@
             
            
              <footer class="col-sm-offset-8">
-               <p>&copy; <%: DateTime.Now.Month %>  Farmacias San Gabriel</p></footer>
+               <p>  Farmacias San Gabriel</p></footer>
             
 
 

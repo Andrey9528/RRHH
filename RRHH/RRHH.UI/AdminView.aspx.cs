@@ -259,7 +259,7 @@ namespace RRHH.UI
                     ContraseñaCaducada = false,
                     FechaCaducidadContraseña = Login.EmpleadoGlobal.FechaCaducidadContraseña,
                     FechaIngreso = Login.EmpleadoGlobal.FechaIngreso,
-                    SesionIniciada = false,
+                    SesionIniciada = false
 
                 };
                 Singleton.OpEmpleados.ActualizarEmpleados(empleado);

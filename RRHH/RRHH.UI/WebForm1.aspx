@@ -118,8 +118,8 @@
   
       <ul class="nav navbar-nav navbar-right">
          <li>
-               <a style="color:white;" href="#"><span style="color:white;" class="glyphicon glyphicon-log-out "></span> Salir</a>
-           </li>
+               
+         </li>
       </ul>
     </div>
   </div>
@@ -304,7 +304,7 @@
 <%--             <asp:Label ID="lblRol" runat="server" Text="Rol:"></asp:Label>--%>
             
              <footer class="col-sm-offset-8">
-               <p>&copy; <%: DateTime.Now.Month %>  Farmacias San Gabriel</p></footer>
+               <p>  Farmacias San Gabriel</p></footer>
             
         </div>
         <div class="modal-footer">
