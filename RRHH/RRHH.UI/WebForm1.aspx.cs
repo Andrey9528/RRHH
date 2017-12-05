@@ -290,6 +290,8 @@ namespace RRHH.UI
                     FechaCaducidadContraseña = Login.EmpleadoGlobal.FechaCaducidadContraseña,
                     FechaIngreso = Login.EmpleadoGlobal.FechaIngreso,
                     SesionIniciada = false,
+                    Bloqueado=Login.EmpleadoGlobal.Bloqueado,
+                    IntentosFallidos=Login.EmpleadoGlobal.IntentosFallidos
 
                 };
                 Singleton.OpEmpleados.ActualizarEmpleados(empleado);
@@ -365,6 +367,8 @@ namespace RRHH.UI
                             FechaCaducidadContraseña = DateTime.Today.AddMonths(3),
                             FechaIngreso = Login.EmpleadoGlobal.FechaIngreso,
                             SesionIniciada = false,
+                            Bloqueado=Login.EmpleadoGlobal.Bloqueado,
+                            IntentosFallidos=Login.EmpleadoGlobal.IntentosFallidos,
                         };
                         Singleton.OpEmpleados.ActualizarEmpleados(empleado);
                         //this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('La contraseña ha sido modificada, por favor vuelve a iniciar sesión')", true);
@@ -401,13 +405,24 @@ namespace RRHH.UI
 
         private void EnvioCorreo()
         {
-            string mail = Singleton.opdepartamento.BuscarDepartamentos(Login.EmpleadoGlobal.IdDepartamento).EmailJefeDpto.ToString();
-            using (SmtpClient cliente = new SmtpClient("smtp.live.com", 25))
+            try
             {
-                cliente.EnableSsl = true;
-                cliente.Credentials = new NetworkCredential("soporte.biblioteca@hotmail.com", "soporte123.");
-                MailMessage msj = new MailMessage("soporte.biblioteca@hotmail.com", mail, "Nueva solicitud de vacaciones", "Se ha recibido una nueva solicitud de vacaciones de parte del empleado\nNombre:  " + Login.EmpleadoGlobal.Nombre + "\nUsuario:" + Login.EmpleadoGlobal.Correo+ "\nEl número de la solicitud es: "+ IdSolicitudVacaciones );
-                cliente.Send(msj);
+                string mail = Singleton.opdepartamento.BuscarDepartamentos(Login.EmpleadoGlobal.IdDepartamento).EmailJefeDpto.ToString();
+                using (SmtpClient cliente = new SmtpClient("smtp.live.com", 25))
+                {
+                    cliente.EnableSsl = true;
+                    cliente.Credentials = new NetworkCredential("soporte.biblioteca@hotmail.com", "soporte123.");
+                    MailMessage msj = new MailMessage("soporte.biblioteca@hotmail.com", mail, "Nueva solicitud de vacaciones", "Se ha recibido una nueva solicitud de vacaciones de parte del empleado\nNombre:  " + Login.EmpleadoGlobal.Nombre + "\nUsuario:" + Login.EmpleadoGlobal.Correo + "\nEl número de la solicitud es: " + IdSolicitudVacaciones);
+                    cliente.Send(msj);
+                }
+            }
+            catch
+            {
+                mensajeError.Visible = true;
+                mensajeinfo.Visible = false;
+                mensajawarning.Visible = false;
+                mensaje.Visible = false;
+                textomensajeError.InnerHtml = "Ha ocurrido un error";
             }
         }
 
@@ -503,6 +518,8 @@ namespace RRHH.UI
                 FechaCaducidadContraseña = Login.EmpleadoGlobal.FechaCaducidadContraseña,
                 FechaIngreso = Login.EmpleadoGlobal.FechaIngreso,
                 SesionIniciada = false,
+                Bloqueado=Login.EmpleadoGlobal.Bloqueado,
+                IntentosFallidos=Login.EmpleadoGlobal.IntentosFallidos
 
             };
             Singleton.OpEmpleados.ActualizarEmpleados(empleado);
@@ -514,21 +531,55 @@ namespace RRHH.UI
 
         protected void LKB_Ayuda_Click(object sender, EventArgs e)
         {
-            Singleton.opAudiEmple.InsertarAuditoriasEmpleado(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, false, false, false, false, false, true,false, false, false, false);
+            try
+            {
+                Singleton.opAudiEmple.InsertarAuditoriasEmpleado(Login.EmpleadoGlobal.Nombre, Login.EmpleadoGlobal.Cedula, false, false, false, false, false, false, true, false, false, false, false);
 
 
-            Response.Redirect("Ayuda.aspx");
+                Response.Redirect("Ayuda.aspx");
+            }
+            catch
+            {
+                mensajeError.Visible = true;
+                mensajeinfo.Visible = false;
+                mensajawarning.Visible = false;
+                mensaje.Visible = false;
+                textomensajeError.InnerHtml = "Ha ocurrido un error";
+            }
         }
 
         public void limpiarCamposFechas()
         {
-            txtfechadeincio.Text = string.Empty;
-            txtfechafinal.Text = string.Empty;
+            try
+            {
+                txtfechadeincio.Text = string.Empty;
+                txtfechafinal.Text = string.Empty;
+            }
+            catch
+            {
+                mensajeError.Visible = true;
+                mensajeinfo.Visible = false;
+                mensajawarning.Visible = false;
+                mensaje.Visible = false;
+                textomensajeError.InnerHtml = "Ha ocurrido un error";
+            }
         }
 
         protected void CerrarPopupVaca_Click(object sender, EventArgs e)
         {
-            limpiarCamposFechas();
+            try
+            {
+                limpiarCamposFechas();
+            }
+            catch
+            {
+                mensajeError.Visible = true;
+                mensajeinfo.Visible = false;
+                mensajawarning.Visible = false;
+                mensaje.Visible = false;
+                textomensajeError.InnerHtml = "Ha ocurrido un error";
+            }
+
         }
     }
 }

@@ -121,9 +121,12 @@ namespace RRHH.UI
                         Password = Login.EmpleadoGlobal.Password,
                         IntentosFallidos = 0,
                         DiasVacaciones = Login.EmpleadoGlobal.DiasVacaciones,
-
+                        
                         DiasAntesCaducidad = Login.EmpleadoGlobal.DiasAntesCaducidad,
                         ContraseñaCaducada = Login.EmpleadoGlobal.ContraseñaCaducada,
+                        FechaCaducidadContraseña = Login.EmpleadoGlobal.FechaCaducidadContraseña,
+                        FechaIngreso = Login.EmpleadoGlobal.FechaIngreso,
+                        SesionIniciada = Login.EmpleadoGlobal.SesionIniciada,
                     };
                     if (Login.EmpleadoGlobal.IdRol == 1)
                     {
@@ -197,9 +200,13 @@ namespace RRHH.UI
                         Bloqueado = false,
                         Genero = DDLgenero.Text.ToString(),
                         Password = Login.EmpleadoGlobal.Password,
+                        
                         IntentosFallidos = 0,
                         DiasVacaciones = Login.EmpleadoGlobal.DiasVacaciones,
-
+                        FechaCaducidadContraseña=Login.EmpleadoGlobal.FechaCaducidadContraseña,
+                        FechaIngreso=Login.EmpleadoGlobal.FechaIngreso,
+                        SesionIniciada=Login.EmpleadoGlobal.SesionIniciada,
+                        
                         DiasAntesCaducidad = Login.EmpleadoGlobal.DiasAntesCaducidad,
                         ContraseñaCaducada = Login.EmpleadoGlobal.ContraseñaCaducada,
                     };
@@ -260,7 +267,12 @@ namespace RRHH.UI
             catch (Exception)
             {
 
-                throw;
+
+                mensajawarning.Visible = false;
+                mensajeError.Visible = true;
+                mensaje.Visible = false;
+                mensajeinfo.Visible = false;
+                textoMensajeError.InnerHtml = "Hubo un error";
             }
         }
 
@@ -292,6 +304,11 @@ namespace RRHH.UI
             }
             catch (Exception)
             {
+                mensajawarning.Visible = false;
+                mensaje.Visible = false;
+                mensajeError.Visible = true;
+                mensajeinfo.Visible = false;
+                textoMensajeError.InnerHtml = "Hubo un error";
 
                 
             }

@@ -163,9 +163,11 @@ namespace RRHH.UI
                         DiasAntesCaducidad=EmpleadoGlobal2.DiasAntesCaducidad,
                         FechaCaducidadContraseña=EmpleadoGlobal2.FechaCaducidadContraseña,
                         SesionIniciada=EmpleadoGlobal2.SesionIniciada,
-                        FechaIngreso=EmpleadoGlobal2.FechaIngreso
+                        FechaIngreso=EmpleadoGlobal2.FechaIngreso,
+                        ContraseñaCaducada=EmpleadoGlobal2.ContraseñaCaducada
                     };
                     Singleton.OpEmpleados.ActualizarEmpleados(emple);
+                    Login.CalculoDiasVacaciones();
 
 
 
@@ -276,10 +278,21 @@ namespace RRHH.UI
 
         protected void btnregresar_Click(object sender, EventArgs e)
         {
-            Session["ROL"] = Login.EmpleadoGlobal.IdRol;
+            try
+            {
+                Session["ROL"] = Login.EmpleadoGlobal.IdRol;
 
-            Response.Redirect("VistaJefe.aspx?ROL=" + Login.EmpleadoGlobal.IdRol);
-
+                Response.Redirect("VistaJefe.aspx?ROL=" + Login.EmpleadoGlobal.IdRol);
+            }
+            catch
+            {
+                mensajeError.Visible = true;
+                mensajeinfo.Visible = false;
+                
+                mensaje.Visible = false;
+                
+                textoMensajeError.InnerHtml = "Ha ocurrido un error";
+            }
         }
     }
    

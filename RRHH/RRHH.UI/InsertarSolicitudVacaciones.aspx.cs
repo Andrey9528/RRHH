@@ -57,7 +57,11 @@ namespace RRHH.UI
             }
             catch (Exception)
             {
-                throw;
+                mensajeError.Visible = true;
+                mensajawarning.Visible = false;
+                mensajeinfo.Visible = false;
+                mensaje.Visible = false;
+                textoMensajeError.InnerHtml = "Ha ocurrido un error";
             }
         }
 

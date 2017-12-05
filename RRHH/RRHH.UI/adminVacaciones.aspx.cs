@@ -26,21 +26,35 @@ namespace RRHH.UI
 
         protected void btnbuscar_Click(object sender, EventArgs e)
         {
-            List<SolicitudVacaciones> lista = Singleton.opsolicitud.Listarsolicitudes();
-            var vaca = lista.FirstOrDefault(x => x.IdSolicitud==Convert.ToInt32(DDLidsoli.Text));
-
-            if (vaca != null)
+            try
             {
-                mantenimientovacaciones.Visible = true;
-               
-                txtfechaincio.Text = vaca.FechaInicio.ToString();
-                txtfechafinal.Text = vaca.FechaFinal.ToString();
+                List<SolicitudVacaciones> lista = Singleton.opsolicitud.Listarsolicitudes();
+                var vaca = lista.FirstOrDefault(x => x.IdSolicitud == Convert.ToInt32(DDLidsoli.Text));
+
+                if (vaca != null)
+                {
+                    mantenimientovacaciones.Visible = true;
+
+                    txtfechaincio.Text = vaca.FechaInicio.ToString();
+                    txtfechafinal.Text = vaca.FechaFinal.ToString();
+                }
+                else
+                {
+                    mensajawarning.Visible = false;
+                    mensajeError.Visible = true;
+                    mensajeinfo.Visible = false;
+                    mensaje.Visible = false;
+                    textoMensajeError.InnerHtml = "Hubo un error";
+                }
             }
-            else
+            catch
             {
-
+                mensajawarning.Visible = false;
+                mensajeError.Visible = true;
+                mensajeinfo.Visible = false;
+                mensaje.Visible = false;
+                textoMensajeError.InnerHtml = "Hubo un error";
             }
-
             
 
         }
@@ -93,7 +107,11 @@ namespace RRHH.UI
             }
             catch (Exception)
             {
-                throw;
+                mensajawarning.Visible = false;
+                mensajeError.Visible = true;
+                mensajeinfo.Visible = false;
+                mensaje.Visible = false;
+                textoMensajeError.InnerHtml = "Hubo un error";
             }
         }
         public bool ValidacionDias(string fechaFinal, string fechadeInicio)

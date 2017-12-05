@@ -26,6 +26,9 @@
  </style>
 
     <form id="form1" runat="server">
+        <div class="alert alert-danger" visible="false"  id="mensajeError" runat="server">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times</a>
+             <strong id="textomensajeError" runat="server"></strong>
     <h1 style="font-family:cursive; text-align:center;">Auditorias</h1>
     
     <br /><br />

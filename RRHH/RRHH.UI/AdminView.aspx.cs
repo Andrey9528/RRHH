@@ -104,7 +104,11 @@ namespace RRHH.UI
             }
             catch (Exception)
             {
-
+                mensajawarning.Visible = false;
+                mensajeError.Visible = true;
+                mensajeinfo.Visible = false;
+                mensaje.Visible = false;
+                textoMensajeError.InnerHtml = "Hubo un error";
                
             }
            
@@ -131,6 +135,8 @@ namespace RRHH.UI
                             IdDepartamento = Login.EmpleadoGlobal.IdDepartamento,
                             Genero = Login.EmpleadoGlobal.Genero,
                             Imagen = Login.EmpleadoGlobal.Imagen,
+                            Bloqueado=Login.EmpleadoGlobal.Bloqueado,
+                            IntentosFallidos=Login.EmpleadoGlobal.IntentosFallidos,
 
                             IdRol = Login.EmpleadoGlobal.IdRol,
                             Estado = true,
@@ -163,7 +169,12 @@ namespace RRHH.UI
             catch (Exception)
             {
 
-                
+                mensajawarning.Visible = false;
+                mensajeError.Visible = true;
+                mensajeinfo.Visible = false;
+                mensaje.Visible = false;
+                textoMensajeError.InnerHtml = "Hubo un error";
+
             }
         }
 
@@ -201,15 +212,29 @@ namespace RRHH.UI
             }
             catch (Exception)
             {
-                
+                mensajawarning.Visible = false;
+                mensajeError.Visible = true;
+                mensajeinfo.Visible = false;
+                mensaje.Visible = false;
+                textoMensajeError.InnerHtml = "Hubo un error";
             }
         }
         public void limpiarCamposDepa()
         {
-            txtnombre.Text = string.Empty;
-            txtemailjefedepa.Text = string.Empty;
-            txtnombrejefe.Text = string.Empty;
-
+            try
+            {
+                txtnombre.Text = string.Empty;
+                txtemailjefedepa.Text = string.Empty;
+                txtnombrejefe.Text = string.Empty;
+            }
+            catch
+            {
+                mensajawarning.Visible = false;
+                mensajeError.Visible = true;
+                mensajeinfo.Visible = false;
+                mensaje.Visible = false;
+                textoMensajeError.InnerHtml = "Hubo un error";
+            }
             
         }
 
@@ -230,6 +255,11 @@ namespace RRHH.UI
             }
             catch
             {
+                mensajawarning.Visible = false;
+                mensajeError.Visible = true;
+                mensajeinfo.Visible = false;
+                mensaje.Visible = false;
+                textoMensajeError.InnerHtml = "Hubo un error";
             }
         }
 
@@ -259,7 +289,9 @@ namespace RRHH.UI
                     ContraseñaCaducada = false,
                     FechaCaducidadContraseña = Login.EmpleadoGlobal.FechaCaducidadContraseña,
                     FechaIngreso = Login.EmpleadoGlobal.FechaIngreso,
-                    SesionIniciada = false
+                    SesionIniciada = false,
+                    Bloqueado=Login.EmpleadoGlobal.Bloqueado,
+                    IntentosFallidos=Login.EmpleadoGlobal.IntentosFallidos,
 
                 };
                 Singleton.OpEmpleados.ActualizarEmpleados(empleado);
@@ -270,7 +302,11 @@ namespace RRHH.UI
             }
             catch
             {
-
+                mensajawarning.Visible = false;
+                mensajeError.Visible = true;
+                mensajeinfo.Visible = false;
+                mensaje.Visible = false;
+                textoMensajeError.InnerHtml = "Hubo un error";
             }
         }
 
@@ -284,6 +320,11 @@ namespace RRHH.UI
             }
             catch
             {
+                mensajawarning.Visible = false;
+                mensajeError.Visible = true;
+                mensajeinfo.Visible = false;
+                mensaje.Visible = false;
+                textoMensajeError.InnerHtml = "Hubo un error";
 
             }
         }
@@ -299,6 +340,11 @@ namespace RRHH.UI
             catch
             {
 
+                mensajawarning.Visible = false;
+                mensajeError.Visible = true;
+                mensajeinfo.Visible = false;
+                mensaje.Visible = false;
+                textoMensajeError.InnerHtml = "Hubo un error";
             }
         }
 
@@ -311,6 +357,11 @@ namespace RRHH.UI
             }
             catch
             {
+                mensajawarning.Visible = false;
+                mensajeError.Visible = true;
+                mensajeinfo.Visible = false;
+                mensaje.Visible = false;
+                textoMensajeError.InnerHtml = "Hubo un error";
 
             }
         }
@@ -398,8 +449,19 @@ namespace RRHH.UI
         }
         public void limpiarCamposFechas()
         {
-            txtfechadeincio.Text = string.Empty;
-            txtfechafinal.Text = string.Empty;
+            try
+            {
+                txtfechadeincio.Text = string.Empty;
+                txtfechafinal.Text = string.Empty;
+            }
+            catch
+            {
+                mensajawarning.Visible = false;
+                mensajeError.Visible = true;
+                mensajeinfo.Visible = false;
+                mensaje.Visible = false;
+                textoMensajeError.InnerHtml = "Hubo un error";
+            }
         }
         protected void btnvaca_Click(object sender, EventArgs e)
         {
@@ -513,27 +575,59 @@ namespace RRHH.UI
 
         private void EnvioCorreo()
         {
-           string mail = Singleton.opdepartamento.BuscarDepartamentos(Login.EmpleadoGlobal.IdDepartamento).EmailJefeDpto.ToString();
-            using (SmtpClient cliente = new SmtpClient("smtp.live.com", 25))
+            try
             {
-                cliente.EnableSsl = true;
-                cliente.Credentials = new NetworkCredential("dollars.chat.room@hotmail.com", "fidelitasw2");
-                MailMessage msj = new MailMessage("dollars.chat.room@hotmail.com", mail, "Nueva solicitud de vacaciones", "Se ha recibido una nueva solicitud de vacaciones de parte del empleado\nNombre:  " + Login.EmpleadoGlobal.Nombre + "\nUsuario:" + Login.EmpleadoGlobal.Correo + "\nEl número de la solicitud es: " + IdSolicitudVacaciones);
-                cliente.Send(msj);
+                string mail = Singleton.opdepartamento.BuscarDepartamentos(Login.EmpleadoGlobal.IdDepartamento).EmailJefeDpto.ToString();
+                using (SmtpClient cliente = new SmtpClient("smtp.live.com", 25))
+                {
+                    cliente.EnableSsl = true;
+                    cliente.Credentials = new NetworkCredential("dollars.chat.room@hotmail.com", "fidelitasw2");
+                    MailMessage msj = new MailMessage("dollars.chat.room@hotmail.com", mail, "Nueva solicitud de vacaciones", "Se ha recibido una nueva solicitud de vacaciones de parte del empleado\nNombre:  " + Login.EmpleadoGlobal.Nombre + "\nUsuario:" + Login.EmpleadoGlobal.Correo + "\nEl número de la solicitud es: " + IdSolicitudVacaciones);
+                    cliente.Send(msj);
+                }
+            }
+            catch
+            {
+                mensajawarning.Visible = false;
+                mensajeError.Visible = true;
+                mensajeinfo.Visible = false;
+                mensaje.Visible = false;
+                textoMensajeError.InnerHtml = "Hubo un error";
             }
         }
 
         protected void btnCerrar_Click(object sender, EventArgs e)
         {
-            limpiarCamposFechas(); 
-          
+            try
+            {
+                limpiarCamposFechas();
+            }
+            catch
+            {
+                mensajawarning.Visible = false;
+                mensajeError.Visible = true;
+                mensajeinfo.Visible = false;
+                mensaje.Visible = false;
+                textoMensajeError.InnerHtml = "Hubo un error";
+            }
 
         }
 
         protected void btnSalirpopupDepa_Click(object sender, EventArgs e)
         {
-            limpiarCamposDepa();
-        }
+            try
+            {
+                limpiarCamposDepa();
+            }
+            catch
+            {
+                mensajawarning.Visible = false;
+                mensajeError.Visible = true;
+                mensajeinfo.Visible = false;
+                mensaje.Visible = false;
+                textoMensajeError.InnerHtml = "Hubo un error";
+            }
+            }
 
         //protected void ChkVerContraseña_CheckedChanged(object sender, EventArgs e)
         //{

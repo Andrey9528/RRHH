@@ -24,9 +24,12 @@ video {
      
  </style>
         
-
+  <div class="alert alert-danger" visible="false"  id="mensajeError" runat="server">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times</a>
+             <strong id="textomensajeError" runat="server"></strong>
 <h1 style="text-align:center; font-family:cursive; font-size:30px;">Tutoriales en Video</h1>
-
+  
+        </div> 
     <br /><br />
     <div class="container">    
   <div class="row">

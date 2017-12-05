@@ -63,7 +63,7 @@ namespace RRHH.UI
             return estado;
         }
 
-        public void CalculoDiasVacaciones()
+        public static void CalculoDiasVacaciones()
         {
             DateTime FechaIngresoEmpleado = Singleton.OpEmpleados.BuscarEmpleados(EmpleadoGlobal.Cedula).FechaIngreso;
             var VacacionesSolcitadas = Singleton.opsolicitud.BuscarsolicitudPorId(EmpleadoGlobal.Cedula).Where(x => x.Condicion == true).Sum(x => x.TotalDias);
@@ -154,7 +154,7 @@ namespace RRHH.UI
                                         FechaCaducidadContraseña = EmpleadoGlobal.FechaCaducidadContraseña,
                                         FechaIngreso = EmpleadoGlobal.FechaIngreso,
                                         SesionIniciada = true,
-
+                                        
                                     };
                                     Singleton.OpEmpleados.ActualizarEmpleados(emple);
                                     Singleton.opAudiEmple.InsertarAuditoriasEmpleado(EmpleadoGlobal.Nombre, EmpleadoGlobal.Cedula, false, false, false, false, false, false, false, false, false, true, false);
@@ -188,6 +188,7 @@ namespace RRHH.UI
                                         FechaCaducidadContraseña = EmpleadoGlobal.FechaCaducidadContraseña,
                                         FechaIngreso = EmpleadoGlobal.FechaIngreso,
                                         SesionIniciada = true,
+                                        
 
                             };
                                     Singleton.OpEmpleados.ActualizarEmpleados(emple);
@@ -224,6 +225,7 @@ namespace RRHH.UI
                                         FechaCaducidadContraseña = EmpleadoGlobal.FechaCaducidadContraseña,
                                         FechaIngreso = EmpleadoGlobal.FechaIngreso,
                                         SesionIniciada = true,
+                                        
 
                         };
                                     Session["AdminCorreo"] = emple.Correo;
@@ -287,6 +289,7 @@ namespace RRHH.UI
                                         FechaCaducidadContraseña = EmpleadoGlobal.FechaCaducidadContraseña,
                                         FechaIngreso = EmpleadoGlobal.FechaIngreso,
                                         SesionIniciada = true,
+                                        
 
 
                                     };
@@ -325,6 +328,7 @@ namespace RRHH.UI
                                         FechaCaducidadContraseña = EmpleadoGlobal.FechaCaducidadContraseña,
                                         FechaIngreso = EmpleadoGlobal.FechaIngreso,
                                         SesionIniciada = true,
+                                        
 
                                     };
                                     Singleton.OpEmpleados.ActualizarEmpleados(emple);
@@ -392,6 +396,8 @@ namespace RRHH.UI
                         FechaCaducidadContraseña = DateTime.Today.AddMonths(3),
                         FechaIngreso = EmpleadoGlobal.FechaIngreso,
                         SesionIniciada = false,
+                        Bloqueado=EmpleadoGlobal.Bloqueado,
+                        IntentosFallidos=EmpleadoGlobal.IntentosFallidos
 
                     };
                     Singleton.OpEmpleados.ActualizarEmpleados(empleado);
@@ -459,7 +465,11 @@ namespace RRHH.UI
             }
             catch
             {
+                mensajeError.Visible = true;
+                mensajeinfo.Visible = false;
 
+                mensaje.Visible = false;
+                textoMensajeError.InnerHtml = "Ha ocurrido un error";
             }
             
                         
